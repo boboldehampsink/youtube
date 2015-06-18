@@ -95,8 +95,16 @@ class YouTubeFieldType extends AssetsFieldType
                                  ))
                                  ->queryRow();
 
-                // Keep values only
-                $value = array_values($result);
+                // If db result is valid
+                if ($result && is_array($result)) {
+
+                    // Keep values only
+                    $value = array_values($result);
+                } else {
+
+                    // Else return nothing
+                    $value = null;
+                }
             }
 
             // Return with new values
