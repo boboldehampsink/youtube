@@ -82,21 +82,25 @@ class YouTubeFieldType extends AssetsFieldType
         // Behave as normal asset in back-end
         if (craft()->request->isCpRequest()) {
 
-            // Fetch target id
-            $result = craft()->db->createCommand()
-                             ->select('targetId')
-                             ->from('relations')
-                             ->where(array(
-                                 'fieldId'  => $this->model->id,
-                                 'sourceId' => $this->element->id,
-                             ))
-                             ->queryRow();
+            // Overwrite value, if any
+            if ($value) {
 
-            // Keep values only
-            $result = array_values($result);
+                // Fetch target id
+                $result = craft()->db->createCommand()
+                                 ->select('targetId')
+                                 ->from('relations')
+                                 ->where(array(
+                                     'fieldId'  => $this->model->id,
+                                     'sourceId' => $this->element->id,
+                                 ))
+                                 ->queryRow();
+
+                // Keep values only
+                $value = array_values($result);
+            }
 
             // Return with new values
-            return parent::prepValue($result);
+            return parent::prepValue($value);
         }
 
         // Prepare for models
