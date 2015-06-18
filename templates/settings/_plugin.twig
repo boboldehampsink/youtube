@@ -1,0 +1,46 @@
+{% if not error %}
+    {% if provider %}
+        {% if provider.isConfigured() %}
+
+            <h2 class="first">{{ "Google"|t }}</h2>
+            {% if account %}
+
+                <p>{{ 'You are authenticated to Google with the following account'|t }}:</p>
+                <ul>
+                    <li><strong>{{ 'UID'|t }} : </strong> {{ account.uid }}</li>
+                    <li><strong>{{ 'Name'|t }} : </strong> {{ account.name }}</li>
+                </ul>
+                <p><a class="btn small" href="{{ actionUrl('youTube/disconnect') }}">{{ 'Disconnect'|t }}</a></p>
+
+            {% else %}
+
+                <p>{{ "You need to connect Craft to Google in order to get started."|t }}</p>
+                <p>{{ "Getting errors trying to connect?"|t }} <a href="{{ url('oauth/google') }}">{{"Check Google API key & secret in OAuth settings"|t }}</a>.</p>
+                <p><a class="btn submit" href="{{ actionUrl('youTube/connect') }}">{{"Connect to Google"|t }}</a></p>
+
+            {% endif %}
+        {% else %}
+
+            <h2 class="first">{{'Google provider not configured'|t }}</h2>
+            <p>{{'Please fill API client id & secret for Google provider.'|t}}</p>
+            <p><a class="btn" href="{{url('oauth/google') }}">{{'Google OAuth settings'|t }}</a></p>
+
+        {% endif %}
+
+    {% else %}
+
+        <h2 class="first">{{'Google provider not found'|t }}</h2>
+        <p>{{'Please make sure that the Google provider is available.'|t }}</p>
+        <p><a class="btn" href="{{ url('oauth') }}">{{'OAuth settings'|t}}</a></p>
+
+    {% endif %}
+{% else %}
+
+    <h2 class="first">{{ "Google"|t }}</h2>
+    <p class="error">{{ error }}</p>
+
+    {% if token %}
+        <p><a class="btn small" href="{{ actionUrl('youTube/disconnect') }}">{{ 'Disconnect'|t }}</a></p>
+    {% endif %}
+
+{% endif %}
