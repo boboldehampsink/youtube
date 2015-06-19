@@ -15,6 +15,9 @@ It is then able to return a model that contains the YouTube ID and URL's for wat
 
 Changelog
 =================
+###0.1.2###
+ - Don't run uploads task when there's no assets on the field
+
 ###0.1.1###
  - Fixed plugin's output not being valid when there was no file connected
 
