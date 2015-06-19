@@ -138,18 +138,21 @@ class YouTubeFieldType extends AssetsFieldType
         $handle = $this->model->handle;
         $elementFiles = $this->element->{$handle};
         if ($elementFiles instanceof ElementCriteriaModel) {
-            $assets = $elementFiles->ids();
+
+            // Do we have any assets?
+            if ($elementFiles->total()) {
+
+                // UNCOMMENT THIS FOR DEBUGGING
+                //Craft::dd(craft()->youTube->process($this->element, $elementFiles->first(), $this->model->handle, 0));
+
+                // Now its our turn
+                craft()->tasks->createTask('YouTube_Upload', Craft::t('Uploading video(s) to YouTube'), array(
+                    'element'   => $this->element,
+                    'model'     => $this->model,
+                    'assets'    => $elementFiles->ids(),
+                ));
+            }
         }
-
-        // UNCOMMENT THIS FOR DEBUGGING
-        //Craft::dd(craft()->youTube->process($this->element, $elementFiles->first(), $this->model->handle, 0));
-
-        // Now its our turn
-        craft()->tasks->createTask('YouTube_Upload', Craft::t('Uploading video(s) to YouTube'), array(
-            'element'   => $this->element,
-            'model'     => $this->model,
-            'assets'    => $assets,
-        ));
     }
 
     // Protected
