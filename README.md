@@ -3,8 +3,9 @@ YouTube Upload plugin for Craft CMS
 
 Plugin/FieldType that uploads video assets to YouTube and is able to output their YouTube URL's in the front-end.
 
-Important:
-The plugin's folder should be named "youtube"
+__Important__  
+ - The plugin's folder should be named "youtube"  
+ - This plugin requires [Dukt's OAuth](https://dukt.net/craft/oauth) plugin to be installed
 
 Usage
 =================
@@ -16,7 +17,7 @@ It is then able to return a model that contains the YouTube ID and URL's for wat
 Known issues
 =================
 There appears to be a problem when uploading the same video more than once in a session.
-It looks like it might be a YouTube bug, and I've reported it here: https://code.google.com/p/gdata-issues/issues/detail?id=7326&thanks=7326&ts=1434712883
+It looks like it might be a YouTube bug, and I've reported it here: [https://code.google.com/p/gdata-issues/issues/detail?id=7326&thanks=7326&ts=1434712883](https://code.google.com/p/gdata-issues/issues/detail?id=7326&thanks=7326&ts=1434712883)
 
 Roadmap
 =================
