@@ -111,6 +111,11 @@ class YouTubeFieldType extends AssetsFieldType
             return parent::prepValue($value);
         }
 
+        // Value is always an array
+        if (!is_array($value)) {
+            $value = array();
+        }
+
         // Prepare for models
         $videos = array();
         foreach ($value as $id) {
