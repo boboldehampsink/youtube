@@ -300,7 +300,7 @@ class YouTubeService extends BaseApplicationComponent
 
         // Create a MediaFileUpload object for resumable uploads.
         $media = new \Google_Http_MediaFileUpload($this->client, $insertRequest, 'video/*', null, true, $chunkSizeBytes);
-        $media->setFileSize(filesize($file));
+        $media->setFileSize(IOHelper::getFileSize($file));
 
         // Read the media file and upload it chunk by chunk.
         $status = false;
@@ -313,6 +313,9 @@ class YouTubeService extends BaseApplicationComponent
 
         // If you want to make other calls after the file upload, set setDefer back to false
         $this->client->setDefer(false);
+
+        // Remove the local asset file
+        IOHelper::deleteFile($file);
 
         // Return the status
         return $status;
