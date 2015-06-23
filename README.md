@@ -26,6 +26,10 @@ Roadmap
 
 Changelog
 =================
+###0.1.3###
+ - Remove the temporary video asset to save space
+ - Always produce an array for the front-end
+
 ###0.1.2###
  - Don't run uploads task when there's no assets on the field
 
