@@ -26,6 +26,9 @@ Roadmap
 
 Changelog
 =================
+###0.1.5###
+ - Fixed bug when post data is missing
+
 ###0.1.4###
  - Fixed field not showing multiple values
  - Try to only process new video's

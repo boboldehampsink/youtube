@@ -32,7 +32,7 @@ class YouTubePlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return '0.1.4';
+        return '0.1.5';
     }
 
     /**
