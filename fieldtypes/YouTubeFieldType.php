@@ -85,21 +85,26 @@ class YouTubeFieldType extends AssetsFieldType
             // Overwrite value, if any
             if ($value) {
 
-                // Fetch target id
-                $result = craft()->db->createCommand()
+                // Fetch target id(s)
+                $results = craft()->db->createCommand()
                                  ->select('targetId')
                                  ->from('relations')
                                  ->where(array(
                                      'fieldId'  => $this->model->id,
                                      'sourceId' => $this->element->id,
                                  ))
-                                 ->queryRow();
+                                 ->queryAll();
 
                 // If db result is valid
-                if ($result && is_array($result)) {
+                if ($results && is_array($results)) {
 
-                    // Keep values only
-                    $value = array_values($result);
+                    // Gather value
+                    $value = array();
+
+                    // Loop through target ids
+                    foreach ($results as $result) {
+                        $value[] = $result['targetId'];
+                    }
                 } else {
 
                     // Else return nothing
