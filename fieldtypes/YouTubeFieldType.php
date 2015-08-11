@@ -140,16 +140,16 @@ class YouTubeFieldType extends AssetsFieldType
      */
     public function onAfterElementSave()
     {
+        // Get raw post data
+        $posted = $this->element->getContentFromPost();
+
         // Get asset id's
         $handle = $this->model->handle;
         $elementFiles = $this->element->{$handle};
-        if ($elementFiles instanceof ElementCriteriaModel) {
-
-            // Get raw post content
-            $posted = $this->element->getContentFromPost()[$handle];
+        if ($elementFiles instanceof ElementCriteriaModel && isset($posted[$handle])) {
 
             // Only get new element id's
-            $elementIds = array_diff($posted, $elementFiles->ids());
+            $elementIds = array_diff($posted[$handle], $elementFiles->ids());
 
             // Proceed when there's something new
             if (count($elementIds)) {
