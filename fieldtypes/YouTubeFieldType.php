@@ -140,17 +140,19 @@ class YouTubeFieldType extends AssetsFieldType
      */
     public function onAfterElementSave()
     {
-        // Let AssetsFieldType handle the default upload
-        parent::onAfterElementSave();
-
         // Get asset id's
-        $assets = array();
         $handle = $this->model->handle;
         $elementFiles = $this->element->{$handle};
         if ($elementFiles instanceof ElementCriteriaModel) {
 
-            // Do we have any assets?
-            if ($elementFiles->total()) {
+            // Get raw post content
+            $posted = $this->element->getContentFromPost()[$handle];
+
+            // Only get new element id's
+            $elementIds = array_diff($posted, $elementFiles->ids());
+
+            // Proceed when there's something new
+            if (count($elementIds)) {
 
                 // UNCOMMENT THIS FOR DEBUGGING
                 //Craft::dd(craft()->youTube->process($this->element, $elementFiles->first(), $this->model->handle, 0));
@@ -159,10 +161,13 @@ class YouTubeFieldType extends AssetsFieldType
                 craft()->tasks->createTask('YouTube_Upload', Craft::t('Uploading video(s) to YouTube'), array(
                     'element'   => $this->element,
                     'model'     => $this->model,
-                    'assets'    => $elementFiles->ids(),
+                    'assets'    => $elementIds,
                 ));
             }
         }
+
+        // Let AssetsFieldType handle the default upload
+        parent::onAfterElementSave();
     }
 
     // Protected
