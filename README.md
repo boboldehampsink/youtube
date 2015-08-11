@@ -26,6 +26,10 @@ Roadmap
 
 Changelog
 =================
+###0.1.4###
+ - Fixed field not showing multiple values
+ - Try to only process new video's
+
 ###0.1.3###
  - Remove the temporary video asset to save space
  - Always produce an array for the front-end
