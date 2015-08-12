@@ -146,7 +146,7 @@ class YouTubeFieldType extends AssetsFieldType
         // Get asset id's
         $handle = $this->model->handle;
         $elementFiles = $this->element->{$handle};
-        if ($elementFiles instanceof ElementCriteriaModel && isset($posted[$handle])) {
+        if ($elementFiles instanceof ElementCriteriaModel && isset($posted[$handle]) && is_array($posted[$handle])) {
 
             // Only get new element id's
             $elementIds = array_diff($posted[$handle], $elementFiles->ids());
