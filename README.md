@@ -26,6 +26,9 @@ Roadmap
 
 Changelog
 =================
+###0.1.7###
+ - Always handle asset processing before starting the youtube upload task
+
 ###0.1.6###
  - Fixed a bug that occured when the youtube field was empty
 
