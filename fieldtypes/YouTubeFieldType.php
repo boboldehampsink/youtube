@@ -151,6 +151,10 @@ class YouTubeFieldType extends AssetsFieldType
             // Only get new element id's
             $elementIds = array_diff($posted[$handle], $elementFiles->ids());
 
+            // Now that we have the old id's,
+            // let AssetsFieldType handle the default upload
+            parent::onAfterElementSave();
+
             // Proceed when there's something new
             if (count($elementIds)) {
 
@@ -164,10 +168,11 @@ class YouTubeFieldType extends AssetsFieldType
                     'assets'    => $elementIds,
                 ));
             }
-        }
+        } else {
 
-        // Let AssetsFieldType handle the default upload
-        parent::onAfterElementSave();
+            // Let AssetsFieldType handle the default upload anyway
+            parent::onAfterElementSave();
+        }
     }
 
     // Protected
