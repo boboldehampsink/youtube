@@ -66,7 +66,7 @@ class YouTube_UploadTask extends BaseTask
         $settings = $this->getSettings();
 
         // Get asset
-        $asset = craft()->assets->getFileById($this->settings->assets[$step]);
+        $asset = craft()->assets->getFileById($settings->assets[$step]);
 
         // Return process status
         return craft()->youTube->process($settings->element, $asset, $settings->model->handle, $step);
