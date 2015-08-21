@@ -26,6 +26,10 @@ Roadmap
 
 Changelog
 =================
+###0.1.8###
+ - Fixed a bug where multiple video's on a field couldn't be saved
+ - Fixed a bug where getting the right assets could go wrong
+
 ###0.1.7###
  - Always handle asset processing before starting the youtube upload task
 
