@@ -26,6 +26,9 @@ Roadmap
 
 Changelog
 =================
+###0.1.9###
+ - Fixed a bug where tasks would hang
+
 ###0.1.8###
  - Fixed a bug where multiple video's on a field couldn't be saved
  - Fixed a bug where getting the right assets could go wrong
