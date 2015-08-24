@@ -85,7 +85,7 @@ class YouTubeService extends BaseApplicationComponent
 
         // Add video to (existing) content
         $content = $element->getAttribute($handle);
-        $element->getContent()->$handle = array_merge((is_array($content) ? $content : array()), array($status->id))
+        $element->getContent()->$handle = array_merge((is_array($content) ? $content : array()), array($status->id));
 
         // Save the content without validation
         craft()->content->saveContent($element, false);
