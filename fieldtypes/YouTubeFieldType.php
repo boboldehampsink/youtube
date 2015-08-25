@@ -16,6 +16,20 @@ namespace Craft;
 class YouTubeFieldType extends AssetsFieldType
 {
     /**
+     * The actual attribute we're working with.
+     *
+     * @var mixed
+     */
+    protected $attribute;
+
+    /**
+     * Holds changed element id's.
+     *
+     * @var array
+     */
+    protected $elementIds = array();
+
+    /**
      * Get fieldtype name.
      *
      * @return string
@@ -132,6 +146,26 @@ class YouTubeFieldType extends AssetsFieldType
     }
 
     /**
+     * Ignore prepping value from post basically.
+     *
+     * @param mixed $value
+     *
+     * @return ElementCriteriaModel
+     */
+    public function prepValueFromPost($value)
+    {
+        // Check if anything has changed or emptied
+        if ($this->hasChanged() || empty($value)) {
+
+            // Yes! Prep value from post
+            return parent::prepValueFromPost($value);
+        }
+
+        // Nope, just return the same 'old
+        return $this->element->getContent()->getAttribute($this->model->handle);
+    }
+
+    /**
      * Send video off to YouTube after saving.
      *
      * @param mixed $value
@@ -140,37 +174,26 @@ class YouTubeFieldType extends AssetsFieldType
      */
     public function onAfterElementSave()
     {
-        // Get raw post data
-        $posted = $this->element->getContentFromPost();
+        // Proceed when there's something new
+        if ($this->hasChanged()) {
 
-        // Get asset id's
-        $handle = $this->model->handle;
-        $elementFiles = $this->element->{$handle};
-        if ($elementFiles instanceof ElementCriteriaModel && isset($posted[$handle]) && is_array($posted[$handle])) {
-
-            // Only get new element id's
-            $elementIds = array_diff($posted[$handle], $elementFiles->ids());
-
-            // Now that we have the old id's,
-            // let AssetsFieldType handle the default upload
+            // Let AssetsFieldType handle the default upload logics
             parent::onAfterElementSave();
 
-            // Proceed when there's something new
-            if (count($elementIds)) {
+            // UNCOMMENT THIS FOR DEBUGGING
+            //Craft::dd(craft()->youTube->process($this->element, $elementFiles->first(), $this->model->handle, 0));
 
-                // UNCOMMENT THIS FOR DEBUGGING
-                //Craft::dd(craft()->youTube->process($this->element, $elementFiles->first(), $this->model->handle, 0));
+            // Now its our turn
+            craft()->tasks->createTask('YouTube_Upload', Craft::t('Uploading video(s) to YouTube'), array(
+                'element'   => $this->element,
+                'model'     => $this->model,
+                'assets'    => $this->elementIds,
+            ));
 
-                // Now its our turn
-                craft()->tasks->createTask('YouTube_Upload', Craft::t('Uploading video(s) to YouTube'), array(
-                    'element'   => $this->element,
-                    'model'     => $this->model,
-                    'assets'    => $elementIds,
-                ));
-            }
-        } else {
+        // Or proceed if we have to remove the relations
+        } elseif (!$this->attribute->total()) {
 
-            // Let AssetsFieldType handle the default upload anyway
+            // Let AssetsFieldType handle the removal of upload/relations
             parent::onAfterElementSave();
         }
     }
@@ -199,5 +222,33 @@ class YouTubeFieldType extends AssetsFieldType
             'restrictFiles' => array(AttributeType::Bool, 'default' => true),
             'allowedKinds'  => array(AttributeType::Mixed, 'default' => array('video')),
         ));
+    }
+
+    /**
+     * Check if the video field has really changed, to prevent unneeded YouTube API calls.
+     *
+     * @return bool
+     */
+    protected function hasChanged()
+    {
+        // Get raw post data
+        $posted = $this->element->getContentFromPost();
+
+        // Get handle and attribute
+        $handle = $this->model->handle;
+        $this->attribute = $this->element->{$handle};
+
+        // Check if they're actually set
+        if ($this->attribute instanceof ElementCriteriaModel && isset($posted[$handle]) && is_array($posted[$handle])) {
+
+            // Only get new element id's
+            $this->elementIds = array_diff($posted[$handle], $this->attribute->ids());
+
+            // Proceed when there's something new
+            return count($this->elementIds);
+        }
+
+        // Not set, not changed
+        return false;
     }
 }
