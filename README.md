@@ -26,6 +26,9 @@ Roadmap
 
 Changelog
 =================
+###0.2.0###
+ - Fixed a bug that could lead to asset id's returning instead of YouTube video id's
+
 ###0.1.9###
  - Fixed a bug where tasks would hang
 
