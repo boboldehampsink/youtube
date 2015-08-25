@@ -26,6 +26,9 @@ Roadmap
 
 Changelog
 =================
+###0.3.0
+ - Fixed a bug where saving the element without changing the YouTube field would override the YouTube ID's with Asset ID's
+
 ###0.2.0###
  - Fixed a bug that could lead to asset id's returning instead of YouTube video id's
 
