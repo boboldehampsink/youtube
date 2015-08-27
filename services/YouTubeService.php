@@ -136,6 +136,10 @@ class YouTubeService extends BaseApplicationComponent
 
             // Rethrow client error
             throw new Exception(Craft::t('A client error occurred: {error}', array('error' => $e->getMessage())));
+        } catch (\Exception $e) {
+
+            // Rethrow unknown error
+            throw new Exception(Craft::t('An unknown error occured: {error}', array('error' => $e->getMessage())));
         }
     }
 
