@@ -7,7 +7,7 @@ namespace Craft;
  *
  * @author    Bob Olde Hampsink <b.oldehampsink@itmundi.nl>
  * @copyright Copyright (c) 2015, Itmundi
- * @license   http://buildwithcraft.com/license Craft License Agreement
+ * @license   MIT
  *
  * @link      http://github.com/boboldehampsink
  */
