@@ -214,8 +214,6 @@ class YouTubeService extends BaseApplicationComponent
 
     /**
      * Authenticate with YouTube.
-     *
-     * @throws Exception
      */
     protected function authenticate()
     {
@@ -313,7 +311,29 @@ class YouTubeService extends BaseApplicationComponent
         $media->setFileSize(IOHelper::getFileSize($file));
 
         // Read the media file and upload it chunk by chunk.
+        $status = $this->uploadChunks($file, $media, $chunkSizeBytes);
+
+        // If you want to make other calls after the file upload, set setDefer back to false
+        $this->client->setDefer(false);
+
+        // Return the status
+        return $status;
+    }
+
+    /**
+     * Upload file in chunks.
+     *
+     * @param string                       $file
+     * @param \Google_Http_MediaFileUpload $media
+     * @param int                          $chunkSizeBytes
+     *
+     * @return bool|string
+     */
+    protected function uploadChunks($file, \Google_Http_MediaFileUpload $media, $chunkSizeBytes)
+    {
         $status = false;
+
+        // Upload in chunks
         $handle = fopen($file, 'rb');
         while (!$status && !feof($handle)) {
             $chunk = fread($handle, $chunkSizeBytes);
@@ -321,13 +341,10 @@ class YouTubeService extends BaseApplicationComponent
         }
         fclose($handle);
 
-        // If you want to make other calls after the file upload, set setDefer back to false
-        $this->client->setDefer(false);
-
         // Remove the local asset file
         IOHelper::deleteFile($file);
 
-        // Return the status
+        // Return YouTube ID or false
         return $status;
     }
 
