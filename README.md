@@ -26,7 +26,12 @@ Roadmap
 
 Changelog
 =================
-###0.3.0
+###0.3.1###
+ - Fixed a bug where the existing content could incorrectly be null
+ - Catch unknown exceptions
+ - Added unit tests
+
+###0.3.0###
  - Fixed a bug where saving the element without changing the YouTube field would override the YouTube ID's with Asset ID's
 
 ###0.2.0###
