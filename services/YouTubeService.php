@@ -44,6 +44,13 @@ class YouTubeService extends BaseApplicationComponent
     protected $youtube;
 
     /**
+     * Holds cached asset locations
+     *
+     * @var array
+     */
+    protected $assets = array();
+
+    /**
      * Initialize plugin.
      */
     public function init()
@@ -352,13 +359,18 @@ class YouTubeService extends BaseApplicationComponent
      */
     protected function getAssetFile(AssetFileModel $asset)
     {
-        // Get asset source
-        $source = $asset->getSource();
+        if (!$this->assets[$asset->id]) {
 
-        // Get asset source type
-        $sourceType = $source->getSourceType();
+            // Get asset source
+            $source = $asset->getSource();
 
-        // Get asset file and return
-        return $sourceType->getLocalCopy($asset);
+            // Get asset source type
+            $sourceType = $source->getSourceType();
+
+            // Get asset file
+            $this->assets[$asset->id] = $sourceType->getLocalCopy($asset);
+        }
+
+        return $this->assets[$asset->id];
     }
 }
