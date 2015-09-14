@@ -67,11 +67,10 @@ class YouTubeService extends BaseApplicationComponent
      * @param BaseElementModel $element
      * @param AssetFileModel   $asset
      * @param string           $handle
-     * @param int              $step
      *
      * @return bool
      */
-    public function process(BaseElementModel $element, AssetFileModel $asset, $handle, $step)
+    public function process(BaseElementModel $element, AssetFileModel $asset, $handle)
     {
         // Get max power
         craft()->config->maxPowerCaptain();
@@ -105,14 +104,13 @@ class YouTubeService extends BaseApplicationComponent
     /**
      * Send video's to YouTube.
      *
-     * @param BaseElementModel $element
      * @param AssetFileModel   $assetId
      *
      * @return bool
      *
      * @throws Exception
      */
-    protected function assemble(BaseElementModel $element, AssetFileModel $asset)
+    protected function assemble(AssetFileModel $asset)
     {
         // Autenticate first
         $this->authenticate();
@@ -130,18 +128,12 @@ class YouTubeService extends BaseApplicationComponent
             // Now upload the resource
             return $this->uploadVideo($asset, $video);
 
-            // Or catch exceptions if we fail
+        // Or catch exceptions if we fail and rethrow
         } catch (\Google_Service_Exception $e) {
-
-            // Rethrow service error
             throw new Exception(Craft::t('A service error occurred: {error}', array('error' => $e->getMessage())));
         } catch (\Google_Exception $e) {
-
-            // Rethrow client error
             throw new Exception(Craft::t('A client error occurred: {error}', array('error' => $e->getMessage())));
         } catch (\Exception $e) {
-
-            // Rethrow unknown error
             throw new Exception(Craft::t('An unknown error occured: {error}', array('error' => $e->getMessage())));
         }
     }

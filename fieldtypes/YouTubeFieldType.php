@@ -181,7 +181,7 @@ class YouTubeFieldType extends AssetsFieldType
             parent::onAfterElementSave();
 
             // UNCOMMENT THIS FOR DEBUGGING
-            //Craft::dd(craft()->youTube->process($this->element, $elementFiles->first(), $this->model->handle, 0));
+            //Craft::dd(craft()->youTube->process($this->element, $elementFiles->first(), $this->model->handle));
 
             // Now its our turn
             craft()->tasks->createTask('YouTube_Upload', Craft::t('Uploading video(s) to YouTube'), array(

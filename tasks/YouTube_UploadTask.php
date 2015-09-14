@@ -69,6 +69,6 @@ class YouTube_UploadTask extends BaseTask
         $asset = craft()->assets->getFileById($settings->assets[$step]);
 
         // Return process status
-        return craft()->youTube->process($settings->element, $asset, $settings->model->handle, $step);
+        return craft()->youTube->process($settings->element, $asset, $settings->model->handle);
     }
 }
