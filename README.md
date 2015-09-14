@@ -26,6 +26,9 @@ Roadmap
 
 Changelog
 =================
+###0.4.0###
+ - Now handles duplicate video's
+
 ###0.3.1###
  - Fixed a bug where the existing content could incorrectly be null
  - Catch unknown exceptions
