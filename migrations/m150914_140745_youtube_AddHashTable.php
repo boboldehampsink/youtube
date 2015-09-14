@@ -15,12 +15,12 @@ class m150914_140745_youtube_AddHashTable extends BaseMigration
     {
         // Create the craft_youtube_hashes table
         craft()->db->createCommand()->createTable('youtube_hashes', array(
-            'assetId' => array('column' => 'integer', 'required' => false),
-            'hash'    => array(),
+            'youtubeId' => array('required' => true),
+            'hash'      => array('required' => true),
         ), null, true);
 
-        // Add foreign keys to craft_youtube_hashes
-        craft()->db->createCommand()->addForeignKey('youtube_hashes', 'assetId', 'assetfiles', 'id', 'SET NULL', null);
+        // Add indexes to craft_youtube_hashes
+        craft()->db->createCommand()->createIndex('youtube_hashes', 'hash', true);
 
         return true;
     }

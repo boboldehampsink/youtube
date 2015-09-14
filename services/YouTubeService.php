@@ -51,6 +51,13 @@ class YouTubeService extends BaseApplicationComponent
     protected $assets = array();
 
     /**
+     * Holds cached file hashes
+     *
+     * @var array
+     */
+    protected $hashes = array();
+
+    /**
      * Initialize plugin.
      */
     public function init()
@@ -79,11 +86,15 @@ class YouTubeService extends BaseApplicationComponent
      */
     public function process(BaseElementModel $element, AssetFileModel $asset, $handle)
     {
-        // Upload to YouTube
-        try {
-            $status = $this->assemble($element, $asset);
-        } catch (Exception $e) {
-            return $e->getMessage();
+        // Check if we have this asset already
+        if (!($youTubeId = $this->exists($asset))) {
+
+            // Upload to YouTube
+            try {
+                $youTubeId = $this->assemble($asset);
+            } catch (Exception $e) {
+                return $e->getMessage();
+            }
         }
 
         // Get current video's
@@ -96,7 +107,7 @@ class YouTubeService extends BaseApplicationComponent
         unset($content[array_search($asset->id, $content)]);
 
         // Add video to (existing) content
-        $element->getContent()->$handle = array_merge($content, array($status->id));
+        $element->getContent()->$handle = array_merge($content, array($youTubeId));
 
         // Save the content without validation
         craft()->content->saveContent($element, false);
@@ -106,11 +117,30 @@ class YouTubeService extends BaseApplicationComponent
     }
 
     /**
+     * Check if this asset file already exists
+     * @param  AssetFileModel $asset
+     * @return string|bool
+     */
+    protected function exists(AssetFileModel $asset)
+    {
+        // Get asset file hash
+        $hash = $this->getAssetFileHash($asset);
+
+        // Look up in db
+        $record = YouTube_HashesRecord::model()->findByAttributes(array(
+            'hash' => $hash,
+        ));
+
+        // Return YouTube ID
+        return $record ? $record->youtubeId : false;
+    }
+
+    /**
      * Send video's to YouTube.
      *
-     * @param AssetFileModel   $assetId
+     * @param AssetFileModel   $asset
      *
-     * @return bool
+     * @return string|bool
      *
      * @throws Exception
      */
@@ -120,6 +150,7 @@ class YouTubeService extends BaseApplicationComponent
         $this->authenticate();
 
         try {
+
             // Create YouTube Video snippet
             $snippet = $this->createVideoSnippet($asset);
 
@@ -129,16 +160,26 @@ class YouTubeService extends BaseApplicationComponent
             // Create a new video resource
             $video = $this->createVideoResource($snippet, $status);
 
-            // Now upload the resource
-            return $this->uploadVideo($asset, $video);
+            // Now upload the resource and get the status
+            $status = $this->uploadVideo($asset, $video);
 
-        // Or catch exceptions if we fail and rethrow
+        // Catch exceptions if we fail and rethrow
         } catch (\Google_Service_Exception $e) {
             throw new Exception(Craft::t('A service error occurred: {error}', array('error' => $e->getMessage())));
         } catch (\Google_Exception $e) {
             throw new Exception(Craft::t('A client error occurred: {error}', array('error' => $e->getMessage())));
         } catch (\Exception $e) {
             throw new Exception(Craft::t('An unknown error occured: {error}', array('error' => $e->getMessage())));
+        }
+
+        // Validate status
+        if ($status instanceof \Google_Service_YouTube_Video) {
+
+            // Save hash
+            $this->saveHash($asset, $status->id);
+
+            // Return YouTube ID
+            return $status->id;
         }
     }
 
@@ -287,6 +328,8 @@ class YouTubeService extends BaseApplicationComponent
      *
      * @param AssetFileModel                $asset
      * @param \Google_Service_YouTube_Video $video
+     *
+     * @return \Google_Service_YouTube_Video
      */
     protected function uploadVideo(AssetFileModel $asset, \Google_Service_YouTube_Video $video)
     {
@@ -348,6 +391,23 @@ class YouTubeService extends BaseApplicationComponent
     }
 
     /**
+     * Save asset hash
+     * @param  AssetFileModel $asset
+     * @param  string         $id
+     */
+    protected function saveHash(AssetFileModel $asset, $id)
+    {
+        // Get asset file hash
+        $hash = $this->getAssetFileHash($asset);
+
+        // Save to db
+        $record = new YouTube_HashesRecord();
+        $record->youtubeId = $id;
+        $record->hash = $hash;
+        $record->save();
+    }
+
+    /**
      * Gets a file by its asset.
      *
      * @param AssetFileModel $assetId
@@ -356,7 +416,8 @@ class YouTubeService extends BaseApplicationComponent
      */
     protected function getAssetFile(AssetFileModel $asset)
     {
-        if (!$this->assets[$asset->id]) {
+        // Check if we have this filenname cached already
+        if (!isset($this->assets[$asset->id])) {
 
             // Get asset source
             $source = $asset->getSource();
@@ -369,5 +430,25 @@ class YouTubeService extends BaseApplicationComponent
         }
 
         return $this->assets[$asset->id];
+    }
+
+    /**
+     * Get file hash
+     * @param  AssetFileModel $asset
+     * @return string
+     */
+    protected function getAssetFileHash(AssetFileModel $asset)
+    {
+        // Check if we have this hash cached already
+        if (!isset($this->hashes[$asset->id])) {
+
+            // Get asset file
+            $file = $this->getAssetFile($asset);
+
+            // Calculate md5 hash of file
+            $this->hashes[$asset->id] = md5_file($file);
+        }
+
+        return $this->hashes[$asset->id];
     }
 }

@@ -29,18 +29,8 @@ class YouTube_HashesRecord extends BaseRecord
     protected function defineAttributes()
     {
         return array(
-            'hash' => AttributeType::String
-        );
-    }
-
-    /**
-     * Define relations
-     * @return array
-     */
-    public function defineRelations()
-    {
-        return array(
-            'asset' => array(static::BELONGS_TO, 'AssetFileRecord')
+            'youtubeId' => array(AttributeType::String, 'required' => true),
+            'hash' => array(AttributeType::String, 'unique' => true, 'required' => true),
         );
     }
 }
