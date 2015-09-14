@@ -79,9 +79,6 @@ class YouTubeService extends BaseApplicationComponent
      */
     public function process(BaseElementModel $element, AssetFileModel $asset, $handle)
     {
-        // Get max power
-        craft()->config->maxPowerCaptain();
-
         // Upload to YouTube
         try {
             $status = $this->assemble($element, $asset);
