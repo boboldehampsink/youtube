@@ -89,7 +89,7 @@ class YouTube_ServiceTest extends BaseTest
         $mock->expects($this->any())->method('uploadChunks')->willReturn($status);
         $mock->expects($this->any())->method('getAssetFileHash')->willReturn(md5('test.jpg'));
 
-        craft()->setComponent('youtube', $mock);
+        $this->setComponent(craft(), 'youtube', $mock);
     }
 
     /**
@@ -107,7 +107,7 @@ class YouTube_ServiceTest extends BaseTest
 
         $mock->expects($this->any())->method('getPlugin')->willReturn($plugin);
 
-        craft()->setComponent('plugins', $mock);
+        $this->setComponent(craft(), 'plugins', $mock);
     }
 
     /**
@@ -179,7 +179,7 @@ class YouTube_ServiceTest extends BaseTest
 
         $mock->expects($this->any())->method('getTokenById')->willReturn($token);
 
-        craft()->setComponent('oauth', $mock);
+        $this->setComponent(craft(), 'oauth', $mock);
     }
 
     /**
@@ -226,6 +226,6 @@ class YouTube_ServiceTest extends BaseTest
 
         $mock->expects($this->any())->method('saveContent')->willReturn(true);
 
-        craft()->setComponent('content', $mock);
+        $this->setComponent(craft(), 'content', $mock);
     }
 }
