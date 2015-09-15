@@ -18,6 +18,12 @@ php:
   # aliased to a recent hhvm version
   - hhvm
 
+# optionally set up exclutions and allowed failures in the matrix
+matrix:
+  allow_failures:
+    - php: 7.0
+    - php: hhvm
+
   # execute any number of scripts before the test run, custom env's are available as variables
 before_script:
   - curl -sS https://codeload.github.com/pixelandtonic/Craft-Release/zip/master > craft.zip
