@@ -44,6 +44,13 @@ class YouTubeService extends BaseApplicationComponent
     protected $youtube;
 
     /**
+     * Holds asset existence checks
+     *
+     * @var array
+     */
+    protected $exists = array();
+
+    /**
      * Holds cached asset locations
      *
      * @var array
@@ -123,16 +130,22 @@ class YouTubeService extends BaseApplicationComponent
      */
     protected function exists(AssetFileModel $asset)
     {
-        // Get asset file hash
-        $hash = $this->getAssetFileHash($asset);
+        // Check if we have this exist cached already
+        if (!isset($this->exists[$asset->id])) {
 
-        // Look up in db
-        $record = YouTube_HashesRecord::model()->findByAttributes(array(
-            'hash' => $hash,
-        ));
+            // Get asset file hash
+            $hash = $this->getAssetFileHash($asset);
 
-        // Return YouTube ID
-        return $record ? $record->youtubeId : false;
+            // Look up in db
+            $record = YouTube_HashesRecord::model()->findByAttributes(array(
+                'hash' => $hash,
+            ));
+
+            // Get YouTube ID
+            $this->exists[$asset->id] = $record ? $record->youtubeId : false;
+        }
+
+        return $this->exists[$asset->id];
     }
 
     /**
@@ -393,18 +406,22 @@ class YouTubeService extends BaseApplicationComponent
     /**
      * Save asset hash
      * @param  AssetFileModel $asset
-     * @param  string         $id
+     * @param  string         $youtubeId
      */
-    protected function saveHash(AssetFileModel $asset, $id)
+    protected function saveHash(AssetFileModel $asset, $youtubeId)
     {
-        // Get asset file hash
-        $hash = $this->getAssetFileHash($asset);
+        // Check if its new
+        if (!$this->exists($asset)) {
 
-        // Save to db
-        $record = new YouTube_HashesRecord();
-        $record->youtubeId = $id;
-        $record->hash = $hash;
-        $record->save();
+            // Get asset file hash
+            $hash = $this->getAssetFileHash($asset);
+
+            // Save to db
+            $record = new YouTube_HashesRecord();
+            $record->youtubeId = $youtubeId;
+            $record->hash = $hash;
+            $record->save();
+        }
     }
 
     /**
