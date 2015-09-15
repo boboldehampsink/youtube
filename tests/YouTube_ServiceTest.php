@@ -73,6 +73,7 @@ class YouTube_ServiceTest extends BaseTest
      */
     private function setMockYouTubeService()
     {
+        $this->setMockDbConnection();
         $this->setMockPluginsService();
         $this->setMockOauthService();
         $this->setMockContentService();
@@ -90,6 +91,22 @@ class YouTube_ServiceTest extends BaseTest
         $mock->expects($this->any())->method('getAssetFileHash')->willReturn(md5('test.jpg'));
 
         $this->setComponent(craft(), 'youtube', $mock);
+    }
+
+    /**
+     * Mock Db Connection.
+     *
+     * @return DbConnection|\PHPUnit_Framework_MockObject_MockObject
+     */
+    private function setMockDbConnection()
+    {
+        $mock = $this->getMockBuilder(DbConnection::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mock->expects($this->any())->method('tableExists')->willReturn(false);
+
+        $this->setComponent(craft(), 'db', $mock);
     }
 
     /**
