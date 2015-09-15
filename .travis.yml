@@ -31,6 +31,7 @@ before_script:
   - rm craft.zip
   - mv Craft-Release-master craft
   - mkdir craft/config
+  - echo "<?php return array('user' => 'test');" > craft/config/db.php
   - mkdir craft/storage
   - mkdir -p craft/plugins/youtube
   - for item in *; do if [[ ! "$item" == "craft" ]]; then mv $item craft/plugins/youtube; fi; done
