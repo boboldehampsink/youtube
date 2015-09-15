@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "808c4b32789cc8f6e961eb4e9cef6658",
+    "hash": "98f6d5a9778243599ddf9d166a3fd263",
     "packages": [
         {
             "name": "composer/installers",
@@ -100,6 +100,17 @@
                 "zikula"
             ],
             "time": "2015-02-18 17:17:01"
+        },
+        {
+            "name": "dukt/oauth",
+            "version": "0.9.72",
+            "dist": {
+                "type": "zip",
+                "url": "https://dukt.net/craft/oauth/download",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "library"
         },
         {
             "name": "google/apiclient",

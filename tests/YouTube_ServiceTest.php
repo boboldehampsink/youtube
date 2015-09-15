@@ -77,7 +77,7 @@ class YouTube_ServiceTest extends BaseTest
         $this->setMockOauthService();
         $this->setMockContentService();
 
-        $mock = $this->getMockBuilder(YouTubeService::class)
+        $mock = $this->getMockBuilder('Craft\YouTubeService')
             ->setMethods(array('exists', 'uploadChunks', 'saveHash', 'getAssetFileHash'))
             ->getMock();
 
@@ -89,7 +89,7 @@ class YouTube_ServiceTest extends BaseTest
         $mock->expects($this->any())->method('uploadChunks')->willReturn($status);
         $mock->expects($this->any())->method('getAssetFileHash')->willReturn(md5('test.jpg'));
 
-        craft()->setComponent('youtube', $mock);
+        $this->setComponent(craft(), 'youtube', $mock);
     }
 
     /**
@@ -99,7 +99,7 @@ class YouTube_ServiceTest extends BaseTest
      */
     private function setMockPluginsService()
     {
-        $mock = $this->getMockBuilder(PluginsService::class)
+        $mock = $this->getMockBuilder('Craft\PluginsService')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -107,7 +107,7 @@ class YouTube_ServiceTest extends BaseTest
 
         $mock->expects($this->any())->method('getPlugin')->willReturn($plugin);
 
-        craft()->setComponent('plugins', $mock);
+        $this->setComponent(craft(), 'plugins', $mock);
     }
 
     /**
@@ -117,7 +117,7 @@ class YouTube_ServiceTest extends BaseTest
      */
     private function getMockAssetFileModel()
     {
-        $mock = $this->getMockBuilder(AssetFileModel::class)
+        $mock = $this->getMockBuilder('Craft\AssetFileModel')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -137,7 +137,7 @@ class YouTube_ServiceTest extends BaseTest
      */
     private function getMockAssetSourceModel()
     {
-        $mock = $this->getMockBuilder(AssetSourceModel::class)
+        $mock = $this->getMockBuilder('Craft\AssetSourceModel')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -155,7 +155,7 @@ class YouTube_ServiceTest extends BaseTest
      */
     private function getMockBaseAssetSourceType()
     {
-        $mock = $this->getMockBuilder(BaseAssetSourceType::class)
+        $mock = $this->getMockBuilder('Craft\BaseAssetSourceType')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -171,7 +171,7 @@ class YouTube_ServiceTest extends BaseTest
      */
     private function setMockOauthService()
     {
-        $mock = $this->getMockBuilder(OauthService::class)
+        $mock = $this->getMockBuilder('Craft\OauthService')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -179,7 +179,7 @@ class YouTube_ServiceTest extends BaseTest
 
         $mock->expects($this->any())->method('getTokenById')->willReturn($token);
 
-        craft()->setComponent('oauth', $mock);
+        $this->setComponent(craft(), 'oauth', $mock);
     }
 
     /**
@@ -204,7 +204,7 @@ class YouTube_ServiceTest extends BaseTest
      */
     private function getMockContentModel()
     {
-        $mock = $this->getMockBuilder(ContentModel::class)
+        $mock = $this->getMockBuilder('Craft\ContentModel')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -220,12 +220,12 @@ class YouTube_ServiceTest extends BaseTest
      */
     private function setMockContentService()
     {
-        $mock = $this->getMockBuilder(ContentService::class)
+        $mock = $this->getMockBuilder('Craft\ContentService')
             ->disableOriginalConstructor()
             ->getMock();
 
         $mock->expects($this->any())->method('saveContent')->willReturn(true);
 
-        craft()->setComponent('content', $mock);
+        $this->setComponent(craft(), 'content', $mock);
     }
 }

@@ -1,4 +1,4 @@
-YouTube Upload plugin for Craft CMS
+YouTube Upload plugin for Craft CMS [![Build Status](https://travis-ci.org/boboldehampsink/youtube.svg?branch=develop)](https://travis-ci.org/boboldehampsink/youtube)
 =================
 
 Plugin/FieldType that uploads video assets to YouTube and is able to output their YouTube URL's in the front-end.
