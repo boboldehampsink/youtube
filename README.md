@@ -24,12 +24,12 @@ Roadmap
  - Better OAuth plugin integration and dependency management
  - Better YouTube upload progress indication
 
- Development
- =================
- Run this from your Craft installation to test your changes to this plugin before submitting a Pull Request
- ```bash
- phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/app/tests/phpunit.xml craft/plugins/youtube/tests
- ``` 
+Development
+=================
+Run this from your Craft installation to test your changes to this plugin before submitting a Pull Request
+```bash
+phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/app/tests/phpunit.xml craft/plugins/youtube/tests
+```
 
 Changelog
 =================
