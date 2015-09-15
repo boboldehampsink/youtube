@@ -142,5 +142,18 @@
         "keywords": [
             "google"
         ]
+    },
+    {
+        "name": "dukt/oauth",
+        "version": "0.9.72",
+        "version_normalized": "0.9.72.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://dukt.net/craft/oauth/download",
+            "reference": null,
+            "shasum": null
+        },
+        "type": "library",
+        "installation-source": "dist"
     }
 ]

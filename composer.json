@@ -7,9 +7,32 @@
 			"email": "b.oldehampsink@itmundi.nl"
 		}
 	],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "dukt/oauth",
+                "version": "0.9.72",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://dukt.net/craft/oauth/download",
+                    "reference": "0.9.72"
+                }
+            }
+        }
+    ],
     "type": "craft-plugin",
     "require": {
         "composer/installers": "~1.0",
-        "google/apiclient": "1.0.*@beta"
+        "google/apiclient": "1.0.*@beta",
+        "dukt/oauth": "^0.9.72"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "if test -d vendor/dukt/oauth/oauth; then mv vendor/dukt/oauth/oauth ../ && rm -rf vendor/dukt; else echo 1; fi"
+        ],
+        "post-update-cmd": [
+            "if test -d vendor/dukt/oauth/oauth; then mv vendor/dukt/oauth/oauth ../ && rm -rf vendor/dukt; else echo 1; fi"
+        ]
     }
 }
