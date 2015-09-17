@@ -33,6 +33,9 @@ phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/
 
 Changelog
 =================
+###0.4.1###
+ - Improved unit tests for development
+
 ###0.4.0###
  - Now handles duplicate video's
 
