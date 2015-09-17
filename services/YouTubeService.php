@@ -3,7 +3,7 @@
 namespace Craft;
 
 /**
- * YouTube Upload Task.
+ * YouTube Upload Service.
  *
  * Upload video assets to YouTube.
  *
