@@ -2,11 +2,14 @@
     "name": "boboldehampsink/youtube",
     "description": "YouTube Upload Plugin for Craft CMS",
     "authors": [
-		{
-			"name": "Bob Olde Hampsink",
-			"email": "b.oldehampsink@itmundi.nl"
-		}
-	],
+        {
+            "name": "Bob Olde Hampsink",
+            "email": "b.oldehampsink@itmundi.nl",
+            "homepage": "http://github.com/boboldehampsink",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
     "repositories": [
         {
             "type": "package",
