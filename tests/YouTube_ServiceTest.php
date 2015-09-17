@@ -27,6 +27,7 @@ class YouTube_ServiceTest extends BaseTest
         require_once __DIR__.'/../vendor/autoload.php';
         require_once __DIR__.'/../YouTubePlugin.php';
         require_once __DIR__.'/../services/YouTubeService.php';
+        require_once __DIR__.'/../services/YouTube_OauthService.php';
         require_once __DIR__.'/../models/YouTube_VideoModel.php';
         require_once __DIR__.'/../records/YouTube_HashesRecord.php';
         require_once __DIR__.'/../../oauth/services/OauthService.php';
@@ -83,6 +84,7 @@ class YouTube_ServiceTest extends BaseTest
         $this->setMockPluginsService();
         $this->setMockOauthService();
         $this->setMockContentService();
+        $this->setMockYouTubeOauthService();
 
         $mock = $this->getMockBuilder('Craft\YouTubeService')
             ->setMethods(array('exists', 'uploadChunks', 'saveHash', 'getAssetFileHash'))
@@ -97,6 +99,18 @@ class YouTube_ServiceTest extends BaseTest
         $mock->expects($this->any())->method('getAssetFileHash')->willReturn(md5('test.jpg'));
 
         $this->setComponent(craft(), 'youtube', $mock);
+    }
+
+    /**
+     * Mock YouTube Oauth Service.
+     *
+     * @return YouTube|\PHPUnit_Framework_MockObject_MockObject
+     */
+    private function setMockYouTubeOauthService()
+    {
+        $service = new YouTube_OauthService();
+
+        $this->setComponent(craft(), 'youTube_oauth', $mock);
     }
 
     /**

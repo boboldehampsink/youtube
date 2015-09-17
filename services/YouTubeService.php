@@ -273,7 +273,7 @@ class YouTubeService extends BaseApplicationComponent
      * @param AssetFileModel                $asset
      * @param \Google_Service_YouTube_Video $video
      *
-     * @return \Google_Service_YouTube_Video
+     * @return boolean|\Google_Service_YouTube_Video
      */
     protected function uploadVideo(AssetFileModel $asset, \Google_Service_YouTube_Video $video)
     {
@@ -358,7 +358,7 @@ class YouTubeService extends BaseApplicationComponent
     /**
      * Gets a file by its asset.
      *
-     * @param AssetFileModel $assetId
+     * @param AssetFileModel $asset
      *
      * @return string
      */
