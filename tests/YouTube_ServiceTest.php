@@ -110,7 +110,7 @@ class YouTube_ServiceTest extends BaseTest
     {
         $service = new YouTube_OauthService();
 
-        $this->setComponent(craft(), 'youTube_oauth', $mock);
+        $this->setComponent(craft(), 'youTube_oauth', $service);
     }
 
     /**
