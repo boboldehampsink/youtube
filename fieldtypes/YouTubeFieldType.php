@@ -167,10 +167,6 @@ class YouTubeFieldType extends AssetsFieldType
 
     /**
      * Send video off to YouTube after saving.
-     *
-     * @param mixed $value
-     *
-     * @return mixed
      */
     public function onAfterElementSave()
     {
@@ -179,9 +175,6 @@ class YouTubeFieldType extends AssetsFieldType
 
             // Let AssetsFieldType handle the default upload logics
             parent::onAfterElementSave();
-
-            // UNCOMMENT THIS FOR DEBUGGING
-            //Craft::dd(craft()->youTube->process($this->element, $elementFiles->first(), $this->model->handle));
 
             // Now its our turn
             craft()->tasks->createTask('YouTube_Upload', Craft::t('Uploading video(s) to YouTube'), array(
@@ -245,7 +238,7 @@ class YouTubeFieldType extends AssetsFieldType
             $this->elementIds = array_diff($posted[$handle], $this->attribute->ids());
 
             // Proceed when there's something new
-            return count($this->elementIds);
+            return (bool) count($this->elementIds);
         }
 
         // Not set, not changed
