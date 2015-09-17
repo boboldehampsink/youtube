@@ -38,6 +38,20 @@ class YouTube_ServiceTest extends BaseTest
     }
 
     /**
+     * Test init of service
+     *
+     * @covers ::init
+     */
+    public function testInit()
+    {
+        // Set up service
+        $this->setMockYouTubeService();
+
+        // Expect plugin instance
+        $this->assertInstanceOf('Craft\YouTubePlugin', craft()->youTube->plugin);
+    }
+
+    /**
      * Test process type hinting.
      *
      * @covers ::process
