@@ -101,13 +101,13 @@ class YouTubeFieldType extends AssetsFieldType
 
                 // Fetch target id(s)
                 $results = craft()->db->createCommand()
-                                 ->select('targetId')
-                                 ->from('relations')
-                                 ->where(array(
-                                     'fieldId'  => $this->model->id,
-                                     'sourceId' => $this->element->id,
-                                 ))
-                                 ->queryAll();
+                                    ->select('targetId')
+                                    ->from('relations')
+                                    ->where(array(
+                                        'fieldId'  => $this->model->id,
+                                        'sourceId' => $this->element->id,
+                                    ))
+                                    ->queryAll();
 
                 // If db result is valid
                 if ($results && is_array($results)) {

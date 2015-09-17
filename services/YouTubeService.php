@@ -20,14 +20,14 @@ class YouTubeService extends BaseApplicationComponent
      *
      * @var YouTubePlugin
      */
-    protected $plugin;
+    public $plugin;
 
     /**
      * Holds the plugin settings.
      *
      * @var array
      */
-    protected $settings;
+    public $settings;
 
     /**
      * Holds the OAuth client.
@@ -273,7 +273,7 @@ class YouTubeService extends BaseApplicationComponent
      * @param AssetFileModel                $asset
      * @param \Google_Service_YouTube_Video $video
      *
-     * @return boolean|\Google_Service_YouTube_Video
+     * @return boolean|string
      */
     protected function uploadVideo(AssetFileModel $asset, \Google_Service_YouTube_Video $video)
     {
