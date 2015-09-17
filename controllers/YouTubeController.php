@@ -51,7 +51,7 @@ class YouTubeController extends BaseController
                 $token = $response['token'];
 
                 // Save token
-                craft()->youTube->saveToken($token);
+                craft()->youTube_oauth->saveToken($token);
 
                 // Session notice
                 craft()->userSession->setNotice(Craft::t('Connected.'));
@@ -75,7 +75,7 @@ class YouTubeController extends BaseController
     public function actionDisconnect()
     {
         // Delete token
-        craft()->youTube->deleteToken();
+        craft()->youTube_oauth->deleteToken();
 
         // Set notice
         craft()->userSession->setNotice(Craft::t('Disconnected.'));

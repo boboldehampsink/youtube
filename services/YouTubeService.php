@@ -65,7 +65,7 @@ class YouTubeService extends BaseApplicationComponent
     protected $hashes = array();
 
     /**
-     * Initialize plugin.
+     * Initialize service.
      */
     public function init()
     {
@@ -197,81 +197,12 @@ class YouTubeService extends BaseApplicationComponent
     }
 
     /**
-     * Get OAuth token.
-     *
-     * @return OAuth_TokenModel
-     */
-    public function getToken()
-    {
-        // Get tokenId
-        $tokenId = $this->settings->tokenId;
-
-        // Get token
-        $token = craft()->oauth->getTokenById($tokenId);
-        if ($token) {
-            return $token;
-        }
-    }
-
-    /**
-     * Delete OAuth token.
-     */
-    public function deleteToken()
-    {
-        // Get tokenId
-        $tokenId = $this->settings->tokenId;
-
-        // Get token
-        $token = craft()->oauth->getTokenById($tokenId);
-
-        // Delete token
-        if ($token) {
-            craft()->oauth->deleteToken($token);
-        }
-
-        // Save plugin settings
-        craft()->plugins->savePluginSettings($this->plugin, array('tokenId' => null));
-    }
-
-    /**
-     * Save OAuth Token.
-     */
-    public function saveToken($token)
-    {
-        // Get tokenId
-        $tokenId = $this->settings->tokenId;
-
-        // Get existing token
-        $existingToken = craft()->oauth->getTokenById($tokenId);
-
-        // Do we have a valid token?
-        if (!$token) {
-            $token = new Oauth_TokenModel();
-        }
-
-        // Do we have a valid existing token
-        if (isset($existingToken)) {
-            $token->id = $existingToken->id;
-        }
-
-        // Set provider and handle
-        $token->providerHandle = 'google';
-        $token->pluginHandle = 'youtube';
-
-        // Save token
-        craft()->oauth->saveToken($token);
-
-        // Save plugin settings
-        craft()->plugins->savePluginSettings($this->plugin, array('tokenId' => $token->id));
-    }
-
-    /**
      * Authenticate with YouTube.
      */
     protected function authenticate()
     {
-        // Get token by id
-        $token = craft()->oauth->getTokenById($this->settings->tokenId);
+        // Get token
+        $token = craft()->youTube_oauth->getToken();
 
         // Make token compatible with Google API
         $json = JsonHelper::encode(array(

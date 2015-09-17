@@ -89,7 +89,7 @@ class YouTubePlugin extends BasePlugin
             if ($provider->isConfigured()) {
 
                 // Get token
-                $token = craft()->youTube->getToken('google');
+                $token = craft()->youTube_oauth->getToken();
                 if ($token) {
                     $provider->setToken($token);
 
