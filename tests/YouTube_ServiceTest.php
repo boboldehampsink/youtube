@@ -12,6 +12,9 @@ namespace Craft;
  * @license   MIT
  *
  * @link      http://github.com/boboldehampsink
+ *
+ * @coversDefaultClass Craft\YouTubeService
+ * @covers ::<!public>
  */
 class YouTube_ServiceTest extends BaseTest
 {
@@ -35,6 +38,8 @@ class YouTube_ServiceTest extends BaseTest
 
     /**
      * Test process type hinting.
+     *
+     * @covers ::process
      */
     public function testProcessTypeHinting()
     {
@@ -50,6 +55,8 @@ class YouTube_ServiceTest extends BaseTest
 
     /**
      * Test process.
+     *
+     * @covers ::process
      */
     public function testProcess()
     {

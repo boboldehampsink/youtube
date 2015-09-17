@@ -28,7 +28,7 @@ Development
 =================
 Run this from your Craft installation to test your changes to this plugin before submitting a Pull Request
 ```bash
-phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/app/tests/phpunit.xml craft/plugins/youtube/tests
+phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/youtube/phpunit.xml.dist --coverage-clover coverage.clover craft/plugins/youtube/tests
 ```
 
 Changelog

@@ -25,7 +25,7 @@ matrix:
     - php: 7.0
     - php: hhvm
 
-  # execute any number of scripts before the test run, custom env's are available as variables
+# execute any number of scripts before the test run, custom env's are available as variables
 before_script:
   - curl -sS https://codeload.github.com/pixelandtonic/Craft-Release/zip/master > craft.zip
   - unzip craft.zip
@@ -38,4 +38,10 @@ before_script:
   - for item in *; do if [[ ! "$item" == "craft" ]]; then mv $item craft/plugins/youtube; fi; done
   - cd craft/plugins/youtube && composer update && cd ../../../
 
-script: phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/app/tests/phpunit.xml craft/plugins/youtube/tests
+# execute tests
+script: phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/youtube/phpunit.xml.dist --coverage-clover coverage.clover craft/plugins/youtube/tests
+
+# upload coverage to scrutinizer
+after_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
