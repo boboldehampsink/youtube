@@ -68,7 +68,7 @@ class YouTube_ServiceTest extends BaseTest
         $model = $this->getMockAssetFileModel();
 
         // Process
-        $result = craft()->youtube->process($model, $model, 'handle', 0);
+        $result = craft()->youTube->process($model, $model, 'handle', 0);
 
         // Assert true
         $this->assertTrue($result);
@@ -98,7 +98,7 @@ class YouTube_ServiceTest extends BaseTest
         $mock->expects($this->any())->method('uploadChunks')->willReturn($status);
         $mock->expects($this->any())->method('getAssetFileHash')->willReturn(md5('test.jpg'));
 
-        $this->setComponent(craft(), 'youtube', $mock);
+        $this->setComponent(craft(), 'youTube', $mock);
     }
 
     /**
