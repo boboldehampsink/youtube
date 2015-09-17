@@ -67,7 +67,7 @@ class YouTube_OauthService extends BaseApplicationComponent
     public function deleteToken()
     {
         // Get token
-        $token = $this->getToken()
+        $token = $this->getToken();
 
         // Delete token
         if ($token) {
