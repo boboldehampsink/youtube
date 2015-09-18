@@ -73,7 +73,7 @@ class YouTube_OauthService extends BaseApplicationComponent
         }
 
         // Save plugin settings
-        craft()->plugins->savePluginSettings($this->plugin, array('tokenId' => null));
+        return craft()->plugins->savePluginSettings($this->plugin, array('tokenId' => null));
     }
 
     /**
@@ -102,6 +102,6 @@ class YouTube_OauthService extends BaseApplicationComponent
         craft()->oauth->saveToken($token);
 
         // Save plugin settings
-        craft()->plugins->savePluginSettings($this->plugin, array('tokenId' => $token->id));
+        return craft()->plugins->savePluginSettings($this->plugin, array('tokenId' => $token->id));
     }
 }

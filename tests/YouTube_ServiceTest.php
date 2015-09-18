@@ -81,8 +81,6 @@ class YouTube_ServiceTest extends BaseTest
      */
     private function setMockYouTubeService()
     {
-        $this->setMockPluginsService();
-        $this->setMockOauthService();
         $this->setMockContentService();
         $this->setMockYouTubeOauthService();
 
@@ -99,36 +97,6 @@ class YouTube_ServiceTest extends BaseTest
         $mock->expects($this->any())->method('getAssetFileHash')->willReturn(md5('test.jpg'));
 
         $this->setComponent(craft(), 'youTube', $mock);
-    }
-
-    /**
-     * Mock YouTube Oauth Service.
-     *
-     * @return YouTube|\PHPUnit_Framework_MockObject_MockObject
-     */
-    private function setMockYouTubeOauthService()
-    {
-        $service = new YouTube_OauthService();
-
-        $this->setComponent(craft(), 'youTube_oauth', $service);
-    }
-
-    /**
-     * Mock Plugins Service.
-     *
-     * @return PluginsService|\PHPUnit_Framework_MockObject_MockObject
-     */
-    private function setMockPluginsService()
-    {
-        $mock = $this->getMockBuilder('Craft\PluginsService')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $plugin = new YouTubePlugin();
-
-        $mock->expects($this->any())->method('getPlugin')->willReturn($plugin);
-
-        $this->setComponent(craft(), 'plugins', $mock);
     }
 
     /**
@@ -186,39 +154,6 @@ class YouTube_ServiceTest extends BaseTest
     }
 
     /**
-     * Mock OAuth Service.
-     *
-     * @return OauthService|\PHPUnit_Framework_MockObject_MockObject
-     */
-    private function setMockOauthService()
-    {
-        $mock = $this->getMockBuilder('Craft\OauthService')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $token = $this->getMockOauthTokenModel();
-
-        $mock->expects($this->any())->method('getTokenById')->willReturn($token);
-
-        $this->setComponent(craft(), 'oauth', $mock);
-    }
-
-    /**
-     * Mock OAuth Token Model.
-     *
-     * @return OAuth_TokenModel
-     */
-    private function getMockOAuthTokenModel()
-    {
-        $mock = new OAuth_TokenModel();
-        $mock->accessToken = 'ya29.zQEjMLOfhL4VrrAKNsLFZcV8V1HJIU0cyq8-FciOKITQABdBEjlEwxZjHCyIhxXKV1vX6g';
-        $mock->refreshToken = '1/CEY3ISZaEFaQkG-wjtETZYa3s2lwtjJWh5bp4Tm4Xi9IgOrJDtdun6zK6XiATCKT';
-        $mock->endOfLife = '1439377156';
-
-        return $mock;
-    }
-
-    /**
      * Mock ContentModel.
      *
      * @return ContentModel|\PHPUnit_Framework_MockObject_MockObject
@@ -248,5 +183,38 @@ class YouTube_ServiceTest extends BaseTest
         $mock->expects($this->any())->method('saveContent')->willReturn(true);
 
         $this->setComponent(craft(), 'content', $mock);
+    }
+
+    /**
+     * Mock YouTube Oauth Service.
+     *
+     * @return YouTube|\PHPUnit_Framework_MockObject_MockObject
+     */
+    private function setMockYouTubeOauthService()
+    {
+        $mock = $this->getMockBuilder('Craft\YouTube_OauthService')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $token = $this->getMockOAuthTokenModel();
+
+        $mock->expects($this->any())->method('getToken')->willReturn($token);
+
+        $this->setComponent(craft(), 'youTube_oauth', $mock);
+    }
+
+    /**
+     * Mock OAuth Token Model.
+     *
+     * @return OAuth_TokenModel
+     */
+    private function getMockOAuthTokenModel()
+    {
+        $mock = new OAuth_TokenModel();
+        $mock->accessToken = 'ya29.zQEjMLOfhL4VrrAKNsLFZcV8V1HJIU0cyq8-FciOKITQABdBEjlEwxZjHCyIhxXKV1vX6g';
+        $mock->refreshToken = '1/CEY3ISZaEFaQkG-wjtETZYa3s2lwtjJWh5bp4Tm4Xi9IgOrJDtdun6zK6XiATCKT';
+        $mock->endOfLife = '1439377156';
+
+        return $mock;
     }
 }
