@@ -16,20 +16,6 @@ namespace Craft;
 class YouTubeService extends BaseApplicationComponent
 {
     /**
-     * Holds a reference to the plugin class.
-     *
-     * @var YouTubePlugin
-     */
-    public $plugin;
-
-    /**
-     * Holds the plugin settings.
-     *
-     * @var array
-     */
-    public $settings;
-
-    /**
      * Holds the OAuth client.
      *
      * @var \Google_Client|null
@@ -63,24 +49,6 @@ class YouTubeService extends BaseApplicationComponent
      * @var array
      */
     protected $hashes = array();
-
-    /**
-     * Initialize service.
-     */
-    public function init()
-    {
-        // Initialize parent
-        parent::init();
-
-        // Autoload dependencies
-        require_once dirname(__FILE__).'/../vendor/autoload.php';
-
-        // Get plugin
-        $this->plugin = craft()->plugins->getPlugin('youtube');
-
-        // Get plugin settings
-        $this->settings = $this->plugin->getSettings();
-    }
 
     /**
      * Upload and process the result.

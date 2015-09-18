@@ -16,6 +16,33 @@ namespace Craft;
 class YouTube_OauthService extends BaseApplicationComponent
 {
     /**
+     * Holds a reference to the plugin class.
+     *
+     * @var YouTubePlugin
+     */
+    protected $plugin;
+
+    /**
+     * Holds the plugin settings.
+     *
+     * @var array
+     */
+    protected $settings;
+
+    /**
+     * Initialize service.
+     *
+     * @codeCoverageIgnore
+     */
+    public function init()
+    {
+        // Get plugin
+        $this->plugin = craft()->plugins->getPlugin('youtube');
+
+        // Get plugin settings
+        $this->settings = $this->plugin->getSettings();
+    }
+    /**
      * Get OAuth token.
      *
      * @return OAuth_TokenModel
@@ -23,7 +50,7 @@ class YouTube_OauthService extends BaseApplicationComponent
     public function getToken()
     {
         // Get tokenId
-        $tokenId = craft()->youTube->settings->tokenId;
+        $tokenId = $this->settings->tokenId;
 
         // Get token
         $token = craft()->oauth->getTokenById($tokenId);
@@ -46,7 +73,7 @@ class YouTube_OauthService extends BaseApplicationComponent
         }
 
         // Save plugin settings
-        craft()->plugins->savePluginSettings(craft()->youTube->plugin, array('tokenId' => null));
+        craft()->plugins->savePluginSettings($this->plugin, array('tokenId' => null));
     }
 
     /**
@@ -75,6 +102,6 @@ class YouTube_OauthService extends BaseApplicationComponent
         craft()->oauth->saveToken($token);
 
         // Save plugin settings
-        craft()->plugins->savePluginSettings(craft()->youTube->plugin, array('tokenId' => $token->id));
+        craft()->plugins->savePluginSettings($this->plugin, array('tokenId' => $token->id));
     }
 }
