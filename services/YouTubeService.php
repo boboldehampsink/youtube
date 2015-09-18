@@ -170,7 +170,10 @@ class YouTubeService extends BaseApplicationComponent
             return $status->id;
         }
 
-        return null;
+        // Or die
+        // @codeCoverageIgnoreStart
+        throw new Exception(Craft::t('Unable to communicate with the YouTube API client'));
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -250,6 +253,8 @@ class YouTubeService extends BaseApplicationComponent
      * @param AssetFileModel                $asset
      * @param \Google_Service_YouTube_Video $video
      *
+     * @throws Exception
+     *
      * @return boolean|string
      */
     protected function uploadVideo(AssetFileModel $asset, \Google_Service_YouTube_Video $video)
@@ -286,7 +291,10 @@ class YouTubeService extends BaseApplicationComponent
             return $status;
         }
 
-        return null;
+        // Or die
+        // @codeCoverageIgnoreStart
+        throw new Exception(Craft::t('Unable to authenticate the YouTube API client'));
+        // @codeCoverageIgnoreEnd
     }
 
     /**
