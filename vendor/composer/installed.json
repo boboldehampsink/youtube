@@ -150,7 +150,7 @@
         "dist": {
             "type": "zip",
             "url": "https://dukt.net/craft/oauth/download",
-            "reference": null,
+            "reference": "0.9.72",
             "shasum": null
         },
         "type": "library",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "98f6d5a9778243599ddf9d166a3fd263",
+    "hash": "3f666a824f6ec7b038d398581e0def7e",
     "packages": [
         {
             "name": "composer/installers",
@@ -107,7 +107,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://dukt.net/craft/oauth/download",
-                "reference": null,
+                "reference": "0.9.72",
                 "shasum": null
             },
             "type": "library"
