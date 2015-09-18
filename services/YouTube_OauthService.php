@@ -52,11 +52,8 @@ class YouTube_OauthService extends BaseApplicationComponent
         // Get tokenId
         $tokenId = $this->settings->tokenId;
 
-        // Get token
-        $token = craft()->oauth->getTokenById($tokenId);
-        if ($token) {
-            return $token;
-        }
+        // Return token
+        return craft()->oauth->getTokenById($tokenId);
     }
 
     /**
