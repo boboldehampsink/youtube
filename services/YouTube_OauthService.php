@@ -86,7 +86,9 @@ class YouTube_OauthService extends BaseApplicationComponent
 
         // Do we have a valid token?
         if (!$token) {
+            // @codeCoverageIgnoreStart
             $token = new Oauth_TokenModel();
+            // @codeCoverageIgnoreEnd
         }
 
         // Do we have a valid existing token
