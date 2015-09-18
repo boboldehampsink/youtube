@@ -68,7 +68,9 @@ class YouTubeService extends BaseApplicationComponent
             try {
                 $youTubeId = $this->assemble($asset);
             } catch (Exception $e) {
+                // @codeCoverageIgnoreStart
                 return $e->getMessage();
+                // @codeCoverageIgnoreEnd
             }
         }
 
@@ -167,6 +169,8 @@ class YouTubeService extends BaseApplicationComponent
             // Return YouTube ID
             return $status->id;
         }
+
+        return null;
     }
 
     /**
@@ -258,25 +262,31 @@ class YouTubeService extends BaseApplicationComponent
         // value for better recovery on less reliable connections.
         $chunkSizeBytes = 1 * 1024 * 1024;
 
-        // Setting the defer flag to true tells the client to return a request which can be called
-        // with ->execute(); instead of making the API call immediately.
-        $this->client->setDefer(true);
+        // Verify the client
+        if ($this->client instanceof \Google_Client) {
 
-        // Create a request for the API's videos.insert method to create and upload the video.
-        $insertRequest = $this->youtube->videos->insert('status,snippet', $video);
+            // Setting the defer flag to true tells the client to return a request which can be called
+            // with ->execute(); instead of making the API call immediately.
+            $this->client->setDefer(true);
 
-        // Create a MediaFileUpload object for resumable uploads.
-        $media = new \Google_Http_MediaFileUpload($this->client, $insertRequest, 'video/*', null, true, $chunkSizeBytes);
-        $media->setFileSize(IOHelper::getFileSize($file));
+            // Create a request for the API's videos.insert method to create and upload the video.
+            $insertRequest = $this->youtube->videos->insert('status,snippet', $video);
 
-        // Read the media file and upload it chunk by chunk.
-        $status = $this->uploadChunks($file, $media, $chunkSizeBytes);
+            // Create a MediaFileUpload object for resumable uploads.
+            $media = new \Google_Http_MediaFileUpload($this->client, $insertRequest, 'video/*', null, true, $chunkSizeBytes);
+            $media->setFileSize(IOHelper::getFileSize($file));
 
-        // If you want to make other calls after the file upload, set setDefer back to false
-        $this->client->setDefer(false);
+            // Read the media file and upload it chunk by chunk.
+            $status = $this->uploadChunks($file, $media, $chunkSizeBytes);
 
-        // Return the status
-        return $status;
+            // If you want to make other calls after the file upload, set setDefer back to false
+            $this->client->setDefer(false);
+
+            // Return the status
+            return $status;
+        }
+
+        return null;
     }
 
     /**
