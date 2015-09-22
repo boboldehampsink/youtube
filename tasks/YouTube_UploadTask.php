@@ -62,6 +62,11 @@ class YouTube_UploadTask extends BaseTask
      */
     public function runStep($step)
     {
+        // Set a max timeout eventually
+        if ($timeout = craft()->config->get('taskTimeout')) {
+            @set_time_limit($timeout);
+        }
+
         // Get settings
         $settings = $this->getSettings();
 
