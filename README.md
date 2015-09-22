@@ -34,6 +34,7 @@ phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/
 Changelog
 =================
 ###0.4.1###
+ - Added the ability to manually set a timeout per step via the config
  - Improved unit tests for development
 
 ###0.4.0###
