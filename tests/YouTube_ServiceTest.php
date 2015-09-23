@@ -52,17 +52,16 @@ class YouTube_ServiceTest extends BaseTest
     /**
      * Test process.
      *
-     * @param bool                                 $exists
      * @param bool|\Exception                      $exception
      * @param string|\Google_Service_YouTube_Video $status
      *
      * @covers ::process
      * @dataProvider providePaths
      */
-    final public function testProcess($exists, $exception, $status)
+    final public function testProcess($exception, $status)
     {
         // Set up service
-        $this->setMockYouTubeService($exists, $exception, $status);
+        $this->setMockYouTubeService($exception, $status);
 
         // Set up model
         $model = $this->getMockAssetFileModel();
@@ -96,26 +95,24 @@ class YouTube_ServiceTest extends BaseTest
         $status->id = '9NiMDN1fxno';
 
         return array(
-            'Does not exist' => array(false, false, $status),
-            'Does exist' => array(true, false, $status),
-            'Catch \Exception' => array(false, new \Exception('message'), $status),
-            'Catch Craft\Exception' => array(false, new Exception('message'), $status),
-            'Catch \Google_Service_Exception' => array(false, new \Google_Service_Exception('message'), $status),
-            'Catch \Google_Exception' => array(false, new \Google_Exception('message'), $status),
-            'Catch invalid video object' => array(false, false, 'string'),
+            'Succeed' => array(false, $status),
+            'Catch \Exception' => array(new \Exception('message'), $status),
+            'Catch Craft\Exception' => array(new Exception('message'), $status),
+            'Catch \Google_Service_Exception' => array(new \Google_Service_Exception('message'), $status),
+            'Catch \Google_Exception' => array(new \Google_Exception('message'), $status),
+            'Catch invalid video object' => array(false, 'string'),
         );
     }
 
     /**
      * Mock YouTube Service.
      *
-     * @param bool                                 $exists
      * @param bool|\Exception                      $exception
      * @param string|\Google_Service_YouTube_Video $status
      *
      * @return YouTube|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function setMockYouTubeService($exists = false, $exception = false, $status = 'string')
+    private function setMockYouTubeService($exception = false, $status = 'string')
     {
         $this->setMockContentService();
         $this->setMockYouTubeOauthService();
@@ -124,7 +121,6 @@ class YouTube_ServiceTest extends BaseTest
             ->setMethods(array('exists', 'uploadChunks', 'saveHash', 'getAssetFileHash'))
             ->getMock();
 
-        $mock->expects($this->any())->method('exists')->willReturn($exists);
         $mock->expects($this->any())->method('getAssetFileHash')->willReturn(md5('test.jpg'));
 
         if ($exception instanceof \Exception) {
