@@ -30,21 +30,21 @@ class YouTubeService extends BaseApplicationComponent
     protected $youtube;
 
     /**
-     * Holds asset existence checks
+     * Holds asset existence checks.
      *
      * @var array
      */
     protected $exists = array();
 
     /**
-     * Holds cached asset locations
+     * Holds cached asset locations.
      *
      * @var array
      */
     protected $assets = array();
 
     /**
-     * Holds cached file hashes
+     * Holds cached file hashes.
      *
      * @var array
      */
@@ -94,9 +94,10 @@ class YouTubeService extends BaseApplicationComponent
     }
 
     /**
-     * Check if this asset file already exists
+     * Check if this asset file already exists.
      *
-     * @param  AssetFileModel $asset
+     * @param AssetFileModel $asset
+     *
      * @return string|bool
      *
      * @codeCoverageIgnore
@@ -124,7 +125,7 @@ class YouTubeService extends BaseApplicationComponent
     /**
      * Send video's to YouTube.
      *
-     * @param AssetFileModel   $asset
+     * @param AssetFileModel $asset
      *
      * @return string|bool
      *
@@ -255,7 +256,7 @@ class YouTubeService extends BaseApplicationComponent
      *
      * @throws Exception
      *
-     * @return boolean|string
+     * @return bool|string
      */
     protected function uploadVideo(AssetFileModel $asset, \Google_Service_YouTube_Video $video)
     {
@@ -328,10 +329,10 @@ class YouTubeService extends BaseApplicationComponent
     }
 
     /**
-     * Save asset hash
+     * Save asset hash.
      *
-     * @param  AssetFileModel $asset
-     * @param  string         $youtubeId
+     * @param AssetFileModel $asset
+     * @param string         $youtubeId
      *
      * @codeCoverageIgnore
      */
@@ -377,9 +378,10 @@ class YouTubeService extends BaseApplicationComponent
     }
 
     /**
-     * Get file hash
+     * Get file hash.
      *
-     * @param  AssetFileModel $asset
+     * @param AssetFileModel $asset
+     *
      * @return string
      *
      * @codeCoverageIgnore
