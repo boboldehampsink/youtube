@@ -155,7 +155,7 @@ class YouTubeService extends BaseApplicationComponent
         } catch (\Google_Exception $e) {
             throw new Exception(Craft::t('A client error occurred: {error}', array('error' => $e->getMessage())));
         } catch (\Exception $e) {
-            throw new Exception(Craft::t('An unknown error occured: {error}', array('error' => $e->getMessage())));
+            throw new Exception(Craft::t('An unknown error occurred: {error}', array('error' => $e->getMessage())));
         }
 
         // Validate status
@@ -169,7 +169,7 @@ class YouTubeService extends BaseApplicationComponent
         }
 
         // Or die
-        throw new Exception(Craft::t('Unable to communicate with the YouTube API client'));
+        throw new Exception(Craft::t('Unable to communicate with the YouTube API client.'));
     }
 
     /**

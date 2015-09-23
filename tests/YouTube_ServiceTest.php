@@ -40,29 +40,29 @@ class YouTube_ServiceTest extends BaseTest
     /**
      * Test process type hinting.
      *
+     * @expectedException \PHPUnit_Framework_Error
      * @covers ::process
      */
-    public function testProcessTypeHinting()
+    final public function testProcessTypeHinting()
     {
-        // Set up service
         $service = new YouTubeService();
-
-        // Expect exception
-        $this->setExpectedException(get_class(new \PHPUnit_Framework_Error('', 0, '', 1)));
-
-        // Test type hinting correctness
         $service->process(new \stdClass(), new \stdClass(), 'handle', 0);
     }
 
     /**
      * Test process.
      *
+     * @param bool                                 $exists
+     * @param bool|\Exception                      $exception
+     * @param string|\Google_Service_YouTube_Video $status
+     *
      * @covers ::process
+     * @dataProvider providePaths
      */
-    public function testProcess()
+    final public function testProcess($exists, $exception, $status)
     {
         // Set up service
-        $this->setMockYouTubeService();
+        $this->setMockYouTubeService($exists, $exception, $status);
 
         // Set up model
         $model = $this->getMockAssetFileModel();
@@ -70,16 +70,52 @@ class YouTube_ServiceTest extends BaseTest
         // Process
         $result = craft()->youTube->process($model, $model, 'handle', 0);
 
-        // Assert true
-        $this->assertTrue($result);
+        // Depend asserts on exception
+        if (!$exception) {
+            if (!is_string($status)) {
+                $this->assertTrue($result);
+            } else {
+                $this->assertSame($result, 'Unable to communicate with the YouTube API client.');
+            }
+        } else {
+            $this->assertStringEndsWith('error occurred: message', $result);
+        }
+    }
+
+    /**
+     * Provide different paths for process.
+     *
+     * @return array
+     */
+    final public function providePaths()
+    {
+        require_once __DIR__.'/../vendor/autoload.php';
+
+        // Set YouTube ID
+        $status = new \Google_Service_YouTube_Video();
+        $status->id = '9NiMDN1fxno';
+
+        return array(
+            'Does not exist' => array(false, false, $status),
+            'Does exist' => array(true, false, $status),
+            'Catch \Exception' => array(false, new \Exception('message'), $status),
+            'Catch Craft\Exception' => array(false, new Exception('message'), $status),
+            'Catch \Google_Service_Exception' => array(false, new \Google_Service_Exception('message'), $status),
+            'Catch \Google_Exception' => array(false, new \Google_Exception('message'), $status),
+            'Catch invalid video object' => array(false, false, 'string'),
+        );
     }
 
     /**
      * Mock YouTube Service.
      *
+     * @param bool                                 $exists
+     * @param bool|\Exception                      $exception
+     * @param string|\Google_Service_YouTube_Video $status
+     *
      * @return YouTube|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function setMockYouTubeService()
+    private function setMockYouTubeService($exists = false, $exception = false, $status = 'string')
     {
         $this->setMockContentService();
         $this->setMockYouTubeOauthService();
@@ -88,13 +124,14 @@ class YouTube_ServiceTest extends BaseTest
             ->setMethods(array('exists', 'uploadChunks', 'saveHash', 'getAssetFileHash'))
             ->getMock();
 
-        // Set YouTube ID
-        $status = new \Google_Service_YouTube_Video();
-        $status->id = '9NiMDN1fxno';
-
-        $mock->expects($this->any())->method('exists')->willReturn(false);
-        $mock->expects($this->any())->method('uploadChunks')->willReturn($status);
+        $mock->expects($this->any())->method('exists')->willReturn($exists);
         $mock->expects($this->any())->method('getAssetFileHash')->willReturn(md5('test.jpg'));
+
+        if ($exception instanceof \Exception) {
+            $mock->expects($this->any())->method('uploadChunks')->will($this->throwException($exception));
+        } else {
+            $mock->expects($this->any())->method('uploadChunks')->willReturn($status);
+        }
 
         $this->setComponent(craft(), 'youTube', $mock);
     }
