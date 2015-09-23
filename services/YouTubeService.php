@@ -68,9 +68,7 @@ class YouTubeService extends BaseApplicationComponent
             try {
                 $youTubeId = $this->assemble($asset);
             } catch (Exception $e) {
-                // @codeCoverageIgnoreStart
                 return $e->getMessage();
-                // @codeCoverageIgnoreEnd
             }
         }
 
@@ -102,8 +100,6 @@ class YouTubeService extends BaseApplicationComponent
      * @param AssetFileModel $asset
      *
      * @return string|bool
-     *
-     * @codeCoverageIgnore
      */
     protected function exists(AssetFileModel $asset)
     {
@@ -154,7 +150,6 @@ class YouTubeService extends BaseApplicationComponent
             $status = $this->uploadVideo($asset, $video);
 
         // Catch exceptions if we fail and rethrow
-        // @codeCoverageIgnoreStart
         } catch (\Google_Service_Exception $e) {
             throw new Exception(Craft::t('A service error occurred: {error}', array('error' => $e->getMessage())));
         } catch (\Google_Exception $e) {
@@ -162,7 +157,6 @@ class YouTubeService extends BaseApplicationComponent
         } catch (\Exception $e) {
             throw new Exception(Craft::t('An unknown error occured: {error}', array('error' => $e->getMessage())));
         }
-        // @codeCoverageIgnoreEnd
 
         // Validate status
         if ($status instanceof \Google_Service_YouTube_Video) {
@@ -175,9 +169,7 @@ class YouTubeService extends BaseApplicationComponent
         }
 
         // Or die
-        // @codeCoverageIgnoreStart
         throw new Exception(Craft::t('Unable to communicate with the YouTube API client'));
-        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -296,9 +288,7 @@ class YouTubeService extends BaseApplicationComponent
         }
 
         // Or die
-        // @codeCoverageIgnoreStart
         throw new Exception(Craft::t('Unable to authenticate the YouTube API client'));
-        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -309,8 +299,6 @@ class YouTubeService extends BaseApplicationComponent
      * @param int                          $chunkSizeBytes
      *
      * @return bool|string
-     *
-     * @codeCoverageIgnore
      */
     protected function uploadChunks($file, \Google_Http_MediaFileUpload $media, $chunkSizeBytes)
     {
@@ -333,8 +321,6 @@ class YouTubeService extends BaseApplicationComponent
      *
      * @param AssetFileModel $asset
      * @param string         $youtubeId
-     *
-     * @codeCoverageIgnore
      */
     protected function saveHash(AssetFileModel $asset, $youtubeId)
     {
@@ -383,8 +369,6 @@ class YouTubeService extends BaseApplicationComponent
      * @param AssetFileModel $asset
      *
      * @return string
-     *
-     * @codeCoverageIgnore
      */
     protected function getAssetFileHash(AssetFileModel $asset)
     {
