@@ -23,7 +23,10 @@ class YouTube_ServiceTest extends BaseTest
      */
     public static function setUpBeforeClass()
     {
+        // Set up parent
         parent::setUpBeforeClass();
+
+        // Require depencies
         require_once __DIR__.'/../vendor/autoload.php';
         require_once __DIR__.'/../YouTubePlugin.php';
         require_once __DIR__.'/../services/YouTubeService.php';
@@ -35,6 +38,18 @@ class YouTube_ServiceTest extends BaseTest
         require_once __DIR__.'/../../oauth/models/Oauth_ProviderInfosModel.php';
         require_once __DIR__.'/../../oauth/records/Oauth_TokenRecord.php';
         require_once __DIR__.'/../../oauth/models/Oauth_TokenModel.php';
+
+        // Create test file
+        @touch(__DIR__.'/test.jpg');
+    }
+
+    public static function tearDownAfterClass()
+    {
+        // Remove test file
+        @unlink(__DIR__.'/test.jpg');
+
+        // Tear down parent
+        parent::tearDownAfterClass();
     }
 
     /**
@@ -118,10 +133,8 @@ class YouTube_ServiceTest extends BaseTest
         $this->setMockYouTubeOauthService();
 
         $mock = $this->getMockBuilder('Craft\YouTubeService')
-            ->setMethods(array('exists', 'uploadChunks', 'saveHash', 'getAssetFileHash'))
+            ->setMethods(array('exists', 'uploadChunks', 'saveHash'))
             ->getMock();
-
-        $mock->expects($this->any())->method('getAssetFileHash')->willReturn(md5('test.jpg'));
 
         if ($exception instanceof \Exception) {
             $mock->expects($this->any())->method('uploadChunks')->will($this->throwException($exception));
@@ -181,7 +194,7 @@ class YouTube_ServiceTest extends BaseTest
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mock->expects($this->any())->method('getLocalCopy')->willReturn('test.jpg');
+        $mock->expects($this->any())->method('getLocalCopy')->willReturn(__DIR__.'/test.jpg');
 
         return $mock;
     }
