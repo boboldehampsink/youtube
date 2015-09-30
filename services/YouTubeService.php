@@ -72,9 +72,6 @@ class YouTubeService extends BaseApplicationComponent
             }
         }
 
-        // Clean up asset file
-        $this->cleanupAssetFile($asset);
-
         // Get current video's
         $content = $element->getContent()->getAttribute($handle);
 
@@ -312,6 +309,9 @@ class YouTubeService extends BaseApplicationComponent
         }
         fclose($handle);
 
+        // Remove the local asset file
+        IOHelper::deleteFile($file);
+
         // Return YouTube ID or false
         return $status;
     }
@@ -383,19 +383,5 @@ class YouTubeService extends BaseApplicationComponent
         }
 
         return $this->hashes[$asset->id];
-    }
-
-    /**
-     * Clean up temporary asset files.
-     *
-     * @param AssetFileModel $asset
-     */
-    protected function cleanupAssetFile(AssetFileModel $asset)
-    {
-        // Get asset file
-        $file = $this->getAssetFile($asset);
-
-        // Remove the local asset file
-        IOHelper::deleteFile($file);
     }
 }
