@@ -28,11 +28,14 @@ Development
 =================
 Run this from your Craft installation to test your changes to this plugin before submitting a Pull Request
 ```bash
-phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/youtube/phpunit.xml.dist --coverage-clover coverage.clover craft/plugins/youtube/tests
+phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/youtube/phpunit.xml.dist --coverage-text craft/plugins/youtube/tests
 ```
 
 Changelog
 =================
+###0.6.0###
+ - Updated YouTube API and implementation
+
 ###0.5.0###
  - Added the ability to manually set a timeout per step via the config
  - Clean up the temporary video file after conversion
