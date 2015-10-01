@@ -17,10 +17,7 @@
 include_once "templates/base.php";
 session_start();
 
-set_include_path("../src/" . PATH_SEPARATOR . get_include_path());
-require_once 'Google/Client.php';
-require_once 'Google/Service/YouTube.php';
-require_once 'Google/Service/Drive.php';
+require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
 
 /************************************************
   ATTENTION: Fill in these values! Make sure
@@ -91,28 +88,27 @@ if ($client->getAccessToken()) {
 }
 
 echo pageHeader("User Query - Multiple APIs");
-if (
-    $client_id == '<YOUR_CLIENT_ID>'
-    || $client_secret == '<YOUR_CLIENT_SECRET>'
-    || $redirect_uri == '<YOUR_REDIRECT_URI>') {
+if (strpos($client_id, "googleusercontent") == false) {
   echo missingClientSecretsWarning();
+  exit;
 }
 ?>
 <div class="box">
   <div class="request">
-    <?php if (isset($authUrl)) { ?>
-      <a class='login' href='<?php echo $authUrl; ?>'>Connect Me!</a>
-    <?php } else {
-      echo "<h3>Results Of Drive List:</h3>";
-      foreach ($dr_results as $item) {
-        echo $item->title, "<br /> \n";
-      }
+<?php 
+if (isset($authUrl)) {
+  echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
+} else {
+  echo "<h3>Results Of Drive List:</h3>";
+  foreach ($dr_results as $item) {
+    echo $item->title, "<br /> \n";
+  }
 
-      echo "<h3>Results Of YouTube Likes:</h3>";
-      foreach ($yt_results as $item) {
-        echo $item['snippet']['title'], "<br /> \n";
-      }
-    } ?>
+  echo "<h3>Results Of YouTube Likes:</h3>";
+  foreach ($yt_results as $item) {
+    echo $item['snippet']['title'], "<br /> \n";
+  }
+} ?>
   </div>
 </div>
 <?php echo pageFooter(__FILE__);

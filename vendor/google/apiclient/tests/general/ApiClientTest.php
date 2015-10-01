@@ -18,14 +18,10 @@
  * under the License.
  */
 
-require_once 'BaseTest.php';
-require_once 'Google/Auth/Exception.php';
-require_once 'Google/Auth/Simple.php';
-require_once 'Google/Client.php';
-require_once 'Google/Service/Drive.php';
-
-class ApiClientTest extends BaseTest {
-  public function testClient() {
+class ApiClientTest extends BaseTest
+{
+  public function testClient()
+  {
     $client = new Google_Client();
     $client->setAccessType('foo');
     $client->setDeveloperKey('foo');
@@ -38,23 +34,31 @@ class ApiClientTest extends BaseTest {
     $this->assertEquals("{\"access_token\":\"1\"}", $client->getAccessToken());
   }
 
+  public function testClientConstructor()
+  {
+    $this->assertInstanceOf('Google_Client', $this->getClient());
+  }
+
   /**
    * @expectedException Google_Auth_Exception
    */
-  public function testPrepareInvalidScopes() {
+  public function testPrepareInvalidScopes()
+  {
     $client = new Google_Client();
 
     $scopes = $client->prepareScopes();
     $this->assertEquals("", $scopes);
   }
 
-  public function testNoAuthIsNull() {
+  public function testNoAuthIsNull()
+  {
     $client = new Google_Client();
 
     $this->assertNull($client->getAccessToken());
   }
 
-  public function testPrepareService() {
+  public function testPrepareService()
+  {
     $client = new Google_Client();
     $client->setScopes(array("scope1", "scope2"));
     $scopes = $client->prepareScopes();
@@ -63,7 +67,7 @@ class ApiClientTest extends BaseTest {
     $client->setScopes(array("", "scope2"));
     $scopes = $client->prepareScopes();
     $this->assertEquals(" scope2", $scopes);
-    
+
     $client->setScopes("scope2");
     $client->addScope("scope3");
     $client->addScope(array("scope4", "scope5"));
@@ -75,20 +79,24 @@ class ApiClientTest extends BaseTest {
     $client->setScopes(array("http://test.com", "scope2"));
     $scopes = $client->prepareScopes();
     $this->assertEquals("http://test.com scope2", $scopes);
-    $this->assertEquals(''
+    $this->assertEquals(
+        ''
         .  'https://accounts.google.com/o/oauth2/auth'
         . '?response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2F'
         . '&client_id=test1'
         . '&scope=http%3A%2F%2Ftest.com+scope2&access_type=online'
-        . '&approval_prompt=auto', $client->createAuthUrl());
-        
+        . '&approval_prompt=auto',
+        $client->createAuthUrl()
+    );
+
     // This should not trigger a request.
     $client->setDefer(true);
     $dr_service = new Google_Service_Drive($client);
     $this->assertInstanceOf('Google_Http_Request', $dr_service->files->listFiles());
   }
 
-  public function testSettersGetters() {
+  public function testSettersGetters()
+  {
     $client = new Google_Client();
     $client->setClientId("client1");
     $client->setClientSecret('client1secret');
@@ -108,7 +116,7 @@ class ApiClientTest extends BaseTest {
     try {
       $client->setAccessToken(null);
       die('Should have thrown an Google_Auth_Exception.');
-    } catch(Google_Auth_Exception $e) {
+    } catch (Google_Auth_Exception $e) {
       $this->assertEquals('Could not json decode the token', $e->getMessage());
     }
 
@@ -117,32 +125,45 @@ class ApiClientTest extends BaseTest {
     $this->assertEquals($token, $client->getAccessToken());
   }
 
-  public function testAppEngineAutoConfig() {
-    if (!class_exists("Memcached")) {
-      $this->markTestSkipped('Test requires memcache');
-    }
+  /**
+   * @requires extension Memcached
+   */
+  public function testAppEngineAutoConfig()
+  {
     $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
     $client = new Google_Client();
     $this->assertInstanceOf('Google_Cache_Memcache', $client->getCache());
+    $this->assertInstanceOf('Google_Io_Stream', $client->getIo());
     unset($_SERVER['SERVER_SOFTWARE']);
   }
-  
-    public function testJsonConfig() {
-        // Device config
+
+  public function testJsonConfig()
+  {
+    // Device config
     $config = new Google_Config();
     $client = new Google_Client($config);
-    $device = '{"installed":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret":"N0aHCBT1qX1VAcF5J1pJAn6S","token_uri":"https://accounts.google.com/o/oauth2/token","client_email":"","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","oob"],"client_x509_cert_url":"","client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs"}}';
+    $device =
+    '{"installed":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret"'.
+    ':"N0aHCBT1qX1VAcF5J1pJAn6S","token_uri":"https://accounts.google.com/o/oauth2/token",'.
+    '"client_email":"","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","oob"],"client_x509_cert_url"'.
+    ':"","client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":'.
+    '"https://www.googleapis.com/oauth2/v1/certs"}}';
     $dObj = json_decode($device);
     $client->setAuthConfig($device);
     $cfg = $config->getClassConfig('Google_Auth_OAuth2');
     $this->assertEquals($cfg['client_id'], $dObj->installed->client_id);
     $this->assertEquals($cfg['client_secret'], $dObj->installed->client_secret);
     $this->assertEquals($cfg['redirect_uri'], $dObj->installed->redirect_uris[0]);
-    
-    // Web config 
+
+    // Web config
     $config = new Google_Config();
     $client = new Google_Client($config);
-    $web = '{"web":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret":"lpoubuib8bj-Fmke_YhhyHGgXc","token_uri":"https://accounts.google.com/o/oauth2/token","client_email":"123456789@developer.gserviceaccount.com","client_x509_cert_url":"https://www.googleapis.com/robot/v1/metadata/x509/123456789@developer.gserviceaccount.com","client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs"}}';
+    $web = '{"web":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret"' .
+      ':"lpoubuib8bj-Fmke_YhhyHGgXc","token_uri":"https://accounts.google.com/o/oauth2/token"' .
+      ',"client_email":"123456789@developer.gserviceaccount.com","client_x509_cert_url":'.
+      '"https://www.googleapis.com/robot/v1/metadata/x509/123456789@developer.gserviceaccount.com"'.
+      ',"client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":'.
+      '"https://www.googleapis.com/oauth2/v1/certs"}}';
     $wObj = json_decode($web);
     $client->setAuthConfig($web);
     $cfg = $config->getClassConfig('Google_Auth_OAuth2');
@@ -150,10 +171,42 @@ class ApiClientTest extends BaseTest {
     $this->assertEquals($cfg['client_secret'], $wObj->web->client_secret);
     $this->assertEquals($cfg['redirect_uri'], '');
   }
-  
-  public function testIniConfig() {
+
+  public function testIniConfig()
+  {
     $config = new Google_Config(__DIR__ . "/testdata/test.ini");
     $this->assertEquals('My Test application', $config->getApplicationName());
-    $this->assertEquals('gjfiwnGinpena3', $config->getClassConfig('Google_Auth_OAuth2', 'client_secret'));
+    $this->assertEquals(
+        'gjfiwnGinpena3',
+        $config->getClassConfig('Google_Auth_OAuth2', 'client_secret')
+    );
+    $this->assertInternalType(
+        'array',
+        $config->getClassConfig('Google_IO_Abstract')
+    );
+    $this->assertEquals(
+        100,
+        $config->getClassConfig('Google_IO_Abstract', 'request_timeout_seconds')
+    );
+  }
+
+  public function testServiceAccountJson()
+  {
+    $client = new Google_Client();
+    $c = $client->loadServiceAccountJson(
+        __DIR__ . "/testdata/service-12345.json",
+        array()
+    );
+    $this->assertInstanceOf('Google_Auth_AssertionCredentials', $c);
+  }
+
+  public function testRsaServiceAccountJson()
+  {
+    $client = new Google_Client();
+    $c = $client->loadServiceAccountJson(
+        __DIR__ . "/testdata/service-rsa-12345.json",
+        array()
+    );
+    $this->assertInstanceOf('Google_Auth_AssertionCredentials', $c);
   }
 }

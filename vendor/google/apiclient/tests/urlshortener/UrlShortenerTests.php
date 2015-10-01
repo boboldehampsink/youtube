@@ -15,19 +15,19 @@
  * limitations under the License.
  */
 
-require_once 'Google/Client.php';
-require_once 'Google/Service/Urlshortener.php';
-
-class UrlShortenerTests extends BaseTest {
+class UrlShortenerTests extends BaseTest
+{
   /** @var Google_UrlshortenerService */
   public $service;
 
-  public function __construct() {
+  public function __construct()
+  {
     parent::__construct();
     $this->service = new Google_Service_Urlshortener($this->getClient());
   }
 
-  public function testUrlShort() {
+  public function testUrlShort()
+  {
     $url = new Google_Service_Urlshortener_Url();
     $url->longUrl = "http://google.com";
 
@@ -36,7 +36,8 @@ class UrlShortenerTests extends BaseTest {
     $this->assertEquals('http://google.com/', $shortUrl['longUrl']);
   }
 
-  public function testEmptyJsonResponse() {
+  public function testEmptyJsonResponse()
+  {
     $optParams = array('fields' => '');
     $resp = $this->service->url->get('http://goo.gl/KkHq8', $optParams);
 

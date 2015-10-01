@@ -25,9 +25,7 @@ echo pageHeader("Simple API Access");
   should use our quota, which is higher than the
   anonymous quota (which is limited per IP).
  ************************************************/
-set_include_path("../src/" . PATH_SEPARATOR . get_include_path());
-require_once 'Google/Client.php';
-require_once 'Google/Service/Books.php';
+require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
 
 /************************************************
   We create the client and set the simple API
@@ -39,8 +37,9 @@ $client = new Google_Client();
 $client->setApplicationName("Client_Library_Examples");
 $apiKey = "<YOUR_API_KEY>"; // Change this line.
 // Warn if the API key isn't changed.
-if ($apiKey == '<YOUR_API_KEY>') {
+if (strpos($apiKey, "<") !== false) {
   echo missingApiKeyWarning();
+  exit;
 }
 $client->setDeveloperKey($apiKey);
 

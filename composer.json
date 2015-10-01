@@ -27,7 +27,7 @@
     "type": "craft-plugin",
     "require": {
         "composer/installers": "~1.0",
-        "google/apiclient": "1.0.*@beta",
+        "google/apiclient": "^1.1.5",
         "dukt/oauth": "^0.9.72"
     },
     "scripts": {

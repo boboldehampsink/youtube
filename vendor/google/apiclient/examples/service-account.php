@@ -21,9 +21,7 @@ include_once "templates/base.php";
   Make an API request authenticated with a service
   account.
  ************************************************/
-set_include_path("../src/" . PATH_SEPARATOR . get_include_path());
-require_once 'Google/Client.php';
-require_once 'Google/Service/Books.php';
+require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
 
 /************************************************
   ATTENTION: Fill in these values! You can get
@@ -39,14 +37,15 @@ require_once 'Google/Service/Books.php';
   account as well, or the call will fail.
  ************************************************/
 $client_id = '<YOUR_CLIENT_ID>'; //Client ID
-$service_account_name = ''; //Email Address 
+$service_account_name = ''; //Email Address
 $key_file_location = ''; //key.p12
 
 echo pageHeader("Service Account Access");
-if ($client_id == '<YOUR_CLIENT_ID>'
+if (strpos($client_id, "googleusercontent") == false
     || !strlen($service_account_name)
     || !strlen($key_file_location)) {
   echo missingServiceAccountDetailsWarning();
+  exit;
 }
 
 $client = new Google_Client();
@@ -71,7 +70,7 @@ $cred = new Google_Auth_AssertionCredentials(
     $key
 );
 $client->setAssertionCredentials($cred);
-if($client->getAuth()->isAccessTokenExpired()) {
+if ($client->getAuth()->isAccessTokenExpired()) {
   $client->getAuth()->refreshTokenWithAssertion($cred);
 }
 $_SESSION['service_token'] = $client->getAccessToken();

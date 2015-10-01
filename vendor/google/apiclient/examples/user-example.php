@@ -17,9 +17,7 @@
 include_once "templates/base.php";
 session_start();
 
-set_include_path("../src/" . PATH_SEPARATOR . get_include_path());
-require_once 'Google/Client.php';
-require_once 'Google/Service/Urlshortener.php';
+require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
 
 /************************************************
   ATTENTION: Fill in these values! Make sure
@@ -100,31 +98,35 @@ if ($client->getAccessToken() && isset($_GET['url'])) {
 }
 
 echo pageHeader("User Query - URL Shortener");
-if (
-    $client_id == '<YOUR_CLIENT_ID>'
-    || $client_secret == '<YOUR_CLIENT_SECRET>'
-    || $redirect_uri == '<YOUR_REDIRECT_URI>') {
+if (strpos($client_id, "googleusercontent") == false) {
   echo missingClientSecretsWarning();
+  exit;
 }
 ?>
 <div class="box">
   <div class="request">
-    <?php if (isset($authUrl)): ?>
-      <a class='login' href='<?php echo $authUrl; ?>'>Connect Me!</a>
-    <?php else: ?>
-      <form id="url" method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <input name="url" class="url" type="text">
-        <input type="submit" value="Shorten">
-      </form>
-      <a class='logout' href='?logout'>Logout</a>
-    <?php endif ?>
+<?php 
+if (isset($authUrl)) {
+  echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
+} else {
+  echo <<<END
+    <form id="url" method="GET" action="{$_SERVER['PHP_SELF']}">
+      <input name="url" class="url" type="text">
+      <input type="submit" value="Shorten">
+    </form>
+    <a class='logout' href='?logout'>Logout</a>
+END;
+}
+?>
   </div>
 
-  <?php if (isset($short)): ?>
-    <div class="shortened">
-      <?php var_dump($short); ?>
-    </div>
-  <?php endif ?>
+  <div class="shortened">
+<?php
+if (isset($short)) {
+  var_dump($short);
+}
+?>
+  </div>
 </div>
 <?php
 echo pageFooter(__FILE__);

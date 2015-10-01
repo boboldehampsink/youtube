@@ -18,15 +18,10 @@
  * under the License.
  */
 
-require_once 'BaseTest.php';
-require_once 'Google/Cache/File.php';
-require_once 'Google/Cache/Memcache.php';
-require_once 'Google/Cache/Apc.php';
-require_once 'Google/Cache/Null.php';
-
-class CacheTest extends BaseTest {
-
-  public function testFile() {
+class CacheTest extends BaseTest
+{
+  public function testFile()
+  {
     $dir = sys_get_temp_dir() . '/google-api-php-client/tests';
     $client = $this->getClient();
     $client->setClassConfig(
@@ -41,11 +36,11 @@ class CacheTest extends BaseTest {
     $this->getSetDelete($cache);
   }
 
+  /**
+   * @requires extension Memcache
+   */
   public function testNull()
   {
-    if (!function_exists('memcache_connect')) {
-      $this->markTestSkipped('Test requires memcache');
-    }
     $client = $this->getClient();
     $cache = new Google_Cache_Null($client);
     $client->setCache($cache);
@@ -65,10 +60,11 @@ class CacheTest extends BaseTest {
     $this->assertEquals($cache->get('foo'), false);
   }
 
-  public function testMemcache() {
-    if (!function_exists('memcache_connect')) {
-      $this->markTestSkipped('Test requires memcache');
-    }
+  /**
+   * @requires extension Memcache
+   */
+  public function testMemcache()
+  {
     $client = $this->getClient();
     if (!$client->getClassConfig('Google_Cache_Memcache', 'host')) {
       $this->markTestSkipped('Test requires memcache host specified');
@@ -79,20 +75,22 @@ class CacheTest extends BaseTest {
     $this->getSetDelete($cache);
   }
 
-  public function testAPC() {
-    if (!function_exists('apc_add')) {
-      $this->markTestSkipped('Test requires APC');
-    }
+  /**
+   * @requires extension APC
+   */
+  public function testAPC()
+  {
     if (!ini_get('apc.enable_cli')) {
       $this->markTestSkipped('Test requires APC enabled for CLI');
     }
     $client = $this->getClient();
-    $cache = new Google_Cache_APC($client);
+    $cache = new Google_Cache_Apc($client);
 
     $this->getSetDelete($cache);
   }
 
-  public function getSetDelete($cache) {
+  public function getSetDelete($cache)
+  {
     $cache->set('foo', 'bar');
     $cache->delete('foo');
     $this->assertEquals(false, $cache->get('foo'));
