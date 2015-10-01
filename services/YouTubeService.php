@@ -61,10 +61,8 @@ class YouTubeService extends BaseApplicationComponent
      */
     public function process(BaseElementModel $element, AssetFileModel $asset, $handle)
     {
-        // Check if we have this asset already
+        // Check if we have this asset already or upload to YouTube
         if (!($youTubeId = $this->exists($asset))) {
-
-            // Upload to YouTube
             try {
                 $youTubeId = $this->assemble($asset);
             } catch (Exception $e) {
@@ -102,8 +100,6 @@ class YouTubeService extends BaseApplicationComponent
     {
         // Check if we have this exist cached already
         if (!isset($this->exists[$asset->id])) {
-
-            // Get asset file hash
             $hash = $this->getAssetFileHash($asset);
 
             // Look up in db
@@ -133,7 +129,6 @@ class YouTubeService extends BaseApplicationComponent
         $this->authenticate();
 
         try {
-
             // Create YouTube Video snippet
             $snippet = $this->createVideoSnippet($asset);
 
@@ -157,7 +152,6 @@ class YouTubeService extends BaseApplicationComponent
 
         // Validate status
         if ($status instanceof \Google_Service_YouTube_Video) {
-
             // Save hash
             $this->saveHash($asset, $status->id);
 
@@ -262,7 +256,6 @@ class YouTubeService extends BaseApplicationComponent
 
         // Verify the client
         if ($this->client instanceof \Google_Client) {
-
             // Setting the defer flag to true tells the client to return a request which can be called
             // with ->execute(); instead of making the API call immediately.
             $this->client->setDefer(true);
@@ -299,21 +292,52 @@ class YouTubeService extends BaseApplicationComponent
      */
     protected function uploadChunks($file, \Google_Http_MediaFileUpload $media, $chunkSizeBytes)
     {
+        // Upload the various chunks. $status will be false until the process is complete.
         $status = false;
-
-        // Upload in chunks
         $handle = fopen($file, 'rb');
         while (!$status && !feof($handle)) {
-            $chunk = fread($handle, $chunkSizeBytes);
+            $chunk = $this->readVideoChunk($handle, $chunkSizeBytes);
             $status = $media->nextChunk($chunk);
         }
+
+        // The final value of $status will be the data from the API for the object
+        // that has been uploaded.
+        $result = false;
+        if ($status != false) {
+            $result = $status;
+        }
+
         fclose($handle);
 
         // Remove the local asset file
         IOHelper::deleteFile($file);
 
         // Return YouTube ID or false
-        return $status;
+        return $result;
+    }
+
+    /**
+     * fread will never return more than 8192 bytes if the stream is read buffered and it does not represent a plain file.
+     *
+     * @param resource $handle
+     * @param int      $chunkSize
+     *
+     * @return string
+     */
+    protected function readVideoChunk($handle, $chunkSize)
+    {
+        $byteCount = 0;
+        $giantChunk = '';
+        while (!feof($handle)) {
+            $chunk = fread($handle, 8192);
+            $byteCount += strlen($chunk);
+            $giantChunk .= $chunk;
+            if ($byteCount >= $chunkSize) {
+                return $giantChunk;
+            }
+        }
+
+        return $giantChunk;
     }
 
     /**
@@ -326,7 +350,6 @@ class YouTubeService extends BaseApplicationComponent
     {
         // Check if its new
         if (!$this->exists($asset)) {
-
             // Get asset file hash
             $hash = $this->getAssetFileHash($asset);
 
@@ -349,7 +372,6 @@ class YouTubeService extends BaseApplicationComponent
     {
         // Check if we have this filenname cached already
         if (!isset($this->assets[$asset->id])) {
-
             // Get asset source
             $source = $asset->getSource();
 
@@ -374,7 +396,6 @@ class YouTubeService extends BaseApplicationComponent
     {
         // Check if we have this hash cached already
         if (!isset($this->hashes[$asset->id])) {
-
             // Get asset file
             $file = $this->getAssetFile($asset);
 
