@@ -15,11 +15,11 @@
             "type": "package",
             "package": {
                 "name": "dukt/oauth",
-                "version": "0.9.72",
+                "version": "0.9.73",
                 "dist": {
                     "type": "zip",
                     "url": "https://dukt.net/craft/oauth/download",
-                    "reference": "0.9.72"
+                    "reference": "0.9.73"
                 }
             }
         }
@@ -32,14 +32,14 @@
         "ext-mcrypt": "*",
         "composer/installers": "~1.0",
         "google/apiclient": "^1.1.5",
-        "dukt/oauth": "^0.9.72"
+        "dukt/oauth": "^0.9.73"
     },
     "scripts": {
         "post-install-cmd": [
-            "if test -d vendor/dukt/oauth/oauth; then mv vendor/dukt/oauth/oauth ../ && rm -rf vendor/dukt; else echo 1; fi"
+            "if test -d vendor/dukt/oauth; then mv vendor/dukt/oauth ../ && rm -rf vendor/dukt; else echo 1; fi"
         ],
         "post-update-cmd": [
-            "if test -d vendor/dukt/oauth/oauth; then mv vendor/dukt/oauth/oauth ../ && rm -rf vendor/dukt; else echo 1; fi"
+            "if test -d vendor/dukt/oauth; then mv vendor/dukt/oauth ../ && rm -rf vendor/dukt; else echo 1; fi"
         ]
     }
 }

@@ -143,12 +143,12 @@
     },
     {
         "name": "dukt/oauth",
-        "version": "0.9.72",
-        "version_normalized": "0.9.72.0",
+        "version": "0.9.73",
+        "version_normalized": "0.9.73.0",
         "dist": {
             "type": "zip",
             "url": "https://dukt.net/craft/oauth/download",
-            "reference": "0.9.72",
+            "reference": "0.9.73",
             "shasum": null
         },
         "type": "library",
