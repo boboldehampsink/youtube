@@ -34,7 +34,9 @@ phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/
 Changelog
 =================
 ###0.6.0###
+ - Verify if element still exists before starting a task
  - Updated YouTube API and implementation
+ - Updated OAuth plugin dependency
 
 ###0.5.0###
  - Added the ability to manually set a timeout per step via the config
