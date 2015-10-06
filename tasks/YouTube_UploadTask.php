@@ -23,9 +23,9 @@ class YouTube_UploadTask extends BaseTask
     protected function defineSettings()
     {
         return array(
-            'element'   => AttributeType::Mixed,
-            'model'     => AttributeType::Mixed,
-            'assets'    => AttributeType::Mixed,
+            'id'     => AttributeType::Number,
+            'model'  => AttributeType::Mixed,
+            'assets' => AttributeType::Mixed,
         );
     }
 
@@ -70,11 +70,16 @@ class YouTube_UploadTask extends BaseTask
         // Get settings
         $settings = $this->getSettings();
 
+        // Get element
+        $element = craft()->elements->getElementById($settings->id);
+
+        // Check if element still exists
+        if (is_null($element)) {
+            return true;
+        }
+
         // Get asset
         $asset = craft()->assets->getFileById($settings->assets[$step]);
-
-        // Verify if element still exists
-        $element = craft()->elements->getElementById($settings->element->id);
 
         // Return process status
         return craft()->youTube->process($element, $asset, $settings->model->handle);

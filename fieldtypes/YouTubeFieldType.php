@@ -178,9 +178,9 @@ class YouTubeFieldType extends AssetsFieldType
 
             // Now its our turn
             craft()->tasks->createTask('YouTube_Upload', Craft::t('Uploading video(s) to YouTube'), array(
-                'element'   => $this->element,
-                'model'     => $this->model,
-                'assets'    => $this->elementIds,
+                'id'     => $this->element->id,
+                'model'  => $this->model,
+                'assets' => $this->elementIds,
             ));
 
         // Or proceed if we have to remove the relations
