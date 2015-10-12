@@ -235,7 +235,7 @@ class YouTubeFieldType extends AssetsFieldType
         if ($this->attribute instanceof ElementCriteriaModel && isset($posted[$handle]) && is_array($posted[$handle])) {
 
             // Only get new element id's
-            $this->elementIds = array_diff($posted[$handle], $this->attribute->ids());
+            $this->elementIds = array_values(array_diff($posted[$handle], $this->attribute->ids()));
 
             // Proceed when there's something new
             return (bool) count($this->elementIds);
