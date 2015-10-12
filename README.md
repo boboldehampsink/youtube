@@ -33,6 +33,10 @@ phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/
 
 Changelog
 =================
+###0.6.1###
+ - Finish task when element doesn't exist anymore
+ - Only save element id values
+
 ###0.6.0###
  - Verify if element still exists before starting a task
  - Updated YouTube API and implementation
