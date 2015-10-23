@@ -84,7 +84,7 @@ class YouTubePlugin extends BasePlugin
             $user = craft()->users->getUserById($element->settings['user']);
 
             // Get name
-            $name = !empty($user->getFullName()) ? $user->getFullName() : $user->username;
+            $name = !empty($user->fullName) ? $user->fullName : $user->username;
 
             // Return name and link
             return '<a href="'.$user->getCpEditUrl().'">'.$name.'</a>';
