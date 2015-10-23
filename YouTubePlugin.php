@@ -63,7 +63,7 @@ class YouTubePlugin extends BasePlugin
      */
     public function modifyTaskManagerTableAttributes(array &$attributes, $source)
     {
-        if ($source == 'YouTube_Upload') {
+        if ($source == 'type:YouTube_Upload') {
             $attributes['user'] = Craft::t('User');
         }
     }
