@@ -33,6 +33,9 @@ phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/
 
 Changelog
 =================
+###0.6.2###
+ - Added user who created the task to the Task Manager plugin table, if installed
+
 ###0.6.1###
  - Finish task when element doesn't exist anymore
  - Only save element id values
