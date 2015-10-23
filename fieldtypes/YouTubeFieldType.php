@@ -176,11 +176,15 @@ class YouTubeFieldType extends AssetsFieldType
             // Let AssetsFieldType handle the default upload logics
             parent::onAfterElementSave();
 
+            // Get logged-in user
+            $user = craft()->userSesssion->getUser();
+
             // Now its our turn
             craft()->tasks->createTask('YouTube_Upload', Craft::t('Uploading video(s) to YouTube'), array(
                 'id'     => $this->element->id,
                 'model'  => $this->model,
                 'assets' => $this->elementIds,
+                'user'   => $user->id,
             ));
 
         // Or proceed if we have to remove the relations

@@ -26,6 +26,7 @@ class YouTube_UploadTask extends BaseTask
             'id'     => AttributeType::Number,
             'model'  => AttributeType::Mixed,
             'assets' => AttributeType::Mixed,
+            'user'   => AttributeType::Number,
         );
     }
 
