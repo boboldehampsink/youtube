@@ -56,6 +56,38 @@ class YouTubePlugin extends BasePlugin
     }
 
     /**
+     * Add user to task manager table.
+     *
+     * @param array       $attributes
+     * @param string|null $source
+     */
+    public function modifyTaskManagerTableAttributes(array &$attributes, $source)
+    {
+        if ($source == 'YouTube_Upload') {
+            $attributes['user'] = Craft::t('User');
+        }
+    }
+
+    /**
+     * Get task manager table attribute html.
+     *
+     * @param BaseElementModel $element
+     * @param string           $attribute
+     *
+     * @return string
+     */
+    public function getTaskManagerTableAttributeHtml(BaseElementModel $element, $attribute)
+    {
+        if ($attribute == 'user') {
+
+            // Get user
+            $user = craft()->users->getUserById($element->settings['user']);
+
+            return '<a href="'.$user->getCpEditUrl().'">'.$user->getFullName().'</a>';
+        }
+    }
+
+    /**
      * Define plugin settings.
      *
      * @return array
