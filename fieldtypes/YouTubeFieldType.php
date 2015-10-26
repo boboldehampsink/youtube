@@ -177,7 +177,7 @@ class YouTubeFieldType extends AssetsFieldType
             parent::onAfterElementSave();
 
             // Get logged-in user
-            $user = craft()->userSesssion->getUser();
+            $user = craft()->userSession->getUser();
 
             // Now its our turn
             craft()->tasks->createTask('YouTube_Upload', Craft::t('Uploading video(s) to YouTube'), array(
