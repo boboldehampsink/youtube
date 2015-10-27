@@ -34,7 +34,9 @@ phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/
 Changelog
 =================
 ###0.6.2###
+ - Removed the ability to manually set a timeout per step via the config
  - Added user who created the task to the Task Manager plugin table, if installed
+ - Updated YouTube API
 
 ###0.6.1###
  - Finish task when element doesn't exist anymore
