@@ -39,11 +39,8 @@
         "dukt/oauth": "^1.0.76"
     },
     "scripts": {
-        "post-install-cmd": [
-            "if test -d vendor/dukt/oauth; then mv vendor/dukt/oauth ../ && rm -rf vendor/dukt; else echo 1; fi"
-        ],
-        "post-update-cmd": [
-            "if test -d vendor/dukt/oauth; then mv vendor/dukt/oauth ../ && rm -rf vendor/dukt; else echo 1; fi"
+        "post-autoload-dump": [
+            "cp -r vendor/dukt/oauth ../"
         ]
     }
 }
