@@ -31,13 +31,13 @@ class YouTubeController extends BaseController
         $options = array(
             'plugin' => 'youtube',
             'provider' => 'google',
-            'scopes' => array(
+            'scope' => array(
                 'https://www.googleapis.com/auth/userinfo.profile',
                 'https://www.googleapis.com/auth/userinfo.email',
                 'https://www.googleapis.com/auth/youtube',
                 'https://www.googleapis.com/auth/youtube.upload',
             ),
-            'params' => array(
+            'authorizationOptions' => array(
                 'access_type' => 'offline',
                 'approval_prompt' => 'force',
             ),
