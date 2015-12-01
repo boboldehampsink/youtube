@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ec763693d5ebeaff1408dad3f0236288",
-    "content-hash": "5b17e93454ee535a29dd9565839bd91d",
+    "hash": "81a8be00cbc8faf86d7475b07e9c2f11",
+    "content-hash": "50ff3592635eac868ecde471f33aca1b",
     "packages": [
         {
             "name": "composer/installers",
@@ -107,11 +107,16 @@
         },
         {
             "name": "dukt/oauth",
-            "version": "0.9.73",
+            "version": "1.0.76",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dukt/craft-oauth",
+                "reference": "1.0.76"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://dukt.net/craft/oauth/download",
-                "reference": "0.9.73",
+                "url": "https://github.com/dukt/craft-oauth/archive/1.0.76.zip",
+                "reference": null,
                 "shasum": null
             },
             "type": "library"

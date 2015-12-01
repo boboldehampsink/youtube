@@ -15,11 +15,15 @@
             "type": "package",
             "package": {
                 "name": "dukt/oauth",
-                "version": "0.9.73",
+                "version": "1.0.76",
                 "dist": {
-                    "type": "zip",
-                    "url": "https://dukt.net/craft/oauth/download",
-                    "reference": "0.9.73"
+                    "url": "https://github.com/dukt/craft-oauth/archive/1.0.76.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://github.com/dukt/craft-oauth",
+                    "type": "git",
+                    "reference": "1.0.76"
                 }
             }
         }
@@ -32,7 +36,7 @@
         "ext-mcrypt": "*",
         "composer/installers": "~1.0",
         "google/apiclient": "^1.1.5",
-        "dukt/oauth": "^0.9.73"
+        "dukt/oauth": "^1.0.76"
     },
     "scripts": {
         "post-install-cmd": [
