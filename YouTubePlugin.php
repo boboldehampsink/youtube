@@ -127,11 +127,10 @@ class YouTubePlugin extends BasePlugin
                 // Get token
                 $token = craft()->youTube_oauth->getToken();
                 if ($token) {
-                    $provider->setToken($token);
 
                     // Get account
                     try {
-                        $account = $provider->getAccount();
+                        $account = $provider->getAccount($token);
 
                         if ($account) {
                             $options['account'] = $account;
