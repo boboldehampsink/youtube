@@ -33,6 +33,9 @@ phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/
 
 Changelog
 =================
+###0.6.3###
+ - Updated plugin to work with OAuth Plugin 1.0+
+
 ###0.6.2###
  - Removed the ability to manually set a timeout per step via the config
  - Added user who created the task to the Task Manager plugin table, if installed
