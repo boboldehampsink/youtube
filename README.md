@@ -33,6 +33,9 @@ phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/
 
 Changelog
 =================
+###0.6.4###
+ - Updated Google API client to 2.0.0
+
 ###0.6.3###
  - Updated plugin to work with OAuth Plugin 1.0+
  - Fix search keywords criteria
