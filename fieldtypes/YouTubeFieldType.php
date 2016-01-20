@@ -166,6 +166,29 @@ class YouTubeFieldType extends AssetsFieldType
     }
 
     /**
+     * Get search keywords.
+     *
+     * @param ElementCriteriaModel|array $criteria
+     *
+     * @return array
+     */
+    public function getSearchKeywords($criteria)
+    {
+        // Behave normally in cp
+        if (craft()->request->isCpRequest()) {
+            return parent::getSearchKeywords($criteria);
+        }
+
+        // Or parse youtube video models
+        $titles = array();
+        foreach ($criteria as $element) {
+            $titles[] = (string) $element;
+        }
+
+        return BaseFieldType::getSearchKeywords($titles);
+    }
+
+    /**
      * Send video off to YouTube after saving.
      */
     public function onAfterElementSave()

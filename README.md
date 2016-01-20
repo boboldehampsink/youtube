@@ -35,6 +35,7 @@ Changelog
 =================
 ###0.6.3###
  - Updated plugin to work with OAuth Plugin 1.0+
+ - Fix search keywords criteria
 
 ###0.6.2###
  - Removed the ability to manually set a timeout per step via the config
