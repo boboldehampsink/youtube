@@ -35,7 +35,7 @@
         "ext-mbstring": "*",
         "ext-mcrypt": "*",
         "composer/installers": "~1.0",
-        "google/apiclient": "^1.1.5",
+        "google/apiclient": "^2.0.0@RC",
         "dukt/oauth": "^1.0.79"
     },
     "scripts": {
