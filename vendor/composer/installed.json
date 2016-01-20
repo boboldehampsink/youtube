@@ -146,16 +146,16 @@
     },
     {
         "name": "dukt/oauth",
-        "version": "1.0.76",
-        "version_normalized": "1.0.76.0",
+        "version": "1.0.79",
+        "version_normalized": "1.0.79.0",
         "source": {
             "type": "git",
             "url": "https://github.com/dukt/craft-oauth",
-            "reference": "1.0.76"
+            "reference": "1.0.79"
         },
         "dist": {
             "type": "zip",
-            "url": "https://github.com/dukt/craft-oauth/archive/1.0.76.zip",
+            "url": "https://github.com/dukt/craft-oauth/archive/1.0.79.zip",
             "reference": null,
             "shasum": null
         },

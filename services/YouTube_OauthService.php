@@ -42,6 +42,7 @@ class YouTube_OauthService extends BaseApplicationComponent
         // Get plugin settings
         $this->settings = $this->plugin->getSettings();
     }
+
     /**
      * Get OAuth token.
      *
