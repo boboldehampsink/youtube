@@ -38,6 +38,16 @@ class YouTube_VideoModel extends BaseModel
     }
 
     /**
+     * Return ID as string.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->id;
+    }
+
+    /**
      * Return full YouTube (embed) url.
      *
      * @param bool $embed
