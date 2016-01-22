@@ -30,7 +30,7 @@
     ],
     "type": "craft-plugin",
     "require": {
-        "php": "^5.3",
+        "php": "^5.3|^7.0",
         "ext-gd": "*",
         "ext-mbstring": "*",
         "ext-mcrypt": "*",
