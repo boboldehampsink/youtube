@@ -69,13 +69,13 @@ class YouTube_UploadTask extends BaseTask
         // Get element
         $element = craft()->elements->getElementById($settings->id);
 
-        // Check if element still exists
-        if (is_null($element)) {
-            return true;
-        }
-
         // Get asset
         $asset = craft()->assets->getFileById($settings->assets[$step]);
+
+        // Check if element and asset still exists
+        if (is_null($element) || is_null($asset)) {
+            return true;
+        }
 
         // Return process status
         return craft()->youTube->process($element, $asset, $settings->model->handle);
