@@ -3638,7 +3638,7 @@ return array(
     'Google_Task_Exception' => $vendorDir . '/google/apiclient/src/Google/Task/Exception.php',
     'Google_Task_Retryable' => $vendorDir . '/google/apiclient/src/Google/Task/Retryable.php',
     'Google_Task_Runner' => $vendorDir . '/google/apiclient/src/Google/Task/Runner.php',
-    'Google_Utils_UriTemplate' => $vendorDir . '/google/apiclient/src/Google/Utils/UriTemplate.php',
+    'Google_Utils_UriTemplate' => $vendorDir . '/google/apiclient/src/Google/Utils/URITemplate.php',
     'GuzzleHttp\\Client' => $vendorDir . '/guzzlehttp/guzzle/src/Client.php',
     'GuzzleHttp\\ClientInterface' => $vendorDir . '/guzzlehttp/guzzle/src/ClientInterface.php',
     'GuzzleHttp\\Cookie\\CookieJar' => $vendorDir . '/guzzlehttp/guzzle/src/Cookie/CookieJar.php',
