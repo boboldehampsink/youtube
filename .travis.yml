@@ -30,7 +30,7 @@ before_script:
   - mkdir craft/storage
   - mkdir -p craft/plugins/youtube
   - for item in *; do if [[ ! "$item" == "craft" ]]; then mv $item craft/plugins/youtube; fi; done
-  - cd craft/plugins/youtube && composer update && cd ../../../
+  - cd craft/plugins/youtube && composer update --prefer-source --no-interaction && cd ../../../
   - cd craft/app
   - composer require mockery/mockery
   - cd ../..
