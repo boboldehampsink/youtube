@@ -176,7 +176,7 @@ class YouTube_ServiceTest extends BaseTest
             ->disableOriginalConstructor()
             ->getMock();
 
-        $sourceType = $this->getMockBaseAssetSourceType();
+        $sourceType = $this->getMockLocalAssetSourceType();
 
         $mock->expects($this->any())->method('getSourceType')->willReturn($sourceType);
 
@@ -184,13 +184,13 @@ class YouTube_ServiceTest extends BaseTest
     }
 
     /**
-     * Mock AssetSourceModel.
+     * Mock LocalAssetSourceType.
      *
      * @return AssetSourceModel|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function getMockBaseAssetSourceType()
+    private function getMockLocalAssetSourceType()
     {
-        $mock = $this->getMockBuilder('Craft\BaseAssetSourceType')
+        $mock = $this->getMockBuilder('Craft\LocalAssetSourceType')
             ->disableOriginalConstructor()
             ->getMock();
 
