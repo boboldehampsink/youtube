@@ -40,6 +40,48 @@ class Google_CacheTest extends BaseTest
     $this->getSetDelete($cache);
   }
 
+  public function testBaseCacheDirectoryPermissions()
+  {
+    $dir = sys_get_temp_dir() . '/google-api-php-client/tests/' . rand();
+    $cache = new Google_Cache_File($dir);
+    $cache->set('foo', 'bar');
+
+    $method = new ReflectionMethod($cache, 'getWriteableCacheFile');
+    $method->setAccessible(true);
+    $filename = $method->invoke($cache, 'foo');
+    $stat = stat($dir);
+
+    $this->assertEquals(0777 & ~umask(), $stat['mode'] & 0777);
+  }
+
+  public function testCacheDirectoryPermissions()
+  {
+    $dir = sys_get_temp_dir() . '/google-api-php-client/tests/' . rand();
+    $cache = new Google_Cache_File($dir);
+    $cache->set('foo', 'bar');
+
+    $method = new ReflectionMethod($cache, 'getWriteableCacheFile');
+    $method->setAccessible(true);
+    $filename = $method->invoke($cache, 'foo');
+    $stat = stat(dirname($filename));
+
+    $this->assertEquals(0700, $stat['mode'] & 0777);
+  }
+
+  public function testCacheFilePermissions()
+  {
+    $dir = sys_get_temp_dir() . '/google-api-php-client/tests/';
+    $cache = new Google_Cache_File($dir);
+    $cache->set('foo', 'bar');
+
+    $method = new ReflectionMethod($cache, 'getWriteableCacheFile');
+    $method->setAccessible(true);
+    $filename = $method->invoke($cache, 'foo');
+    $stat = stat($filename);
+
+    $this->assertEquals(0600, $stat['mode'] & 0777);
+  }
+
   public function testNull()
   {
     $cache = new Google_Cache_Null();

@@ -33,7 +33,7 @@ use Monolog\Handler\StreamHandler as MonologStreamHandler;
 
 /**
  * The Google API Client
- * http://code.google.com/p/google-api-php-client/
+ * https://github.com/google/google-api-php-client
  */
 class Google_Client
 {
@@ -197,7 +197,7 @@ class Google_Client
   /**
    * Fetches a fresh access token with a given assertion token.
    * @param $assertionCredentials optional.
-   * @return void
+   * @return array access token
    */
   public function fetchAccessTokenWithAssertion(ClientInterface $authHttp = null)
   {
@@ -327,7 +327,7 @@ class Google_Client
    *
    * @param GuzzleHttp\ClientInterface $http the http client object.
    * @param GuzzleHttp\ClientInterface $authHttp an http client for authentication.
-   * @return void
+   * @return GuzzleHttp\ClientInterface the http client object
    */
   public function authorize(ClientInterface $http = null, ClientInterface $authHttp = null)
   {
@@ -929,23 +929,7 @@ class Google_Client
    */
   public function getCache()
   {
-    if (!isset($this->cache)) {
-      $this->cache = $this->createDefaultCache();
-    }
-
     return $this->cache;
-  }
-
-  protected function createDefaultCache()
-  {
-    if ($this->isAppEngine()) {
-      $cache = new Google_Cache_Memcache();
-    } else {
-      $cacheDir = sys_get_temp_dir() . '/google-api-php-client';
-      $cache = new Google_Cache_File($cacheDir);
-    }
-
-    return $cache;
   }
 
   /**
@@ -1056,7 +1040,11 @@ class Google_Client
 
   protected function getAuthHandler()
   {
-    return Google_AuthHandler_AuthHandlerFactory::build($this->getCache());
+    // we intentionally do not use the cache because
+    // the underlying auth library's cache implementation
+    // is broken.
+    // @see https://github.com/google/google-api-php-client/issues/821
+    return Google_AuthHandler_AuthHandlerFactory::build();
   }
 
   private function createUserRefreshCredentials($scope, $refreshToken)
