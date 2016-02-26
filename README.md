@@ -33,6 +33,9 @@ phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/
 
 Changelog
 =================
+###0.6.5###
+ - Updated dependencies and fixed unit tests
+
 ###0.6.4###
  - Updated Google API client to 2.0.0
 
