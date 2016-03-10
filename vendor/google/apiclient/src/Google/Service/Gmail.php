@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
+ * Copyright 2016 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -19,7 +19,7 @@
  * Service definition for Gmail (v1).
  *
  * <p>
- * The Gmail REST API.</p>
+ * Access Gmail mailboxes including sending user email.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -173,13 +173,17 @@ class Google_Service_Gmail extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
+                'includeSpamTrash' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'send' => array(
@@ -226,7 +230,7 @@ class Google_Service_Gmail extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
+                'labelId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -234,7 +238,7 @@ class Google_Service_Gmail extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'labelId' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -343,7 +347,17 @@ class Google_Service_Gmail extends Google_Service
         'messages',
         array(
           'methods' => array(
-            'delete' => array(
+            'batchDelete' => array(
+              'path' => '{userId}/messages/batchDelete',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'delete' => array(
               'path' => '{userId}/messages/{id}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
@@ -372,14 +386,14 @@ class Google_Service_Gmail extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'format' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'metadataHeaders' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'format' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'import' => array(
@@ -395,15 +409,15 @@ class Google_Service_Gmail extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'processForCalendar' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
                 'internalDateSource' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'neverMarkSpam' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'processForCalendar' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
@@ -435,18 +449,6 @@ class Google_Service_Gmail extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'q' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'includeSpamTrash' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -455,6 +457,18 @@ class Google_Service_Gmail extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'q' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'modify' => array(
@@ -581,14 +595,14 @@ class Google_Service_Gmail extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'format' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'metadataHeaders' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'format' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'list' => array(
@@ -600,18 +614,6 @@ class Google_Service_Gmail extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'q' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'includeSpamTrash' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -620,6 +622,18 @@ class Google_Service_Gmail extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'q' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'modify' => array(
@@ -801,9 +815,11 @@ class Google_Service_Gmail_UsersDrafts_Resource extends Google_Service_Resource
    * used to indicate the authenticated user.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool includeSpamTrash Include drafts from SPAM and TRASH in the
+   * results.
+   * @opt_param string maxResults Maximum number of drafts to return.
    * @opt_param string pageToken Page token to retrieve a specific page of results
    * in the list.
-   * @opt_param string maxResults Maximum number of drafts to return.
    * @return Google_Service_Gmail_ListDraftsResponse
    */
   public function listUsersDrafts($userId, $optParams = array())
@@ -867,10 +883,10 @@ class Google_Service_Gmail_UsersHistory_Resource extends Google_Service_Resource
    * used to indicate the authenticated user.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string labelId Only return messages with a label matching the ID.
+   * @opt_param string maxResults The maximum number of history records to return.
    * @opt_param string pageToken Page token to retrieve a specific page of results
    * in the list.
-   * @opt_param string maxResults The maximum number of history records to return.
-   * @opt_param string labelId Only return messages with a label matching the ID.
    * @opt_param string startHistoryId Required. Returns history records after the
    * specified startHistoryId. The supplied startHistoryId should be obtained from
    * the historyId of a message, thread, or previous list response. History IDs
@@ -1012,6 +1028,22 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
 {
 
   /**
+   * Deletes many messages by message ID. Provides no guarantees that messages
+   * were not already deleted or even existed at all. (messages.batchDelete)
+   *
+   * @param string $userId The user's email address. The special value me can be
+   * used to indicate the authenticated user.
+   * @param Google_BatchDeleteMessagesRequest $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function batchDelete($userId, Google_Service_Gmail_BatchDeleteMessagesRequest $postBody, $optParams = array())
+  {
+    $params = array('userId' => $userId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchDelete', array($params));
+  }
+
+  /**
    * Immediately and permanently deletes the specified message. This operation
    * cannot be undone. Prefer messages.trash instead. (messages.delete)
    *
@@ -1035,9 +1067,9 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
    * @param string $id The ID of the message to retrieve.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string format The format to return the message in.
    * @opt_param string metadataHeaders When given and format is METADATA, only
    * include headers specified.
-   * @opt_param string format The format to return the message in.
    * @return Google_Service_Gmail_Message
    */
   public function get($userId, $id, $optParams = array())
@@ -1060,12 +1092,12 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
    * @opt_param bool deleted Mark the email as permanently deleted (not TRASH) and
    * only visible in Google Apps Vault to a Vault administrator. Only used for
    * Google Apps for Work accounts.
-   * @opt_param bool processForCalendar Process calendar invites in the email and
-   * add any extracted meetings to the Google Calendar for this user.
    * @opt_param string internalDateSource Source for Gmail's internal date of the
    * message.
    * @opt_param bool neverMarkSpam Ignore the Gmail spam classifier decision and
    * never mark this email as SPAM in the mailbox.
+   * @opt_param bool processForCalendar Process calendar invites in the email and
+   * add any extracted meetings to the Google Calendar for this user.
    * @return Google_Service_Gmail_Message
    */
   public function import($userId, Google_Service_Gmail_Message $postBody, $optParams = array())
@@ -1106,16 +1138,16 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
    * used to indicate the authenticated user.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string maxResults Maximum number of messages to return.
-   * @opt_param string q Only return messages matching the specified query.
-   * Supports the same query format as the Gmail search box. For example,
-   * "from:someuser@example.com rfc822msgid: is:unread".
-   * @opt_param string pageToken Page token to retrieve a specific page of results
-   * in the list.
    * @opt_param bool includeSpamTrash Include messages from SPAM and TRASH in the
    * results.
    * @opt_param string labelIds Only return messages with labels that match all of
    * the specified label IDs.
+   * @opt_param string maxResults Maximum number of messages to return.
+   * @opt_param string pageToken Page token to retrieve a specific page of results
+   * in the list.
+   * @opt_param string q Only return messages matching the specified query.
+   * Supports the same query format as the Gmail search box. For example,
+   * "from:someuser@example.com rfc822msgid: is:unread".
    * @return Google_Service_Gmail_ListMessagesResponse
    */
   public function listUsersMessages($userId, $optParams = array())
@@ -1255,9 +1287,9 @@ class Google_Service_Gmail_UsersThreads_Resource extends Google_Service_Resource
    * @param string $id The ID of the thread to retrieve.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string format The format to return the messages in.
    * @opt_param string metadataHeaders When given and format is METADATA, only
    * include headers specified.
-   * @opt_param string format The format to return the messages in.
    * @return Google_Service_Gmail_Thread
    */
   public function get($userId, $id, $optParams = array())
@@ -1274,16 +1306,16 @@ class Google_Service_Gmail_UsersThreads_Resource extends Google_Service_Resource
    * used to indicate the authenticated user.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string maxResults Maximum number of threads to return.
-   * @opt_param string q Only return threads matching the specified query.
-   * Supports the same query format as the Gmail search box. For example,
-   * "from:someuser@example.com rfc822msgid: is:unread".
-   * @opt_param string pageToken Page token to retrieve a specific page of results
-   * in the list.
    * @opt_param bool includeSpamTrash Include threads from SPAM and TRASH in the
    * results.
    * @opt_param string labelIds Only return threads with labels that match all of
    * the specified label IDs.
+   * @opt_param string maxResults Maximum number of threads to return.
+   * @opt_param string pageToken Page token to retrieve a specific page of results
+   * in the list.
+   * @opt_param string q Only return threads matching the specified query.
+   * Supports the same query format as the Gmail search box. For example,
+   * "from:someuser@example.com rfc822msgid: is:unread".
    * @return Google_Service_Gmail_ListThreadsResponse
    */
   public function listUsersThreads($userId, $optParams = array())
@@ -1346,6 +1378,24 @@ class Google_Service_Gmail_UsersThreads_Resource extends Google_Service_Resource
 
 
 
+
+class Google_Service_Gmail_BatchDeleteMessagesRequest extends Google_Collection
+{
+  protected $collection_key = 'ids';
+  protected $internal_gapi_mappings = array(
+  );
+  public $ids;
+
+
+  public function setIds($ids)
+  {
+    $this->ids = $ids;
+  }
+  public function getIds()
+  {
+    return $this->ids;
+  }
+}
 
 class Google_Service_Gmail_Draft extends Google_Model
 {

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
+ * Copyright 2016 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -19,7 +19,7 @@
  * Service definition for SiteVerification (v1).
  *
  * <p>
- * Lets you programatically verify ownership of websites or domains with Google.</p>
+ * Verifies ownership of websites or domains with Google.</p>
  *
  * <p>
  * For more information about this service, see the API
