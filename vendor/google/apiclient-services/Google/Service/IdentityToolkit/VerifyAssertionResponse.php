@@ -43,6 +43,7 @@ class Google_Service_IdentityToolkit_VerifyAssertionResponse extends Google_Coll
   public $oauthAccessToken;
   public $oauthAuthorizationCode;
   public $oauthExpireIn;
+  public $oauthIdToken;
   public $oauthRequestToken;
   public $oauthScope;
   public $oauthTokenSecret;
@@ -252,6 +253,14 @@ class Google_Service_IdentityToolkit_VerifyAssertionResponse extends Google_Coll
   public function getOauthExpireIn()
   {
     return $this->oauthExpireIn;
+  }
+  public function setOauthIdToken($oauthIdToken)
+  {
+    $this->oauthIdToken = $oauthIdToken;
+  }
+  public function getOauthIdToken()
+  {
+    return $this->oauthIdToken;
   }
   public function setOauthRequestToken($oauthRequestToken)
   {

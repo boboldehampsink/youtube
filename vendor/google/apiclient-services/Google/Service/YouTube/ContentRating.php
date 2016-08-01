@@ -17,7 +17,7 @@
 
 class Google_Service_YouTube_ContentRating extends Google_Collection
 {
-  protected $collection_key = 'djctqRatingReasons';
+  protected $collection_key = 'fpbRatingReasons';
   public $acbRating;
   public $agcomRating;
   public $anatelRating;
@@ -47,6 +47,7 @@ class Google_Service_YouTube_ContentRating extends Google_Collection
   public $fcoRating;
   public $fmocRating;
   public $fpbRating;
+  public $fpbRatingReasons;
   public $fskRating;
   public $grfilmRating;
   public $icaaRating;
@@ -316,6 +317,14 @@ class Google_Service_YouTube_ContentRating extends Google_Collection
   public function getFpbRating()
   {
     return $this->fpbRating;
+  }
+  public function setFpbRatingReasons($fpbRatingReasons)
+  {
+    $this->fpbRatingReasons = $fpbRatingReasons;
+  }
+  public function getFpbRatingReasons()
+  {
+    return $this->fpbRatingReasons;
   }
   public function setFskRating($fskRating)
   {

@@ -15,10 +15,10 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_CloudWorkspaceId extends Google_Model
+class Google_Service_CloudDebugger_CloudWorkspaceId extends Google_Model
 {
   public $name;
-  protected $repoIdType = 'Google_Service_Clouddebugger_RepoId';
+  protected $repoIdType = 'Google_Service_CloudDebugger_RepoId';
   protected $repoIdDataType = '';
 
   public function setName($name)
@@ -29,7 +29,7 @@ class Google_Service_Clouddebugger_CloudWorkspaceId extends Google_Model
   {
     return $this->name;
   }
-  public function setRepoId(Google_Service_Clouddebugger_RepoId $repoId)
+  public function setRepoId(Google_Service_CloudDebugger_RepoId $repoId)
   {
     $this->repoId = $repoId;
   }

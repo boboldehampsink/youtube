@@ -22,9 +22,12 @@ class Google_Service_Books_VolumeUserInfo extends Google_Model
   protected $copyType = 'Google_Service_Books_VolumeUserInfoCopy';
   protected $copyDataType = '';
   public $entitlementType;
+  protected $familySharingType = 'Google_Service_Books_VolumeUserInfoFamilySharing';
+  protected $familySharingDataType = '';
   public $isFamilySharedFromUser;
   public $isFamilySharedToUser;
   public $isFamilySharingAllowed;
+  public $isFamilySharingDisabledByFop;
   public $isInMyBooks;
   public $isPreordered;
   public $isPurchased;
@@ -72,6 +75,14 @@ class Google_Service_Books_VolumeUserInfo extends Google_Model
   {
     return $this->entitlementType;
   }
+  public function setFamilySharing(Google_Service_Books_VolumeUserInfoFamilySharing $familySharing)
+  {
+    $this->familySharing = $familySharing;
+  }
+  public function getFamilySharing()
+  {
+    return $this->familySharing;
+  }
   public function setIsFamilySharedFromUser($isFamilySharedFromUser)
   {
     $this->isFamilySharedFromUser = $isFamilySharedFromUser;
@@ -95,6 +106,14 @@ class Google_Service_Books_VolumeUserInfo extends Google_Model
   public function getIsFamilySharingAllowed()
   {
     return $this->isFamilySharingAllowed;
+  }
+  public function setIsFamilySharingDisabledByFop($isFamilySharingDisabledByFop)
+  {
+    $this->isFamilySharingDisabledByFop = $isFamilySharingDisabledByFop;
+  }
+  public function getIsFamilySharingDisabledByFop()
+  {
+    return $this->isFamilySharingDisabledByFop;
   }
   public function setIsInMyBooks($isInMyBooks)
   {

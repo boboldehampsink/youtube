@@ -15,14 +15,14 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_StatusMessage extends Google_Model
+class Google_Service_CloudDebugger_StatusMessage extends Google_Model
 {
-  protected $descriptionType = 'Google_Service_Clouddebugger_FormatMessage';
+  protected $descriptionType = 'Google_Service_CloudDebugger_FormatMessage';
   protected $descriptionDataType = '';
   public $isError;
   public $refersTo;
 
-  public function setDescription(Google_Service_Clouddebugger_FormatMessage $description)
+  public function setDescription(Google_Service_CloudDebugger_FormatMessage $description)
   {
     $this->description = $description;
   }

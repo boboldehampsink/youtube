@@ -17,7 +17,7 @@
 
 class Google_Service_Container_Cluster extends Google_Collection
 {
-  protected $collection_key = 'instanceGroupUrls';
+  protected $collection_key = 'nodePools';
   protected $addonsConfigType = 'Google_Service_Container_AddonsConfig';
   protected $addonsConfigDataType = '';
   public $clusterIpv4Cidr;
@@ -30,6 +30,7 @@ class Google_Service_Container_Cluster extends Google_Collection
   public $initialClusterVersion;
   public $initialNodeCount;
   public $instanceGroupUrls;
+  public $locations;
   public $loggingService;
   protected $masterAuthType = 'Google_Service_Container_MasterAuth';
   protected $masterAuthDataType = '';
@@ -39,6 +40,8 @@ class Google_Service_Container_Cluster extends Google_Collection
   protected $nodeConfigType = 'Google_Service_Container_NodeConfig';
   protected $nodeConfigDataType = '';
   public $nodeIpv4CidrSize;
+  protected $nodePoolsType = 'Google_Service_Container_NodePool';
+  protected $nodePoolsDataType = 'array';
   public $selfLink;
   public $servicesIpv4Cidr;
   public $status;
@@ -134,6 +137,14 @@ class Google_Service_Container_Cluster extends Google_Collection
   {
     return $this->instanceGroupUrls;
   }
+  public function setLocations($locations)
+  {
+    $this->locations = $locations;
+  }
+  public function getLocations()
+  {
+    return $this->locations;
+  }
   public function setLoggingService($loggingService)
   {
     $this->loggingService = $loggingService;
@@ -189,6 +200,14 @@ class Google_Service_Container_Cluster extends Google_Collection
   public function getNodeIpv4CidrSize()
   {
     return $this->nodeIpv4CidrSize;
+  }
+  public function setNodePools($nodePools)
+  {
+    $this->nodePools = $nodePools;
+  }
+  public function getNodePools()
+  {
+    return $this->nodePools;
   }
   public function setSelfLink($selfLink)
   {

@@ -19,6 +19,7 @@ class Google_Service_Bigquery_ViewDefinition extends Google_Collection
 {
   protected $collection_key = 'userDefinedFunctionResources';
   public $query;
+  public $useLegacySql;
   protected $userDefinedFunctionResourcesType = 'Google_Service_Bigquery_UserDefinedFunctionResource';
   protected $userDefinedFunctionResourcesDataType = 'array';
 
@@ -29,6 +30,14 @@ class Google_Service_Bigquery_ViewDefinition extends Google_Collection
   public function getQuery()
   {
     return $this->query;
+  }
+  public function setUseLegacySql($useLegacySql)
+  {
+    $this->useLegacySql = $useLegacySql;
+  }
+  public function getUseLegacySql()
+  {
+    return $this->useLegacySql;
   }
   public function setUserDefinedFunctionResources($userDefinedFunctionResources)
   {

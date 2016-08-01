@@ -15,10 +15,10 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_CloudWorkspaceSourceContext extends Google_Model
+class Google_Service_CloudDebugger_CloudWorkspaceSourceContext extends Google_Model
 {
   public $snapshotId;
-  protected $workspaceIdType = 'Google_Service_Clouddebugger_CloudWorkspaceId';
+  protected $workspaceIdType = 'Google_Service_CloudDebugger_CloudWorkspaceId';
   protected $workspaceIdDataType = '';
 
   public function setSnapshotId($snapshotId)
@@ -29,7 +29,7 @@ class Google_Service_Clouddebugger_CloudWorkspaceSourceContext extends Google_Mo
   {
     return $this->snapshotId;
   }
-  public function setWorkspaceId(Google_Service_Clouddebugger_CloudWorkspaceId $workspaceId)
+  public function setWorkspaceId(Google_Service_CloudDebugger_CloudWorkspaceId $workspaceId)
   {
     $this->workspaceId = $workspaceId;
   }

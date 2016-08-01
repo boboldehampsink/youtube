@@ -19,9 +19,7 @@
  * Service definition for Genomics (v1).
  *
  * <p>
- * Stores, processes, explores and shares genomic data. This API implements the
- * Global Alliance for Genomics and Health (GA4GH) v0.5.1 API as well as several
- * extensions.</p>
+ * Stores, processes, explores and shares genomic data.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -75,7 +73,7 @@ class Google_Service_Genomics extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'genomics';
 
-    $this->annotations = new Google_Service_Genomics_AnnotationsResource(
+    $this->annotations = new Google_Service_Genomics_Resource_Annotations(
         $this,
         $this->serviceName,
         'annotations',
@@ -131,7 +129,7 @@ class Google_Service_Genomics extends Google_Service
           )
         )
     );
-    $this->annotationsets = new Google_Service_Genomics_AnnotationsetsResource(
+    $this->annotationsets = new Google_Service_Genomics_Resource_Annotationsets(
         $this,
         $this->serviceName,
         'annotationsets',
@@ -183,7 +181,7 @@ class Google_Service_Genomics extends Google_Service
           )
         )
     );
-    $this->callsets = new Google_Service_Genomics_CallsetsResource(
+    $this->callsets = new Google_Service_Genomics_Resource_Callsets(
         $this,
         $this->serviceName,
         'callsets',
@@ -235,7 +233,7 @@ class Google_Service_Genomics extends Google_Service
           )
         )
     );
-    $this->datasets = new Google_Service_Genomics_DatasetsResource(
+    $this->datasets = new Google_Service_Genomics_Resource_Datasets(
         $this,
         $this->serviceName,
         'datasets',
@@ -340,7 +338,7 @@ class Google_Service_Genomics extends Google_Service
           )
         )
     );
-    $this->operations = new Google_Service_Genomics_OperationsResource(
+    $this->operations = new Google_Service_Genomics_Resource_Operations(
         $this,
         $this->serviceName,
         'operations',
@@ -392,7 +390,7 @@ class Google_Service_Genomics extends Google_Service
           )
         )
     );
-    $this->readgroupsets = new Google_Service_Genomics_ReadgroupsetsResource(
+    $this->readgroupsets = new Google_Service_Genomics_Resource_Readgroupsets(
         $this,
         $this->serviceName,
         'readgroupsets',
@@ -454,7 +452,7 @@ class Google_Service_Genomics extends Google_Service
           )
         )
     );
-    $this->readgroupsets_coveragebuckets = new Google_Service_Genomics_ReadgroupsetsCoveragebucketsResource(
+    $this->readgroupsets_coveragebuckets = new Google_Service_Genomics_Resource_ReadgroupsetsCoveragebuckets(
         $this,
         $this->serviceName,
         'coveragebuckets',
@@ -498,7 +496,7 @@ class Google_Service_Genomics extends Google_Service
           )
         )
     );
-    $this->reads = new Google_Service_Genomics_ReadsResource(
+    $this->reads = new Google_Service_Genomics_Resource_Reads(
         $this,
         $this->serviceName,
         'reads',
@@ -516,7 +514,7 @@ class Google_Service_Genomics extends Google_Service
           )
         )
     );
-    $this->references = new Google_Service_Genomics_ReferencesResource(
+    $this->references = new Google_Service_Genomics_Resource_References(
         $this,
         $this->serviceName,
         'references',
@@ -540,7 +538,7 @@ class Google_Service_Genomics extends Google_Service
           )
         )
     );
-    $this->references_bases = new Google_Service_Genomics_ReferencesBasesResource(
+    $this->references_bases = new Google_Service_Genomics_Resource_ReferencesBases(
         $this,
         $this->serviceName,
         'bases',
@@ -576,7 +574,7 @@ class Google_Service_Genomics extends Google_Service
           )
         )
     );
-    $this->referencesets = new Google_Service_Genomics_ReferencesetsResource(
+    $this->referencesets = new Google_Service_Genomics_Resource_Referencesets(
         $this,
         $this->serviceName,
         'referencesets',
@@ -600,7 +598,7 @@ class Google_Service_Genomics extends Google_Service
           )
         )
     );
-    $this->variants = new Google_Service_Genomics_VariantsResource(
+    $this->variants = new Google_Service_Genomics_Resource_Variants(
         $this,
         $this->serviceName,
         'variants',
@@ -664,7 +662,7 @@ class Google_Service_Genomics extends Google_Service
           )
         )
     );
-    $this->variantsets = new Google_Service_Genomics_VariantsetsResource(
+    $this->variantsets = new Google_Service_Genomics_Resource_Variantsets(
         $this,
         $this->serviceName,
         'variantsets',

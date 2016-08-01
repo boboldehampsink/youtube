@@ -24,6 +24,8 @@ class Google_Service_Bigquery_JobStatistics2 extends Google_Collection
   protected $queryPlanDataType = 'array';
   protected $referencedTablesType = 'Google_Service_Bigquery_TableReference';
   protected $referencedTablesDataType = 'array';
+  protected $schemaType = 'Google_Service_Bigquery_TableSchema';
+  protected $schemaDataType = '';
   public $totalBytesBilled;
   public $totalBytesProcessed;
 
@@ -58,6 +60,14 @@ class Google_Service_Bigquery_JobStatistics2 extends Google_Collection
   public function getReferencedTables()
   {
     return $this->referencedTables;
+  }
+  public function setSchema(Google_Service_Bigquery_TableSchema $schema)
+  {
+    $this->schema = $schema;
+  }
+  public function getSchema()
+  {
+    return $this->schema;
   }
   public function setTotalBytesBilled($totalBytesBilled)
   {

@@ -38,6 +38,7 @@ class Google_Service_CloudResourceManager extends Google_Service
   const CLOUD_PLATFORM_READ_ONLY =
       "https://www.googleapis.com/auth/cloud-platform.read-only";
 
+  public $operations;
   public $projects;
   
   /**
@@ -53,7 +54,27 @@ class Google_Service_CloudResourceManager extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'cloudresourcemanager';
 
-    $this->projects = new Google_Service_CloudResourceManager_ProjectsResource(
+    $this->operations = new Google_Service_CloudResourceManager_Resource_Operations(
+        $this,
+        $this->serviceName,
+        'operations',
+        array(
+          'methods' => array(
+            'get' => array(
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->projects = new Google_Service_CloudResourceManager_Resource_Projects(
         $this,
         $this->serviceName,
         'projects',

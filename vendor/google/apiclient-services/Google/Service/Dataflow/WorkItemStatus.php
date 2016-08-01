@@ -19,6 +19,8 @@ class Google_Service_Dataflow_WorkItemStatus extends Google_Collection
 {
   protected $collection_key = 'metricUpdates';
   public $completed;
+  protected $counterUpdatesType = 'Google_Service_Dataflow_CounterUpdate';
+  protected $counterUpdatesDataType = 'array';
   protected $dynamicSourceSplitType = 'Google_Service_Dataflow_DynamicSourceSplit';
   protected $dynamicSourceSplitDataType = '';
   protected $errorsType = 'Google_Service_Dataflow_Status';
@@ -46,6 +48,14 @@ class Google_Service_Dataflow_WorkItemStatus extends Google_Collection
   public function getCompleted()
   {
     return $this->completed;
+  }
+  public function setCounterUpdates($counterUpdates)
+  {
+    $this->counterUpdates = $counterUpdates;
+  }
+  public function getCounterUpdates()
+  {
+    return $this->counterUpdates;
   }
   public function setDynamicSourceSplit(Google_Service_Dataflow_DynamicSourceSplit $dynamicSourceSplit)
   {

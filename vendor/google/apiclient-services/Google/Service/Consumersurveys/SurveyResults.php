@@ -15,7 +15,7 @@
  * the License.
  */
 
-class Google_Service_Consumersurveys_SurveyResults extends Google_Model
+class Google_Service_ConsumerSurveys_SurveyResults extends Google_Model
 {
   public $status;
   public $surveyUrlId;

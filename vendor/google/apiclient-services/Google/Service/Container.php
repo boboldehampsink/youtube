@@ -37,6 +37,7 @@ class Google_Service_Container extends Google_Service
 
   public $projects_zones;
   public $projects_zones_clusters;
+  public $projects_zones_clusters_nodePools;
   public $projects_zones_operations;
   
   /**
@@ -52,7 +53,7 @@ class Google_Service_Container extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'container';
 
-    $this->projects_zones = new Google_Service_Container_ProjectsZonesResource(
+    $this->projects_zones = new Google_Service_Container_Resource_ProjectsZones(
         $this,
         $this->serviceName,
         'zones',
@@ -77,7 +78,7 @@ class Google_Service_Container extends Google_Service
           )
         )
     );
-    $this->projects_zones_clusters = new Google_Service_Container_ProjectsZonesClustersResource(
+    $this->projects_zones_clusters = new Google_Service_Container_Resource_ProjectsZonesClusters(
         $this,
         $this->serviceName,
         'clusters',
@@ -177,7 +178,107 @@ class Google_Service_Container extends Google_Service
           )
         )
     );
-    $this->projects_zones_operations = new Google_Service_Container_ProjectsZonesOperationsResource(
+    $this->projects_zones_clusters_nodePools = new Google_Service_Container_Resource_ProjectsZonesClustersNodePools(
+        $this,
+        $this->serviceName,
+        'nodePools',
+        array(
+          'methods' => array(
+            'create' => array(
+              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'clusterId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'delete' => array(
+              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'clusterId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'nodePoolId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'clusterId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'nodePoolId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'clusterId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->projects_zones_operations = new Google_Service_Container_Resource_ProjectsZonesOperations(
         $this,
         $this->serviceName,
         'operations',

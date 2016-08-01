@@ -15,10 +15,10 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_ListBreakpointsResponse extends Google_Collection
+class Google_Service_CloudDebugger_ListBreakpointsResponse extends Google_Collection
 {
   protected $collection_key = 'breakpoints';
-  protected $breakpointsType = 'Google_Service_Clouddebugger_Breakpoint';
+  protected $breakpointsType = 'Google_Service_CloudDebugger_Breakpoint';
   protected $breakpointsDataType = 'array';
   public $nextWaitToken;
 

@@ -15,11 +15,11 @@
  * the License.
  */
 
-class Google_Service_Cloudtrace_ListTracesResponse extends Google_Collection
+class Google_Service_CloudTrace_ListTracesResponse extends Google_Collection
 {
   protected $collection_key = 'traces';
   public $nextPageToken;
-  protected $tracesType = 'Google_Service_Cloudtrace_Trace';
+  protected $tracesType = 'Google_Service_CloudTrace_Trace';
   protected $tracesDataType = 'array';
 
   public function setNextPageToken($nextPageToken)

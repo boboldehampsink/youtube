@@ -35,9 +35,11 @@ class Google_Service_Appengine extends Google_Service
       "https://www.googleapis.com/auth/cloud-platform";
 
   public $apps;
+  public $apps_locations;
   public $apps_operations;
   public $apps_services;
   public $apps_services_versions;
+  public $apps_services_versions_instances;
   
   /**
    * Constructs the internal representation of the Appengine service.
@@ -52,13 +54,17 @@ class Google_Service_Appengine extends Google_Service
     $this->version = 'v1beta5';
     $this->serviceName = 'appengine';
 
-    $this->apps = new Google_Service_Appengine_AppsResource(
+    $this->apps = new Google_Service_Appengine_Resource_Apps(
         $this,
         $this->serviceName,
         'apps',
         array(
           'methods' => array(
-            'get' => array(
+            'create' => array(
+              'path' => 'v1beta5/apps',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'get' => array(
               'path' => 'v1beta5/apps/{appsId}',
               'httpMethod' => 'GET',
               'parameters' => array(
@@ -76,7 +82,54 @@ class Google_Service_Appengine extends Google_Service
           )
         )
     );
-    $this->apps_operations = new Google_Service_Appengine_AppsOperationsResource(
+    $this->apps_locations = new Google_Service_Appengine_Resource_AppsLocations(
+        $this,
+        $this->serviceName,
+        'locations',
+        array(
+          'methods' => array(
+            'get' => array(
+              'path' => 'v1beta5/apps/{appsId}/locations/{locationsId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'appsId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'locationsId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v1beta5/apps/{appsId}/locations',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'appsId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->apps_operations = new Google_Service_Appengine_Resource_AppsOperations(
         $this,
         $this->serviceName,
         'operations',
@@ -123,7 +176,7 @@ class Google_Service_Appengine extends Google_Service
           )
         )
     );
-    $this->apps_services = new Google_Service_Appengine_AppsServicesResource(
+    $this->apps_services = new Google_Service_Appengine_Resource_AppsServices(
         $this,
         $this->serviceName,
         'services',
@@ -204,7 +257,7 @@ class Google_Service_Appengine extends Google_Service
           )
         )
     );
-    $this->apps_services_versions = new Google_Service_Appengine_AppsServicesVersionsResource(
+    $this->apps_services_versions = new Google_Service_Appengine_Resource_AppsServicesVersions(
         $this,
         $this->serviceName,
         'versions',
@@ -316,6 +369,119 @@ class Google_Service_Appengine extends Google_Service
                   'required' => true,
                 ),
                 'mask' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->apps_services_versions_instances = new Google_Service_Appengine_Resource_AppsServicesVersionsInstances(
+        $this,
+        $this->serviceName,
+        'instances',
+        array(
+          'methods' => array(
+            'debug' => array(
+              'path' => 'v1beta5/apps/{appsId}/services/{servicesId}/versions/{versionsId}/instances/{instancesId}:debug',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'appsId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'servicesId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'versionsId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instancesId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'delete' => array(
+              'path' => 'v1beta5/apps/{appsId}/services/{servicesId}/versions/{versionsId}/instances/{instancesId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'appsId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'servicesId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'versionsId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instancesId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'v1beta5/apps/{appsId}/services/{servicesId}/versions/{versionsId}/instances/{instancesId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'appsId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'servicesId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'versionsId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instancesId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v1beta5/apps/{appsId}/services/{servicesId}/versions/{versionsId}/instances',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'appsId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'servicesId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'versionsId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),

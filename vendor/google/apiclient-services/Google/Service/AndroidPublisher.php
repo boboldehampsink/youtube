@@ -47,6 +47,7 @@ class Google_Service_AndroidPublisher extends Google_Service
   public $inappproducts;
   public $purchases_products;
   public $purchases_subscriptions;
+  public $reviews;
   
   /**
    * Constructs the internal representation of the AndroidPublisher service.
@@ -61,7 +62,7 @@ class Google_Service_AndroidPublisher extends Google_Service
     $this->version = 'v2';
     $this->serviceName = 'androidpublisher';
 
-    $this->edits = new Google_Service_AndroidPublisher_EditsResource(
+    $this->edits = new Google_Service_AndroidPublisher_Resource_Edits(
         $this,
         $this->serviceName,
         'edits',
@@ -141,7 +142,7 @@ class Google_Service_AndroidPublisher extends Google_Service
           )
         )
     );
-    $this->edits_apklistings = new Google_Service_AndroidPublisher_EditsApklistingsResource(
+    $this->edits_apklistings = new Google_Service_AndroidPublisher_Resource_EditsApklistings(
         $this,
         $this->serviceName,
         'apklistings',
@@ -291,7 +292,7 @@ class Google_Service_AndroidPublisher extends Google_Service
           )
         )
     );
-    $this->edits_apks = new Google_Service_AndroidPublisher_EditsApksResource(
+    $this->edits_apks = new Google_Service_AndroidPublisher_Resource_EditsApks(
         $this,
         $this->serviceName,
         'apks',
@@ -346,7 +347,7 @@ class Google_Service_AndroidPublisher extends Google_Service
           )
         )
     );
-    $this->edits_details = new Google_Service_AndroidPublisher_EditsDetailsResource(
+    $this->edits_details = new Google_Service_AndroidPublisher_Resource_EditsDetails(
         $this,
         $this->serviceName,
         'details',
@@ -401,7 +402,7 @@ class Google_Service_AndroidPublisher extends Google_Service
           )
         )
     );
-    $this->edits_expansionfiles = new Google_Service_AndroidPublisher_EditsExpansionfilesResource(
+    $this->edits_expansionfiles = new Google_Service_AndroidPublisher_Resource_EditsExpansionfiles(
         $this,
         $this->serviceName,
         'expansionfiles',
@@ -511,7 +512,7 @@ class Google_Service_AndroidPublisher extends Google_Service
           )
         )
     );
-    $this->edits_images = new Google_Service_AndroidPublisher_EditsImagesResource(
+    $this->edits_images = new Google_Service_AndroidPublisher_Resource_EditsImages(
         $this,
         $this->serviceName,
         'images',
@@ -626,7 +627,7 @@ class Google_Service_AndroidPublisher extends Google_Service
           )
         )
     );
-    $this->edits_listings = new Google_Service_AndroidPublisher_EditsListingsResource(
+    $this->edits_listings = new Google_Service_AndroidPublisher_Resource_EditsListings(
         $this,
         $this->serviceName,
         'listings',
@@ -746,7 +747,7 @@ class Google_Service_AndroidPublisher extends Google_Service
           )
         )
     );
-    $this->edits_testers = new Google_Service_AndroidPublisher_EditsTestersResource(
+    $this->edits_testers = new Google_Service_AndroidPublisher_Resource_EditsTesters(
         $this,
         $this->serviceName,
         'testers',
@@ -816,7 +817,7 @@ class Google_Service_AndroidPublisher extends Google_Service
           )
         )
     );
-    $this->edits_tracks = new Google_Service_AndroidPublisher_EditsTracksResource(
+    $this->edits_tracks = new Google_Service_AndroidPublisher_Resource_EditsTracks(
         $this,
         $this->serviceName,
         'tracks',
@@ -901,7 +902,7 @@ class Google_Service_AndroidPublisher extends Google_Service
           )
         )
     );
-    $this->entitlements = new Google_Service_AndroidPublisher_EntitlementsResource(
+    $this->entitlements = new Google_Service_AndroidPublisher_Resource_Entitlements(
         $this,
         $this->serviceName,
         'entitlements',
@@ -937,7 +938,7 @@ class Google_Service_AndroidPublisher extends Google_Service
           )
         )
     );
-    $this->inappproducts = new Google_Service_AndroidPublisher_InappproductsResource(
+    $this->inappproducts = new Google_Service_AndroidPublisher_Resource_Inappproducts(
         $this,
         $this->serviceName,
         'inappproducts',
@@ -1055,7 +1056,7 @@ class Google_Service_AndroidPublisher extends Google_Service
           )
         )
     );
-    $this->purchases_products = new Google_Service_AndroidPublisher_PurchasesProductsResource(
+    $this->purchases_products = new Google_Service_AndroidPublisher_Resource_PurchasesProducts(
         $this,
         $this->serviceName,
         'products',
@@ -1085,7 +1086,7 @@ class Google_Service_AndroidPublisher extends Google_Service
           )
         )
     );
-    $this->purchases_subscriptions = new Google_Service_AndroidPublisher_PurchasesSubscriptionsResource(
+    $this->purchases_subscriptions = new Google_Service_AndroidPublisher_Resource_PurchasesSubscriptions(
         $this,
         $this->serviceName,
         'subscriptions',
@@ -1186,6 +1187,68 @@ class Google_Service_AndroidPublisher extends Google_Service
                   'required' => true,
                 ),
                 'token' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->reviews = new Google_Service_AndroidPublisher_Resource_Reviews(
+        $this,
+        $this->serviceName,
+        'reviews',
+        array(
+          'methods' => array(
+            'get' => array(
+              'path' => '{packageName}/reviews/{reviewId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'packageName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'reviewId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{packageName}/reviews',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'packageName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'startIndex' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'token' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'reply' => array(
+              'path' => '{packageName}/reviews/{reviewId}:reply',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'packageName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'reviewId' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,

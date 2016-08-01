@@ -21,6 +21,7 @@ class Google_Service_Container_ClusterUpdate extends Google_Model
   protected $desiredAddonsConfigDataType = '';
   public $desiredMasterVersion;
   public $desiredMonitoringService;
+  public $desiredNodePoolId;
   public $desiredNodeVersion;
 
   public function setDesiredAddonsConfig(Google_Service_Container_AddonsConfig $desiredAddonsConfig)
@@ -46,6 +47,14 @@ class Google_Service_Container_ClusterUpdate extends Google_Model
   public function getDesiredMonitoringService()
   {
     return $this->desiredMonitoringService;
+  }
+  public function setDesiredNodePoolId($desiredNodePoolId)
+  {
+    $this->desiredNodePoolId = $desiredNodePoolId;
+  }
+  public function getDesiredNodePoolId()
+  {
+    return $this->desiredNodePoolId;
   }
   public function setDesiredNodeVersion($desiredNodeVersion)
   {

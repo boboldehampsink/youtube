@@ -24,7 +24,6 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySignupNewUserReq
   public $idToken;
   public $instanceId;
   public $password;
-  public $returnSecureToken;
 
   public function setCaptchaChallenge($captchaChallenge)
   {
@@ -81,13 +80,5 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySignupNewUserReq
   public function getPassword()
   {
     return $this->password;
-  }
-  public function setReturnSecureToken($returnSecureToken)
-  {
-    $this->returnSecureToken = $returnSecureToken;
-  }
-  public function getReturnSecureToken()
-  {
-    return $this->returnSecureToken;
   }
 }

@@ -18,9 +18,19 @@
 class Google_Service_AdExchangeBuyer_CreativeCorrections extends Google_Collection
 {
   protected $collection_key = 'details';
+  protected $contextsType = 'Google_Service_AdExchangeBuyer_CreativeCorrectionsContexts';
+  protected $contextsDataType = 'array';
   public $details;
   public $reason;
 
+  public function setContexts($contexts)
+  {
+    $this->contexts = $contexts;
+  }
+  public function getContexts()
+  {
+    return $this->contexts;
+  }
   public function setDetails($details)
   {
     $this->details = $details;

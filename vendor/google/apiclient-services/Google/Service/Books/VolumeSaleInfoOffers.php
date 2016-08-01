@@ -18,6 +18,7 @@
 class Google_Service_Books_VolumeSaleInfoOffers extends Google_Model
 {
   public $finskyOfferType;
+  public $giftable;
   protected $listPriceType = 'Google_Service_Books_VolumeSaleInfoOffersListPrice';
   protected $listPriceDataType = '';
   protected $rentalDurationType = 'Google_Service_Books_VolumeSaleInfoOffersRentalDuration';
@@ -32,6 +33,14 @@ class Google_Service_Books_VolumeSaleInfoOffers extends Google_Model
   public function getFinskyOfferType()
   {
     return $this->finskyOfferType;
+  }
+  public function setGiftable($giftable)
+  {
+    $this->giftable = $giftable;
+  }
+  public function getGiftable()
+  {
+    return $this->giftable;
   }
   public function setListPrice(Google_Service_Books_VolumeSaleInfoOffersListPrice $listPrice)
   {

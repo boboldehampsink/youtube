@@ -18,6 +18,8 @@
 class Google_Service_Fitness_BucketByTime extends Google_Model
 {
   public $durationMillis;
+  protected $periodType = 'Google_Service_Fitness_BucketByTimePeriod';
+  protected $periodDataType = '';
 
   public function setDurationMillis($durationMillis)
   {
@@ -26,5 +28,13 @@ class Google_Service_Fitness_BucketByTime extends Google_Model
   public function getDurationMillis()
   {
     return $this->durationMillis;
+  }
+  public function setPeriod(Google_Service_Fitness_BucketByTimePeriod $period)
+  {
+    $this->period = $period;
+  }
+  public function getPeriod()
+  {
+    return $this->period;
   }
 }

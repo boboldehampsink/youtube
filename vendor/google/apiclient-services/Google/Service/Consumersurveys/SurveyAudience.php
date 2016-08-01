@@ -15,7 +15,7 @@
  * the License.
  */
 
-class Google_Service_Consumersurveys_SurveyAudience extends Google_Collection
+class Google_Service_ConsumerSurveys_SurveyAudience extends Google_Collection
 {
   protected $collection_key = 'languages';
   public $ages;
@@ -23,6 +23,7 @@ class Google_Service_Consumersurveys_SurveyAudience extends Google_Collection
   public $countrySubdivision;
   public $gender;
   public $languages;
+  public $mobileAppPanelId;
   public $populationSource;
 
   public function setAges($ages)
@@ -64,6 +65,14 @@ class Google_Service_Consumersurveys_SurveyAudience extends Google_Collection
   public function getLanguages()
   {
     return $this->languages;
+  }
+  public function setMobileAppPanelId($mobileAppPanelId)
+  {
+    $this->mobileAppPanelId = $mobileAppPanelId;
+  }
+  public function getMobileAppPanelId()
+  {
+    return $this->mobileAppPanelId;
   }
   public function setPopulationSource($populationSource)
   {

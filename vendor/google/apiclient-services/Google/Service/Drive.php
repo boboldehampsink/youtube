@@ -19,7 +19,8 @@
  * Service definition for Drive (v3).
  *
  * <p>
- * The API to interact with Drive.</p>
+ * Manages files in Drive including uploading, downloading, searching, detecting
+ * changes, and updating sharing permissions.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -77,7 +78,7 @@ class Google_Service_Drive extends Google_Service
     $this->version = 'v3';
     $this->serviceName = 'drive';
 
-    $this->about = new Google_Service_Drive_AboutResource(
+    $this->about = new Google_Service_Drive_Resource_About(
         $this,
         $this->serviceName,
         'about',
@@ -91,7 +92,7 @@ class Google_Service_Drive extends Google_Service
           )
         )
     );
-    $this->changes = new Google_Service_Drive_ChangesResource(
+    $this->changes = new Google_Service_Drive_Resource_Changes(
         $this,
         $this->serviceName,
         'changes',
@@ -157,7 +158,7 @@ class Google_Service_Drive extends Google_Service
           )
         )
     );
-    $this->channels = new Google_Service_Drive_ChannelsResource(
+    $this->channels = new Google_Service_Drive_Resource_Channels(
         $this,
         $this->serviceName,
         'channels',
@@ -171,7 +172,7 @@ class Google_Service_Drive extends Google_Service
           )
         )
     );
-    $this->comments = new Google_Service_Drive_CommentsResource(
+    $this->comments = new Google_Service_Drive_Resource_Comments(
         $this,
         $this->serviceName,
         'comments',
@@ -266,7 +267,7 @@ class Google_Service_Drive extends Google_Service
           )
         )
     );
-    $this->files = new Google_Service_Drive_FilesResource(
+    $this->files = new Google_Service_Drive_Resource_Files(
         $this,
         $this->serviceName,
         'files',
@@ -448,7 +449,7 @@ class Google_Service_Drive extends Google_Service
           )
         )
     );
-    $this->permissions = new Google_Service_Drive_PermissionsResource(
+    $this->permissions = new Google_Service_Drive_Resource_Permissions(
         $this,
         $this->serviceName,
         'permissions',
@@ -530,6 +531,10 @@ class Google_Service_Drive extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'removeExpiration' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'transferOwnership' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -539,7 +544,7 @@ class Google_Service_Drive extends Google_Service
           )
         )
     );
-    $this->replies = new Google_Service_Drive_RepliesResource(
+    $this->replies = new Google_Service_Drive_Resource_Replies(
         $this,
         $this->serviceName,
         'replies',
@@ -655,7 +660,7 @@ class Google_Service_Drive extends Google_Service
           )
         )
     );
-    $this->revisions = new Google_Service_Drive_RevisionsResource(
+    $this->revisions = new Google_Service_Drive_Resource_Revisions(
         $this,
         $this->serviceName,
         'revisions',

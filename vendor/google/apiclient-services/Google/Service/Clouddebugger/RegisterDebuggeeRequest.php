@@ -15,12 +15,12 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_RegisterDebuggeeRequest extends Google_Model
+class Google_Service_CloudDebugger_RegisterDebuggeeRequest extends Google_Model
 {
-  protected $debuggeeType = 'Google_Service_Clouddebugger_Debuggee';
+  protected $debuggeeType = 'Google_Service_CloudDebugger_Debuggee';
   protected $debuggeeDataType = '';
 
-  public function setDebuggee(Google_Service_Clouddebugger_Debuggee $debuggee)
+  public function setDebuggee(Google_Service_CloudDebugger_Debuggee $debuggee)
   {
     $this->debuggee = $debuggee;
   }

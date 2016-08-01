@@ -22,6 +22,7 @@ class Google_Service_Bigquery_DatasetListDatasets extends Google_Model
   public $friendlyName;
   public $id;
   public $kind;
+  public $labels;
 
   public function setDatasetReference(Google_Service_Bigquery_DatasetReference $datasetReference)
   {
@@ -54,5 +55,13 @@ class Google_Service_Bigquery_DatasetListDatasets extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setLabels($labels)
+  {
+    $this->labels = $labels;
+  }
+  public function getLabels()
+  {
+    return $this->labels;
   }
 }

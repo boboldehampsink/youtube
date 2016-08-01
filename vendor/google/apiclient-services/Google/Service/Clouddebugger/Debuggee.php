@@ -15,21 +15,21 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_Debuggee extends Google_Collection
+class Google_Service_CloudDebugger_Debuggee extends Google_Collection
 {
   protected $collection_key = 'sourceContexts';
   public $agentVersion;
   public $description;
-  protected $extSourceContextsType = 'Google_Service_Clouddebugger_ExtendedSourceContext';
+  protected $extSourceContextsType = 'Google_Service_CloudDebugger_ExtendedSourceContext';
   protected $extSourceContextsDataType = 'array';
   public $id;
   public $isDisabled;
   public $isInactive;
   public $labels;
   public $project;
-  protected $sourceContextsType = 'Google_Service_Clouddebugger_SourceContext';
+  protected $sourceContextsType = 'Google_Service_CloudDebugger_SourceContext';
   protected $sourceContextsDataType = 'array';
-  protected $statusType = 'Google_Service_Clouddebugger_StatusMessage';
+  protected $statusType = 'Google_Service_CloudDebugger_StatusMessage';
   protected $statusDataType = '';
   public $uniquifier;
 
@@ -105,7 +105,7 @@ class Google_Service_Clouddebugger_Debuggee extends Google_Collection
   {
     return $this->sourceContexts;
   }
-  public function setStatus(Google_Service_Clouddebugger_StatusMessage $status)
+  public function setStatus(Google_Service_CloudDebugger_StatusMessage $status)
   {
     $this->status = $status;
   }

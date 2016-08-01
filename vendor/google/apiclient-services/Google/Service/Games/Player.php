@@ -30,6 +30,8 @@ class Google_Service_Games_Player extends Google_Model
   protected $nameDataType = '';
   public $originalPlayerId;
   public $playerId;
+  protected $profileSettingsType = 'Google_Service_Games_ProfileSettings';
+  protected $profileSettingsDataType = '';
   public $title;
 
   public function setAvatarImageUrl($avatarImageUrl)
@@ -111,6 +113,14 @@ class Google_Service_Games_Player extends Google_Model
   public function getPlayerId()
   {
     return $this->playerId;
+  }
+  public function setProfileSettings(Google_Service_Games_ProfileSettings $profileSettings)
+  {
+    $this->profileSettings = $profileSettings;
+  }
+  public function getProfileSettings()
+  {
+    return $this->profileSettings;
   }
   public function setTitle($title)
   {

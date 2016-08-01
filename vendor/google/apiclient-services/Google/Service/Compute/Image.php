@@ -24,7 +24,10 @@ class Google_Service_Compute_Image extends Google_Collection
   protected $deprecatedDataType = '';
   public $description;
   public $diskSizeGb;
+  public $family;
   public $id;
+  protected $imageEncryptionKeyType = 'Google_Service_Compute_CustomerEncryptionKey';
+  protected $imageEncryptionKeyDataType = '';
   public $kind;
   public $licenses;
   public $name;
@@ -32,6 +35,8 @@ class Google_Service_Compute_Image extends Google_Collection
   protected $rawDiskDataType = '';
   public $selfLink;
   public $sourceDisk;
+  protected $sourceDiskEncryptionKeyType = 'Google_Service_Compute_CustomerEncryptionKey';
+  protected $sourceDiskEncryptionKeyDataType = '';
   public $sourceDiskId;
   public $sourceType;
   public $status;
@@ -76,6 +81,14 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->diskSizeGb;
   }
+  public function setFamily($family)
+  {
+    $this->family = $family;
+  }
+  public function getFamily()
+  {
+    return $this->family;
+  }
   public function setId($id)
   {
     $this->id = $id;
@@ -83,6 +96,14 @@ class Google_Service_Compute_Image extends Google_Collection
   public function getId()
   {
     return $this->id;
+  }
+  public function setImageEncryptionKey(Google_Service_Compute_CustomerEncryptionKey $imageEncryptionKey)
+  {
+    $this->imageEncryptionKey = $imageEncryptionKey;
+  }
+  public function getImageEncryptionKey()
+  {
+    return $this->imageEncryptionKey;
   }
   public function setKind($kind)
   {
@@ -131,6 +152,14 @@ class Google_Service_Compute_Image extends Google_Collection
   public function getSourceDisk()
   {
     return $this->sourceDisk;
+  }
+  public function setSourceDiskEncryptionKey(Google_Service_Compute_CustomerEncryptionKey $sourceDiskEncryptionKey)
+  {
+    $this->sourceDiskEncryptionKey = $sourceDiskEncryptionKey;
+  }
+  public function getSourceDiskEncryptionKey()
+  {
+    return $this->sourceDiskEncryptionKey;
   }
   public function setSourceDiskId($sourceDiskId)
   {

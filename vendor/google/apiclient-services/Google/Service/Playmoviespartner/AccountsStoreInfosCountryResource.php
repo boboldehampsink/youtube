@@ -35,7 +35,7 @@ class Google_Service_Playmoviespartner_AccountsStoreInfosCountryResource extends
    * @param string $videoId REQUIRED. Video ID.
    * @param string $country REQUIRED. Edit country.
    * @param array $optParams Optional parameters.
-   * @return Google_Service_StoreInfo
+   * @return Google_Service_Playmoviespartner_StoreInfo
    */
   public function get($accountId, $videoId, $country, $optParams = array())
   {

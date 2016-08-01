@@ -17,10 +17,38 @@
 
 class Google_Service_AndroidEnterprise_User extends Google_Model
 {
+  public $accountIdentifier;
+  public $accountType;
+  public $displayName;
   public $id;
   public $kind;
+  public $managementType;
   public $primaryEmail;
 
+  public function setAccountIdentifier($accountIdentifier)
+  {
+    $this->accountIdentifier = $accountIdentifier;
+  }
+  public function getAccountIdentifier()
+  {
+    return $this->accountIdentifier;
+  }
+  public function setAccountType($accountType)
+  {
+    $this->accountType = $accountType;
+  }
+  public function getAccountType()
+  {
+    return $this->accountType;
+  }
+  public function setDisplayName($displayName)
+  {
+    $this->displayName = $displayName;
+  }
+  public function getDisplayName()
+  {
+    return $this->displayName;
+  }
   public function setId($id)
   {
     $this->id = $id;
@@ -36,6 +64,14 @@ class Google_Service_AndroidEnterprise_User extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setManagementType($managementType)
+  {
+    $this->managementType = $managementType;
+  }
+  public function getManagementType()
+  {
+    return $this->managementType;
   }
   public function setPrimaryEmail($primaryEmail)
   {

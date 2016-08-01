@@ -19,8 +19,13 @@
  * Service definition for Monitoring (v3).
  *
  * <p>
- * The Google Monitoring API lets you manage your monitoring data and
- * configurations.</p>
+ * Manages your Stackdriver monitoring data and configurations. Projects must be
+ * associated with a Stackdriver account, except for the following methods: [mon
+ * itoredResourceDescriptors.list](v3/projects.monitoredResourceDescriptors/list
+ * ), [monitoredResourceDescriptors.get](v3/projects.monitoredResourceDescriptor
+ * s/get), [metricDescriptors.list](v3/projects.metricDescriptors/list),
+ * [metricDescriptors.get](v3/projects.metricDescriptors/get), and
+ * [timeSeries.list](v3/projects.timeSeries/list).</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -64,7 +69,7 @@ class Google_Service_Monitoring extends Google_Service
     $this->version = 'v3';
     $this->serviceName = 'monitoring';
 
-    $this->projects_collectdTimeSeries = new Google_Service_Monitoring_ProjectsCollectdTimeSeriesResource(
+    $this->projects_collectdTimeSeries = new Google_Service_Monitoring_Resource_ProjectsCollectdTimeSeries(
         $this,
         $this->serviceName,
         'collectdTimeSeries',
@@ -84,7 +89,7 @@ class Google_Service_Monitoring extends Google_Service
           )
         )
     );
-    $this->projects_groups = new Google_Service_Monitoring_ProjectsGroupsResource(
+    $this->projects_groups = new Google_Service_Monitoring_Resource_ProjectsGroups(
         $this,
         $this->serviceName,
         'groups',
@@ -172,7 +177,7 @@ class Google_Service_Monitoring extends Google_Service
           )
         )
     );
-    $this->projects_groups_members = new Google_Service_Monitoring_ProjectsGroupsMembersResource(
+    $this->projects_groups_members = new Google_Service_Monitoring_Resource_ProjectsGroupsMembers(
         $this,
         $this->serviceName,
         'members',
@@ -212,7 +217,7 @@ class Google_Service_Monitoring extends Google_Service
           )
         )
     );
-    $this->projects_metricDescriptors = new Google_Service_Monitoring_ProjectsMetricDescriptorsResource(
+    $this->projects_metricDescriptors = new Google_Service_Monitoring_Resource_ProjectsMetricDescriptors(
         $this,
         $this->serviceName,
         'metricDescriptors',
@@ -274,7 +279,7 @@ class Google_Service_Monitoring extends Google_Service
           )
         )
     );
-    $this->projects_monitoredResourceDescriptors = new Google_Service_Monitoring_ProjectsMonitoredResourceDescriptorsResource(
+    $this->projects_monitoredResourceDescriptors = new Google_Service_Monitoring_Resource_ProjectsMonitoredResourceDescriptors(
         $this,
         $this->serviceName,
         'monitoredResourceDescriptors',
@@ -316,7 +321,7 @@ class Google_Service_Monitoring extends Google_Service
           )
         )
     );
-    $this->projects_timeSeries = new Google_Service_Monitoring_ProjectsTimeSeriesResource(
+    $this->projects_timeSeries = new Google_Service_Monitoring_Resource_ProjectsTimeSeries(
         $this,
         $this->serviceName,
         'timeSeries',

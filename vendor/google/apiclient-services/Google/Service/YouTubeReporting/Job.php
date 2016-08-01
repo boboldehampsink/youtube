@@ -18,6 +18,7 @@
 class Google_Service_YouTubeReporting_Job extends Google_Model
 {
   public $createTime;
+  public $expireTime;
   public $id;
   public $name;
   public $reportTypeId;
@@ -30,6 +31,14 @@ class Google_Service_YouTubeReporting_Job extends Google_Model
   public function getCreateTime()
   {
     return $this->createTime;
+  }
+  public function setExpireTime($expireTime)
+  {
+    $this->expireTime = $expireTime;
+  }
+  public function getExpireTime()
+  {
+    return $this->expireTime;
   }
   public function setId($id)
   {

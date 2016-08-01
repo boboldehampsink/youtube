@@ -16,10 +16,11 @@
  */
 
 /**
- * Service definition for Consumersurveys (v2).
+ * Service definition for ConsumerSurveys (v2).
  *
  * <p>
- * API for Google Consumer Surveys.</p>
+ * Creates and conducts surveys, lists the surveys that an authenticated user
+ * owns, and retrieves survey results and information about specified surveys.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -28,7 +29,7 @@
  *
  * @author Google, Inc.
  */
-class Google_Service_Consumersurveys extends Google_Service
+class Google_Service_ConsumerSurveys extends Google_Service
 {
   /** View and edit your surveys and results. */
   const CONSUMERSURVEYS =
@@ -40,11 +41,12 @@ class Google_Service_Consumersurveys extends Google_Service
   const USERINFO_EMAIL =
       "https://www.googleapis.com/auth/userinfo.email";
 
+  public $mobileapppanels;
   public $results;
   public $surveys;
   
   /**
-   * Constructs the internal representation of the Consumersurveys service.
+   * Constructs the internal representation of the ConsumerSurveys service.
    *
    * @param Google_Client $client
    */
@@ -56,7 +58,54 @@ class Google_Service_Consumersurveys extends Google_Service
     $this->version = 'v2';
     $this->serviceName = 'consumersurveys';
 
-    $this->results = new Google_Service_Consumersurveys_ResultsResource(
+    $this->mobileapppanels = new Google_Service_ConsumerSurveys_Resource_Mobileapppanels(
+        $this,
+        $this->serviceName,
+        'mobileapppanels',
+        array(
+          'methods' => array(
+            'get' => array(
+              'path' => 'mobileAppPanels/{panelId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'panelId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'mobileAppPanels',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'startIndex' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'token' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'mobileAppPanels/{panelId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'panelId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->results = new Google_Service_ConsumerSurveys_Resource_Results(
         $this,
         $this->serviceName,
         'results',
@@ -76,13 +125,23 @@ class Google_Service_Consumersurveys extends Google_Service
           )
         )
     );
-    $this->surveys = new Google_Service_Consumersurveys_SurveysResource(
+    $this->surveys = new Google_Service_ConsumerSurveys_Resource_Surveys(
         $this,
         $this->serviceName,
         'surveys',
         array(
           'methods' => array(
-            'get' => array(
+            'delete' => array(
+              'path' => 'surveys/{surveyUrlId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'surveyUrlId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
               'path' => 'surveys/{surveyUrlId}',
               'httpMethod' => 'GET',
               'parameters' => array(

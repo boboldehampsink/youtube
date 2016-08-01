@@ -20,6 +20,8 @@ class Google_Service_DeploymentManager_Type extends Google_Model
   public $id;
   public $insertTime;
   public $name;
+  protected $operationType = 'Google_Service_DeploymentManager_Operation';
+  protected $operationDataType = '';
   public $selfLink;
 
   public function setId($id)
@@ -45,6 +47,14 @@ class Google_Service_DeploymentManager_Type extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+  public function setOperation(Google_Service_DeploymentManager_Operation $operation)
+  {
+    $this->operation = $operation;
+  }
+  public function getOperation()
+  {
+    return $this->operation;
   }
   public function setSelfLink($selfLink)
   {

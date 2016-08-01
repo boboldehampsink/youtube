@@ -15,7 +15,7 @@
  * the License.
  */
 
-class Google_Service_Consumersurveys_SurveyQuestionImage extends Google_Model
+class Google_Service_ConsumerSurveys_SurveyQuestionImage extends Google_Model
 {
   public $altText;
   public $data;

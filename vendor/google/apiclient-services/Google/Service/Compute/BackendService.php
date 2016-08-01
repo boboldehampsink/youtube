@@ -22,6 +22,7 @@ class Google_Service_Compute_BackendService extends Google_Collection
   protected $backendsDataType = 'array';
   public $creationTimestamp;
   public $description;
+  public $enableCDN;
   public $fingerprint;
   public $healthChecks;
   public $id;
@@ -57,6 +58,14 @@ class Google_Service_Compute_BackendService extends Google_Collection
   public function getDescription()
   {
     return $this->description;
+  }
+  public function setEnableCDN($enableCDN)
+  {
+    $this->enableCDN = $enableCDN;
+  }
+  public function getEnableCDN()
+  {
+    return $this->enableCDN;
   }
   public function setFingerprint($fingerprint)
   {

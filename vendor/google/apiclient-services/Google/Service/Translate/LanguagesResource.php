@@ -15,30 +15,25 @@
  * the License.
  */
 
-/**
- * The "languages" collection of methods.
- * Typical usage is:
- *  <code>
- *   $translateService = new Google_Service_Translate(...);
- *   $languages = $translateService->languages;
- *  </code>
- */
-class Google_Service_Translate_LanguagesResource extends Google_Service_Resource
+class Google_Service_Translate_LanguagesResource extends Google_Model
 {
-  /**
-   * List the source/target languages supported by the API
-   * (languages.listLanguages)
-   *
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string target the language and collation in which the localized
-   * results should be returned
-   * @return Google_Service_LanguagesListResponse
-   */
-  public function listLanguages($optParams = array())
+  public $language;
+  public $name;
+
+  public function setLanguage($language)
   {
-    $params = array();
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Translate_LanguagesListResponse");
+    $this->language = $language;
+  }
+  public function getLanguage()
+  {
+    return $this->language;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
   }
 }

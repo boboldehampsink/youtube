@@ -15,10 +15,13 @@
  * the License.
  */
 
-class Google_Service_Dataflow_WorkItemServiceState extends Google_Model
+class Google_Service_Dataflow_WorkItemServiceState extends Google_Collection
 {
+  protected $collection_key = 'metricShortId';
   public $harnessData;
   public $leaseExpireTime;
+  protected $metricShortIdType = 'Google_Service_Dataflow_MetricShortId';
+  protected $metricShortIdDataType = 'array';
   public $nextReportIndex;
   public $reportStatusInterval;
   protected $splitRequestType = 'Google_Service_Dataflow_ApproximateSplitRequest';
@@ -43,6 +46,14 @@ class Google_Service_Dataflow_WorkItemServiceState extends Google_Model
   public function getLeaseExpireTime()
   {
     return $this->leaseExpireTime;
+  }
+  public function setMetricShortId($metricShortId)
+  {
+    $this->metricShortId = $metricShortId;
+  }
+  public function getMetricShortId()
+  {
+    return $this->metricShortId;
   }
   public function setNextReportIndex($nextReportIndex)
   {

@@ -19,7 +19,7 @@
  * Service definition for Fitness (v1).
  *
  * <p>
- * Google Fit API</p>
+ * Stores and accesses user data in the fitness store from apps on any platform.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -67,7 +67,7 @@ class Google_Service_Fitness extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'fitness';
 
-    $this->users_dataSources = new Google_Service_Fitness_UsersDataSourcesResource(
+    $this->users_dataSources = new Google_Service_Fitness_Resource_UsersDataSources(
         $this,
         $this->serviceName,
         'dataSources',
@@ -162,7 +162,7 @@ class Google_Service_Fitness extends Google_Service
           )
         )
     );
-    $this->users_dataSources_datasets = new Google_Service_Fitness_UsersDataSourcesDatasetsResource(
+    $this->users_dataSources_datasets = new Google_Service_Fitness_Resource_UsersDataSourcesDatasets(
         $this,
         $this->serviceName,
         'datasets',
@@ -252,7 +252,7 @@ class Google_Service_Fitness extends Google_Service
           )
         )
     );
-    $this->users_dataset = new Google_Service_Fitness_UsersDatasetResource(
+    $this->users_dataset = new Google_Service_Fitness_Resource_UsersDataset(
         $this,
         $this->serviceName,
         'dataset',
@@ -272,7 +272,7 @@ class Google_Service_Fitness extends Google_Service
           )
         )
     );
-    $this->users_sessions = new Google_Service_Fitness_UsersSessionsResource(
+    $this->users_sessions = new Google_Service_Fitness_Resource_UsersSessions(
         $this,
         $this->serviceName,
         'sessions',

@@ -15,18 +15,18 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_SourceContext extends Google_Model
+class Google_Service_CloudDebugger_SourceContext extends Google_Model
 {
-  protected $cloudRepoType = 'Google_Service_Clouddebugger_CloudRepoSourceContext';
+  protected $cloudRepoType = 'Google_Service_CloudDebugger_CloudRepoSourceContext';
   protected $cloudRepoDataType = '';
-  protected $cloudWorkspaceType = 'Google_Service_Clouddebugger_CloudWorkspaceSourceContext';
+  protected $cloudWorkspaceType = 'Google_Service_CloudDebugger_CloudWorkspaceSourceContext';
   protected $cloudWorkspaceDataType = '';
-  protected $gerritType = 'Google_Service_Clouddebugger_GerritSourceContext';
+  protected $gerritType = 'Google_Service_CloudDebugger_GerritSourceContext';
   protected $gerritDataType = '';
-  protected $gitType = 'Google_Service_Clouddebugger_GitSourceContext';
+  protected $gitType = 'Google_Service_CloudDebugger_GitSourceContext';
   protected $gitDataType = '';
 
-  public function setCloudRepo(Google_Service_Clouddebugger_CloudRepoSourceContext $cloudRepo)
+  public function setCloudRepo(Google_Service_CloudDebugger_CloudRepoSourceContext $cloudRepo)
   {
     $this->cloudRepo = $cloudRepo;
   }
@@ -34,7 +34,7 @@ class Google_Service_Clouddebugger_SourceContext extends Google_Model
   {
     return $this->cloudRepo;
   }
-  public function setCloudWorkspace(Google_Service_Clouddebugger_CloudWorkspaceSourceContext $cloudWorkspace)
+  public function setCloudWorkspace(Google_Service_CloudDebugger_CloudWorkspaceSourceContext $cloudWorkspace)
   {
     $this->cloudWorkspace = $cloudWorkspace;
   }
@@ -42,7 +42,7 @@ class Google_Service_Clouddebugger_SourceContext extends Google_Model
   {
     return $this->cloudWorkspace;
   }
-  public function setGerrit(Google_Service_Clouddebugger_GerritSourceContext $gerrit)
+  public function setGerrit(Google_Service_CloudDebugger_GerritSourceContext $gerrit)
   {
     $this->gerrit = $gerrit;
   }
@@ -50,7 +50,7 @@ class Google_Service_Clouddebugger_SourceContext extends Google_Model
   {
     return $this->gerrit;
   }
-  public function setGit(Google_Service_Clouddebugger_GitSourceContext $git)
+  public function setGit(Google_Service_CloudDebugger_GitSourceContext $git)
   {
     $this->git = $git;
   }

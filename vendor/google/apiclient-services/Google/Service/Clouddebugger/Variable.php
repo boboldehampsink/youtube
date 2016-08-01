@@ -15,13 +15,13 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_Variable extends Google_Collection
+class Google_Service_CloudDebugger_Variable extends Google_Collection
 {
   protected $collection_key = 'members';
-  protected $membersType = 'Google_Service_Clouddebugger_Variable';
+  protected $membersType = 'Google_Service_CloudDebugger_Variable';
   protected $membersDataType = 'array';
   public $name;
-  protected $statusType = 'Google_Service_Clouddebugger_StatusMessage';
+  protected $statusType = 'Google_Service_CloudDebugger_StatusMessage';
   protected $statusDataType = '';
   public $type;
   public $value;
@@ -43,7 +43,7 @@ class Google_Service_Clouddebugger_Variable extends Google_Collection
   {
     return $this->name;
   }
-  public function setStatus(Google_Service_Clouddebugger_StatusMessage $status)
+  public function setStatus(Google_Service_CloudDebugger_StatusMessage $status)
   {
     $this->status = $status;
   }

@@ -15,7 +15,7 @@
  * the License.
  */
 
-class Google_Service_Consumersurveys_PageInfo extends Google_Model
+class Google_Service_ConsumerSurveys_PageInfo extends Google_Model
 {
   public $resultPerPage;
   public $startIndex;

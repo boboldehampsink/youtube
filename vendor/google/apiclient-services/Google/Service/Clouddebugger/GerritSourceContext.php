@@ -15,16 +15,16 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_GerritSourceContext extends Google_Model
+class Google_Service_CloudDebugger_GerritSourceContext extends Google_Model
 {
-  protected $aliasContextType = 'Google_Service_Clouddebugger_AliasContext';
+  protected $aliasContextType = 'Google_Service_CloudDebugger_AliasContext';
   protected $aliasContextDataType = '';
   public $aliasName;
   public $gerritProject;
   public $hostUri;
   public $revisionId;
 
-  public function setAliasContext(Google_Service_Clouddebugger_AliasContext $aliasContext)
+  public function setAliasContext(Google_Service_CloudDebugger_AliasContext $aliasContext)
   {
     $this->aliasContext = $aliasContext;
   }

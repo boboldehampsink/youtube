@@ -26,6 +26,7 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Collection
   protected $destinationTableDataType = '';
   public $flattenResults;
   public $maximumBillingTier;
+  public $maximumBytesBilled;
   public $preserveNulls;
   public $priority;
   public $query;
@@ -84,6 +85,14 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Collection
   public function getMaximumBillingTier()
   {
     return $this->maximumBillingTier;
+  }
+  public function setMaximumBytesBilled($maximumBytesBilled)
+  {
+    $this->maximumBytesBilled = $maximumBytesBilled;
+  }
+  public function getMaximumBytesBilled()
+  {
+    return $this->maximumBytesBilled;
   }
   public function setPreserveNulls($preserveNulls)
   {

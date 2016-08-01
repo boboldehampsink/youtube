@@ -17,6 +17,7 @@
 
 class Google_Service_SQLAdmin_BackupRun extends Google_Model
 {
+  public $description;
   public $endTime;
   public $enqueuedTime;
   protected $errorType = 'Google_Service_SQLAdmin_OperationError';
@@ -27,8 +28,17 @@ class Google_Service_SQLAdmin_BackupRun extends Google_Model
   public $selfLink;
   public $startTime;
   public $status;
+  public $type;
   public $windowStartTime;
 
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
   public function setEndTime($endTime)
   {
     $this->endTime = $endTime;
@@ -100,6 +110,14 @@ class Google_Service_SQLAdmin_BackupRun extends Google_Model
   public function getStatus()
   {
     return $this->status;
+  }
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+  public function getType()
+  {
+    return $this->type;
   }
   public function setWindowStartTime($windowStartTime)
   {

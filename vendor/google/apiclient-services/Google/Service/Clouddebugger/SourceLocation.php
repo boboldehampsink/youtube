@@ -15,7 +15,7 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_SourceLocation extends Google_Model
+class Google_Service_CloudDebugger_SourceLocation extends Google_Model
 {
   public $line;
   public $path;

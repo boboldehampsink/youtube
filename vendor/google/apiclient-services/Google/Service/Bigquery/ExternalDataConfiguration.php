@@ -24,6 +24,8 @@ class Google_Service_Bigquery_ExternalDataConfiguration extends Google_Collectio
   public $compression;
   protected $csvOptionsType = 'Google_Service_Bigquery_CsvOptions';
   protected $csvOptionsDataType = '';
+  protected $googleSheetsOptionsType = 'Google_Service_Bigquery_GoogleSheetsOptions';
+  protected $googleSheetsOptionsDataType = '';
   public $ignoreUnknownValues;
   public $maxBadRecords;
   protected $schemaType = 'Google_Service_Bigquery_TableSchema';
@@ -62,6 +64,14 @@ class Google_Service_Bigquery_ExternalDataConfiguration extends Google_Collectio
   public function getCsvOptions()
   {
     return $this->csvOptions;
+  }
+  public function setGoogleSheetsOptions(Google_Service_Bigquery_GoogleSheetsOptions $googleSheetsOptions)
+  {
+    $this->googleSheetsOptions = $googleSheetsOptions;
+  }
+  public function getGoogleSheetsOptions()
+  {
+    return $this->googleSheetsOptions;
   }
   public function setIgnoreUnknownValues($ignoreUnknownValues)
   {

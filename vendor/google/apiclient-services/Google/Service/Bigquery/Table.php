@@ -15,9 +15,8 @@
  * the License.
  */
 
-class Google_Service_Bigquery_Table extends Google_Collection
+class Google_Service_Bigquery_Table extends Google_Model
 {
-  protected $collection_key = 'partitionConfigurations';
   public $creationTime;
   public $description;
   public $etag;
@@ -30,9 +29,8 @@ class Google_Service_Bigquery_Table extends Google_Collection
   public $lastModifiedTime;
   public $location;
   public $numBytes;
+  public $numLongTermBytes;
   public $numRows;
-  protected $partitionConfigurationsType = 'Google_Service_Bigquery_TablePartitionConfiguration';
-  protected $partitionConfigurationsDataType = 'array';
   protected $schemaType = 'Google_Service_Bigquery_TableSchema';
   protected $schemaDataType = '';
   public $selfLink;
@@ -40,6 +38,8 @@ class Google_Service_Bigquery_Table extends Google_Collection
   protected $streamingBufferDataType = '';
   protected $tableReferenceType = 'Google_Service_Bigquery_TableReference';
   protected $tableReferenceDataType = '';
+  protected $timePartitioningType = 'Google_Service_Bigquery_TimePartitioning';
+  protected $timePartitioningDataType = '';
   public $type;
   protected $viewType = 'Google_Service_Bigquery_ViewDefinition';
   protected $viewDataType = '';
@@ -132,6 +132,14 @@ class Google_Service_Bigquery_Table extends Google_Collection
   {
     return $this->numBytes;
   }
+  public function setNumLongTermBytes($numLongTermBytes)
+  {
+    $this->numLongTermBytes = $numLongTermBytes;
+  }
+  public function getNumLongTermBytes()
+  {
+    return $this->numLongTermBytes;
+  }
   public function setNumRows($numRows)
   {
     $this->numRows = $numRows;
@@ -139,14 +147,6 @@ class Google_Service_Bigquery_Table extends Google_Collection
   public function getNumRows()
   {
     return $this->numRows;
-  }
-  public function setPartitionConfigurations($partitionConfigurations)
-  {
-    $this->partitionConfigurations = $partitionConfigurations;
-  }
-  public function getPartitionConfigurations()
-  {
-    return $this->partitionConfigurations;
   }
   public function setSchema(Google_Service_Bigquery_TableSchema $schema)
   {
@@ -179,6 +179,14 @@ class Google_Service_Bigquery_Table extends Google_Collection
   public function getTableReference()
   {
     return $this->tableReference;
+  }
+  public function setTimePartitioning(Google_Service_Bigquery_TimePartitioning $timePartitioning)
+  {
+    $this->timePartitioning = $timePartitioning;
+  }
+  public function getTimePartitioning()
+  {
+    return $this->timePartitioning;
   }
   public function setType($type)
   {

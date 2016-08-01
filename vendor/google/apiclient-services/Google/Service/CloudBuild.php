@@ -50,7 +50,7 @@ class Google_Service_CloudBuild extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'cloudbuild';
 
-    $this->operations = new Google_Service_CloudBuild_OperationsResource(
+    $this->operations = new Google_Service_CloudBuild_Resource_Operations(
         $this,
         $this->serviceName,
         'operations',
@@ -92,7 +92,7 @@ class Google_Service_CloudBuild extends Google_Service
           )
         )
     );
-    $this->projects_builds = new Google_Service_CloudBuild_ProjectsBuildsResource(
+    $this->projects_builds = new Google_Service_CloudBuild_Resource_ProjectsBuilds(
         $this,
         $this->serviceName,
         'builds',

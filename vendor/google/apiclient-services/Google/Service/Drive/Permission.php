@@ -21,6 +21,7 @@ class Google_Service_Drive_Permission extends Google_Model
   public $displayName;
   public $domain;
   public $emailAddress;
+  public $expirationTime;
   public $id;
   public $kind;
   public $photoLink;
@@ -58,6 +59,14 @@ class Google_Service_Drive_Permission extends Google_Model
   public function getEmailAddress()
   {
     return $this->emailAddress;
+  }
+  public function setExpirationTime($expirationTime)
+  {
+    $this->expirationTime = $expirationTime;
+  }
+  public function getExpirationTime()
+  {
+    return $this->expirationTime;
   }
   public function setId($id)
   {

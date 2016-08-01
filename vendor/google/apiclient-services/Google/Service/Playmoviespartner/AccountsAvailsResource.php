@@ -50,7 +50,7 @@ class Google_Service_Playmoviespartner_AccountsAvailsResource extends Google_Ser
    * specific custom id.
    * @opt_param string videoIds Filter Avails that match any of the given
    * `video_id`s.
-   * @return Google_Service_ListAvailsResponse
+   * @return Google_Service_Playmoviespartner_ListAvailsResponse
    */
   public function listAccountsAvails($accountId, $optParams = array())
   {

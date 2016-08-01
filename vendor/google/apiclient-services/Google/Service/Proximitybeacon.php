@@ -19,7 +19,7 @@
  * Service definition for Proximitybeacon (v1beta1).
  *
  * <p>
- * This API provides services to register, manage, index, and search beacons.</p>
+ * Registers, manages, indexes, and searches beacons.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -30,13 +30,16 @@
  */
 class Google_Service_Proximitybeacon extends Google_Service
 {
-
+  /** View and modify your beacons. */
+  const USERLOCATION_BEACON_REGISTRY =
+      "https://www.googleapis.com/auth/userlocation.beacon.registry";
 
   public $beaconinfo;
   public $beacons;
   public $beacons_attachments;
   public $beacons_diagnostics;
   public $namespaces;
+  public $v1beta1;
   
   /**
    * Constructs the internal representation of the Proximitybeacon service.
@@ -51,7 +54,7 @@ class Google_Service_Proximitybeacon extends Google_Service
     $this->version = 'v1beta1';
     $this->serviceName = 'proximitybeacon';
 
-    $this->beaconinfo = new Google_Service_Proximitybeacon_BeaconinfoResource(
+    $this->beaconinfo = new Google_Service_Proximitybeacon_Resource_Beaconinfo(
         $this,
         $this->serviceName,
         'beaconinfo',
@@ -65,7 +68,7 @@ class Google_Service_Proximitybeacon extends Google_Service
           )
         )
     );
-    $this->beacons = new Google_Service_Proximitybeacon_BeaconsResource(
+    $this->beacons = new Google_Service_Proximitybeacon_Resource_Beacons(
         $this,
         $this->serviceName,
         'beacons',
@@ -80,6 +83,10 @@ class Google_Service_Proximitybeacon extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'deactivate' => array(
               'path' => 'v1beta1/{+beaconName}:deactivate',
@@ -89,6 +96,10 @@ class Google_Service_Proximitybeacon extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'decommission' => array(
@@ -100,6 +111,10 @@ class Google_Service_Proximitybeacon extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'get' => array(
               'path' => 'v1beta1/{+beaconName}',
@@ -109,6 +124,10 @@ class Google_Service_Proximitybeacon extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'list' => array(
@@ -127,11 +146,20 @@ class Google_Service_Proximitybeacon extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'register' => array(
               'path' => 'v1beta1/beacons:register',
               'httpMethod' => 'POST',
-              'parameters' => array(),
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
             ),'update' => array(
               'path' => 'v1beta1/{+beaconName}',
               'httpMethod' => 'PUT',
@@ -141,12 +169,16 @@ class Google_Service_Proximitybeacon extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),
           )
         )
     );
-    $this->beacons_attachments = new Google_Service_Proximitybeacon_BeaconsAttachmentsResource(
+    $this->beacons_attachments = new Google_Service_Proximitybeacon_Resource_BeaconsAttachments(
         $this,
         $this->serviceName,
         'attachments',
@@ -165,6 +197,10 @@ class Google_Service_Proximitybeacon extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'create' => array(
               'path' => 'v1beta1/{+beaconName}/attachments',
@@ -175,6 +211,10 @@ class Google_Service_Proximitybeacon extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'delete' => array(
               'path' => 'v1beta1/{+attachmentName}',
@@ -184,6 +224,10 @@ class Google_Service_Proximitybeacon extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'list' => array(
@@ -199,12 +243,16 @@ class Google_Service_Proximitybeacon extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),
           )
         )
     );
-    $this->beacons_diagnostics = new Google_Service_Proximitybeacon_BeaconsDiagnosticsResource(
+    $this->beacons_diagnostics = new Google_Service_Proximitybeacon_Resource_BeaconsDiagnostics(
         $this,
         $this->serviceName,
         'diagnostics',
@@ -231,12 +279,16 @@ class Google_Service_Proximitybeacon extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),
           )
         )
     );
-    $this->namespaces = new Google_Service_Proximitybeacon_NamespacesResource(
+    $this->namespaces = new Google_Service_Proximitybeacon_Resource_Namespaces(
         $this,
         $this->serviceName,
         'namespaces',
@@ -244,6 +296,39 @@ class Google_Service_Proximitybeacon extends Google_Service
           'methods' => array(
             'list' => array(
               'path' => 'v1beta1/namespaces',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'v1beta1/{+namespaceName}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'namespaceName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->v1beta1 = new Google_Service_Proximitybeacon_Resource_V1beta1(
+        $this,
+        $this->serviceName,
+        'v1beta1',
+        array(
+          'methods' => array(
+            'getEidparams' => array(
+              'path' => 'v1beta1/eidparams',
               'httpMethod' => 'GET',
               'parameters' => array(),
             ),

@@ -19,50 +19,60 @@ namespace Google\Auth;
 
 trait CacheTrait
 {
-  /**
-   * Gets the cached value if it is present in the cache when that is
-   * available.
-   */
-  private function getCachedValue()
-  {
-    if (is_null($this->cache)) {
-      return null;
+    /**
+     * Gets the cached value if it is present in the cache when that is
+     * available.
+     */
+    private function getCachedValue()
+    {
+        if (is_null($this->cache)) {
+            return;
+        }
+
+        $key = $this->getFullCacheKey();
+        if (is_null($key)) {
+            return;
+        }
+
+        $cacheItem = $this->cache->getItem($key);
+        return $cacheItem->get();
     }
 
-    if (isset($this->fetcher)) {
-      $fetcherKey = $this->fetcher->getCacheKey();
-    } else {
-      $fetcherKey = $this->getCacheKey();
+    /**
+     * Saves the value in the cache when that is available.
+     */
+    private function setCachedValue($v)
+    {
+        if (is_null($this->cache)) {
+            return;
+        }
+
+        $key = $this->getFullCacheKey();
+        if (is_null($key)) {
+            return;
+        }
+
+        $cacheItem = $this->cache->getItem($key);
+        $cacheItem->set($v);
+        $cacheItem->expiresAfter($this->cacheConfig['lifetime']);
+        return $this->cache->save($cacheItem);
     }
 
-    if (is_null($fetcherKey)) {
-      return null;
-    }
+    private function getFullCacheKey()
+    {
+        if (isset($this->fetcher)) {
+            $fetcherKey = $this->fetcher->getCacheKey();
+        } else {
+            $fetcherKey = $this->getCacheKey();
+        }
 
-    $key = $this->cacheConfig['prefix'] . $fetcherKey;
-    return $this->cache->get($key, $this->cacheConfig['lifetime']);
-  }
+        if (is_null($fetcherKey)) {
+            return;
+        }
 
-  /**
-   * Saves the value in the cache when that is available.
-   */
-  private function setCachedValue($v)
-  {
-    if (is_null($this->cache)) {
-      return;
-    }
+        $key = $this->cacheConfig['prefix'] . $fetcherKey;
 
-    if (isset($this->fetcher)) {
-      $fetcherKey = $this->fetcher->getCacheKey();
-    } else {
-      $fetcherKey = $this->getCacheKey();
+        // ensure we do not have illegal characters
+        return str_replace(['{', '}', '(', ')', '/', '\\', '@', ':'], '-', $key);
     }
-
-    if (is_null($fetcherKey)) {
-      return;
-    }
-    $key = $this->cacheConfig['prefix'] . $fetcherKey;
-    $this->cache->set($key, $v);
-  }
 }
-

@@ -17,10 +17,19 @@
 
 class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyVerifyCustomTokenRequest extends Google_Model
 {
+  public $delegatedProjectNumber;
   public $instanceId;
   public $returnSecureToken;
   public $token;
 
+  public function setDelegatedProjectNumber($delegatedProjectNumber)
+  {
+    $this->delegatedProjectNumber = $delegatedProjectNumber;
+  }
+  public function getDelegatedProjectNumber()
+  {
+    return $this->delegatedProjectNumber;
+  }
   public function setInstanceId($instanceId)
   {
     $this->instanceId = $instanceId;

@@ -15,7 +15,7 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_ProjectRepoId extends Google_Model
+class Google_Service_CloudDebugger_ProjectRepoId extends Google_Model
 {
   public $projectId;
   public $repoName;

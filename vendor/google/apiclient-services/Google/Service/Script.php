@@ -19,11 +19,11 @@
  * Service definition for Script (v1).
  *
  * <p>
- * An API for executing Google Apps Script projects.</p>
+ * Executes Google Apps Script projects.</p>
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/apps-script/execution/rest/v1/run" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/apps-script/execution/rest/v1/scripts/run" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -57,6 +57,9 @@ class Google_Service_Script extends Google_Service
   /** View and manage your Google Groups. */
   const GROUPS =
       "https://www.googleapis.com/auth/groups";
+  /** View and manage your spreadsheets in Google Drive. */
+  const SPREADSHEETS =
+      "https://www.googleapis.com/auth/spreadsheets";
   /** View your email address. */
   const USERINFO_EMAIL =
       "https://www.googleapis.com/auth/userinfo.email";
@@ -76,7 +79,7 @@ class Google_Service_Script extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'script';
 
-    $this->scripts = new Google_Service_Script_ScriptsResource(
+    $this->scripts = new Google_Service_Script_Resource_Scripts(
         $this,
         $this->serviceName,
         'scripts',

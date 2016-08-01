@@ -15,9 +15,13 @@
  * the License.
  */
 
-class Google_Service_Classroom_Course extends Google_Model
+class Google_Service_Classroom_Course extends Google_Collection
 {
+  protected $collection_key = 'courseMaterialSets';
   public $alternateLink;
+  public $courseGroupEmail;
+  protected $courseMaterialSetsType = 'Google_Service_Classroom_CourseMaterialSet';
+  protected $courseMaterialSetsDataType = 'array';
   public $courseState;
   public $creationTime;
   public $description;
@@ -28,6 +32,9 @@ class Google_Service_Classroom_Course extends Google_Model
   public $ownerId;
   public $room;
   public $section;
+  protected $teacherFolderType = 'Google_Service_Classroom_DriveFolder';
+  protected $teacherFolderDataType = '';
+  public $teacherGroupEmail;
   public $updateTime;
 
   public function setAlternateLink($alternateLink)
@@ -37,6 +44,22 @@ class Google_Service_Classroom_Course extends Google_Model
   public function getAlternateLink()
   {
     return $this->alternateLink;
+  }
+  public function setCourseGroupEmail($courseGroupEmail)
+  {
+    $this->courseGroupEmail = $courseGroupEmail;
+  }
+  public function getCourseGroupEmail()
+  {
+    return $this->courseGroupEmail;
+  }
+  public function setCourseMaterialSets($courseMaterialSets)
+  {
+    $this->courseMaterialSets = $courseMaterialSets;
+  }
+  public function getCourseMaterialSets()
+  {
+    return $this->courseMaterialSets;
   }
   public function setCourseState($courseState)
   {
@@ -117,6 +140,22 @@ class Google_Service_Classroom_Course extends Google_Model
   public function getSection()
   {
     return $this->section;
+  }
+  public function setTeacherFolder(Google_Service_Classroom_DriveFolder $teacherFolder)
+  {
+    $this->teacherFolder = $teacherFolder;
+  }
+  public function getTeacherFolder()
+  {
+    return $this->teacherFolder;
+  }
+  public function setTeacherGroupEmail($teacherGroupEmail)
+  {
+    $this->teacherGroupEmail = $teacherGroupEmail;
+  }
+  public function getTeacherGroupEmail()
+  {
+    return $this->teacherGroupEmail;
   }
   public function setUpdateTime($updateTime)
   {

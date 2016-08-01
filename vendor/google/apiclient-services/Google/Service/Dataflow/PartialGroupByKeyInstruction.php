@@ -21,6 +21,8 @@ class Google_Service_Dataflow_PartialGroupByKeyInstruction extends Google_Collec
   protected $inputType = 'Google_Service_Dataflow_InstructionInput';
   protected $inputDataType = '';
   public $inputElementCodec;
+  public $originalCombineValuesInputStoreName;
+  public $originalCombineValuesStepName;
   protected $sideInputsType = 'Google_Service_Dataflow_SideInputInfo';
   protected $sideInputsDataType = 'array';
   public $valueCombiningFn;
@@ -40,6 +42,22 @@ class Google_Service_Dataflow_PartialGroupByKeyInstruction extends Google_Collec
   public function getInputElementCodec()
   {
     return $this->inputElementCodec;
+  }
+  public function setOriginalCombineValuesInputStoreName($originalCombineValuesInputStoreName)
+  {
+    $this->originalCombineValuesInputStoreName = $originalCombineValuesInputStoreName;
+  }
+  public function getOriginalCombineValuesInputStoreName()
+  {
+    return $this->originalCombineValuesInputStoreName;
+  }
+  public function setOriginalCombineValuesStepName($originalCombineValuesStepName)
+  {
+    $this->originalCombineValuesStepName = $originalCombineValuesStepName;
+  }
+  public function getOriginalCombineValuesStepName()
+  {
+    return $this->originalCombineValuesStepName;
   }
   public function setSideInputs($sideInputs)
   {

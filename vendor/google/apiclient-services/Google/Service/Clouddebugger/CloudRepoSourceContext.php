@@ -15,16 +15,16 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_CloudRepoSourceContext extends Google_Model
+class Google_Service_CloudDebugger_CloudRepoSourceContext extends Google_Model
 {
-  protected $aliasContextType = 'Google_Service_Clouddebugger_AliasContext';
+  protected $aliasContextType = 'Google_Service_CloudDebugger_AliasContext';
   protected $aliasContextDataType = '';
   public $aliasName;
-  protected $repoIdType = 'Google_Service_Clouddebugger_RepoId';
+  protected $repoIdType = 'Google_Service_CloudDebugger_RepoId';
   protected $repoIdDataType = '';
   public $revisionId;
 
-  public function setAliasContext(Google_Service_Clouddebugger_AliasContext $aliasContext)
+  public function setAliasContext(Google_Service_CloudDebugger_AliasContext $aliasContext)
   {
     $this->aliasContext = $aliasContext;
   }
@@ -40,7 +40,7 @@ class Google_Service_Clouddebugger_CloudRepoSourceContext extends Google_Model
   {
     return $this->aliasName;
   }
-  public function setRepoId(Google_Service_Clouddebugger_RepoId $repoId)
+  public function setRepoId(Google_Service_CloudDebugger_RepoId $repoId)
   {
     $this->repoId = $repoId;
   }

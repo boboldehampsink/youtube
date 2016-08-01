@@ -34,7 +34,7 @@ class Google_Service_Playmoviespartner_AccountsExperienceLocalesResource extends
    * about this field.
    * @param string $elId REQUIRED. ExperienceLocale ID, as defined by Google.
    * @param array $optParams Optional parameters.
-   * @return Google_Service_ExperienceLocale
+   * @return Google_Service_Playmoviespartner_ExperienceLocale
    */
   public function get($accountId, $elId, $optParams = array())
   {
@@ -68,7 +68,7 @@ class Google_Service_Playmoviespartner_AccountsExperienceLocalesResource extends
    * insensitive, partner-specific custom id.
    * @opt_param string altCutId Filter ExperienceLocales that match a case-
    * insensitive, partner-specific Alternative Cut ID.
-   * @return Google_Service_ListExperienceLocalesResponse
+   * @return Google_Service_Playmoviespartner_ListExperienceLocalesResponse
    */
   public function listAccountsExperienceLocales($accountId, $optParams = array())
   {

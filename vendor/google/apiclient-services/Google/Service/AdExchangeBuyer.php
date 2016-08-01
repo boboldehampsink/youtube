@@ -61,7 +61,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
     $this->version = 'v1.4';
     $this->serviceName = 'adexchangebuyer';
 
-    $this->accounts = new Google_Service_AdExchangeBuyer_AccountsResource(
+    $this->accounts = new Google_Service_AdExchangeBuyer_Resource_Accounts(
         $this,
         $this->serviceName,
         'accounts',
@@ -105,7 +105,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
           )
         )
     );
-    $this->billingInfo = new Google_Service_AdExchangeBuyer_BillingInfoResource(
+    $this->billingInfo = new Google_Service_AdExchangeBuyer_Resource_BillingInfo(
         $this,
         $this->serviceName,
         'billingInfo',
@@ -129,7 +129,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
           )
         )
     );
-    $this->budget = new Google_Service_AdExchangeBuyer_BudgetResource(
+    $this->budget = new Google_Service_AdExchangeBuyer_Resource_Budget(
         $this,
         $this->serviceName,
         'budget',
@@ -184,7 +184,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
           )
         )
     );
-    $this->creatives = new Google_Service_AdExchangeBuyer_CreativesResource(
+    $this->creatives = new Google_Service_AdExchangeBuyer_Resource_Creatives(
         $this,
         $this->serviceName,
         'creatives',
@@ -284,7 +284,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
           )
         )
     );
-    $this->marketplacedeals = new Google_Service_AdExchangeBuyer_MarketplacedealsResource(
+    $this->marketplacedeals = new Google_Service_AdExchangeBuyer_Resource_Marketplacedeals(
         $this,
         $this->serviceName,
         'marketplacedeals',
@@ -319,6 +319,10 @@ class Google_Service_AdExchangeBuyer extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'pqlQuery' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'update' => array(
               'path' => 'proposals/{proposalId}/deals/update',
@@ -334,7 +338,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
           )
         )
     );
-    $this->marketplacenotes = new Google_Service_AdExchangeBuyer_MarketplacenotesResource(
+    $this->marketplacenotes = new Google_Service_AdExchangeBuyer_Resource_Marketplacenotes(
         $this,
         $this->serviceName,
         'marketplacenotes',
@@ -364,7 +368,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
           )
         )
     );
-    $this->marketplaceprivateauction = new Google_Service_AdExchangeBuyer_MarketplaceprivateauctionResource(
+    $this->marketplaceprivateauction = new Google_Service_AdExchangeBuyer_Resource_Marketplaceprivateauction(
         $this,
         $this->serviceName,
         'marketplaceprivateauction',
@@ -384,7 +388,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
           )
         )
     );
-    $this->performanceReport = new Google_Service_AdExchangeBuyer_PerformanceReportResource(
+    $this->performanceReport = new Google_Service_AdExchangeBuyer_Resource_PerformanceReport(
         $this,
         $this->serviceName,
         'performanceReport',
@@ -422,7 +426,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
           )
         )
     );
-    $this->pretargetingConfig = new Google_Service_AdExchangeBuyer_PretargetingConfigResource(
+    $this->pretargetingConfig = new Google_Service_AdExchangeBuyer_Resource_PretargetingConfig(
         $this,
         $this->serviceName,
         'pretargetingConfig',
@@ -512,7 +516,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
           )
         )
     );
-    $this->products = new Google_Service_AdExchangeBuyer_ProductsResource(
+    $this->products = new Google_Service_AdExchangeBuyer_Resource_Products(
         $this,
         $this->serviceName,
         'products',
@@ -541,7 +545,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
           )
         )
     );
-    $this->proposals = new Google_Service_AdExchangeBuyer_ProposalsResource(
+    $this->proposals = new Google_Service_AdExchangeBuyer_Resource_Proposals(
         $this,
         $this->serviceName,
         'proposals',
@@ -624,7 +628,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
           )
         )
     );
-    $this->pubprofiles = new Google_Service_AdExchangeBuyer_PubprofilesResource(
+    $this->pubprofiles = new Google_Service_AdExchangeBuyer_Resource_Pubprofiles(
         $this,
         $this->serviceName,
         'pubprofiles',

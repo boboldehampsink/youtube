@@ -15,13 +15,15 @@
  * the License.
  */
 
-class Google_Service_IdentityToolkit_IdpConfig extends Google_Model
+class Google_Service_IdentityToolkit_IdpConfig extends Google_Collection
 {
+  protected $collection_key = 'whitelistedAudiences';
   public $clientId;
   public $enabled;
   public $experimentPercent;
   public $provider;
   public $secret;
+  public $whitelistedAudiences;
 
   public function setClientId($clientId)
   {
@@ -62,5 +64,13 @@ class Google_Service_IdentityToolkit_IdpConfig extends Google_Model
   public function getSecret()
   {
     return $this->secret;
+  }
+  public function setWhitelistedAudiences($whitelistedAudiences)
+  {
+    $this->whitelistedAudiences = $whitelistedAudiences;
+  }
+  public function getWhitelistedAudiences()
+  {
+    return $this->whitelistedAudiences;
   }
 }

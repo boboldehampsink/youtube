@@ -15,13 +15,13 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_ExtendedSourceContext extends Google_Model
+class Google_Service_CloudDebugger_ExtendedSourceContext extends Google_Model
 {
-  protected $contextType = 'Google_Service_Clouddebugger_SourceContext';
+  protected $contextType = 'Google_Service_CloudDebugger_SourceContext';
   protected $contextDataType = '';
   public $labels;
 
-  public function setContext(Google_Service_Clouddebugger_SourceContext $context)
+  public function setContext(Google_Service_CloudDebugger_SourceContext $context)
   {
     $this->context = $context;
   }

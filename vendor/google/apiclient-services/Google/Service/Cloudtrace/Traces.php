@@ -15,10 +15,10 @@
  * the License.
  */
 
-class Google_Service_Cloudtrace_Traces extends Google_Collection
+class Google_Service_CloudTrace_Traces extends Google_Collection
 {
   protected $collection_key = 'traces';
-  protected $tracesType = 'Google_Service_Cloudtrace_Trace';
+  protected $tracesType = 'Google_Service_CloudTrace_Trace';
   protected $tracesDataType = 'array';
 
   public function setTraces($traces)

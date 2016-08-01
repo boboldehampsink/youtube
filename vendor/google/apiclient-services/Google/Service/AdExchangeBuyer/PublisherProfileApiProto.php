@@ -21,8 +21,7 @@ class Google_Service_AdExchangeBuyer_PublisherProfileApiProto extends Google_Col
   public $accountId;
   public $audience;
   public $buyerPitchStatement;
-  protected $directContactType = 'Google_Service_AdExchangeBuyer_ContactInformation';
-  protected $directContactDataType = '';
+  public $directContact;
   public $exchange;
   public $googlePlusLink;
   public $isParent;
@@ -33,8 +32,7 @@ class Google_Service_AdExchangeBuyer_PublisherProfileApiProto extends Google_Col
   public $name;
   public $overview;
   public $profileId;
-  protected $programmaticContactType = 'Google_Service_AdExchangeBuyer_ContactInformation';
-  protected $programmaticContactDataType = '';
+  public $programmaticContact;
   public $publisherDomains;
   public $publisherProfileId;
   protected $publisherProvidedForecastType = 'Google_Service_AdExchangeBuyer_PublisherProvidedForecast';
@@ -70,7 +68,7 @@ class Google_Service_AdExchangeBuyer_PublisherProfileApiProto extends Google_Col
   {
     return $this->buyerPitchStatement;
   }
-  public function setDirectContact(Google_Service_AdExchangeBuyer_ContactInformation $directContact)
+  public function setDirectContact($directContact)
   {
     $this->directContact = $directContact;
   }
@@ -158,7 +156,7 @@ class Google_Service_AdExchangeBuyer_PublisherProfileApiProto extends Google_Col
   {
     return $this->profileId;
   }
-  public function setProgrammaticContact(Google_Service_AdExchangeBuyer_ContactInformation $programmaticContact)
+  public function setProgrammaticContact($programmaticContact)
   {
     $this->programmaticContact = $programmaticContact;
   }

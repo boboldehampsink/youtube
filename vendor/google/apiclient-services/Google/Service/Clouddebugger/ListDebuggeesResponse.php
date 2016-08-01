@@ -15,10 +15,10 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_ListDebuggeesResponse extends Google_Collection
+class Google_Service_CloudDebugger_ListDebuggeesResponse extends Google_Collection
 {
   protected $collection_key = 'debuggees';
-  protected $debuggeesType = 'Google_Service_Clouddebugger_Debuggee';
+  protected $debuggeesType = 'Google_Service_CloudDebugger_Debuggee';
   protected $debuggeesDataType = 'array';
 
   public function setDebuggees($debuggees)

@@ -20,6 +20,8 @@ class Google_Service_Classroom_Student extends Google_Model
   public $courseId;
   protected $profileType = 'Google_Service_Classroom_UserProfile';
   protected $profileDataType = '';
+  protected $studentWorkFolderType = 'Google_Service_Classroom_DriveFolder';
+  protected $studentWorkFolderDataType = '';
   public $userId;
 
   public function setCourseId($courseId)
@@ -37,6 +39,14 @@ class Google_Service_Classroom_Student extends Google_Model
   public function getProfile()
   {
     return $this->profile;
+  }
+  public function setStudentWorkFolder(Google_Service_Classroom_DriveFolder $studentWorkFolder)
+  {
+    $this->studentWorkFolder = $studentWorkFolder;
+  }
+  public function getStudentWorkFolder()
+  {
+    return $this->studentWorkFolder;
   }
   public function setUserId($userId)
   {

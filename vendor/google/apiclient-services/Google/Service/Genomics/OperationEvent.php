@@ -18,6 +18,8 @@
 class Google_Service_Genomics_OperationEvent extends Google_Model
 {
   public $description;
+  public $endTime;
+  public $startTime;
 
   public function setDescription($description)
   {
@@ -26,5 +28,21 @@ class Google_Service_Genomics_OperationEvent extends Google_Model
   public function getDescription()
   {
     return $this->description;
+  }
+  public function setEndTime($endTime)
+  {
+    $this->endTime = $endTime;
+  }
+  public function getEndTime()
+  {
+    return $this->endTime;
+  }
+  public function setStartTime($startTime)
+  {
+    $this->startTime = $startTime;
+  }
+  public function getStartTime()
+  {
+    return $this->startTime;
   }
 }

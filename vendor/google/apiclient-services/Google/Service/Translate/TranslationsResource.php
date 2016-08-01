@@ -15,34 +15,25 @@
  * the License.
  */
 
-/**
- * The "translations" collection of methods.
- * Typical usage is:
- *  <code>
- *   $translateService = new Google_Service_Translate(...);
- *   $translations = $translateService->translations;
- *  </code>
- */
-class Google_Service_Translate_TranslationsResource extends Google_Service_Resource
+class Google_Service_Translate_TranslationsResource extends Google_Model
 {
-  /**
-   * Returns text translations from one language to another.
-   * (translations.listTranslations)
-   *
-   * @param string $q The text to translate
-   * @param string $target The target language into which the text should be
-   * translated
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string cid The customization id for translate
-   * @opt_param string format The format of the text
-   * @opt_param string source The source language of the text
-   * @return Google_Service_TranslationsListResponse
-   */
-  public function listTranslations($q, $target, $optParams = array())
+  public $detectedSourceLanguage;
+  public $translatedText;
+
+  public function setDetectedSourceLanguage($detectedSourceLanguage)
   {
-    $params = array('q' => $q, 'target' => $target);
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Translate_TranslationsListResponse");
+    $this->detectedSourceLanguage = $detectedSourceLanguage;
+  }
+  public function getDetectedSourceLanguage()
+  {
+    return $this->detectedSourceLanguage;
+  }
+  public function setTranslatedText($translatedText)
+  {
+    $this->translatedText = $translatedText;
+  }
+  public function getTranslatedText()
+  {
+    return $this->translatedText;
   }
 }

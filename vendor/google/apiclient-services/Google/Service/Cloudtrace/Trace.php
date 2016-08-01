@@ -15,11 +15,11 @@
  * the License.
  */
 
-class Google_Service_Cloudtrace_Trace extends Google_Collection
+class Google_Service_CloudTrace_Trace extends Google_Collection
 {
   protected $collection_key = 'spans';
   public $projectId;
-  protected $spansType = 'Google_Service_Cloudtrace_TraceSpan';
+  protected $spansType = 'Google_Service_CloudTrace_TraceSpan';
   protected $spansDataType = 'array';
   public $traceId;
 

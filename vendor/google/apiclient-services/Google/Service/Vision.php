@@ -19,10 +19,9 @@
  * Service definition for Vision (v1).
  *
  * <p>
- * The Google Cloud Vision API allows developers to easily integrate Google
- * vision features, including image labeling, face, logo, and landmark
- * detection, optical character recognition (OCR), and detection of explicit
- * content, into applications.</p>
+ * Integrates Google Vision features, including image labeling, face, logo, and
+ * landmark detection, optical character recognition (OCR), and detection of
+ * explicit content, into applications.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -52,7 +51,7 @@ class Google_Service_Vision extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'vision';
 
-    $this->images = new Google_Service_Vision_ImagesResource(
+    $this->images = new Google_Service_Vision_Resource_Images(
         $this,
         $this->serviceName,
         'images',

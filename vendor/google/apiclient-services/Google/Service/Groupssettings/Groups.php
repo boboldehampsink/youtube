@@ -21,10 +21,12 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   public $allowGoogleCommunication;
   public $allowWebPosting;
   public $archiveOnly;
+  public $customFooterText;
   public $customReplyTo;
   public $defaultMessageDenyNotificationText;
   public $description;
   public $email;
+  public $includeCustomFooter;
   public $includeInGlobalAddressList;
   public $isArchived;
   public $kind;
@@ -79,6 +81,14 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->archiveOnly;
   }
+  public function setCustomFooterText($customFooterText)
+  {
+    $this->customFooterText = $customFooterText;
+  }
+  public function getCustomFooterText()
+  {
+    return $this->customFooterText;
+  }
   public function setCustomReplyTo($customReplyTo)
   {
     $this->customReplyTo = $customReplyTo;
@@ -110,6 +120,14 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   public function getEmail()
   {
     return $this->email;
+  }
+  public function setIncludeCustomFooter($includeCustomFooter)
+  {
+    $this->includeCustomFooter = $includeCustomFooter;
+  }
+  public function getIncludeCustomFooter()
+  {
+    return $this->includeCustomFooter;
   }
   public function setIncludeInGlobalAddressList($includeInGlobalAddressList)
   {

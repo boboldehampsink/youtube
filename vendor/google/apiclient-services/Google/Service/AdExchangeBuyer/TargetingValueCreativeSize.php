@@ -23,6 +23,7 @@ class Google_Service_AdExchangeBuyer_TargetingValueCreativeSize extends Google_C
   public $creativeSizeType;
   protected $sizeType = 'Google_Service_AdExchangeBuyer_TargetingValueSize';
   protected $sizeDataType = '';
+  public $skippableAdType;
 
   public function setCompanionSizes($companionSizes)
   {
@@ -47,5 +48,13 @@ class Google_Service_AdExchangeBuyer_TargetingValueCreativeSize extends Google_C
   public function getSize()
   {
     return $this->size;
+  }
+  public function setSkippableAdType($skippableAdType)
+  {
+    $this->skippableAdType = $skippableAdType;
+  }
+  public function getSkippableAdType()
+  {
+    return $this->skippableAdType;
   }
 }

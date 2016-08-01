@@ -26,6 +26,7 @@ class Google_Service_QPXExpress_TripOptionsRequest extends Google_Collection
   protected $sliceType = 'Google_Service_QPXExpress_SliceInput';
   protected $sliceDataType = 'array';
   public $solutions;
+  public $ticketingCountry;
 
   public function setMaxPrice($maxPrice)
   {
@@ -74,5 +75,13 @@ class Google_Service_QPXExpress_TripOptionsRequest extends Google_Collection
   public function getSolutions()
   {
     return $this->solutions;
+  }
+  public function setTicketingCountry($ticketingCountry)
+  {
+    $this->ticketingCountry = $ticketingCountry;
+  }
+  public function getTicketingCountry()
+  {
+    return $this->ticketingCountry;
   }
 }

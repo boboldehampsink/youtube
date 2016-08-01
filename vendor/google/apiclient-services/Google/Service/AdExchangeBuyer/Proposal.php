@@ -35,7 +35,6 @@ class Google_Service_AdExchangeBuyer_Proposal extends Google_Collection
   protected $labelsType = 'Google_Service_AdExchangeBuyer_MarketplaceLabel';
   protected $labelsDataType = 'array';
   public $lastUpdaterOrCommentorRole;
-  public $lastUpdaterRole;
   public $name;
   public $negotiationId;
   public $originatorRole;
@@ -144,14 +143,6 @@ class Google_Service_AdExchangeBuyer_Proposal extends Google_Collection
   public function getLastUpdaterOrCommentorRole()
   {
     return $this->lastUpdaterOrCommentorRole;
-  }
-  public function setLastUpdaterRole($lastUpdaterRole)
-  {
-    $this->lastUpdaterRole = $lastUpdaterRole;
-  }
-  public function getLastUpdaterRole()
-  {
-    return $this->lastUpdaterRole;
   }
   public function setName($name)
   {

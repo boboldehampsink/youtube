@@ -33,7 +33,7 @@ class Google_Service_Playmoviespartner_AccountsOrdersResource extends Google_Ser
    * about this field.
    * @param string $orderId REQUIRED. Order ID.
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Order
+   * @return Google_Service_Playmoviespartner_Order
    */
   public function get($accountId, $orderId, $optParams = array())
   {
@@ -62,7 +62,7 @@ class Google_Service_Playmoviespartner_AccountsOrdersResource extends Google_Ser
    * @opt_param string status Filter Orders that match one of the given status.
    * @opt_param string customId Filter Orders that match a case-insensitive,
    * partner-specific custom id.
-   * @return Google_Service_ListOrdersResponse
+   * @return Google_Service_Playmoviespartner_ListOrdersResponse
    */
   public function listAccountsOrders($accountId, $optParams = array())
   {

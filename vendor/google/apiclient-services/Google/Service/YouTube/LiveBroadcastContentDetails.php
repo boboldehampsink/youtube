@@ -18,6 +18,7 @@
 class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
 {
   public $boundStreamId;
+  public $boundStreamLastUpdateTimeMs;
   public $closedCaptionsType;
   public $enableClosedCaptions;
   public $enableContentEncryption;
@@ -26,6 +27,7 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   public $enableLowLatency;
   protected $monitorStreamType = 'Google_Service_YouTube_MonitorStreamInfo';
   protected $monitorStreamDataType = '';
+  public $projection;
   public $recordFromStart;
   public $startWithSlate;
 
@@ -36,6 +38,14 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   public function getBoundStreamId()
   {
     return $this->boundStreamId;
+  }
+  public function setBoundStreamLastUpdateTimeMs($boundStreamLastUpdateTimeMs)
+  {
+    $this->boundStreamLastUpdateTimeMs = $boundStreamLastUpdateTimeMs;
+  }
+  public function getBoundStreamLastUpdateTimeMs()
+  {
+    return $this->boundStreamLastUpdateTimeMs;
   }
   public function setClosedCaptionsType($closedCaptionsType)
   {
@@ -92,6 +102,14 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   public function getMonitorStream()
   {
     return $this->monitorStream;
+  }
+  public function setProjection($projection)
+  {
+    $this->projection = $projection;
+  }
+  public function getProjection()
+  {
+    return $this->projection;
   }
   public function setRecordFromStart($recordFromStart)
   {

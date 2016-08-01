@@ -19,7 +19,7 @@
  * Service definition for Translate (v2).
  *
  * <p>
- * Lets you translate text from one language to another</p>
+ * Translates text from one language to another.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -49,7 +49,7 @@ class Google_Service_Translate extends Google_Service
     $this->version = 'v2';
     $this->serviceName = 'translate';
 
-    $this->detections = new Google_Service_Translate_DetectionsResource(
+    $this->detections = new Google_Service_Translate_Resource_Detections(
         $this,
         $this->serviceName,
         'detections',
@@ -70,7 +70,7 @@ class Google_Service_Translate extends Google_Service
           )
         )
     );
-    $this->languages = new Google_Service_Translate_LanguagesResource(
+    $this->languages = new Google_Service_Translate_Resource_Languages(
         $this,
         $this->serviceName,
         'languages',
@@ -89,7 +89,7 @@ class Google_Service_Translate extends Google_Service
           )
         )
     );
-    $this->translations = new Google_Service_Translate_TranslationsResource(
+    $this->translations = new Google_Service_Translate_Resource_Translations(
         $this,
         $this->serviceName,
         'translations',

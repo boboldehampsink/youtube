@@ -15,15 +15,15 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_StackFrame extends Google_Collection
+class Google_Service_CloudDebugger_StackFrame extends Google_Collection
 {
   protected $collection_key = 'locals';
-  protected $argumentsType = 'Google_Service_Clouddebugger_Variable';
+  protected $argumentsType = 'Google_Service_CloudDebugger_Variable';
   protected $argumentsDataType = 'array';
   public $function;
-  protected $localsType = 'Google_Service_Clouddebugger_Variable';
+  protected $localsType = 'Google_Service_CloudDebugger_Variable';
   protected $localsDataType = 'array';
-  protected $locationType = 'Google_Service_Clouddebugger_SourceLocation';
+  protected $locationType = 'Google_Service_CloudDebugger_SourceLocation';
   protected $locationDataType = '';
 
   public function setArguments($arguments)
@@ -50,7 +50,7 @@ class Google_Service_Clouddebugger_StackFrame extends Google_Collection
   {
     return $this->locals;
   }
-  public function setLocation(Google_Service_Clouddebugger_SourceLocation $location)
+  public function setLocation(Google_Service_CloudDebugger_SourceLocation $location)
   {
     $this->location = $location;
   }

@@ -15,6 +15,6 @@
  * the License.
  */
 
-class Google_Service_Cloudtrace_CloudtraceEmpty extends Google_Model
+class Google_Service_CloudTrace_CloudtraceEmpty extends Google_Model
 {
 }

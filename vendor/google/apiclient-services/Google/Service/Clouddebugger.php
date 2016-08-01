@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Clouddebugger (v2).
+ * Service definition for CloudDebugger (v2).
  *
  * <p>
  * Examines the call stack and variables of a running application without
@@ -29,7 +29,7 @@
  *
  * @author Google, Inc.
  */
-class Google_Service_Clouddebugger extends Google_Service
+class Google_Service_CloudDebugger extends Google_Service
 {
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM =
@@ -47,7 +47,7 @@ class Google_Service_Clouddebugger extends Google_Service
   public $debugger_debuggees_breakpoints;
   
   /**
-   * Constructs the internal representation of the Clouddebugger service.
+   * Constructs the internal representation of the CloudDebugger service.
    *
    * @param Google_Client $client
    */
@@ -59,7 +59,7 @@ class Google_Service_Clouddebugger extends Google_Service
     $this->version = 'v2';
     $this->serviceName = 'clouddebugger';
 
-    $this->controller_debuggees = new Google_Service_Clouddebugger_ControllerDebuggeesResource(
+    $this->controller_debuggees = new Google_Service_CloudDebugger_Resource_ControllerDebuggees(
         $this,
         $this->serviceName,
         'debuggees',
@@ -73,7 +73,7 @@ class Google_Service_Clouddebugger extends Google_Service
           )
         )
     );
-    $this->controller_debuggees_breakpoints = new Google_Service_Clouddebugger_ControllerDebuggeesBreakpointsResource(
+    $this->controller_debuggees_breakpoints = new Google_Service_CloudDebugger_Resource_ControllerDebuggeesBreakpoints(
         $this,
         $this->serviceName,
         'breakpoints',
@@ -116,7 +116,7 @@ class Google_Service_Clouddebugger extends Google_Service
           )
         )
     );
-    $this->debugger_debuggees = new Google_Service_Clouddebugger_DebuggerDebuggeesResource(
+    $this->debugger_debuggees = new Google_Service_CloudDebugger_Resource_DebuggerDebuggees(
         $this,
         $this->serviceName,
         'debuggees',
@@ -143,7 +143,7 @@ class Google_Service_Clouddebugger extends Google_Service
           )
         )
     );
-    $this->debugger_debuggees_breakpoints = new Google_Service_Clouddebugger_DebuggerDebuggeesBreakpointsResource(
+    $this->debugger_debuggees_breakpoints = new Google_Service_CloudDebugger_Resource_DebuggerDebuggeesBreakpoints(
         $this,
         $this->serviceName,
         'breakpoints',

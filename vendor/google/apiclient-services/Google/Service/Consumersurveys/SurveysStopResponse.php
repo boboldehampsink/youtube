@@ -15,10 +15,10 @@
  * the License.
  */
 
-class Google_Service_Consumersurveys_SurveysStopResponse extends Google_Model
+class Google_Service_ConsumerSurveys_SurveysStopResponse extends Google_Model
 {
   public $requestId;
-  protected $resourceType = 'Google_Service_Consumersurveys_Survey';
+  protected $resourceType = 'Google_Service_ConsumerSurveys_Survey';
   protected $resourceDataType = '';
 
   public function setRequestId($requestId)
@@ -29,7 +29,7 @@ class Google_Service_Consumersurveys_SurveysStopResponse extends Google_Model
   {
     return $this->requestId;
   }
-  public function setResource(Google_Service_Consumersurveys_Survey $resource)
+  public function setResource(Google_Service_ConsumerSurveys_Survey $resource)
   {
     $this->resource = $resource;
   }

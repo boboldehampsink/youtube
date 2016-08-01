@@ -18,9 +18,11 @@
 class Google_Service_YouTube_CdnSettings extends Google_Model
 {
   public $format;
+  public $frameRate;
   protected $ingestionInfoType = 'Google_Service_YouTube_IngestionInfo';
   protected $ingestionInfoDataType = '';
   public $ingestionType;
+  public $resolution;
 
   public function setFormat($format)
   {
@@ -29,6 +31,14 @@ class Google_Service_YouTube_CdnSettings extends Google_Model
   public function getFormat()
   {
     return $this->format;
+  }
+  public function setFrameRate($frameRate)
+  {
+    $this->frameRate = $frameRate;
+  }
+  public function getFrameRate()
+  {
+    return $this->frameRate;
   }
   public function setIngestionInfo(Google_Service_YouTube_IngestionInfo $ingestionInfo)
   {
@@ -45,5 +55,13 @@ class Google_Service_YouTube_CdnSettings extends Google_Model
   public function getIngestionType()
   {
     return $this->ingestionType;
+  }
+  public function setResolution($resolution)
+  {
+    $this->resolution = $resolution;
+  }
+  public function getResolution()
+  {
+    return $this->resolution;
   }
 }

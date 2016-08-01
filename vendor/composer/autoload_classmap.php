@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Google\\Auth\\ApplicationDefaultCredentials' => $vendorDir . '/google/auth/src/ApplicationDefaultCredentials.php',
-    'Google\\Auth\\CacheInterface' => $vendorDir . '/google/auth/src/CacheInterface.php',
     'Google\\Auth\\CacheTrait' => $vendorDir . '/google/auth/src/CacheTrait.php',
     'Google\\Auth\\CredentialsLoader' => $vendorDir . '/google/auth/src/CredentialsLoader.php',
     'Google\\Auth\\Credentials\\AppIdentityCredentials' => $vendorDir . '/google/auth/src/Credentials/AppIdentityCredentials.php',

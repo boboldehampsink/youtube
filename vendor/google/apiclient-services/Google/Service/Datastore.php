@@ -19,7 +19,7 @@
  * Service definition for Datastore (v1beta3).
  *
  * <p>
- * Google Cloud Datastore is a schemaless NoSQL datastore providing robust,
+ * Accesses the schemaless NoSQL database to provide fully managed, robust,
  * scalable storage for your application.</p>
  *
  * <p>
@@ -53,7 +53,7 @@ class Google_Service_Datastore extends Google_Service
     $this->version = 'v1beta3';
     $this->serviceName = 'datastore';
 
-    $this->projects = new Google_Service_Datastore_ProjectsResource(
+    $this->projects = new Google_Service_Datastore_Resource_Projects(
         $this,
         $this->serviceName,
         'projects',

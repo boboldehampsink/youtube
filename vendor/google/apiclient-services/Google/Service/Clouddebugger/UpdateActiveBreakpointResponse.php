@@ -15,6 +15,6 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_UpdateActiveBreakpointResponse extends Google_Model
+class Google_Service_CloudDebugger_UpdateActiveBreakpointResponse extends Google_Model
 {
 }

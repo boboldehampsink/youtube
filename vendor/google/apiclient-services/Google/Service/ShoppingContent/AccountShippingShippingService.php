@@ -22,6 +22,8 @@ class Google_Service_ShoppingContent_AccountShippingShippingService extends Goog
   protected $calculationMethodDataType = '';
   protected $costRuleTreeType = 'Google_Service_ShoppingContent_AccountShippingShippingServiceCostRule';
   protected $costRuleTreeDataType = '';
+  public $maxDaysInTransit;
+  public $minDaysInTransit;
   public $name;
   public $saleCountry;
 
@@ -48,6 +50,22 @@ class Google_Service_ShoppingContent_AccountShippingShippingService extends Goog
   public function getCostRuleTree()
   {
     return $this->costRuleTree;
+  }
+  public function setMaxDaysInTransit($maxDaysInTransit)
+  {
+    $this->maxDaysInTransit = $maxDaysInTransit;
+  }
+  public function getMaxDaysInTransit()
+  {
+    return $this->maxDaysInTransit;
+  }
+  public function setMinDaysInTransit($minDaysInTransit)
+  {
+    $this->minDaysInTransit = $minDaysInTransit;
+  }
+  public function getMinDaysInTransit()
+  {
+    return $this->minDaysInTransit;
   }
   public function setName($name)
   {

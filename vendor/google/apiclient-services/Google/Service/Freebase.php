@@ -207,7 +207,7 @@ class Google_Service_Freebase extends Google_Service
    * @opt_param int limit Maximum number of candidates to return.
    * @opt_param string name Name of entity.
    * @opt_param string prop Property values for entity formatted as :
-   * @return Google_Service_ReconcileGet
+   * @return Google_Service_Freebase_ReconcileGet
    */
   public function reconcile($optParams = array())
   {

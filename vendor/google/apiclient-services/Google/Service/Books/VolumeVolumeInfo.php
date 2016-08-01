@@ -36,6 +36,8 @@ class Google_Service_Books_VolumeVolumeInfo extends Google_Collection
   public $mainCategory;
   public $maturityRating;
   public $pageCount;
+  protected $panelizationSummaryType = 'Google_Service_Books_VolumeVolumeInfoPanelizationSummary';
+  protected $panelizationSummaryDataType = '';
   public $previewLink;
   public $printType;
   public $printedPageCount;
@@ -168,6 +170,14 @@ class Google_Service_Books_VolumeVolumeInfo extends Google_Collection
   public function getPageCount()
   {
     return $this->pageCount;
+  }
+  public function setPanelizationSummary(Google_Service_Books_VolumeVolumeInfoPanelizationSummary $panelizationSummary)
+  {
+    $this->panelizationSummary = $panelizationSummary;
+  }
+  public function getPanelizationSummary()
+  {
+    return $this->panelizationSummary;
   }
   public function setPreviewLink($previewLink)
   {

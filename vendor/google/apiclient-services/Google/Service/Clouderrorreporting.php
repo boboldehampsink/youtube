@@ -19,9 +19,9 @@
  * Service definition for Clouderrorreporting (v1beta1).
  *
  * <p>
- * Collects errors from Cloud Logging data or sent directly from client
- * applications. Groups and counts similar errors to provide an overview on the
- * health of the application and to enable further analysis.</p>
+ * Stackdriver Error Reporting groups and counts similar errors from cloud
+ * services. The Stackdriver Error Reporting API provides read access to error
+ * groups and their associated errors.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -54,7 +54,7 @@ class Google_Service_Clouderrorreporting extends Google_Service
     $this->version = 'v1beta1';
     $this->serviceName = 'clouderrorreporting';
 
-    $this->projects = new Google_Service_Clouderrorreporting_ProjectsResource(
+    $this->projects = new Google_Service_Clouderrorreporting_Resource_Projects(
         $this,
         $this->serviceName,
         'projects',
@@ -74,7 +74,7 @@ class Google_Service_Clouderrorreporting extends Google_Service
           )
         )
     );
-    $this->projects_events = new Google_Service_Clouderrorreporting_ProjectsEventsResource(
+    $this->projects_events = new Google_Service_Clouderrorreporting_Resource_ProjectsEvents(
         $this,
         $this->serviceName,
         'events',
@@ -101,24 +101,34 @@ class Google_Service_Clouderrorreporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'serviceFilter.version' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
               ),
+            ),'report' => array(
+              'path' => 'v1beta1/{+projectName}/events:report',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'projectName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),
           )
         )
     );
-    $this->projects_groupStats = new Google_Service_Clouderrorreporting_ProjectsGroupStatsResource(
+    $this->projects_groupStats = new Google_Service_Clouderrorreporting_Resource_ProjectsGroupStats(
         $this,
         $this->serviceName,
         'groupStats',
@@ -145,26 +155,26 @@ class Google_Service_Clouderrorreporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'serviceFilter.service' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'groupId' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
+                'serviceFilter.service' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'alignmentTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'serviceFilter.version' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
-                ),
-                'serviceFilter.version' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'timedCountDuration' => array(
                   'location' => 'query',
@@ -179,7 +189,7 @@ class Google_Service_Clouderrorreporting extends Google_Service
           )
         )
     );
-    $this->projects_groups = new Google_Service_Clouderrorreporting_ProjectsGroupsResource(
+    $this->projects_groups = new Google_Service_Clouderrorreporting_Resource_ProjectsGroups(
         $this,
         $this->serviceName,
         'groups',

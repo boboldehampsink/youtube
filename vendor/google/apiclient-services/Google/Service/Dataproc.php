@@ -19,7 +19,7 @@
  * Service definition for Dataproc (v1).
  *
  * <p>
- * An API for managing Hadoop-based clusters and jobs on Google Cloud Platform.</p>
+ * Manages Hadoop-based clusters and jobs on Google Cloud Platform.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -33,17 +33,7 @@ class Google_Service_Dataproc extends Google_Service
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
-  /** Administrate log data for your projects. */
-  const LOGGING_ADMIN =
-      "https://www.googleapis.com/auth/logging.admin";
-  /** View log data for your projects. */
-  const LOGGING_READ =
-      "https://www.googleapis.com/auth/logging.read";
-  /** Submit log data for your projects. */
-  const LOGGING_WRITE =
-      "https://www.googleapis.com/auth/logging.write";
 
-  public $media;
   public $projects_regions_clusters;
   public $projects_regions_jobs;
   public $projects_regions_operations;
@@ -61,37 +51,7 @@ class Google_Service_Dataproc extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'dataproc';
 
-    $this->media = new Google_Service_Dataproc_MediaResource(
-        $this,
-        $this->serviceName,
-        'media',
-        array(
-          'methods' => array(
-            'download' => array(
-              'path' => 'v1/media/{+resourceName}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'resourceName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'upload' => array(
-              'path' => 'v1/media/{+resourceName}',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'resourceName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),
-          )
-        )
-    );
-    $this->projects_regions_clusters = new Google_Service_Dataproc_ProjectsRegionsClustersResource(
+    $this->projects_regions_clusters = new Google_Service_Dataproc_Resource_ProjectsRegionsClusters(
         $this,
         $this->serviceName,
         'clusters',
@@ -223,7 +183,7 @@ class Google_Service_Dataproc extends Google_Service
           )
         )
     );
-    $this->projects_regions_jobs = new Google_Service_Dataproc_ProjectsRegionsJobsResource(
+    $this->projects_regions_jobs = new Google_Service_Dataproc_Resource_ProjectsRegionsJobs(
         $this,
         $this->serviceName,
         'jobs',
@@ -339,7 +299,7 @@ class Google_Service_Dataproc extends Google_Service
           )
         )
     );
-    $this->projects_regions_operations = new Google_Service_Dataproc_ProjectsRegionsOperationsResource(
+    $this->projects_regions_operations = new Google_Service_Dataproc_Resource_ProjectsRegionsOperations(
         $this,
         $this->serviceName,
         'operations',

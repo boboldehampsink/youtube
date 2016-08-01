@@ -19,6 +19,8 @@ class Google_Service_Books_UsersettingsNotification extends Google_Model
 {
   protected $moreFromAuthorsType = 'Google_Service_Books_UsersettingsNotificationMoreFromAuthors';
   protected $moreFromAuthorsDataType = '';
+  protected $moreFromSeriesType = 'Google_Service_Books_UsersettingsNotificationMoreFromSeries';
+  protected $moreFromSeriesDataType = '';
 
   public function setMoreFromAuthors(Google_Service_Books_UsersettingsNotificationMoreFromAuthors $moreFromAuthors)
   {
@@ -27,5 +29,13 @@ class Google_Service_Books_UsersettingsNotification extends Google_Model
   public function getMoreFromAuthors()
   {
     return $this->moreFromAuthors;
+  }
+  public function setMoreFromSeries(Google_Service_Books_UsersettingsNotificationMoreFromSeries $moreFromSeries)
+  {
+    $this->moreFromSeries = $moreFromSeries;
+  }
+  public function getMoreFromSeries()
+  {
+    return $this->moreFromSeries;
   }
 }

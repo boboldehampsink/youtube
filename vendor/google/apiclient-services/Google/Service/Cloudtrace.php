@@ -16,11 +16,13 @@
  */
 
 /**
- * Service definition for Cloudtrace (v1).
+ * Service definition for CloudTrace (v1).
  *
  * <p>
- * The Cloud Trace API allows you to send traces to and retrieve traces from
- * Google Cloud Trace.</p>
+ * Send and retrieve trace data from Google Cloud Trace. Data is generated and
+ * available by default for all App Engine applications. Data from other
+ * applications can be written to Cloud Trace for display, reporting, and
+ * analysis.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -29,17 +31,23 @@
  *
  * @author Google, Inc.
  */
-class Google_Service_Cloudtrace extends Google_Service
+class Google_Service_CloudTrace extends Google_Service
 {
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
+  /** Write Trace data for a project or application. */
+  const TRACE_APPEND =
+      "https://www.googleapis.com/auth/trace.append";
+  /** Read Trace data for a project or application. */
+  const TRACE_READONLY =
+      "https://www.googleapis.com/auth/trace.readonly";
 
   public $projects;
   public $projects_traces;
   
   /**
-   * Constructs the internal representation of the Cloudtrace service.
+   * Constructs the internal representation of the CloudTrace service.
    *
    * @param Google_Client $client
    */
@@ -51,7 +59,7 @@ class Google_Service_Cloudtrace extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'cloudtrace';
 
-    $this->projects = new Google_Service_Cloudtrace_ProjectsResource(
+    $this->projects = new Google_Service_CloudTrace_Resource_Projects(
         $this,
         $this->serviceName,
         'projects',
@@ -71,7 +79,7 @@ class Google_Service_Cloudtrace extends Google_Service
           )
         )
     );
-    $this->projects_traces = new Google_Service_Cloudtrace_ProjectsTracesResource(
+    $this->projects_traces = new Google_Service_CloudTrace_Resource_ProjectsTraces(
         $this,
         $this->serviceName,
         'traces',

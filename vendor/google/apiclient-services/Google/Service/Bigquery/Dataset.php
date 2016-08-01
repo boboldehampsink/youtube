@@ -29,6 +29,7 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   public $friendlyName;
   public $id;
   public $kind;
+  public $labels;
   public $lastModifiedTime;
   public $location;
   public $selfLink;
@@ -104,6 +105,14 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setLabels($labels)
+  {
+    $this->labels = $labels;
+  }
+  public function getLabels()
+  {
+    return $this->labels;
   }
   public function setLastModifiedTime($lastModifiedTime)
   {

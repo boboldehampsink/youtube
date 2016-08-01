@@ -44,6 +44,7 @@ class Google_Service_AndroidEnterprise extends Google_Service
   public $installs;
   public $permissions;
   public $products;
+  public $serviceaccountkeys;
   public $storelayoutclusters;
   public $storelayoutpages;
   public $users;
@@ -61,7 +62,7 @@ class Google_Service_AndroidEnterprise extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'androidenterprise';
 
-    $this->collections = new Google_Service_AndroidEnterprise_CollectionsResource(
+    $this->collections = new Google_Service_AndroidEnterprise_Resource_Collections(
         $this,
         $this->serviceName,
         'collections',
@@ -151,7 +152,7 @@ class Google_Service_AndroidEnterprise extends Google_Service
           )
         )
     );
-    $this->collectionviewers = new Google_Service_AndroidEnterprise_CollectionviewersResource(
+    $this->collectionviewers = new Google_Service_AndroidEnterprise_Resource_Collectionviewers(
         $this,
         $this->serviceName,
         'collectionviewers',
@@ -256,7 +257,7 @@ class Google_Service_AndroidEnterprise extends Google_Service
           )
         )
     );
-    $this->devices = new Google_Service_AndroidEnterprise_DevicesResource(
+    $this->devices = new Google_Service_AndroidEnterprise_Resource_Devices(
         $this,
         $this->serviceName,
         'devices',
@@ -341,13 +342,35 @@ class Google_Service_AndroidEnterprise extends Google_Service
           )
         )
     );
-    $this->enterprises = new Google_Service_AndroidEnterprise_EnterprisesResource(
+    $this->enterprises = new Google_Service_AndroidEnterprise_Resource_Enterprises(
         $this,
         $this->serviceName,
         'enterprises',
         array(
           'methods' => array(
-            'delete' => array(
+            'acknowledgeNotificationSet' => array(
+              'path' => 'enterprises/acknowledgeNotificationSet',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'notificationSetId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'completeSignup' => array(
+              'path' => 'enterprises/completeSignup',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'completionToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'enterpriseToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'delete' => array(
               'path' => 'enterprises/{enterpriseId}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
@@ -367,6 +390,15 @@ class Google_Service_AndroidEnterprise extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'generateSignupUrl' => array(
+              'path' => 'enterprises/signupUrl',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'callbackUrl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
             ),'get' => array(
               'path' => 'enterprises/{enterpriseId}',
               'httpMethod' => 'GET',
@@ -375,6 +407,20 @@ class Google_Service_AndroidEnterprise extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+              ),
+            ),'getServiceAccount' => array(
+              'path' => 'enterprises/{enterpriseId}/serviceAccount',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'keyType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'getStoreLayout' => array(
@@ -405,6 +451,15 @@ class Google_Service_AndroidEnterprise extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                   'required' => true,
+                ),
+              ),
+            ),'pullNotificationSet' => array(
+              'path' => 'enterprises/pullNotificationSet',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'requestMode' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'sendTestPushNotification' => array(
@@ -451,7 +506,7 @@ class Google_Service_AndroidEnterprise extends Google_Service
           )
         )
     );
-    $this->entitlements = new Google_Service_AndroidEnterprise_EntitlementsResource(
+    $this->entitlements = new Google_Service_AndroidEnterprise_Resource_Entitlements(
         $this,
         $this->serviceName,
         'entitlements',
@@ -564,7 +619,7 @@ class Google_Service_AndroidEnterprise extends Google_Service
           )
         )
     );
-    $this->grouplicenses = new Google_Service_AndroidEnterprise_GrouplicensesResource(
+    $this->grouplicenses = new Google_Service_AndroidEnterprise_Resource_Grouplicenses(
         $this,
         $this->serviceName,
         'grouplicenses',
@@ -599,7 +654,7 @@ class Google_Service_AndroidEnterprise extends Google_Service
           )
         )
     );
-    $this->grouplicenseusers = new Google_Service_AndroidEnterprise_GrouplicenseusersResource(
+    $this->grouplicenseusers = new Google_Service_AndroidEnterprise_Resource_Grouplicenseusers(
         $this,
         $this->serviceName,
         'grouplicenseusers',
@@ -624,7 +679,7 @@ class Google_Service_AndroidEnterprise extends Google_Service
           )
         )
     );
-    $this->installs = new Google_Service_AndroidEnterprise_InstallsResource(
+    $this->installs = new Google_Service_AndroidEnterprise_Resource_Installs(
         $this,
         $this->serviceName,
         'installs',
@@ -754,7 +809,7 @@ class Google_Service_AndroidEnterprise extends Google_Service
           )
         )
     );
-    $this->permissions = new Google_Service_AndroidEnterprise_PermissionsResource(
+    $this->permissions = new Google_Service_AndroidEnterprise_Resource_Permissions(
         $this,
         $this->serviceName,
         'permissions',
@@ -778,7 +833,7 @@ class Google_Service_AndroidEnterprise extends Google_Service
           )
         )
     );
-    $this->products = new Google_Service_AndroidEnterprise_ProductsResource(
+    $this->products = new Google_Service_AndroidEnterprise_Resource_Products(
         $this,
         $this->serviceName,
         'products',
@@ -871,6 +926,51 @@ class Google_Service_AndroidEnterprise extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'list' => array(
+              'path' => 'enterprises/{enterpriseId}/products',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'approved' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'query' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'token' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'unapprove' => array(
+              'path' => 'enterprises/{enterpriseId}/products/{productId}/unapprove',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'productId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'updatePermissions' => array(
               'path' => 'enterprises/{enterpriseId}/products/{productId}/permissions',
               'httpMethod' => 'PUT',
@@ -890,7 +990,52 @@ class Google_Service_AndroidEnterprise extends Google_Service
           )
         )
     );
-    $this->storelayoutclusters = new Google_Service_AndroidEnterprise_StorelayoutclustersResource(
+    $this->serviceaccountkeys = new Google_Service_AndroidEnterprise_Resource_Serviceaccountkeys(
+        $this,
+        $this->serviceName,
+        'serviceaccountkeys',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => 'enterprises/{enterpriseId}/serviceAccountKeys/{keyId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'keyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => 'enterprises/{enterpriseId}/serviceAccountKeys',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'enterprises/{enterpriseId}/serviceAccountKeys',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->storelayoutclusters = new Google_Service_AndroidEnterprise_Resource_Storelayoutclusters(
         $this,
         $this->serviceName,
         'storelayoutclusters',
@@ -1010,7 +1155,7 @@ class Google_Service_AndroidEnterprise extends Google_Service
           )
         )
     );
-    $this->storelayoutpages = new Google_Service_AndroidEnterprise_StorelayoutpagesResource(
+    $this->storelayoutpages = new Google_Service_AndroidEnterprise_Resource_Storelayoutpages(
         $this,
         $this->serviceName,
         'storelayoutpages',
@@ -1100,13 +1245,43 @@ class Google_Service_AndroidEnterprise extends Google_Service
           )
         )
     );
-    $this->users = new Google_Service_AndroidEnterprise_UsersResource(
+    $this->users = new Google_Service_AndroidEnterprise_Resource_Users(
         $this,
         $this->serviceName,
         'users',
         array(
           'methods' => array(
-            'generateToken' => array(
+            'delete' => array(
+              'path' => 'enterprises/{enterpriseId}/users/{userId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'generateAuthenticationToken' => array(
+              'path' => 'enterprises/{enterpriseId}/users/{userId}/authenticationToken',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'generateToken' => array(
               'path' => 'enterprises/{enterpriseId}/users/{userId}/token',
               'httpMethod' => 'POST',
               'parameters' => array(
@@ -1151,6 +1326,16 @@ class Google_Service_AndroidEnterprise extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'insert' => array(
+              'path' => 'enterprises/{enterpriseId}/users',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'list' => array(
               'path' => 'enterprises/{enterpriseId}/users',
               'httpMethod' => 'GET',
@@ -1162,6 +1347,21 @@ class Google_Service_AndroidEnterprise extends Google_Service
                 ),
                 'email' => array(
                   'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'patch' => array(
+              'path' => 'enterprises/{enterpriseId}/users/{userId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'userId' => array(
+                  'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
@@ -1183,6 +1383,21 @@ class Google_Service_AndroidEnterprise extends Google_Service
               ),
             ),'setAvailableProductSet' => array(
               'path' => 'enterprises/{enterpriseId}/users/{userId}/availableProductSet',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'enterprises/{enterpriseId}/users/{userId}',
               'httpMethod' => 'PUT',
               'parameters' => array(
                 'enterpriseId' => array(

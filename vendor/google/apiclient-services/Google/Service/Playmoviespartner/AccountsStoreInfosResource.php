@@ -51,7 +51,7 @@ class Google_Service_Playmoviespartner_AccountsStoreInfosResource extends Google
    * substring of the default name.
    * @opt_param string videoIds Filter StoreInfos that match any of the given
    * `video_id`s.
-   * @return Google_Service_ListStoreInfosResponse
+   * @return Google_Service_Playmoviespartner_ListStoreInfosResponse
    */
   public function listAccountsStoreInfos($accountId, $optParams = array())
   {

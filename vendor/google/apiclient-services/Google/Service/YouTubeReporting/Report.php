@@ -21,6 +21,7 @@ class Google_Service_YouTubeReporting_Report extends Google_Model
   public $downloadUrl;
   public $endTime;
   public $id;
+  public $jobExpireTime;
   public $jobId;
   public $startTime;
 
@@ -55,6 +56,14 @@ class Google_Service_YouTubeReporting_Report extends Google_Model
   public function getId()
   {
     return $this->id;
+  }
+  public function setJobExpireTime($jobExpireTime)
+  {
+    $this->jobExpireTime = $jobExpireTime;
+  }
+  public function getJobExpireTime()
+  {
+    return $this->jobExpireTime;
   }
   public function setJobId($jobId)
   {

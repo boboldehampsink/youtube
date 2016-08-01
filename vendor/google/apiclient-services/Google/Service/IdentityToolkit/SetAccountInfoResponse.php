@@ -23,7 +23,9 @@ class Google_Service_IdentityToolkit_SetAccountInfoResponse extends Google_Colle
   public $expiresIn;
   public $idToken;
   public $kind;
+  public $localId;
   public $newEmail;
+  public $passwordHash;
   public $photoUrl;
   protected $providerUserInfoType = 'Google_Service_IdentityToolkit_SetAccountInfoResponseProviderUserInfo';
   protected $providerUserInfoDataType = 'array';
@@ -69,6 +71,14 @@ class Google_Service_IdentityToolkit_SetAccountInfoResponse extends Google_Colle
   {
     return $this->kind;
   }
+  public function setLocalId($localId)
+  {
+    $this->localId = $localId;
+  }
+  public function getLocalId()
+  {
+    return $this->localId;
+  }
   public function setNewEmail($newEmail)
   {
     $this->newEmail = $newEmail;
@@ -76,6 +86,14 @@ class Google_Service_IdentityToolkit_SetAccountInfoResponse extends Google_Colle
   public function getNewEmail()
   {
     return $this->newEmail;
+  }
+  public function setPasswordHash($passwordHash)
+  {
+    $this->passwordHash = $passwordHash;
+  }
+  public function getPasswordHash()
+  {
+    return $this->passwordHash;
   }
   public function setPhotoUrl($photoUrl)
   {

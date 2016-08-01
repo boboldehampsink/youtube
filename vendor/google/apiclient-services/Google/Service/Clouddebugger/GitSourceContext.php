@@ -15,7 +15,7 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_GitSourceContext extends Google_Model
+class Google_Service_CloudDebugger_GitSourceContext extends Google_Model
 {
   public $revisionId;
   public $url;

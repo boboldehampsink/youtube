@@ -60,7 +60,7 @@ class Google_Service_SQLAdmin extends Google_Service
     $this->version = 'v1beta4';
     $this->serviceName = 'sqladmin';
 
-    $this->backupRuns = new Google_Service_SQLAdmin_BackupRunsResource(
+    $this->backupRuns = new Google_Service_SQLAdmin_Resource_BackupRuns(
         $this,
         $this->serviceName,
         'backupRuns',
@@ -106,6 +106,21 @@ class Google_Service_SQLAdmin extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'insert' => array(
+              'path' => 'projects/{project}/instances/{instance}/backupRuns',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'list' => array(
               'path' => 'projects/{project}/instances/{instance}/backupRuns',
               'httpMethod' => 'GET',
@@ -133,7 +148,7 @@ class Google_Service_SQLAdmin extends Google_Service
           )
         )
     );
-    $this->databases = new Google_Service_SQLAdmin_DatabasesResource(
+    $this->databases = new Google_Service_SQLAdmin_Resource_Databases(
         $this,
         $this->serviceName,
         'databases',
@@ -253,7 +268,7 @@ class Google_Service_SQLAdmin extends Google_Service
           )
         )
     );
-    $this->flags = new Google_Service_SQLAdmin_FlagsResource(
+    $this->flags = new Google_Service_SQLAdmin_Resource_Flags(
         $this,
         $this->serviceName,
         'flags',
@@ -267,7 +282,7 @@ class Google_Service_SQLAdmin extends Google_Service
           )
         )
     );
-    $this->instances = new Google_Service_SQLAdmin_InstancesResource(
+    $this->instances = new Google_Service_SQLAdmin_Resource_Instances(
         $this,
         $this->serviceName,
         'instances',
@@ -515,7 +530,7 @@ class Google_Service_SQLAdmin extends Google_Service
           )
         )
     );
-    $this->operations = new Google_Service_SQLAdmin_OperationsResource(
+    $this->operations = new Google_Service_SQLAdmin_Resource_Operations(
         $this,
         $this->serviceName,
         'operations',
@@ -563,7 +578,7 @@ class Google_Service_SQLAdmin extends Google_Service
           )
         )
     );
-    $this->sslCerts = new Google_Service_SQLAdmin_SslCertsResource(
+    $this->sslCerts = new Google_Service_SQLAdmin_Resource_SslCerts(
         $this,
         $this->serviceName,
         'sslCerts',
@@ -658,7 +673,7 @@ class Google_Service_SQLAdmin extends Google_Service
           )
         )
     );
-    $this->tiers = new Google_Service_SQLAdmin_TiersResource(
+    $this->tiers = new Google_Service_SQLAdmin_Resource_Tiers(
         $this,
         $this->serviceName,
         'tiers',
@@ -678,7 +693,7 @@ class Google_Service_SQLAdmin extends Google_Service
           )
         )
     );
-    $this->users = new Google_Service_SQLAdmin_UsersResource(
+    $this->users = new Google_Service_SQLAdmin_Resource_Users(
         $this,
         $this->serviceName,
         'users',

@@ -15,13 +15,24 @@
  * the License.
  */
 
-class Google_Service_AndroidEnterprise_Enterprise extends Google_Model
+class Google_Service_AndroidEnterprise_Enterprise extends Google_Collection
 {
+  protected $collection_key = 'administrator';
+  protected $administratorType = 'Google_Service_AndroidEnterprise_Administrator';
+  protected $administratorDataType = 'array';
   public $id;
   public $kind;
   public $name;
   public $primaryDomain;
 
+  public function setAdministrator($administrator)
+  {
+    $this->administrator = $administrator;
+  }
+  public function getAdministrator()
+  {
+    return $this->administrator;
+  }
   public function setId($id)
   {
     $this->id = $id;

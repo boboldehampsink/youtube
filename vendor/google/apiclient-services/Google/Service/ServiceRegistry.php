@@ -24,7 +24,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/cloud-serviceregistry/" target="_blank">Documentation</a>
+ * <a href="https://cloud.google.com/service-registry/" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -60,7 +60,7 @@ class Google_Service_ServiceRegistry extends Google_Service
     $this->version = 'alpha';
     $this->serviceName = 'serviceregistry';
 
-    $this->endpoints = new Google_Service_ServiceRegistry_EndpointsResource(
+    $this->endpoints = new Google_Service_ServiceRegistry_Resource_Endpoints(
         $this,
         $this->serviceName,
         'endpoints',
@@ -166,7 +166,7 @@ class Google_Service_ServiceRegistry extends Google_Service
           )
         )
     );
-    $this->operations = new Google_Service_ServiceRegistry_OperationsResource(
+    $this->operations = new Google_Service_ServiceRegistry_Resource_Operations(
         $this,
         $this->serviceName,
         'operations',

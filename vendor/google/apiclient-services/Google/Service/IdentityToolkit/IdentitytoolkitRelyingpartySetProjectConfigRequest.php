@@ -20,6 +20,7 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetProjectConfig
   protected $collection_key = 'idpConfig';
   public $allowPasswordUser;
   public $apiKey;
+  public $authorizedDomains;
   protected $changeEmailTemplateType = 'Google_Service_IdentityToolkit_EmailTemplate';
   protected $changeEmailTemplateDataType = '';
   public $delegatedProjectNumber;
@@ -49,6 +50,14 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetProjectConfig
   public function getApiKey()
   {
     return $this->apiKey;
+  }
+  public function setAuthorizedDomains($authorizedDomains)
+  {
+    $this->authorizedDomains = $authorizedDomains;
+  }
+  public function getAuthorizedDomains()
+  {
+    return $this->authorizedDomains;
   }
   public function setChangeEmailTemplate(Google_Service_IdentityToolkit_EmailTemplate $changeEmailTemplate)
   {

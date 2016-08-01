@@ -20,6 +20,7 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
   protected $collection_key = 'provider';
   public $captchaChallenge;
   public $captchaResponse;
+  public $createdAt;
   public $delegatedProjectNumber;
   public $deleteAttribute;
   public $deleteProvider;
@@ -29,6 +30,7 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
   public $emailVerified;
   public $idToken;
   public $instanceId;
+  public $lastLoginAt;
   public $localId;
   public $oobCode;
   public $password;
@@ -53,6 +55,14 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
   public function getCaptchaResponse()
   {
     return $this->captchaResponse;
+  }
+  public function setCreatedAt($createdAt)
+  {
+    $this->createdAt = $createdAt;
+  }
+  public function getCreatedAt()
+  {
+    return $this->createdAt;
   }
   public function setDelegatedProjectNumber($delegatedProjectNumber)
   {
@@ -125,6 +135,14 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
   public function getInstanceId()
   {
     return $this->instanceId;
+  }
+  public function setLastLoginAt($lastLoginAt)
+  {
+    $this->lastLoginAt = $lastLoginAt;
+  }
+  public function getLastLoginAt()
+  {
+    return $this->lastLoginAt;
   }
   public function setLocalId($localId)
   {

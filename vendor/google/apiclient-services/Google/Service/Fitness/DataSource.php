@@ -15,10 +15,12 @@
  * the License.
  */
 
-class Google_Service_Fitness_DataSource extends Google_Model
+class Google_Service_Fitness_DataSource extends Google_Collection
 {
+  protected $collection_key = 'dataQualityStandard';
   protected $applicationType = 'Google_Service_Fitness_Application';
   protected $applicationDataType = '';
+  public $dataQualityStandard;
   public $dataStreamId;
   public $dataStreamName;
   protected $dataTypeType = 'Google_Service_Fitness_DataType';
@@ -35,6 +37,14 @@ class Google_Service_Fitness_DataSource extends Google_Model
   public function getApplication()
   {
     return $this->application;
+  }
+  public function setDataQualityStandard($dataQualityStandard)
+  {
+    $this->dataQualityStandard = $dataQualityStandard;
+  }
+  public function getDataQualityStandard()
+  {
+    return $this->dataQualityStandard;
   }
   public function setDataStreamId($dataStreamId)
   {

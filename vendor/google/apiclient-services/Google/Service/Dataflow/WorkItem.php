@@ -37,6 +37,8 @@ class Google_Service_Dataflow_WorkItem extends Google_Collection
   protected $sourceOperationTaskDataType = '';
   protected $streamingComputationTaskType = 'Google_Service_Dataflow_StreamingComputationTask';
   protected $streamingComputationTaskDataType = '';
+  protected $streamingConfigTaskType = 'Google_Service_Dataflow_StreamingConfigTask';
+  protected $streamingConfigTaskDataType = '';
   protected $streamingSetupTaskType = 'Google_Service_Dataflow_StreamingSetupTask';
   protected $streamingSetupTaskDataType = '';
 
@@ -143,6 +145,14 @@ class Google_Service_Dataflow_WorkItem extends Google_Collection
   public function getStreamingComputationTask()
   {
     return $this->streamingComputationTask;
+  }
+  public function setStreamingConfigTask(Google_Service_Dataflow_StreamingConfigTask $streamingConfigTask)
+  {
+    $this->streamingConfigTask = $streamingConfigTask;
+  }
+  public function getStreamingConfigTask()
+  {
+    return $this->streamingConfigTask;
   }
   public function setStreamingSetupTask(Google_Service_Dataflow_StreamingSetupTask $streamingSetupTask)
   {

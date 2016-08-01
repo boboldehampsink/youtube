@@ -19,7 +19,6 @@ class Google_Service_ToolResults_InconclusiveDetail extends Google_Model
 {
   public $abortedByUser;
   public $infrastructureFailure;
-  public $nativeCrash;
 
   public function setAbortedByUser($abortedByUser)
   {
@@ -36,13 +35,5 @@ class Google_Service_ToolResults_InconclusiveDetail extends Google_Model
   public function getInfrastructureFailure()
   {
     return $this->infrastructureFailure;
-  }
-  public function setNativeCrash($nativeCrash)
-  {
-    $this->nativeCrash = $nativeCrash;
-  }
-  public function getNativeCrash()
-  {
-    return $this->nativeCrash;
   }
 }

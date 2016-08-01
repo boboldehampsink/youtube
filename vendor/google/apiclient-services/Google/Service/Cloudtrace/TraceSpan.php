@@ -15,7 +15,7 @@
  * the License.
  */
 
-class Google_Service_Cloudtrace_TraceSpan extends Google_Model
+class Google_Service_CloudTrace_TraceSpan extends Google_Model
 {
   public $endTime;
   public $kind;

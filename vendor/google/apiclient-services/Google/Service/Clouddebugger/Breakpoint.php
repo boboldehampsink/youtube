@@ -15,29 +15,29 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_Breakpoint extends Google_Collection
+class Google_Service_CloudDebugger_Breakpoint extends Google_Collection
 {
   protected $collection_key = 'variableTable';
   public $action;
   public $condition;
   public $createTime;
-  protected $evaluatedExpressionsType = 'Google_Service_Clouddebugger_Variable';
+  protected $evaluatedExpressionsType = 'Google_Service_CloudDebugger_Variable';
   protected $evaluatedExpressionsDataType = 'array';
   public $expressions;
   public $finalTime;
   public $id;
   public $isFinalState;
   public $labels;
-  protected $locationType = 'Google_Service_Clouddebugger_SourceLocation';
+  protected $locationType = 'Google_Service_CloudDebugger_SourceLocation';
   protected $locationDataType = '';
   public $logLevel;
   public $logMessageFormat;
-  protected $stackFramesType = 'Google_Service_Clouddebugger_StackFrame';
+  protected $stackFramesType = 'Google_Service_CloudDebugger_StackFrame';
   protected $stackFramesDataType = 'array';
-  protected $statusType = 'Google_Service_Clouddebugger_StatusMessage';
+  protected $statusType = 'Google_Service_CloudDebugger_StatusMessage';
   protected $statusDataType = '';
   public $userEmail;
-  protected $variableTableType = 'Google_Service_Clouddebugger_Variable';
+  protected $variableTableType = 'Google_Service_CloudDebugger_Variable';
   protected $variableTableDataType = 'array';
 
   public function setAction($action)
@@ -112,7 +112,7 @@ class Google_Service_Clouddebugger_Breakpoint extends Google_Collection
   {
     return $this->labels;
   }
-  public function setLocation(Google_Service_Clouddebugger_SourceLocation $location)
+  public function setLocation(Google_Service_CloudDebugger_SourceLocation $location)
   {
     $this->location = $location;
   }
@@ -144,7 +144,7 @@ class Google_Service_Clouddebugger_Breakpoint extends Google_Collection
   {
     return $this->stackFrames;
   }
-  public function setStatus(Google_Service_Clouddebugger_StatusMessage $status)
+  public function setStatus(Google_Service_CloudDebugger_StatusMessage $status)
   {
     $this->status = $status;
   }

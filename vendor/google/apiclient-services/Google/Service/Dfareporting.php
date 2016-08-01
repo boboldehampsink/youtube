@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Dfareporting (v2.4).
+ * Service definition for Dfareporting (v2.5).
  *
  * <p>
  * Manages your DoubleClick Campaign Manager ad campaigns and reports.</p>
@@ -30,6 +30,9 @@
  */
 class Google_Service_Dfareporting extends Google_Service
 {
+  /** Manage DoubleClick Digital Marketing conversions. */
+  const DDMCONVERSIONS =
+      "https://www.googleapis.com/auth/ddmconversions";
   /** View and manage DoubleClick for Advertisers reports. */
   const DFAREPORTING =
       "https://www.googleapis.com/auth/dfareporting";
@@ -52,6 +55,7 @@ class Google_Service_Dfareporting extends Google_Service
   public $cities;
   public $connectionTypes;
   public $contentCategories;
+  public $conversions;
   public $countries;
   public $creativeAssets;
   public $creativeFieldValues;
@@ -61,6 +65,7 @@ class Google_Service_Dfareporting extends Google_Service
   public $dimensionValues;
   public $directorySiteContacts;
   public $directorySites;
+  public $dynamicTargetingKeys;
   public $eventTags;
   public $files;
   public $floodlightActivities;
@@ -104,11 +109,11 @@ class Google_Service_Dfareporting extends Google_Service
   {
     parent::__construct($client);
     $this->rootUrl = 'https://www.googleapis.com/';
-    $this->servicePath = 'dfareporting/v2.4/';
-    $this->version = 'v2.4';
+    $this->servicePath = 'dfareporting/v2.5/';
+    $this->version = 'v2.5';
     $this->serviceName = 'dfareporting';
 
-    $this->accountActiveAdSummaries = new Google_Service_Dfareporting_AccountActiveAdSummariesResource(
+    $this->accountActiveAdSummaries = new Google_Service_Dfareporting_Resource_AccountActiveAdSummaries(
         $this,
         $this->serviceName,
         'accountActiveAdSummaries',
@@ -133,7 +138,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->accountPermissionGroups = new Google_Service_Dfareporting_AccountPermissionGroupsResource(
+    $this->accountPermissionGroups = new Google_Service_Dfareporting_Resource_AccountPermissionGroups(
         $this,
         $this->serviceName,
         'accountPermissionGroups',
@@ -168,7 +173,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->accountPermissions = new Google_Service_Dfareporting_AccountPermissionsResource(
+    $this->accountPermissions = new Google_Service_Dfareporting_Resource_AccountPermissions(
         $this,
         $this->serviceName,
         'accountPermissions',
@@ -203,7 +208,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->accountUserProfiles = new Google_Service_Dfareporting_AccountUserProfilesResource(
+    $this->accountUserProfiles = new Google_Service_Dfareporting_Resource_AccountUserProfiles(
         $this,
         $this->serviceName,
         'accountUserProfiles',
@@ -310,7 +315,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->accounts = new Google_Service_Dfareporting_AccountsResource(
+    $this->accounts = new Google_Service_Dfareporting_Resource_Accounts(
         $this,
         $this->serviceName,
         'accounts',
@@ -399,7 +404,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->ads = new Google_Service_Dfareporting_AdsResource(
+    $this->ads = new Google_Service_Dfareporting_Resource_Ads(
         $this,
         $this->serviceName,
         'ads',
@@ -575,7 +580,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->advertiserGroups = new Google_Service_Dfareporting_AdvertiserGroupsResource(
+    $this->advertiserGroups = new Google_Service_Dfareporting_Resource_AdvertiserGroups(
         $this,
         $this->serviceName,
         'advertiserGroups',
@@ -685,7 +690,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->advertisers = new Google_Service_Dfareporting_AdvertisersResource(
+    $this->advertisers = new Google_Service_Dfareporting_Resource_Advertisers(
         $this,
         $this->serviceName,
         'advertisers',
@@ -806,7 +811,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->browsers = new Google_Service_Dfareporting_BrowsersResource(
+    $this->browsers = new Google_Service_Dfareporting_Resource_Browsers(
         $this,
         $this->serviceName,
         'browsers',
@@ -826,7 +831,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->campaignCreativeAssociations = new Google_Service_Dfareporting_CampaignCreativeAssociationsResource(
+    $this->campaignCreativeAssociations = new Google_Service_Dfareporting_Resource_CampaignCreativeAssociations(
         $this,
         $this->serviceName,
         'campaignCreativeAssociations',
@@ -878,7 +883,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->campaigns = new Google_Service_Dfareporting_CampaignsResource(
+    $this->campaigns = new Google_Service_Dfareporting_Resource_Campaigns(
         $this,
         $this->serviceName,
         'campaigns',
@@ -1014,7 +1019,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->changeLogs = new Google_Service_Dfareporting_ChangeLogsResource(
+    $this->changeLogs = new Google_Service_Dfareporting_Resource_ChangeLogs(
         $this,
         $this->serviceName,
         'changeLogs',
@@ -1092,7 +1097,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->cities = new Google_Service_Dfareporting_CitiesResource(
+    $this->cities = new Google_Service_Dfareporting_Resource_Cities(
         $this,
         $this->serviceName,
         'cities',
@@ -1131,7 +1136,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->connectionTypes = new Google_Service_Dfareporting_ConnectionTypesResource(
+    $this->connectionTypes = new Google_Service_Dfareporting_Resource_ConnectionTypes(
         $this,
         $this->serviceName,
         'connectionTypes',
@@ -1166,7 +1171,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->contentCategories = new Google_Service_Dfareporting_ContentCategoriesResource(
+    $this->contentCategories = new Google_Service_Dfareporting_Resource_ContentCategories(
         $this,
         $this->serviceName,
         'contentCategories',
@@ -1276,7 +1281,27 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->countries = new Google_Service_Dfareporting_CountriesResource(
+    $this->conversions = new Google_Service_Dfareporting_Resource_Conversions(
+        $this,
+        $this->serviceName,
+        'conversions',
+        array(
+          'methods' => array(
+            'batchinsert' => array(
+              'path' => 'userprofiles/{profileId}/conversions/batchinsert',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->countries = new Google_Service_Dfareporting_Resource_Countries(
         $this,
         $this->serviceName,
         'countries',
@@ -1311,7 +1336,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->creativeAssets = new Google_Service_Dfareporting_CreativeAssetsResource(
+    $this->creativeAssets = new Google_Service_Dfareporting_Resource_CreativeAssets(
         $this,
         $this->serviceName,
         'creativeAssets',
@@ -1336,7 +1361,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->creativeFieldValues = new Google_Service_Dfareporting_CreativeFieldValuesResource(
+    $this->creativeFieldValues = new Google_Service_Dfareporting_Resource_CreativeFieldValues(
         $this,
         $this->serviceName,
         'creativeFieldValues',
@@ -1476,7 +1501,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->creativeFields = new Google_Service_Dfareporting_CreativeFieldsResource(
+    $this->creativeFields = new Google_Service_Dfareporting_Resource_CreativeFields(
         $this,
         $this->serviceName,
         'creativeFields',
@@ -1591,7 +1616,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->creativeGroups = new Google_Service_Dfareporting_CreativeGroupsResource(
+    $this->creativeGroups = new Google_Service_Dfareporting_Resource_CreativeGroups(
         $this,
         $this->serviceName,
         'creativeGroups',
@@ -1695,7 +1720,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->creatives = new Google_Service_Dfareporting_CreativesResource(
+    $this->creatives = new Google_Service_Dfareporting_Resource_Creatives(
         $this,
         $this->serviceName,
         'creatives',
@@ -1835,7 +1860,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->dimensionValues = new Google_Service_Dfareporting_DimensionValuesResource(
+    $this->dimensionValues = new Google_Service_Dfareporting_Resource_DimensionValues(
         $this,
         $this->serviceName,
         'dimensionValues',
@@ -1863,7 +1888,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->directorySiteContacts = new Google_Service_Dfareporting_DirectorySiteContactsResource(
+    $this->directorySiteContacts = new Google_Service_Dfareporting_Resource_DirectorySiteContacts(
         $this,
         $this->serviceName,
         'directorySiteContacts',
@@ -1928,7 +1953,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->directorySites = new Google_Service_Dfareporting_DirectorySitesResource(
+    $this->directorySites = new Google_Service_Dfareporting_Resource_DirectorySites(
         $this,
         $this->serviceName,
         'directorySites',
@@ -2026,7 +2051,79 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->eventTags = new Google_Service_Dfareporting_EventTagsResource(
+    $this->dynamicTargetingKeys = new Google_Service_Dfareporting_Resource_DynamicTargetingKeys(
+        $this,
+        $this->serviceName,
+        'dynamicTargetingKeys',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => 'userprofiles/{profileId}/dynamicTargetingKeys/{objectId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'objectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'name' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'objectType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => 'userprofiles/{profileId}/dynamicTargetingKeys',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'userprofiles/{profileId}/dynamicTargetingKeys',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'advertiserId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'names' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'objectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'objectType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->eventTags = new Google_Service_Dfareporting_Resource_EventTags(
         $this,
         $this->serviceName,
         'eventTags',
@@ -2153,7 +2250,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->files = new Google_Service_Dfareporting_FilesResource(
+    $this->files = new Google_Service_Dfareporting_Resource_Files(
         $this,
         $this->serviceName,
         'files',
@@ -2208,7 +2305,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->floodlightActivities = new Google_Service_Dfareporting_FloodlightActivitiesResource(
+    $this->floodlightActivities = new Google_Service_Dfareporting_Resource_FloodlightActivities(
         $this,
         $this->serviceName,
         'floodlightActivities',
@@ -2361,7 +2458,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->floodlightActivityGroups = new Google_Service_Dfareporting_FloodlightActivityGroupsResource(
+    $this->floodlightActivityGroups = new Google_Service_Dfareporting_Resource_FloodlightActivityGroups(
         $this,
         $this->serviceName,
         'floodlightActivityGroups',
@@ -2468,7 +2565,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->floodlightConfigurations = new Google_Service_Dfareporting_FloodlightConfigurationsResource(
+    $this->floodlightConfigurations = new Google_Service_Dfareporting_Resource_FloodlightConfigurations(
         $this,
         $this->serviceName,
         'floodlightConfigurations',
@@ -2533,7 +2630,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->inventoryItems = new Google_Service_Dfareporting_InventoryItemsResource(
+    $this->inventoryItems = new Google_Service_Dfareporting_Resource_InventoryItems(
         $this,
         $this->serviceName,
         'inventoryItems',
@@ -2617,7 +2714,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->landingPages = new Google_Service_Dfareporting_LandingPagesResource(
+    $this->landingPages = new Google_Service_Dfareporting_Resource_LandingPages(
         $this,
         $this->serviceName,
         'landingPages',
@@ -2732,7 +2829,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->metros = new Google_Service_Dfareporting_MetrosResource(
+    $this->metros = new Google_Service_Dfareporting_Resource_Metros(
         $this,
         $this->serviceName,
         'metros',
@@ -2752,7 +2849,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->mobileCarriers = new Google_Service_Dfareporting_MobileCarriersResource(
+    $this->mobileCarriers = new Google_Service_Dfareporting_Resource_MobileCarriers(
         $this,
         $this->serviceName,
         'mobileCarriers',
@@ -2787,7 +2884,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->operatingSystemVersions = new Google_Service_Dfareporting_OperatingSystemVersionsResource(
+    $this->operatingSystemVersions = new Google_Service_Dfareporting_Resource_OperatingSystemVersions(
         $this,
         $this->serviceName,
         'operatingSystemVersions',
@@ -2822,7 +2919,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->operatingSystems = new Google_Service_Dfareporting_OperatingSystemsResource(
+    $this->operatingSystems = new Google_Service_Dfareporting_Resource_OperatingSystems(
         $this,
         $this->serviceName,
         'operatingSystems',
@@ -2857,7 +2954,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->orderDocuments = new Google_Service_Dfareporting_OrderDocumentsResource(
+    $this->orderDocuments = new Google_Service_Dfareporting_Resource_OrderDocuments(
         $this,
         $this->serviceName,
         'orderDocuments',
@@ -2941,7 +3038,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->orders = new Google_Service_Dfareporting_OrdersResource(
+    $this->orders = new Google_Service_Dfareporting_Resource_Orders(
         $this,
         $this->serviceName,
         'orders',
@@ -3016,7 +3113,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->placementGroups = new Google_Service_Dfareporting_PlacementGroupsResource(
+    $this->placementGroups = new Google_Service_Dfareporting_Resource_PlacementGroups(
         $this,
         $this->serviceName,
         'placementGroups',
@@ -3170,7 +3267,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->placementStrategies = new Google_Service_Dfareporting_PlacementStrategiesResource(
+    $this->placementStrategies = new Google_Service_Dfareporting_Resource_PlacementStrategies(
         $this,
         $this->serviceName,
         'placementStrategies',
@@ -3280,7 +3377,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->placements = new Google_Service_Dfareporting_PlacementsResource(
+    $this->placements = new Google_Service_Dfareporting_Resource_Placements(
         $this,
         $this->serviceName,
         'placements',
@@ -3473,7 +3570,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->platformTypes = new Google_Service_Dfareporting_PlatformTypesResource(
+    $this->platformTypes = new Google_Service_Dfareporting_Resource_PlatformTypes(
         $this,
         $this->serviceName,
         'platformTypes',
@@ -3508,7 +3605,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->postalCodes = new Google_Service_Dfareporting_PostalCodesResource(
+    $this->postalCodes = new Google_Service_Dfareporting_Resource_PostalCodes(
         $this,
         $this->serviceName,
         'postalCodes',
@@ -3543,7 +3640,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->projects = new Google_Service_Dfareporting_ProjectsResource(
+    $this->projects = new Google_Service_Dfareporting_Resource_Projects(
         $this,
         $this->serviceName,
         'projects',
@@ -3608,7 +3705,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->regions = new Google_Service_Dfareporting_RegionsResource(
+    $this->regions = new Google_Service_Dfareporting_Resource_Regions(
         $this,
         $this->serviceName,
         'regions',
@@ -3628,7 +3725,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->remarketingListShares = new Google_Service_Dfareporting_RemarketingListSharesResource(
+    $this->remarketingListShares = new Google_Service_Dfareporting_Resource_RemarketingListShares(
         $this,
         $this->serviceName,
         'remarketingListShares',
@@ -3678,7 +3775,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->remarketingLists = new Google_Service_Dfareporting_RemarketingListsResource(
+    $this->remarketingLists = new Google_Service_Dfareporting_Resource_RemarketingLists(
         $this,
         $this->serviceName,
         'remarketingLists',
@@ -3781,7 +3878,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->reports = new Google_Service_Dfareporting_ReportsResource(
+    $this->reports = new Google_Service_Dfareporting_Resource_Reports(
         $this,
         $this->serviceName,
         'reports',
@@ -3910,7 +4007,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->reports_compatibleFields = new Google_Service_Dfareporting_ReportsCompatibleFieldsResource(
+    $this->reports_compatibleFields = new Google_Service_Dfareporting_Resource_ReportsCompatibleFields(
         $this,
         $this->serviceName,
         'compatibleFields',
@@ -3930,7 +4027,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->reports_files = new Google_Service_Dfareporting_ReportsFilesResource(
+    $this->reports_files = new Google_Service_Dfareporting_Resource_ReportsFiles(
         $this,
         $this->serviceName,
         'files',
@@ -3991,7 +4088,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->sites = new Google_Service_Dfareporting_SitesResource(
+    $this->sites = new Google_Service_Dfareporting_Resource_Sites(
         $this,
         $this->serviceName,
         'sites',
@@ -4124,7 +4221,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->sizes = new Google_Service_Dfareporting_SizesResource(
+    $this->sizes = new Google_Service_Dfareporting_Resource_Sizes(
         $this,
         $this->serviceName,
         'sizes',
@@ -4186,7 +4283,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->subaccounts = new Google_Service_Dfareporting_SubaccountsResource(
+    $this->subaccounts = new Google_Service_Dfareporting_Resource_Subaccounts(
         $this,
         $this->serviceName,
         'subaccounts',
@@ -4281,7 +4378,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->targetableRemarketingLists = new Google_Service_Dfareporting_TargetableRemarketingListsResource(
+    $this->targetableRemarketingLists = new Google_Service_Dfareporting_Resource_TargetableRemarketingLists(
         $this,
         $this->serviceName,
         'targetableRemarketingLists',
@@ -4345,7 +4442,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->userProfiles = new Google_Service_Dfareporting_UserProfilesResource(
+    $this->userProfiles = new Google_Service_Dfareporting_Resource_UserProfiles(
         $this,
         $this->serviceName,
         'userProfiles',
@@ -4369,7 +4466,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->userRolePermissionGroups = new Google_Service_Dfareporting_UserRolePermissionGroupsResource(
+    $this->userRolePermissionGroups = new Google_Service_Dfareporting_Resource_UserRolePermissionGroups(
         $this,
         $this->serviceName,
         'userRolePermissionGroups',
@@ -4404,7 +4501,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->userRolePermissions = new Google_Service_Dfareporting_UserRolePermissionsResource(
+    $this->userRolePermissions = new Google_Service_Dfareporting_Resource_UserRolePermissions(
         $this,
         $this->serviceName,
         'userRolePermissions',
@@ -4444,7 +4541,7 @@ class Google_Service_Dfareporting extends Google_Service
           )
         )
     );
-    $this->userRoles = new Google_Service_Dfareporting_UserRolesResource(
+    $this->userRoles = new Google_Service_Dfareporting_Resource_UserRoles(
         $this,
         $this->serviceName,
         'userRoles',

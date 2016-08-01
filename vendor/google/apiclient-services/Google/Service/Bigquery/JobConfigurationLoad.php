@@ -20,6 +20,7 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   protected $collection_key = 'sourceUris';
   public $allowJaggedRows;
   public $allowQuotedNewlines;
+  public $autodetect;
   public $createDisposition;
   protected $destinationTableType = 'Google_Service_Bigquery_TableReference';
   protected $destinationTableDataType = '';
@@ -53,6 +54,14 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public function getAllowQuotedNewlines()
   {
     return $this->allowQuotedNewlines;
+  }
+  public function setAutodetect($autodetect)
+  {
+    $this->autodetect = $autodetect;
+  }
+  public function getAutodetect()
+  {
+    return $this->autodetect;
   }
   public function setCreateDisposition($createDisposition)
   {

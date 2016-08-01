@@ -21,6 +21,7 @@ class Google_Service_Dataflow_ParallelInstruction extends Google_Collection
   protected $flattenType = 'Google_Service_Dataflow_FlattenInstruction';
   protected $flattenDataType = '';
   public $name;
+  public $originalName;
   protected $outputsType = 'Google_Service_Dataflow_InstructionOutput';
   protected $outputsDataType = 'array';
   protected $parDoType = 'Google_Service_Dataflow_ParDoInstruction';
@@ -48,6 +49,14 @@ class Google_Service_Dataflow_ParallelInstruction extends Google_Collection
   public function getName()
   {
     return $this->name;
+  }
+  public function setOriginalName($originalName)
+  {
+    $this->originalName = $originalName;
+  }
+  public function getOriginalName()
+  {
+    return $this->originalName;
   }
   public function setOutputs($outputs)
   {

@@ -18,6 +18,7 @@
 class Google_Service_IdentityToolkit_SetAccountInfoResponseProviderUserInfo extends Google_Model
 {
   public $displayName;
+  public $federatedId;
   public $photoUrl;
   public $providerId;
 
@@ -28,6 +29,14 @@ class Google_Service_IdentityToolkit_SetAccountInfoResponseProviderUserInfo exte
   public function getDisplayName()
   {
     return $this->displayName;
+  }
+  public function setFederatedId($federatedId)
+  {
+    $this->federatedId = $federatedId;
+  }
+  public function getFederatedId()
+  {
+    return $this->federatedId;
   }
   public function setPhotoUrl($photoUrl)
   {

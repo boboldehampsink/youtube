@@ -15,12 +15,12 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_GetBreakpointResponse extends Google_Model
+class Google_Service_CloudDebugger_GetBreakpointResponse extends Google_Model
 {
-  protected $breakpointType = 'Google_Service_Clouddebugger_Breakpoint';
+  protected $breakpointType = 'Google_Service_CloudDebugger_Breakpoint';
   protected $breakpointDataType = '';
 
-  public function setBreakpoint(Google_Service_Clouddebugger_Breakpoint $breakpoint)
+  public function setBreakpoint(Google_Service_CloudDebugger_Breakpoint $breakpoint)
   {
     $this->breakpoint = $breakpoint;
   }

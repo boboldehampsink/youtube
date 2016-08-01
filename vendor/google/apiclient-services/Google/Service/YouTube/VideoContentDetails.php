@@ -26,6 +26,7 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   public $dimension;
   public $duration;
   public $licensedContent;
+  public $projection;
   protected $regionRestrictionType = 'Google_Service_YouTube_VideoContentDetailsRegionRestriction';
   protected $regionRestrictionDataType = '';
 
@@ -84,6 +85,14 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   public function getLicensedContent()
   {
     return $this->licensedContent;
+  }
+  public function setProjection($projection)
+  {
+    $this->projection = $projection;
+  }
+  public function getProjection()
+  {
+    return $this->projection;
   }
   public function setRegionRestriction(Google_Service_YouTube_VideoContentDetailsRegionRestriction $regionRestriction)
   {

@@ -18,10 +18,12 @@
 class Google_Service_IdentityToolkit_UserInfo extends Google_Collection
 {
   protected $collection_key = 'providerUserInfo';
+  public $createdAt;
   public $disabled;
   public $displayName;
   public $email;
   public $emailVerified;
+  public $lastLoginAt;
   public $localId;
   public $passwordHash;
   public $passwordUpdatedAt;
@@ -32,6 +34,14 @@ class Google_Service_IdentityToolkit_UserInfo extends Google_Collection
   public $validSince;
   public $version;
 
+  public function setCreatedAt($createdAt)
+  {
+    $this->createdAt = $createdAt;
+  }
+  public function getCreatedAt()
+  {
+    return $this->createdAt;
+  }
   public function setDisabled($disabled)
   {
     $this->disabled = $disabled;
@@ -63,6 +73,14 @@ class Google_Service_IdentityToolkit_UserInfo extends Google_Collection
   public function getEmailVerified()
   {
     return $this->emailVerified;
+  }
+  public function setLastLoginAt($lastLoginAt)
+  {
+    $this->lastLoginAt = $lastLoginAt;
+  }
+  public function getLastLoginAt()
+  {
+    return $this->lastLoginAt;
   }
   public function setLocalId($localId)
   {

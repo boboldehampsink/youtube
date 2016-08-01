@@ -15,7 +15,7 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_AliasContext extends Google_Model
+class Google_Service_CloudDebugger_AliasContext extends Google_Model
 {
   public $kind;
   public $name;

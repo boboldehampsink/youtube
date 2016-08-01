@@ -15,6 +15,6 @@
  * the License.
  */
 
-class Google_Service_Clouddebugger_ClouddebuggerEmpty extends Google_Model
+class Google_Service_CloudDebugger_ClouddebuggerEmpty extends Google_Model
 {
 }
