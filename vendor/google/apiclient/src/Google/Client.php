@@ -16,6 +16,7 @@
  */
 
 use Google\Auth\ApplicationDefaultCredentials;
+use Google\Auth\Cache\MemoryCacheItemPool;
 use Google\Auth\CredentialsLoader;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\OAuth2;
@@ -30,6 +31,7 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Log\LoggerInterface;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler as MonologStreamHandler;
+use Monolog\Handler\SyslogHandler as MonologSyslogHandler;
 
 /**
  * The Google API Client
@@ -65,7 +67,7 @@ class Google_Client
   private $token;
 
   /**
-   * @var Google_Config $config
+   * @var array $config
    */
   private $config;
 
@@ -86,9 +88,9 @@ class Google_Client
   /**
    * Construct the Google Client.
    *
-   * @param $config Google_Config or string for the ini file to load
+   * @param array $config
    */
-  public function __construct($config = array())
+  public function __construct(array $config = array())
   {
     $this->config = array_merge(
         [
@@ -550,8 +552,8 @@ class Google_Client
 
   /**
    * @param string $approvalPrompt Possible values for approval_prompt include:
-   *  {@code "force"} to force the approval UI to appear. (This is the default value)
-   *  {@code "auto"} to request auto-approval when possible.
+   *  {@code "force"} to force the approval UI to appear.
+   *  {@code "auto"} to request auto-approval when possible. (This is the default value)
    */
   public function setApprovalPrompt($approvalPrompt)
   {
@@ -675,7 +677,7 @@ class Google_Client
    * Verify an id_token. This method will verify the current id_token, if one
    * isn't provided.
    *
-   * @throws Google_Exception
+   * @throws LogicException
    * @param string|null $idToken The token (id_token) that should be verified.
    * @return array|false Returns the token payload as an array if the verification was
    * successful, false otherwise.
@@ -950,6 +952,10 @@ class Google_Client
    */
   public function getCache()
   {
+    if (!$this->cache) {
+      $this->cache = $this->createDefaultCache();
+    }
+
     return $this->cache;
   }
 
@@ -985,9 +991,19 @@ class Google_Client
   protected function createDefaultLogger()
   {
     $logger = new Logger('google-api-php-client');
-    $logger->pushHandler(new MonologStreamHandler('php://stderr', Logger::NOTICE));
+    if ($this->isAppEngine()) {
+      $handler = new MonologSyslogHandler('app', LOG_USER, Logger::NOTICE);
+    } else {
+      $handler = new MonologStreamHandler('php://stderr', Logger::NOTICE);
+    }
+    $logger->pushHandler($handler);
 
     return $logger;
+  }
+
+  protected function createDefaultCache()
+  {
+    return new MemoryCacheItemPool;
   }
 
   /**

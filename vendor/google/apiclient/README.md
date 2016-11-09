@@ -304,17 +304,17 @@ One additional step is required in Charles to view SSL requests. Go to **Charles
 
 YouTube: https://github.com/youtube/api-samples/tree/master/php
 
+## How Do I Contribute? ##
+
+Please see the [contributing](CONTRIBUTING.md) page for more information. In particular, we love pull requests - but please make sure to sign the [contributor license agreement](https://developers.google.com/api-client-library/php/contribute).
+
 ## Frequently Asked Questions ##
 
 ### What do I do if something isn't working? ###
 
 For support with the library the best place to ask is via the google-api-php-client tag on StackOverflow: http://stackoverflow.com/questions/tagged/google-api-php-client
 
-If there is a specific bug with the library, please [file a issue](/Google/google-api-php-client/issues) in the Github issues tracker, including an example of the failing code and any specific errors retrieved. Feature requests can also be filed, as long as they are core library requests, and not-API specific: for those, refer to the documentation for the individual APIs for the best place to file requests. Please try to provide a clear statement of the problem that the feature would address.
-
-### How do I contribute? ###
-
-We accept contributions via Github Pull Requests, but all contributors need to be covered by the standard Google Contributor License Agreement. You can find links, and more instructions, in the documentation: https://developers.google.com/api-client-library/php/contribute
+If there is a specific bug with the library, please [file a issue](https://github.com/google/google-api-php-client/issues) in the Github issues tracker, including an example of the failing code and any specific errors retrieved. Feature requests can also be filed, as long as they are core library requests, and not-API specific: for those, refer to the documentation for the individual APIs for the best place to file requests. Please try to provide a clear statement of the problem that the feature would address.
 
 ### I want an example of X! ###
 
@@ -340,7 +340,7 @@ $opt_params = array(
 
 ### How do I set a field to null? ###
 
-The library strips out nulls from the objects sent to the Google APIs as its the default value of all of the uninitialised properties. To work around this, set the field you want to null to Google_Model::NULL_VALUE. This is a placeholder that will be replaced with a true null when sent over the wire.
+The library strips out nulls from the objects sent to the Google APIs as its the default value of all of the uninitialised properties. To work around this, set the field you want to null to `Google_Model::NULL_VALUE`. This is a placeholder that will be replaced with a true null when sent over the wire.
 
 ## Code Quality ##
 
