@@ -35,6 +35,6 @@
         "ext-mcrypt": "*",
         "composer/installers": "~1.0",
         "google/apiclient": "^2.0.0",
-        "dukt/oauth": "^2.0.0"
+        "dukt/craft-oauth": "^2.0"
     }
 }
