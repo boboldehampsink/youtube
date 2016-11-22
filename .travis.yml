@@ -30,6 +30,7 @@ before_script:
   - echo "<?php return array('user' => 'test');" > craft/config/db.php
   - mkdir craft/storage
   - mkdir -p craft/plugins/youtube
+  - composer install
   - for item in *; do if [[ ! "$item" == "craft" ]]; then mv $item craft/plugins/youtube; fi; done
   - cd craft/plugins/youtube && composer update --prefer-source --no-interaction && cd ../../../
   - cd craft/app
