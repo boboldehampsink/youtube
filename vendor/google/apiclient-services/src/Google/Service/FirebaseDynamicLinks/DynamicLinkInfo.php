@@ -24,7 +24,6 @@ class Google_Service_FirebaseDynamicLinks_DynamicLinkInfo extends Google_Model
   public $dynamicLinkDomain;
   protected $iosInfoType = 'Google_Service_FirebaseDynamicLinks_IosInfo';
   protected $iosInfoDataType = '';
-  public $isAd;
   public $link;
   protected $socialMetaTagInfoType = 'Google_Service_FirebaseDynamicLinks_SocialMetaTagInfo';
   protected $socialMetaTagInfoDataType = '';
@@ -60,14 +59,6 @@ class Google_Service_FirebaseDynamicLinks_DynamicLinkInfo extends Google_Model
   public function getIosInfo()
   {
     return $this->iosInfo;
-  }
-  public function setIsAd($isAd)
-  {
-    $this->isAd = $isAd;
-  }
-  public function getIsAd()
-  {
-    return $this->isAd;
   }
   public function setLink($link)
   {

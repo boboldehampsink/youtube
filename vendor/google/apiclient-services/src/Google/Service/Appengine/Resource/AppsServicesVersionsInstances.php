@@ -30,11 +30,11 @@ class Google_Service_Appengine_Resource_AppsServicesVersionsInstances extends Go
    * connect to the virtual machine where the instance lives. While in "debug
    * mode", the instance continues to serve live traffic. You should delete the
    * instance when you are done debugging and then allow the system to take over
-   * and determine if another instance should be started. Only applicable for
+   * and determine if another instance should be started.Only applicable for
    * instances in App Engine flexible environment. (instances.debug)
    *
    * @param string $appsId Part of `name`. Name of the resource requested.
-   * Example: `apps/myapp/services/default/versions/v1/instances/instance-1`.
+   * Example: apps/myapp/services/default/versions/v1/instances/instance-1.
    * @param string $servicesId Part of `name`. See documentation of `appsId`.
    * @param string $versionsId Part of `name`. See documentation of `appsId`.
    * @param string $instancesId Part of `name`. See documentation of `appsId`.
@@ -52,7 +52,7 @@ class Google_Service_Appengine_Resource_AppsServicesVersionsInstances extends Go
    * Stops a running instance. (instances.delete)
    *
    * @param string $appsId Part of `name`. Name of the resource requested.
-   * Example: `apps/myapp/services/default/versions/v1/instances/instance-1`.
+   * Example: apps/myapp/services/default/versions/v1/instances/instance-1.
    * @param string $servicesId Part of `name`. See documentation of `appsId`.
    * @param string $versionsId Part of `name`. See documentation of `appsId`.
    * @param string $instancesId Part of `name`. See documentation of `appsId`.
@@ -69,7 +69,7 @@ class Google_Service_Appengine_Resource_AppsServicesVersionsInstances extends Go
    * Gets instance information. (instances.get)
    *
    * @param string $appsId Part of `name`. Name of the resource requested.
-   * Example: `apps/myapp/services/default/versions/v1/instances/instance-1`.
+   * Example: apps/myapp/services/default/versions/v1/instances/instance-1.
    * @param string $servicesId Part of `name`. See documentation of `appsId`.
    * @param string $versionsId Part of `name`. See documentation of `appsId`.
    * @param string $instancesId Part of `name`. See documentation of `appsId`.
@@ -87,7 +87,7 @@ class Google_Service_Appengine_Resource_AppsServicesVersionsInstances extends Go
    * (instances.listAppsServicesVersionsInstances)
    *
    * @param string $appsId Part of `parent`. Name of the parent Version resource.
-   * Example: `apps/myapp/services/default/versions/v1`.
+   * Example: apps/myapp/services/default/versions/v1.
    * @param string $servicesId Part of `parent`. See documentation of `appsId`.
    * @param string $versionsId Part of `parent`. See documentation of `appsId`.
    * @param array $optParams Optional parameters.

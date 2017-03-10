@@ -26,6 +26,7 @@ class Google_Service_Bigquery_Table extends Google_Model
   public $friendlyName;
   public $id;
   public $kind;
+  public $labels;
   public $lastModifiedTime;
   public $location;
   public $numBytes;
@@ -107,6 +108,14 @@ class Google_Service_Bigquery_Table extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setLabels($labels)
+  {
+    $this->labels = $labels;
+  }
+  public function getLabels()
+  {
+    return $this->labels;
   }
   public function setLastModifiedTime($lastModifiedTime)
   {

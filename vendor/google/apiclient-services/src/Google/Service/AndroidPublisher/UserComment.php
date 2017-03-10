@@ -21,11 +21,16 @@ class Google_Service_AndroidPublisher_UserComment extends Google_Model
   public $appVersionCode;
   public $appVersionName;
   public $device;
+  protected $deviceMetadataType = 'Google_Service_AndroidPublisher_DeviceMetadata';
+  protected $deviceMetadataDataType = '';
   protected $lastModifiedType = 'Google_Service_AndroidPublisher_Timestamp';
   protected $lastModifiedDataType = '';
+  public $originalText;
   public $reviewerLanguage;
   public $starRating;
   public $text;
+  public $thumbsDownCount;
+  public $thumbsUpCount;
 
   public function setAndroidOsVersion($androidOsVersion)
   {
@@ -59,6 +64,14 @@ class Google_Service_AndroidPublisher_UserComment extends Google_Model
   {
     return $this->device;
   }
+  public function setDeviceMetadata(Google_Service_AndroidPublisher_DeviceMetadata $deviceMetadata)
+  {
+    $this->deviceMetadata = $deviceMetadata;
+  }
+  public function getDeviceMetadata()
+  {
+    return $this->deviceMetadata;
+  }
   public function setLastModified(Google_Service_AndroidPublisher_Timestamp $lastModified)
   {
     $this->lastModified = $lastModified;
@@ -66,6 +79,14 @@ class Google_Service_AndroidPublisher_UserComment extends Google_Model
   public function getLastModified()
   {
     return $this->lastModified;
+  }
+  public function setOriginalText($originalText)
+  {
+    $this->originalText = $originalText;
+  }
+  public function getOriginalText()
+  {
+    return $this->originalText;
   }
   public function setReviewerLanguage($reviewerLanguage)
   {
@@ -90,5 +111,21 @@ class Google_Service_AndroidPublisher_UserComment extends Google_Model
   public function getText()
   {
     return $this->text;
+  }
+  public function setThumbsDownCount($thumbsDownCount)
+  {
+    $this->thumbsDownCount = $thumbsDownCount;
+  }
+  public function getThumbsDownCount()
+  {
+    return $this->thumbsDownCount;
+  }
+  public function setThumbsUpCount($thumbsUpCount)
+  {
+    $this->thumbsUpCount = $thumbsUpCount;
+  }
+  public function getThumbsUpCount()
+  {
+    return $this->thumbsUpCount;
   }
 }

@@ -25,6 +25,7 @@ class Google_Service_Sheets_Spreadsheet extends Google_Collection
   protected $sheetsType = 'Google_Service_Sheets_Sheet';
   protected $sheetsDataType = 'array';
   public $spreadsheetId;
+  public $spreadsheetUrl;
 
   public function setNamedRanges($namedRanges)
   {
@@ -57,5 +58,13 @@ class Google_Service_Sheets_Spreadsheet extends Google_Collection
   public function getSpreadsheetId()
   {
     return $this->spreadsheetId;
+  }
+  public function setSpreadsheetUrl($spreadsheetUrl)
+  {
+    $this->spreadsheetUrl = $spreadsheetUrl;
+  }
+  public function getSpreadsheetUrl()
+  {
+    return $this->spreadsheetUrl;
   }
 }

@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Logging (v2beta1).
+ * Service definition for Logging (v2).
  *
  * <p>
  * Writes log entries and manages your Stackdriver Logging configuration.</p>
@@ -47,9 +47,13 @@ class Google_Service_Logging extends Google_Service
       "https://www.googleapis.com/auth/logging.write";
 
   public $billingAccounts_logs;
+  public $billingAccounts_sinks;
   public $entries;
+  public $folders_logs;
+  public $folders_sinks;
   public $monitoredResourceDescriptors;
   public $organizations_logs;
+  public $organizations_sinks;
   public $projects_logs;
   public $projects_metrics;
   public $projects_sinks;
@@ -64,7 +68,7 @@ class Google_Service_Logging extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://logging.googleapis.com/';
     $this->servicePath = '';
-    $this->version = 'v2beta1';
+    $this->version = 'v2';
     $this->serviceName = 'logging';
 
     $this->billingAccounts_logs = new Google_Service_Logging_Resource_BillingAccountsLogs(
@@ -74,13 +78,107 @@ class Google_Service_Logging extends Google_Service
         array(
           'methods' => array(
             'delete' => array(
-              'path' => 'v2beta1/{+logName}',
+              'path' => 'v2/{+logName}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'logName' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v2/{+parent}/logs',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->billingAccounts_sinks = new Google_Service_Logging_Resource_BillingAccountsSinks(
+        $this,
+        $this->serviceName,
+        'sinks',
+        array(
+          'methods' => array(
+            'create' => array(
+              'path' => 'v2/{+parent}/sinks',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'uniqueWriterIdentity' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
+            ),'delete' => array(
+              'path' => 'v2/{+sinkName}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'sinkName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'v2/{+sinkName}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'sinkName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v2/{+parent}/sinks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'v2/{+sinkName}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'sinkName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'uniqueWriterIdentity' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),
@@ -94,13 +192,127 @@ class Google_Service_Logging extends Google_Service
         array(
           'methods' => array(
             'list' => array(
-              'path' => 'v2beta1/entries:list',
+              'path' => 'v2/entries:list',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),'write' => array(
-              'path' => 'v2beta1/entries:write',
+              'path' => 'v2/entries:write',
               'httpMethod' => 'POST',
               'parameters' => array(),
+            ),
+          )
+        )
+    );
+    $this->folders_logs = new Google_Service_Logging_Resource_FoldersLogs(
+        $this,
+        $this->serviceName,
+        'logs',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => 'v2/{+logName}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'logName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v2/{+parent}/logs',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->folders_sinks = new Google_Service_Logging_Resource_FoldersSinks(
+        $this,
+        $this->serviceName,
+        'sinks',
+        array(
+          'methods' => array(
+            'create' => array(
+              'path' => 'v2/{+parent}/sinks',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'uniqueWriterIdentity' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
+            ),'delete' => array(
+              'path' => 'v2/{+sinkName}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'sinkName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'v2/{+sinkName}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'sinkName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v2/{+parent}/sinks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'v2/{+sinkName}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'sinkName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'uniqueWriterIdentity' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
             ),
           )
         )
@@ -112,7 +324,7 @@ class Google_Service_Logging extends Google_Service
         array(
           'methods' => array(
             'list' => array(
-              'path' => 'v2beta1/monitoredResourceDescriptors',
+              'path' => 'v2/monitoredResourceDescriptors',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'pageSize' => array(
@@ -135,7 +347,7 @@ class Google_Service_Logging extends Google_Service
         array(
           'methods' => array(
             'delete' => array(
-              'path' => 'v2beta1/{+logName}',
+              'path' => 'v2/{+logName}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'logName' => array(
@@ -144,38 +356,36 @@ class Google_Service_Logging extends Google_Service
                   'required' => true,
                 ),
               ),
-            ),
-          )
-        )
-    );
-    $this->projects_logs = new Google_Service_Logging_Resource_ProjectsLogs(
-        $this,
-        $this->serviceName,
-        'logs',
-        array(
-          'methods' => array(
-            'delete' => array(
-              'path' => 'v2beta1/{+logName}',
-              'httpMethod' => 'DELETE',
+            ),'list' => array(
+              'path' => 'v2/{+parent}/logs',
+              'httpMethod' => 'GET',
               'parameters' => array(
-                'logName' => array(
+                'parent' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
           )
         )
     );
-    $this->projects_metrics = new Google_Service_Logging_Resource_ProjectsMetrics(
+    $this->organizations_sinks = new Google_Service_Logging_Resource_OrganizationsSinks(
         $this,
         $this->serviceName,
-        'metrics',
+        'sinks',
         array(
           'methods' => array(
             'create' => array(
-              'path' => 'v2beta1/{+parent}/metrics',
+              'path' => 'v2/{+parent}/sinks',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'parent' => array(
@@ -183,29 +393,33 @@ class Google_Service_Logging extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'uniqueWriterIdentity' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
             ),'delete' => array(
-              'path' => 'v2beta1/{+metricName}',
+              'path' => 'v2/{+sinkName}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
-                'metricName' => array(
+                'sinkName' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'get' => array(
-              'path' => 'v2beta1/{+metricName}',
+              'path' => 'v2/{+sinkName}',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'metricName' => array(
+                'sinkName' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'list' => array(
-              'path' => 'v2beta1/{+parent}/metrics',
+              'path' => 'v2/{+parent}/sinks',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'parent' => array(
@@ -223,7 +437,117 @@ class Google_Service_Logging extends Google_Service
                 ),
               ),
             ),'update' => array(
-              'path' => 'v2beta1/{+metricName}',
+              'path' => 'v2/{+sinkName}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'sinkName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'uniqueWriterIdentity' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->projects_logs = new Google_Service_Logging_Resource_ProjectsLogs(
+        $this,
+        $this->serviceName,
+        'logs',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => 'v2/{+logName}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'logName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v2/{+parent}/logs',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->projects_metrics = new Google_Service_Logging_Resource_ProjectsMetrics(
+        $this,
+        $this->serviceName,
+        'metrics',
+        array(
+          'methods' => array(
+            'create' => array(
+              'path' => 'v2/{+parent}/metrics',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'delete' => array(
+              'path' => 'v2/{+metricName}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'metricName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'v2/{+metricName}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'metricName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v2/{+parent}/metrics',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'v2/{+metricName}',
               'httpMethod' => 'PUT',
               'parameters' => array(
                 'metricName' => array(
@@ -243,7 +567,7 @@ class Google_Service_Logging extends Google_Service
         array(
           'methods' => array(
             'create' => array(
-              'path' => 'v2beta1/{+parent}/sinks',
+              'path' => 'v2/{+parent}/sinks',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'parent' => array(
@@ -251,9 +575,13 @@ class Google_Service_Logging extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'uniqueWriterIdentity' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
             ),'delete' => array(
-              'path' => 'v2beta1/{+sinkName}',
+              'path' => 'v2/{+sinkName}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'sinkName' => array(
@@ -263,7 +591,7 @@ class Google_Service_Logging extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'v2beta1/{+sinkName}',
+              'path' => 'v2/{+sinkName}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'sinkName' => array(
@@ -273,7 +601,7 @@ class Google_Service_Logging extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'v2beta1/{+parent}/sinks',
+              'path' => 'v2/{+parent}/sinks',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'parent' => array(
@@ -291,13 +619,17 @@ class Google_Service_Logging extends Google_Service
                 ),
               ),
             ),'update' => array(
-              'path' => 'v2beta1/{+sinkName}',
+              'path' => 'v2/{+sinkName}',
               'httpMethod' => 'PUT',
               'parameters' => array(
                 'sinkName' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'uniqueWriterIdentity' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),

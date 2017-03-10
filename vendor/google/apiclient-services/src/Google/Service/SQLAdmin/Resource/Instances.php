@@ -274,6 +274,22 @@ class Google_Service_SQLAdmin_Resource_Instances extends Google_Service_Resource
     return $this->call('stopReplica', array($params), "Google_Service_SQLAdmin_Operation");
   }
   /**
+   * Truncate MySQL general and slow query log tables (instances.truncateLog)
+   *
+   * @param string $project Project ID of the Cloud SQL project.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
+   * @param Google_Service_SQLAdmin_InstancesTruncateLogRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_SQLAdmin_Operation
+   */
+  public function truncateLog($project, $instance, Google_Service_SQLAdmin_InstancesTruncateLogRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'instance' => $instance, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('truncateLog', array($params), "Google_Service_SQLAdmin_Operation");
+  }
+  /**
    * Updates settings of a Cloud SQL instance. Caution: This is not a partial
    * update, so you must include values for all the settings that you want to
    * retain. For partial updates, use patch. (instances.update)

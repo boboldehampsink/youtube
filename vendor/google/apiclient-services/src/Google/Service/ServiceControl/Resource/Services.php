@@ -30,6 +30,12 @@ class Google_Service_ServiceControl_Resource_Services extends Google_Service_Res
    * operation should proceed. It should be called before the operation is
    * executed.
    *
+   * If feasible, the client should cache the check results and reuse them for 60
+   * seconds. In case of server errors, the client can rely on the cached results
+   * for longer time.
+   *
+   * NOTE: the `CheckRequest` has the size limit of 1MB.
+   *
    * This method requires the `servicemanagement.services.check` permission on the
    * specified service. For more information, see [Google Cloud
    * IAM](https://cloud.google.com/iam). (services.check)
@@ -49,8 +55,16 @@ class Google_Service_ServiceControl_Resource_Services extends Google_Service_Res
     return $this->call('check', array($params), "Google_Service_ServiceControl_CheckResponse");
   }
   /**
-   * Reports operations to Google Service Control. It should be called after the
-   * operation is completed.
+   * Reports operation results to Google Service Control, such as logs and
+   * metrics. It should be called after an operation is completed.
+   *
+   * If feasible, the client should aggregate reporting data for up to 5 seconds
+   * to reduce API traffic. Limiting aggregation to 5 seconds is to reduce data
+   * loss during client crashes. Clients should carefully choose the aggregation
+   * time window to avoid data loss risk more than 0.01% for business and
+   * compliance reasons.
+   *
+   * NOTE: the `ReportRequest` has the size limit of 1MB.
    *
    * This method requires the `servicemanagement.services.report` permission on
    * the specified service. For more information, see [Google Cloud

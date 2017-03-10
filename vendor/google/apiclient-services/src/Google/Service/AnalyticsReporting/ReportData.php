@@ -18,6 +18,7 @@
 class Google_Service_AnalyticsReporting_ReportData extends Google_Collection
 {
   protected $collection_key = 'totals';
+  public $dataLastRefreshed;
   public $isDataGolden;
   protected $maximumsType = 'Google_Service_AnalyticsReporting_DateRangeValues';
   protected $maximumsDataType = 'array';
@@ -31,6 +32,14 @@ class Google_Service_AnalyticsReporting_ReportData extends Google_Collection
   protected $totalsType = 'Google_Service_AnalyticsReporting_DateRangeValues';
   protected $totalsDataType = 'array';
 
+  public function setDataLastRefreshed($dataLastRefreshed)
+  {
+    $this->dataLastRefreshed = $dataLastRefreshed;
+  }
+  public function getDataLastRefreshed()
+  {
+    return $this->dataLastRefreshed;
+  }
   public function setIsDataGolden($isDataGolden)
   {
     $this->isDataGolden = $isDataGolden;

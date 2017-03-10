@@ -36,6 +36,8 @@ class Google_Service_Directory_User extends Google_Collection
   public $ipWhitelisted;
   public $isAdmin;
   public $isDelegatedAdmin;
+  public $isEnforcedIn2Sv;
+  public $isEnrolledIn2Sv;
   public $isMailboxSetup;
   public $kind;
   public $lastLoginTime;
@@ -198,6 +200,22 @@ class Google_Service_Directory_User extends Google_Collection
   public function getIsDelegatedAdmin()
   {
     return $this->isDelegatedAdmin;
+  }
+  public function setIsEnforcedIn2Sv($isEnforcedIn2Sv)
+  {
+    $this->isEnforcedIn2Sv = $isEnforcedIn2Sv;
+  }
+  public function getIsEnforcedIn2Sv()
+  {
+    return $this->isEnforcedIn2Sv;
+  }
+  public function setIsEnrolledIn2Sv($isEnrolledIn2Sv)
+  {
+    $this->isEnrolledIn2Sv = $isEnrolledIn2Sv;
+  }
+  public function getIsEnrolledIn2Sv()
+  {
+    return $this->isEnrolledIn2Sv;
   }
   public function setIsMailboxSetup($isMailboxSetup)
   {

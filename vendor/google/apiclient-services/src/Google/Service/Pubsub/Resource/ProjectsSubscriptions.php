@@ -28,13 +28,14 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
   /**
    * Acknowledges the messages associated with the `ack_ids` in the
    * `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages
-   * from the subscription. Acknowledging a message whose ack deadline has expired
-   * may succeed, but such a message may be redelivered later. Acknowledging a
-   * message more than once will not result in an error.
-   * (subscriptions.acknowledge)
+   * from the subscription.
+   *
+   * Acknowledging a message whose ack deadline has expired may succeed, but such
+   * a message may be redelivered later. Acknowledging a message more than once
+   * will not result in an error. (subscriptions.acknowledge)
    *
    * @param string $subscription The subscription whose message is being
-   * acknowledged.
+   * acknowledged. Format is `projects/{project}/subscriptions/{sub}`.
    * @param Google_Service_Pubsub_AcknowledgeRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_PubsubEmpty
@@ -48,10 +49,14 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
   /**
    * Creates a subscription to a given topic. If the subscription already exists,
    * returns `ALREADY_EXISTS`. If the corresponding topic doesn't exist, returns
-   * `NOT_FOUND`. If the name is not provided in the request, the server will
-   * assign a random name for this subscription on the same project as the topic.
-   * Note that for REST API requests, you must specify a name.
-   * (subscriptions.create)
+   * `NOT_FOUND`.
+   *
+   * If the name is not provided in the request, the server will assign a random
+   * name for this subscription on the same project as the topic, conforming to
+   * the [resource name
+   * format](https://cloud.google.com/pubsub/docs/overview#names). The generated
+   * name is populated in the returned Subscription object. Note that for REST API
+   * requests, you must specify a name in the request. (subscriptions.create)
    *
    * @param string $name The name of the subscription. It must have the format
    * `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must
@@ -76,7 +81,8 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
    * the same name, but the new one has no association with the old subscription
    * or its topic unless the same topic is specified. (subscriptions.delete)
    *
-   * @param string $subscription The subscription to delete.
+   * @param string $subscription The subscription to delete. Format is
+   * `projects/{project}/subscriptions/{sub}`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_PubsubEmpty
    */
@@ -89,7 +95,8 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
   /**
    * Gets the configuration details of a subscription. (subscriptions.get)
    *
-   * @param string $subscription The name of the subscription to get.
+   * @param string $subscription The name of the subscription to get. Format is
+   * `projects/{project}/subscriptions/{sub}`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_Subscription
    */
@@ -119,7 +126,7 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
    * Lists matching subscriptions. (subscriptions.listProjectsSubscriptions)
    *
    * @param string $project The name of the cloud project that subscriptions
-   * belong to.
+   * belong to. Format is `projects/{project}`.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int pageSize Maximum number of subscriptions to return.
@@ -143,7 +150,8 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
    * `ackDeadlineSeconds` used for subsequent messages.
    * (subscriptions.modifyAckDeadline)
    *
-   * @param string $subscription The name of the subscription.
+   * @param string $subscription The name of the subscription. Format is
+   * `projects/{project}/subscriptions/{sub}`.
    * @param Google_Service_Pubsub_ModifyAckDeadlineRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_PubsubEmpty
@@ -155,14 +163,16 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
     return $this->call('modifyAckDeadline', array($params), "Google_Service_Pubsub_PubsubEmpty");
   }
   /**
-   * Modifies the `PushConfig` for a specified subscription. This may be used to
-   * change a push subscription to a pull one (signified by an empty `PushConfig`)
-   * or vice versa, or change the endpoint URL and other attributes of a push
-   * subscription. Messages will accumulate for delivery continuously through the
-   * call regardless of changes to the `PushConfig`.
+   * Modifies the `PushConfig` for a specified subscription.
+   *
+   * This may be used to change a push subscription to a pull one (signified by an
+   * empty `PushConfig`) or vice versa, or change the endpoint URL and other
+   * attributes of a push subscription. Messages will accumulate for delivery
+   * continuously through the call regardless of changes to the `PushConfig`.
    * (subscriptions.modifyPushConfig)
    *
-   * @param string $subscription The name of the subscription.
+   * @param string $subscription The name of the subscription. Format is
+   * `projects/{project}/subscriptions/{sub}`.
    * @param Google_Service_Pubsub_ModifyPushConfigRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_PubsubEmpty
@@ -180,7 +190,7 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
    * subscription. (subscriptions.pull)
    *
    * @param string $subscription The subscription from which messages should be
-   * pulled.
+   * pulled. Format is `projects/{project}/subscriptions/{sub}`.
    * @param Google_Service_Pubsub_PullRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_PullResponse
@@ -209,8 +219,9 @@ class Google_Service_Pubsub_Resource_ProjectsSubscriptions extends Google_Servic
     return $this->call('setIamPolicy', array($params), "Google_Service_Pubsub_Policy");
   }
   /**
-   * Returns permissions that a caller has on the specified resource.
-   * (subscriptions.testIamPermissions)
+   * Returns permissions that a caller has on the specified resource. If the
+   * resource does not exist, this will return an empty set of permissions, not a
+   * NOT_FOUND error. (subscriptions.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
    * being requested. `resource` is usually specified as a path. For example, a

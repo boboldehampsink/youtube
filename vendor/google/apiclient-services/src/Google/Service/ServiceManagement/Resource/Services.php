@@ -42,7 +42,7 @@ class Google_Service_ServiceManagement_Resource_Services extends Google_Service_
     return $this->call('create', array($params), "Google_Service_ServiceManagement_Operation");
   }
   /**
-   * Deletes a managed service. This method will change the serivce in the `Soft-
+   * Deletes a managed service. This method will change the service to the `Soft-
    * Delete` state for 30 days. Within this period, service producers may call
    * UndeleteService to restore the service. After 30 days, the service will be
    * permanently deleted.
@@ -121,7 +121,8 @@ class Google_Service_ServiceManagement_Resource_Services extends Google_Service_
     return $this->call('generateConfigReport', array($params), "Google_Service_ServiceManagement_GenerateConfigReportResponse");
   }
   /**
-   * Gets a managed service. (services.get)
+   * Gets a managed service. Authentication is required unless the service is
+   * public. (services.get)
    *
    * @param string $serviceName The name of the service.  See the `ServiceManager`
    * overview for naming requirements.  For example: `example.googleapis.com`.
@@ -143,7 +144,7 @@ class Google_Service_ServiceManagement_Resource_Services extends Google_Service_
    * `example.googleapis.com`.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string configId
+   * @opt_param string configId The id of the service configuration resource.
    * @return Google_Service_ServiceManagement_Service
    */
   public function getConfig($serviceName, $optParams = array())
@@ -170,7 +171,15 @@ class Google_Service_ServiceManagement_Resource_Services extends Google_Service_
     return $this->call('getIamPolicy', array($params), "Google_Service_ServiceManagement_Policy");
   }
   /**
-   * Lists all managed services. (services.listServices)
+   * Lists managed services.
+   *
+   * If called without any authentication, it returns only the public services. If
+   * called with authentication, it returns all services that the caller has
+   * "servicemanagement.services.get" permission for.
+   *
+   * **BETA:** If the caller specifies the `consumer_id`, it returns only the
+   * services enabled on the consumer. The `consumer_id` must have the format of
+   * "project:{PROJECT-ID}". (services.listServices)
    *
    * @param array $optParams Optional parameters.
    *
@@ -179,6 +188,11 @@ class Google_Service_ServiceManagement_Resource_Services extends Google_Service_
    * specified project.
    * @opt_param string pageToken Token identifying which result to start with;
    * returned by a previous list call.
+   * @opt_param string consumerId Include services consumed by the specified
+   * consumer.
+   *
+   * The Google Service Management implementation accepts the following forms: -
+   * project:
    * @return Google_Service_ServiceManagement_ListServicesResponse
    */
   public function listServices($optParams = array())
@@ -205,8 +219,9 @@ class Google_Service_ServiceManagement_Resource_Services extends Google_Service_
     return $this->call('setIamPolicy', array($params), "Google_Service_ServiceManagement_Policy");
   }
   /**
-   * Returns permissions that a caller has on the specified resource.
-   * (services.testIamPermissions)
+   * Returns permissions that a caller has on the specified resource. If the
+   * resource does not exist, this will return an empty set of permissions, not a
+   * NOT_FOUND error. (services.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
    * being requested. `resource` is usually specified as a path. For example, a

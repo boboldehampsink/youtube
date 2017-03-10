@@ -97,6 +97,10 @@ class Google_Service_DeploymentManager extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'deletePolicy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'get' => array(
               'path' => '{project}/global/deployments/{deployment}',
@@ -158,6 +162,10 @@ class Google_Service_DeploymentManager extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -315,6 +323,10 @@ class Google_Service_DeploymentManager extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -361,6 +373,10 @@ class Google_Service_DeploymentManager extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -419,6 +435,10 @@ class Google_Service_DeploymentManager extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -450,6 +470,10 @@ class Google_Service_DeploymentManager extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'pageToken' => array(
                   'location' => 'query',

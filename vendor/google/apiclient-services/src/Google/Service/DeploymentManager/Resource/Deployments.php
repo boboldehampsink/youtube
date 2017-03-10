@@ -48,6 +48,8 @@ class Google_Service_DeploymentManager_Resource_Deployments extends Google_Servi
    * @param string $project The project ID for this request.
    * @param string $deployment The name of the deployment for this request.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string deletePolicy Sets the policy to use for deleting resources.
    * @return Google_Service_DeploymentManager_Operation
    */
   public function delete($project, $deployment, $optParams = array())
@@ -143,6 +145,16 @@ class Google_Service_DeploymentManager_Resource_Deployments extends Google_Servi
    * should be returned. If the number of available results is larger than
    * maxResults, Compute Engine returns a nextPageToken that can be used to get
    * the next page of results in subsequent list requests.
+   * @opt_param string orderBy Sorts list results by a certain order. By default,
+   * results are returned in alphanumerical order based on the resource name.
+   *
+   * You can also sort results in descending order based on the creation timestamp
+   * using orderBy="creationTimestamp desc". This sorts results based on the
+   * creationTimestamp field in reverse chronological order (newest result first).
+   * Use this to sort resources like operations so that the newest operation is
+   * returned first.
+   *
+   * Currently, only sorting by name or creationTimestamp desc is supported.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.

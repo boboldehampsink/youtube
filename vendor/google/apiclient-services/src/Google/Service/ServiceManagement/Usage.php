@@ -18,10 +18,19 @@
 class Google_Service_ServiceManagement_Usage extends Google_Collection
 {
   protected $collection_key = 'rules';
+  public $producerNotificationChannel;
   public $requirements;
   protected $rulesType = 'Google_Service_ServiceManagement_UsageRule';
   protected $rulesDataType = 'array';
 
+  public function setProducerNotificationChannel($producerNotificationChannel)
+  {
+    $this->producerNotificationChannel = $producerNotificationChannel;
+  }
+  public function getProducerNotificationChannel()
+  {
+    return $this->producerNotificationChannel;
+  }
   public function setRequirements($requirements)
   {
     $this->requirements = $requirements;

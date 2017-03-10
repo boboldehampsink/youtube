@@ -32,7 +32,7 @@ class Google_Service_Monitoring_Resource_ProjectsTimeSeries extends Google_Servi
    * (timeSeries.create)
    *
    * @param string $name The project on which to execute the request. The format
-   * is projects/{project_id_or_number}.
+   * is "projects/{project_id_or_number}".
    * @param Google_Service_Monitoring_CreateTimeSeriesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Monitoring_MonitoringEmpty
@@ -51,21 +51,23 @@ class Google_Service_Monitoring_Resource_ProjectsTimeSeries extends Google_Servi
    * is "projects/{project_id_or_number}".
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter A monitoring filter (/monitoring/api/v3/filters)
-   * that specifies which time series should be returned. The filter must specify
-   * a single metric type, and can additionally specify metric labels and other
-   * information. For example: metric.type =
-   * compute.googleapis.com/instance/cpu/usage_time AND
-   * metric.label.instance_name = my-instance-name
+   * @opt_param string filter A monitoring filter that specifies which time series
+   * should be returned. The filter must specify a single metric type, and can
+   * additionally specify metric labels and other information. For example:
+   * metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
+   * metric.label.instance_name = "my-instance-name"
    * @opt_param string aggregation.groupByFields The set of fields to preserve
    * when crossSeriesReducer is specified. The groupByFields determine how the
    * time series are partitioned into subsets prior to applying the aggregation
    * function. Each subset contains time series that have the same value for each
    * of the grouping fields. Each individual time series is a member of exactly
    * one subset. The crossSeriesReducer is applied to each subset of time series.
-   * Fields not specified in groupByFields are aggregated away. If groupByFields
-   * is not specified, the time series are aggregated into a single output time
-   * series. If crossSeriesReducer is not defined, this field is ignored.
+   * It is not possible to reduce across different resource types, so this field
+   * implicitly contains resource.type. Fields not specified in groupByFields are
+   * aggregated away. If groupByFields is not specified and all the time series
+   * have the same resource type, then the time series are aggregated into a
+   * single output time series. If crossSeriesReducer is not defined, this field
+   * is ignored.
    * @opt_param string aggregation.crossSeriesReducer The approach to be used to
    * combine time series. Not all reducer functions may be applied to all time
    * series, depending on the metric type and the value type of the original time

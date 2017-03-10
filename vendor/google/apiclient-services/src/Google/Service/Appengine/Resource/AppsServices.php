@@ -29,7 +29,7 @@ class Google_Service_Appengine_Resource_AppsServices extends Google_Service_Reso
    * Deletes the specified service and all enclosed versions. (services.delete)
    *
    * @param string $appsId Part of `name`. Name of the resource requested.
-   * Example: `apps/myapp/services/default`.
+   * Example: apps/myapp/services/default.
    * @param string $servicesId Part of `name`. See documentation of `appsId`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Appengine_Operation
@@ -44,7 +44,7 @@ class Google_Service_Appengine_Resource_AppsServices extends Google_Service_Reso
    * Gets the current configuration of the specified service. (services.get)
    *
    * @param string $appsId Part of `name`. Name of the resource requested.
-   * Example: `apps/myapp/services/default`.
+   * Example: apps/myapp/services/default.
    * @param string $servicesId Part of `name`. See documentation of `appsId`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Appengine_Service
@@ -59,7 +59,7 @@ class Google_Service_Appengine_Resource_AppsServices extends Google_Service_Reso
    * Lists all the services in the application. (services.listAppsServices)
    *
    * @param string $appsId Part of `parent`. Name of the parent Application
-   * resource. Example: `apps/myapp`.
+   * resource. Example: apps/myapp.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int pageSize Maximum results to return per page.
@@ -77,27 +77,27 @@ class Google_Service_Appengine_Resource_AppsServices extends Google_Service_Reso
    * Updates the configuration of the specified service. (services.patch)
    *
    * @param string $appsId Part of `name`. Name of the resource to update.
-   * Example: `apps/myapp/services/default`.
+   * Example: apps/myapp/services/default.
    * @param string $servicesId Part of `name`. See documentation of `appsId`.
    * @param Google_Service_Appengine_Service $postBody
    * @param array $optParams Optional parameters.
    *
    * @opt_param string updateMask Standard field mask for the set of fields to be
    * updated.
-   * @opt_param bool migrateTraffic Set to `true` to gradually shift traffic from
+   * @opt_param bool migrateTraffic Set to true to gradually shift traffic from
    * one version to another single version. By default, traffic is shifted
    * immediately. For gradual traffic migration, the target version must be
-   * located within instances that are configured for both [warmup
-   * requests](https://cloud.google.com/appengine/docs/admin-
+   * located within instances that are configured for both warmup requests
+   * (https://cloud.google.com/appengine/docs/admin-
    * api/reference/rest/v1/apps.services.versions#inboundservicetype) and
-   * [automatic scaling](https://cloud.google.com/appengine/docs/admin-
+   * automatic scaling (https://cloud.google.com/appengine/docs/admin-
    * api/reference/rest/v1/apps.services.versions#automaticscaling). You must
-   * specify the [`shardBy`](https://cloud.google.com/appengine/docs/admin-
+   * specify the shardBy (https://cloud.google.com/appengine/docs/admin-
    * api/reference/rest/v1/apps.services#shardby) field in the Service resource.
    * Gradual traffic migration is not supported in the App Engine flexible
-   * environment. For examples, see [Migrating and Splitting
-   * Traffic](https://cloud.google.com/appengine/docs/admin-api/migrating-
-   * splitting-traffic).
+   * environment. For examples, see Migrating and Splitting Traffic
+   * (https://cloud.google.com/appengine/docs/admin-api/migrating-splitting-
+   * traffic).
    * @return Google_Service_Appengine_Operation
    */
   public function patch($appsId, $servicesId, Google_Service_Appengine_Service $postBody, $optParams = array())

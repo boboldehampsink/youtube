@@ -511,6 +511,21 @@ class Google_Service_SQLAdmin extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'truncateLog' => array(
+              'path' => 'projects/{project}/instances/{instance}/truncateLog',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'update' => array(
               'path' => 'projects/{project}/instances/{instance}',
               'httpMethod' => 'PUT',

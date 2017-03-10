@@ -59,7 +59,7 @@ class Google_Service_AndroidEnterprise_Resource_Users extends Google_Service_Res
   }
   /**
    * Generates a token (activation code) to allow this user to configure their
-   * work account in the Android Setup Wizard. Revokes any previously generated
+   * managed account in the Android Setup Wizard. Revokes any previously generated
    * token.
    *
    * This call only works with Google managed accounts. (users.generateToken)

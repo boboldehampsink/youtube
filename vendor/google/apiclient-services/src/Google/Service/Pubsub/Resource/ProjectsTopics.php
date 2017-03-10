@@ -51,7 +51,8 @@ class Google_Service_Pubsub_Resource_ProjectsTopics extends Google_Service_Resou
    * subscriptions. Existing subscriptions to this topic are not deleted, but
    * their `topic` field is set to `_deleted-topic_`. (topics.delete)
    *
-   * @param string $topic Name of the topic to delete.
+   * @param string $topic Name of the topic to delete. Format is
+   * `projects/{project}/topics/{topic}`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_PubsubEmpty
    */
@@ -64,7 +65,8 @@ class Google_Service_Pubsub_Resource_ProjectsTopics extends Google_Service_Resou
   /**
    * Gets the configuration of a topic. (topics.get)
    *
-   * @param string $topic The name of the topic to get.
+   * @param string $topic The name of the topic to get. Format is
+   * `projects/{project}/topics/{topic}`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_Topic
    */
@@ -94,6 +96,7 @@ class Google_Service_Pubsub_Resource_ProjectsTopics extends Google_Service_Resou
    * Lists matching topics. (topics.listProjectsTopics)
    *
    * @param string $project The name of the cloud project that topics belong to.
+   * Format is `projects/{project}`.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int pageSize Maximum number of topics to return.
@@ -110,11 +113,11 @@ class Google_Service_Pubsub_Resource_ProjectsTopics extends Google_Service_Resou
   }
   /**
    * Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic does
-   * not exist. The message payload must not be empty; it must contain either a
+   * not exist. The message payload must not be empty; it must contain  either a
    * non-empty data field, or at least one attribute. (topics.publish)
    *
    * @param string $topic The messages in the request will be published on this
-   * topic.
+   * topic. Format is `projects/{project}/topics/{topic}`.
    * @param Google_Service_Pubsub_PublishRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_PublishResponse
@@ -143,8 +146,9 @@ class Google_Service_Pubsub_Resource_ProjectsTopics extends Google_Service_Resou
     return $this->call('setIamPolicy', array($params), "Google_Service_Pubsub_Policy");
   }
   /**
-   * Returns permissions that a caller has on the specified resource.
-   * (topics.testIamPermissions)
+   * Returns permissions that a caller has on the specified resource. If the
+   * resource does not exist, this will return an empty set of permissions, not a
+   * NOT_FOUND error. (topics.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
    * being requested. `resource` is usually specified as a path. For example, a

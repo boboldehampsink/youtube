@@ -19,6 +19,7 @@ class Google_Service_ServiceManagement_SetIamPolicyRequest extends Google_Model
 {
   protected $policyType = 'Google_Service_ServiceManagement_Policy';
   protected $policyDataType = '';
+  public $updateMask;
 
   public function setPolicy(Google_Service_ServiceManagement_Policy $policy)
   {
@@ -27,5 +28,13 @@ class Google_Service_ServiceManagement_SetIamPolicyRequest extends Google_Model
   public function getPolicy()
   {
     return $this->policy;
+  }
+  public function setUpdateMask($updateMask)
+  {
+    $this->updateMask = $updateMask;
+  }
+  public function getUpdateMask()
+  {
+    return $this->updateMask;
   }
 }

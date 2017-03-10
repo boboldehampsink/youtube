@@ -31,6 +31,8 @@ class Google_Service_Appengine_Version extends Google_Collection
   protected $deploymentType = 'Google_Service_Appengine_Deployment';
   protected $deploymentDataType = '';
   public $diskUsageBytes;
+  protected $endpointsApiServiceType = 'Google_Service_Appengine_EndpointsApiService';
+  protected $endpointsApiServiceDataType = '';
   public $env;
   public $envVariables;
   protected $errorHandlersType = 'Google_Service_Appengine_ErrorHandler';
@@ -129,6 +131,14 @@ class Google_Service_Appengine_Version extends Google_Collection
   public function getDiskUsageBytes()
   {
     return $this->diskUsageBytes;
+  }
+  public function setEndpointsApiService(Google_Service_Appengine_EndpointsApiService $endpointsApiService)
+  {
+    $this->endpointsApiService = $endpointsApiService;
+  }
+  public function getEndpointsApiService()
+  {
+    return $this->endpointsApiService;
   }
   public function setEnv($env)
   {

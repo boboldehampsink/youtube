@@ -33,6 +33,7 @@ class Google_Service_Books_Notification extends Google_Collection
   public $dontShowNotification;
   public $iconUrl;
   public $kind;
+  public $notificationGroup;
   public $notificationType;
   public $pcampaignId;
   public $reason;
@@ -95,6 +96,14 @@ class Google_Service_Books_Notification extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setNotificationGroup($notificationGroup)
+  {
+    $this->notificationGroup = $notificationGroup;
+  }
+  public function getNotificationGroup()
+  {
+    return $this->notificationGroup;
   }
   public function setNotificationType($notificationType)
   {

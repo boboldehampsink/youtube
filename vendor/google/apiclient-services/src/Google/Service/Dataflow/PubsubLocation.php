@@ -23,6 +23,7 @@ class Google_Service_Dataflow_PubsubLocation extends Google_Model
   public $timestampLabel;
   public $topic;
   public $trackingSubscription;
+  public $withAttributes;
 
   public function setDropLateData($dropLateData)
   {
@@ -71,5 +72,13 @@ class Google_Service_Dataflow_PubsubLocation extends Google_Model
   public function getTrackingSubscription()
   {
     return $this->trackingSubscription;
+  }
+  public function setWithAttributes($withAttributes)
+  {
+    $this->withAttributes = $withAttributes;
+  }
+  public function getWithAttributes()
+  {
+    return $this->withAttributes;
   }
 }

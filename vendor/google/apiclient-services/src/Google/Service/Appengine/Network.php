@@ -21,6 +21,7 @@ class Google_Service_Appengine_Network extends Google_Collection
   public $forwardedPorts;
   public $instanceTag;
   public $name;
+  public $subnetworkName;
 
   public function setForwardedPorts($forwardedPorts)
   {
@@ -45,5 +46,13 @@ class Google_Service_Appengine_Network extends Google_Collection
   public function getName()
   {
     return $this->name;
+  }
+  public function setSubnetworkName($subnetworkName)
+  {
+    $this->subnetworkName = $subnetworkName;
+  }
+  public function getSubnetworkName()
+  {
+    return $this->subnetworkName;
   }
 }

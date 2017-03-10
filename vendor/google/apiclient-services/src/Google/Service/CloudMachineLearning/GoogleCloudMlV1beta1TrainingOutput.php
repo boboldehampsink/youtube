@@ -19,6 +19,7 @@ class Google_Service_CloudMachineLearning_GoogleCloudMlV1beta1TrainingOutput ext
 {
   protected $collection_key = 'trials';
   public $completedTrialCount;
+  public $consumedMLUnits;
   protected $trialsType = 'Google_Service_CloudMachineLearning_GoogleCloudMlV1beta1HyperparameterOutput';
   protected $trialsDataType = 'array';
 
@@ -29,6 +30,14 @@ class Google_Service_CloudMachineLearning_GoogleCloudMlV1beta1TrainingOutput ext
   public function getCompletedTrialCount()
   {
     return $this->completedTrialCount;
+  }
+  public function setConsumedMLUnits($consumedMLUnits)
+  {
+    $this->consumedMLUnits = $consumedMLUnits;
+  }
+  public function getConsumedMLUnits()
+  {
+    return $this->consumedMLUnits;
   }
   public function setTrials($trials)
   {

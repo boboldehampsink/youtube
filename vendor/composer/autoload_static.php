@@ -18,6 +18,10 @@ class ComposerStaticInit6f63cdebbe824d4571d4920ca2d7e21c
         array (
             'phpseclib\\' => 10,
         ),
+        'S' => 
+        array (
+            'Saf33r\\OAuth2\\Client\\' => 21,
+        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
@@ -27,6 +31,11 @@ class ComposerStaticInit6f63cdebbe824d4571d4920ca2d7e21c
         'M' => 
         array (
             'Monolog\\' => 8,
+        ),
+        'L' => 
+        array (
+            'League\\OAuth2\\Client\\' => 21,
+            'League\\OAuth1\\' => 14,
         ),
         'G' => 
         array (
@@ -39,6 +48,10 @@ class ComposerStaticInit6f63cdebbe824d4571d4920ca2d7e21c
         array (
             'Firebase\\JWT\\' => 13,
         ),
+        'D' => 
+        array (
+            'Dukt\\OAuth2\\Client\\' => 19,
+        ),
         'C' => 
         array (
             'Composer\\Installers\\' => 20,
@@ -49,6 +62,10 @@ class ComposerStaticInit6f63cdebbe824d4571d4920ca2d7e21c
         'phpseclib\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
+        ),
+        'Saf33r\\OAuth2\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/saf33r/oauth2-vimeo/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -65,6 +82,16 @@ class ComposerStaticInit6f63cdebbe824d4571d4920ca2d7e21c
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'League\\OAuth2\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/oauth2-client/src',
+            1 => __DIR__ . '/..' . '/league/oauth2-facebook/src',
+            2 => __DIR__ . '/..' . '/league/oauth2-google/src',
+        ),
+        'League\\OAuth1\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/oauth1-client/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
@@ -86,6 +113,10 @@ class ComposerStaticInit6f63cdebbe824d4571d4920ca2d7e21c
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
+        'Dukt\\OAuth2\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dukt/oauth2-google/src',
+        ),
         'Composer\\Installers\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
@@ -93,6 +124,20 @@ class ComposerStaticInit6f63cdebbe824d4571d4920ca2d7e21c
     );
 
     public static $prefixesPsr0 = array (
+        'S' => 
+        array (
+            'SecurityLib' => 
+            array (
+                0 => __DIR__ . '/..' . '/ircmaxell/security-lib/lib',
+            ),
+        ),
+        'R' => 
+        array (
+            'RandomLib' => 
+            array (
+                0 => __DIR__ . '/..' . '/ircmaxell/random-lib/lib',
+            ),
+        ),
         'G' => 
         array (
             'Google_Service_' => 

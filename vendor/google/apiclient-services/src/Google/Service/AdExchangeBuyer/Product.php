@@ -32,6 +32,7 @@ class Google_Service_AdExchangeBuyer_Product extends Google_Collection
   protected $labelsDataType = 'array';
   public $lastUpdateTimeMs;
   public $legacyOfferId;
+  public $marketplacePublisherProfileId;
   public $name;
   public $privateAuctionId;
   public $productId;
@@ -136,6 +137,14 @@ class Google_Service_AdExchangeBuyer_Product extends Google_Collection
   public function getLegacyOfferId()
   {
     return $this->legacyOfferId;
+  }
+  public function setMarketplacePublisherProfileId($marketplacePublisherProfileId)
+  {
+    $this->marketplacePublisherProfileId = $marketplacePublisherProfileId;
+  }
+  public function getMarketplacePublisherProfileId()
+  {
+    return $this->marketplacePublisherProfileId;
   }
   public function setName($name)
   {

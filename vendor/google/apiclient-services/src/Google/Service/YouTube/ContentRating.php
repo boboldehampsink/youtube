@@ -60,6 +60,7 @@ class Google_Service_YouTube_ContentRating extends Google_Collection
   public $lsfRating;
   public $mccaaRating;
   public $mccypRating;
+  public $mcstRating;
   public $mdaRating;
   public $medietilsynetRating;
   public $mekuRating;
@@ -421,6 +422,14 @@ class Google_Service_YouTube_ContentRating extends Google_Collection
   public function getMccypRating()
   {
     return $this->mccypRating;
+  }
+  public function setMcstRating($mcstRating)
+  {
+    $this->mcstRating = $mcstRating;
+  }
+  public function getMcstRating()
+  {
+    return $this->mcstRating;
   }
   public function setMdaRating($mdaRating)
   {

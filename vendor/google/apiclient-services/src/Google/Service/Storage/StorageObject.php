@@ -46,6 +46,7 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   public $storageClass;
   public $timeCreated;
   public $timeDeleted;
+  public $timeStorageClassUpdated;
   public $updated;
 
   public function setAcl($acl)
@@ -247,6 +248,14 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   public function getTimeDeleted()
   {
     return $this->timeDeleted;
+  }
+  public function setTimeStorageClassUpdated($timeStorageClassUpdated)
+  {
+    $this->timeStorageClassUpdated = $timeStorageClassUpdated;
+  }
+  public function getTimeStorageClassUpdated()
+  {
+    return $this->timeStorageClassUpdated;
   }
   public function setUpdated($updated)
   {

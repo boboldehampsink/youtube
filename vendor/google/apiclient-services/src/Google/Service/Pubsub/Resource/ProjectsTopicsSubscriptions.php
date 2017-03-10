@@ -30,7 +30,7 @@ class Google_Service_Pubsub_Resource_ProjectsTopicsSubscriptions extends Google_
    * (subscriptions.listProjectsTopicsSubscriptions)
    *
    * @param string $topic The name of the topic that subscriptions are attached
-   * to.
+   * to. Format is `projects/{project}/topics/{topic}`.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int pageSize Maximum number of subscription names to return.

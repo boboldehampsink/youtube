@@ -39,6 +39,9 @@ class Google_Service_Clouderrorreporting_Resource_ProjectsGroupStats extends Goo
    * be returned. Default is `ALIGNMENT_EQUAL_AT_END`.
    * @opt_param string timeRange.period Restricts the query to the specified time
    * range.
+   * @opt_param string serviceFilter.resourceType [Optional] The exact value to
+   * match against [`ServiceContext.resource_type`](/error-
+   * reporting/reference/rest/v1beta1/ServiceContext#FIELDS.resource_type).
    * @opt_param string order [Optional] The sort order in which the results are
    * returned. Default is `COUNT_DESC`.
    * @opt_param string groupId [Optional] List all ErrorGroupStats with these IDs.
