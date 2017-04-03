@@ -18,11 +18,21 @@
 class Google_Service_CloudResourceManager_Policy extends Google_Collection
 {
   protected $collection_key = 'bindings';
+  protected $auditConfigsType = 'Google_Service_CloudResourceManager_AuditConfig';
+  protected $auditConfigsDataType = 'array';
   protected $bindingsType = 'Google_Service_CloudResourceManager_Binding';
   protected $bindingsDataType = 'array';
   public $etag;
   public $version;
 
+  public function setAuditConfigs($auditConfigs)
+  {
+    $this->auditConfigs = $auditConfigs;
+  }
+  public function getAuditConfigs()
+  {
+    return $this->auditConfigs;
+  }
   public function setBindings($bindings)
   {
     $this->bindings = $bindings;

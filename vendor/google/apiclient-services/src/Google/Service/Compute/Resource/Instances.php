@@ -77,7 +77,8 @@ class Google_Service_Compute_Resource_Instances extends Google_Service_Resource
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
    * maxResults, Compute Engine returns a nextPageToken that can be used to get
-   * the next page of results in subsequent list requests.
+   * the next page of results in subsequent list requests. Acceptable values are 0
+   * to 500, inclusive. (Default: 500)
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -191,9 +192,11 @@ class Google_Service_Compute_Resource_Instances extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param int port Specifies which COM or serial port to retrieve data from.
-   * @opt_param string start For the initial request, leave this field
+   * @opt_param string start Returns output starting from a specific byte
+   * position. Use this to page through output when the output is too large to
+   * return in a single request. For the initial request, leave this field
    * unspecified. For subsequent calls, this field should be set to the next value
-   * that was returned in the previous call.
+   * returned in the previous call.
    * @return Google_Service_Compute_SerialPortOutput
    */
   public function getSerialPortOutput($project, $zone, $instance, $optParams = array())
@@ -253,7 +256,8 @@ class Google_Service_Compute_Resource_Instances extends Google_Service_Resource
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
    * maxResults, Compute Engine returns a nextPageToken that can be used to get
-   * the next page of results in subsequent list requests.
+   * the next page of results in subsequent list requests. Acceptable values are 0
+   * to 500, inclusive. (Default: 500)
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -358,6 +362,24 @@ class Google_Service_Compute_Resource_Instances extends Google_Service_Resource
     $params = array('project' => $project, 'zone' => $zone, 'instance' => $instance, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('setScheduling', array($params), "Google_Service_Compute_Operation");
+  }
+  /**
+   * Sets the service account on the instance. For more information, read Changing
+   * the service account and access scopes for an instance.
+   * (instances.setServiceAccount)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
+   * @param string $instance Name of the instance resource to start.
+   * @param Google_Service_Compute_InstancesSetServiceAccountRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function setServiceAccount($project, $zone, $instance, Google_Service_Compute_InstancesSetServiceAccountRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instance' => $instance, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setServiceAccount', array($params), "Google_Service_Compute_Operation");
   }
   /**
    * Sets tags for the specified instance to the data included in the request.

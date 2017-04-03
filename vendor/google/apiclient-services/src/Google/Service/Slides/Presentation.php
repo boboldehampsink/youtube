@@ -23,9 +23,12 @@ class Google_Service_Slides_Presentation extends Google_Collection
   public $locale;
   protected $mastersType = 'Google_Service_Slides_Page';
   protected $mastersDataType = 'array';
+  protected $notesMasterType = 'Google_Service_Slides_Page';
+  protected $notesMasterDataType = '';
   protected $pageSizeType = 'Google_Service_Slides_Size';
   protected $pageSizeDataType = '';
   public $presentationId;
+  public $revisionId;
   protected $slidesType = 'Google_Service_Slides_Page';
   protected $slidesDataType = 'array';
   public $title;
@@ -54,6 +57,14 @@ class Google_Service_Slides_Presentation extends Google_Collection
   {
     return $this->masters;
   }
+  public function setNotesMaster(Google_Service_Slides_Page $notesMaster)
+  {
+    $this->notesMaster = $notesMaster;
+  }
+  public function getNotesMaster()
+  {
+    return $this->notesMaster;
+  }
   public function setPageSize(Google_Service_Slides_Size $pageSize)
   {
     $this->pageSize = $pageSize;
@@ -69,6 +80,14 @@ class Google_Service_Slides_Presentation extends Google_Collection
   public function getPresentationId()
   {
     return $this->presentationId;
+  }
+  public function setRevisionId($revisionId)
+  {
+    $this->revisionId = $revisionId;
+  }
+  public function getRevisionId()
+  {
+    return $this->revisionId;
   }
   public function setSlides($slides)
   {

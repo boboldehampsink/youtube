@@ -20,6 +20,8 @@ class Google_Service_Slides_BatchUpdatePresentationRequest extends Google_Collec
   protected $collection_key = 'requests';
   protected $requestsType = 'Google_Service_Slides_Request';
   protected $requestsDataType = 'array';
+  protected $writeControlType = 'Google_Service_Slides_WriteControl';
+  protected $writeControlDataType = '';
 
   public function setRequests($requests)
   {
@@ -28,5 +30,13 @@ class Google_Service_Slides_BatchUpdatePresentationRequest extends Google_Collec
   public function getRequests()
   {
     return $this->requests;
+  }
+  public function setWriteControl(Google_Service_Slides_WriteControl $writeControl)
+  {
+    $this->writeControl = $writeControl;
+  }
+  public function getWriteControl()
+  {
+    return $this->writeControl;
   }
 }

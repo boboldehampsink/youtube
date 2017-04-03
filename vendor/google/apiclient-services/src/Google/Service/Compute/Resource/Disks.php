@@ -58,7 +58,8 @@ class Google_Service_Compute_Resource_Disks extends Google_Service_Resource
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
    * maxResults, Compute Engine returns a nextPageToken that can be used to get
-   * the next page of results in subsequent list requests.
+   * the next page of results in subsequent list requests. Acceptable values are 0
+   * to 500, inclusive. (Default: 500)
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -88,6 +89,8 @@ class Google_Service_Compute_Resource_Disks extends Google_Service_Resource
    * @param string $disk Name of the persistent disk to snapshot.
    * @param Google_Service_Compute_Snapshot $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool guestFlush
    * @return Google_Service_Compute_Operation
    */
   public function createSnapshot($project, $zone, $disk, Google_Service_Compute_Snapshot $postBody, $optParams = array())
@@ -186,7 +189,8 @@ class Google_Service_Compute_Resource_Disks extends Google_Service_Resource
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
    * maxResults, Compute Engine returns a nextPageToken that can be used to get
-   * the next page of results in subsequent list requests.
+   * the next page of results in subsequent list requests. Acceptable values are 0
+   * to 500, inclusive. (Default: 500)
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *

@@ -21,6 +21,8 @@ class Google_Service_People_Person extends Google_Collection
   protected $addressesType = 'Google_Service_People_Address';
   protected $addressesDataType = 'array';
   public $ageRange;
+  protected $ageRangesType = 'Google_Service_People_AgeRangeType';
+  protected $ageRangesDataType = 'array';
   protected $biographiesType = 'Google_Service_People_Biography';
   protected $biographiesDataType = 'array';
   protected $birthdaysType = 'Google_Service_People_Birthday';
@@ -89,6 +91,14 @@ class Google_Service_People_Person extends Google_Collection
   public function getAgeRange()
   {
     return $this->ageRange;
+  }
+  public function setAgeRanges($ageRanges)
+  {
+    $this->ageRanges = $ageRanges;
+  }
+  public function getAgeRanges()
+  {
+    return $this->ageRanges;
   }
   public function setBiographies($biographies)
   {

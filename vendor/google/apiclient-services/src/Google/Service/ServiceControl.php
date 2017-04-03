@@ -59,8 +59,38 @@ class Google_Service_ServiceControl extends Google_Service
         'services',
         array(
           'methods' => array(
-            'check' => array(
+            'allocateQuota' => array(
+              'path' => 'v1/services/{serviceName}:allocateQuota',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'serviceName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'check' => array(
               'path' => 'v1/services/{serviceName}:check',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'serviceName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'endReconciliation' => array(
+              'path' => 'v1/services/{serviceName}:endReconciliation',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'serviceName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'releaseQuota' => array(
+              'path' => 'v1/services/{serviceName}:releaseQuota',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'serviceName' => array(
@@ -71,6 +101,16 @@ class Google_Service_ServiceControl extends Google_Service
               ),
             ),'report' => array(
               'path' => 'v1/services/{serviceName}:report',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'serviceName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'startReconciliation' => array(
+              'path' => 'v1/services/{serviceName}:startReconciliation',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'serviceName' => array(

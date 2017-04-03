@@ -27,14 +27,17 @@ class Google_Service_Logging_Resource_ProjectsLogs extends Google_Service_Resour
 {
   /**
    * Deletes all the log entries in a log. The log reappears if it receives new
-   * entries. (logs.delete)
+   * entries. Log entries written shortly before the delete operation might not be
+   * deleted. (logs.delete)
    *
    * @param string $logName Required. The resource name of the log to delete:
    * "projects/[PROJECT_ID]/logs/[LOG_ID]"
-   * "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded.
-   * For example, "projects/my-project-id/logs/syslog", "organizations/1234567890/
-   * logs/cloudresourcemanager.googleapis.com%2Factivity". For more information
-   * about log names, see LogEntry.
+   * "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
+   * "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
+   * "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For
+   * example, "projects/my-project-id/logs/syslog", "organizations/1234567890/logs
+   * /cloudresourcemanager.googleapis.com%2Factivity". For more information about
+   * log names, see LogEntry.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Logging_LoggingEmpty
    */
@@ -45,11 +48,12 @@ class Google_Service_Logging_Resource_ProjectsLogs extends Google_Service_Resour
     return $this->call('delete', array($params), "Google_Service_Logging_LoggingEmpty");
   }
   /**
-   * Lists the logs in projects or organizations. Only logs that have entries are
-   * listed. (logs.listProjectsLogs)
+   * Lists the logs in projects, organizations, folders, or billing accounts. Only
+   * logs that have entries are listed. (logs.listProjectsLogs)
    *
    * @param string $parent Required. The resource name that owns the logs:
    * "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+   * "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
    * @param array $optParams Optional parameters.
    *
    * @opt_param int pageSize Optional. The maximum number of results to return

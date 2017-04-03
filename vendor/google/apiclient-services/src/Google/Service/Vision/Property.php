@@ -18,6 +18,7 @@
 class Google_Service_Vision_Property extends Google_Model
 {
   public $name;
+  public $uint64Value;
   public $value;
 
   public function setName($name)
@@ -27,6 +28,14 @@ class Google_Service_Vision_Property extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+  public function setUint64Value($uint64Value)
+  {
+    $this->uint64Value = $uint64Value;
+  }
+  public function getUint64Value()
+  {
+    return $this->uint64Value;
   }
   public function setValue($value)
   {

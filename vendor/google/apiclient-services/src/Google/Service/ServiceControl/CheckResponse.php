@@ -20,7 +20,11 @@ class Google_Service_ServiceControl_CheckResponse extends Google_Collection
   protected $collection_key = 'checkErrors';
   protected $checkErrorsType = 'Google_Service_ServiceControl_CheckError';
   protected $checkErrorsDataType = 'array';
+  protected $checkInfoType = 'Google_Service_ServiceControl_CheckInfo';
+  protected $checkInfoDataType = '';
   public $operationId;
+  protected $quotaInfoType = 'Google_Service_ServiceControl_QuotaInfo';
+  protected $quotaInfoDataType = '';
   public $serviceConfigId;
 
   public function setCheckErrors($checkErrors)
@@ -31,6 +35,14 @@ class Google_Service_ServiceControl_CheckResponse extends Google_Collection
   {
     return $this->checkErrors;
   }
+  public function setCheckInfo(Google_Service_ServiceControl_CheckInfo $checkInfo)
+  {
+    $this->checkInfo = $checkInfo;
+  }
+  public function getCheckInfo()
+  {
+    return $this->checkInfo;
+  }
   public function setOperationId($operationId)
   {
     $this->operationId = $operationId;
@@ -38,6 +50,14 @@ class Google_Service_ServiceControl_CheckResponse extends Google_Collection
   public function getOperationId()
   {
     return $this->operationId;
+  }
+  public function setQuotaInfo(Google_Service_ServiceControl_QuotaInfo $quotaInfo)
+  {
+    $this->quotaInfo = $quotaInfo;
+  }
+  public function getQuotaInfo()
+  {
+    return $this->quotaInfo;
   }
   public function setServiceConfigId($serviceConfigId)
   {

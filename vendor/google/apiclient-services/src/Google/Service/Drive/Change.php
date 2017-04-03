@@ -22,7 +22,11 @@ class Google_Service_Drive_Change extends Google_Model
   public $fileId;
   public $kind;
   public $removed;
+  protected $teamDriveType = 'Google_Service_Drive_TeamDrive';
+  protected $teamDriveDataType = '';
+  public $teamDriveId;
   public $time;
+  public $type;
 
   public function setFile(Google_Service_Drive_DriveFile $file)
   {
@@ -56,6 +60,22 @@ class Google_Service_Drive_Change extends Google_Model
   {
     return $this->removed;
   }
+  public function setTeamDrive(Google_Service_Drive_TeamDrive $teamDrive)
+  {
+    $this->teamDrive = $teamDrive;
+  }
+  public function getTeamDrive()
+  {
+    return $this->teamDrive;
+  }
+  public function setTeamDriveId($teamDriveId)
+  {
+    $this->teamDriveId = $teamDriveId;
+  }
+  public function getTeamDriveId()
+  {
+    return $this->teamDriveId;
+  }
   public function setTime($time)
   {
     $this->time = $time;
@@ -63,5 +83,13 @@ class Google_Service_Drive_Change extends Google_Model
   public function getTime()
   {
     return $this->time;
+  }
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+  public function getType()
+  {
+    return $this->type;
   }
 }

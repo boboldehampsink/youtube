@@ -24,6 +24,8 @@ class Google_Service_ServiceControl_MetricValue extends Google_Model
   public $endTime;
   public $int64Value;
   public $labels;
+  protected $moneyValueType = 'Google_Service_ServiceControl_Money';
+  protected $moneyValueDataType = '';
   public $startTime;
   public $stringValue;
 
@@ -74,6 +76,14 @@ class Google_Service_ServiceControl_MetricValue extends Google_Model
   public function getLabels()
   {
     return $this->labels;
+  }
+  public function setMoneyValue(Google_Service_ServiceControl_Money $moneyValue)
+  {
+    $this->moneyValue = $moneyValue;
+  }
+  public function getMoneyValue()
+  {
+    return $this->moneyValue;
   }
   public function setStartTime($startTime)
   {

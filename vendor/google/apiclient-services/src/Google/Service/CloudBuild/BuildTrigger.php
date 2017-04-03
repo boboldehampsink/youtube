@@ -24,6 +24,7 @@ class Google_Service_CloudBuild_BuildTrigger extends Google_Model
   public $disabled;
   public $filename;
   public $id;
+  public $substitutions;
   protected $triggerTemplateType = 'Google_Service_CloudBuild_RepoSource';
   protected $triggerTemplateDataType = '';
 
@@ -74,6 +75,14 @@ class Google_Service_CloudBuild_BuildTrigger extends Google_Model
   public function getId()
   {
     return $this->id;
+  }
+  public function setSubstitutions($substitutions)
+  {
+    $this->substitutions = $substitutions;
+  }
+  public function getSubstitutions()
+  {
+    return $this->substitutions;
   }
   public function setTriggerTemplate(Google_Service_CloudBuild_RepoSource $triggerTemplate)
   {

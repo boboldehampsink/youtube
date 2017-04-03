@@ -17,9 +17,13 @@
 
 class Google_Service_Partners_Company extends Google_Collection
 {
-  protected $collection_key = 'services';
+  protected $collection_key = 'specializationStatus';
+  public $additionalWebsites;
+  public $autoApprovalEmailDomains;
+  public $badgeTier;
   protected $certificationStatusesType = 'Google_Service_Partners_CertificationStatus';
   protected $certificationStatusesDataType = 'array';
+  public $companyTypes;
   protected $convertedMinMonthlyBudgetType = 'Google_Service_Partners_Money';
   protected $convertedMinMonthlyBudgetDataType = '';
   public $id;
@@ -31,13 +35,44 @@ class Google_Service_Partners_Company extends Google_Collection
   public $name;
   protected $originalMinMonthlyBudgetType = 'Google_Service_Partners_Money';
   protected $originalMinMonthlyBudgetDataType = '';
+  public $primaryAdwordsManagerAccountId;
+  public $primaryLanguageCode;
+  protected $primaryLocationType = 'Google_Service_Partners_Location';
+  protected $primaryLocationDataType = '';
+  public $profileStatus;
   protected $publicProfileType = 'Google_Service_Partners_PublicProfile';
   protected $publicProfileDataType = '';
   protected $ranksType = 'Google_Service_Partners_Rank';
   protected $ranksDataType = 'array';
   public $services;
+  protected $specializationStatusType = 'Google_Service_Partners_SpecializationStatus';
+  protected $specializationStatusDataType = 'array';
   public $websiteUrl;
 
+  public function setAdditionalWebsites($additionalWebsites)
+  {
+    $this->additionalWebsites = $additionalWebsites;
+  }
+  public function getAdditionalWebsites()
+  {
+    return $this->additionalWebsites;
+  }
+  public function setAutoApprovalEmailDomains($autoApprovalEmailDomains)
+  {
+    $this->autoApprovalEmailDomains = $autoApprovalEmailDomains;
+  }
+  public function getAutoApprovalEmailDomains()
+  {
+    return $this->autoApprovalEmailDomains;
+  }
+  public function setBadgeTier($badgeTier)
+  {
+    $this->badgeTier = $badgeTier;
+  }
+  public function getBadgeTier()
+  {
+    return $this->badgeTier;
+  }
   public function setCertificationStatuses($certificationStatuses)
   {
     $this->certificationStatuses = $certificationStatuses;
@@ -45,6 +80,14 @@ class Google_Service_Partners_Company extends Google_Collection
   public function getCertificationStatuses()
   {
     return $this->certificationStatuses;
+  }
+  public function setCompanyTypes($companyTypes)
+  {
+    $this->companyTypes = $companyTypes;
+  }
+  public function getCompanyTypes()
+  {
+    return $this->companyTypes;
   }
   public function setConvertedMinMonthlyBudget(Google_Service_Partners_Money $convertedMinMonthlyBudget)
   {
@@ -102,6 +145,38 @@ class Google_Service_Partners_Company extends Google_Collection
   {
     return $this->originalMinMonthlyBudget;
   }
+  public function setPrimaryAdwordsManagerAccountId($primaryAdwordsManagerAccountId)
+  {
+    $this->primaryAdwordsManagerAccountId = $primaryAdwordsManagerAccountId;
+  }
+  public function getPrimaryAdwordsManagerAccountId()
+  {
+    return $this->primaryAdwordsManagerAccountId;
+  }
+  public function setPrimaryLanguageCode($primaryLanguageCode)
+  {
+    $this->primaryLanguageCode = $primaryLanguageCode;
+  }
+  public function getPrimaryLanguageCode()
+  {
+    return $this->primaryLanguageCode;
+  }
+  public function setPrimaryLocation(Google_Service_Partners_Location $primaryLocation)
+  {
+    $this->primaryLocation = $primaryLocation;
+  }
+  public function getPrimaryLocation()
+  {
+    return $this->primaryLocation;
+  }
+  public function setProfileStatus($profileStatus)
+  {
+    $this->profileStatus = $profileStatus;
+  }
+  public function getProfileStatus()
+  {
+    return $this->profileStatus;
+  }
   public function setPublicProfile(Google_Service_Partners_PublicProfile $publicProfile)
   {
     $this->publicProfile = $publicProfile;
@@ -125,6 +200,14 @@ class Google_Service_Partners_Company extends Google_Collection
   public function getServices()
   {
     return $this->services;
+  }
+  public function setSpecializationStatus($specializationStatus)
+  {
+    $this->specializationStatus = $specializationStatus;
+  }
+  public function getSpecializationStatus()
+  {
+    return $this->specializationStatus;
   }
   public function setWebsiteUrl($websiteUrl)
   {

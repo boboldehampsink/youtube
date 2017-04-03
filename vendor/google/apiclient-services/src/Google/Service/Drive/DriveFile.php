@@ -29,6 +29,7 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   public $fileExtension;
   public $folderColorRgb;
   public $fullFileExtension;
+  public $hasAugmentedPermissions;
   public $hasThumbnail;
   public $headRevisionId;
   public $iconLink;
@@ -61,9 +62,13 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   public $size;
   public $spaces;
   public $starred;
+  public $teamDriveId;
   public $thumbnailLink;
   public $thumbnailVersion;
   public $trashed;
+  public $trashedTime;
+  protected $trashingUserType = 'Google_Service_Drive_User';
+  protected $trashingUserDataType = '';
   public $version;
   protected $videoMediaMetadataType = 'Google_Service_Drive_DriveFileVideoMediaMetadata';
   protected $videoMediaMetadataDataType = '';
@@ -145,6 +150,14 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   public function getFullFileExtension()
   {
     return $this->fullFileExtension;
+  }
+  public function setHasAugmentedPermissions($hasAugmentedPermissions)
+  {
+    $this->hasAugmentedPermissions = $hasAugmentedPermissions;
+  }
+  public function getHasAugmentedPermissions()
+  {
+    return $this->hasAugmentedPermissions;
   }
   public function setHasThumbnail($hasThumbnail)
   {
@@ -362,6 +375,14 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->starred;
   }
+  public function setTeamDriveId($teamDriveId)
+  {
+    $this->teamDriveId = $teamDriveId;
+  }
+  public function getTeamDriveId()
+  {
+    return $this->teamDriveId;
+  }
   public function setThumbnailLink($thumbnailLink)
   {
     $this->thumbnailLink = $thumbnailLink;
@@ -385,6 +406,22 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   public function getTrashed()
   {
     return $this->trashed;
+  }
+  public function setTrashedTime($trashedTime)
+  {
+    $this->trashedTime = $trashedTime;
+  }
+  public function getTrashedTime()
+  {
+    return $this->trashedTime;
+  }
+  public function setTrashingUser(Google_Service_Drive_User $trashingUser)
+  {
+    $this->trashingUser = $trashingUser;
+  }
+  public function getTrashingUser()
+  {
+    return $this->trashingUser;
   }
   public function setVersion($version)
   {

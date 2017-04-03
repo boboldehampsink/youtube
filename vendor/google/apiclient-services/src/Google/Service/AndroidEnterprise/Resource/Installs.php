@@ -78,8 +78,8 @@ class Google_Service_AndroidEnterprise_Resource_Installs extends Google_Service_
   }
   /**
    * Requests to install the latest version of an app to a device. If the app is
-   * already installed then it is updated to the latest version if necessary. This
-   * method supports patch semantics. (installs.patch)
+   * already installed, then it is updated to the latest version if necessary.
+   * This method supports patch semantics. (installs.patch)
    *
    * @param string $enterpriseId The ID of the enterprise.
    * @param string $userId The ID of the user.
@@ -98,7 +98,7 @@ class Google_Service_AndroidEnterprise_Resource_Installs extends Google_Service_
   }
   /**
    * Requests to install the latest version of an app to a device. If the app is
-   * already installed then it is updated to the latest version if necessary.
+   * already installed, then it is updated to the latest version if necessary.
    * (installs.update)
    *
    * @param string $enterpriseId The ID of the enterprise.

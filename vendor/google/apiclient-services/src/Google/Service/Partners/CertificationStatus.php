@@ -22,6 +22,7 @@ class Google_Service_Partners_CertificationStatus extends Google_Collection
   protected $examStatusesDataType = 'array';
   public $isCertified;
   public $type;
+  public $userCount;
 
   public function setExamStatuses($examStatuses)
   {
@@ -46,5 +47,13 @@ class Google_Service_Partners_CertificationStatus extends Google_Collection
   public function getType()
   {
     return $this->type;
+  }
+  public function setUserCount($userCount)
+  {
+    $this->userCount = $userCount;
+  }
+  public function getUserCount()
+  {
+    return $this->userCount;
   }
 }

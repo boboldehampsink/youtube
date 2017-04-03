@@ -27,6 +27,7 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   public $priceAmountMicros;
   public $priceCurrencyCode;
   public $startTimeMillis;
+  public $userCancellationTimeMillis;
 
   public function setAutoRenewing($autoRenewing)
   {
@@ -107,5 +108,13 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   public function getStartTimeMillis()
   {
     return $this->startTimeMillis;
+  }
+  public function setUserCancellationTimeMillis($userCancellationTimeMillis)
+  {
+    $this->userCancellationTimeMillis = $userCancellationTimeMillis;
+  }
+  public function getUserCancellationTimeMillis()
+  {
+    return $this->userCancellationTimeMillis;
   }
 }

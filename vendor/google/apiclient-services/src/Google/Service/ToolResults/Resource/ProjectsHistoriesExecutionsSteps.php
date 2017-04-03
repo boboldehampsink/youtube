@@ -92,6 +92,25 @@ class Google_Service_ToolResults_Resource_ProjectsHistoriesExecutionsSteps exten
     return $this->call('get', array($params), "Google_Service_ToolResults_Step");
   }
   /**
+   * Retrieves a PerfMetricsSummary.
+   *
+   * May return any of the following error code(s): - NOT_FOUND - The specified
+   * PerfMetricsSummary does not exist (steps.getPerfMetricsSummary)
+   *
+   * @param string $projectId The cloud project
+   * @param string $historyId A tool results history ID.
+   * @param string $executionId A tool results execution ID.
+   * @param string $stepId A tool results step ID.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ToolResults_PerfMetricsSummary
+   */
+  public function getPerfMetricsSummary($projectId, $historyId, $executionId, $stepId, $optParams = array())
+  {
+    $params = array('projectId' => $projectId, 'historyId' => $historyId, 'executionId' => $executionId, 'stepId' => $stepId);
+    $params = array_merge($params, $optParams);
+    return $this->call('getPerfMetricsSummary', array($params), "Google_Service_ToolResults_PerfMetricsSummary");
+  }
+  /**
    * Lists Steps for a given Execution.
    *
    * The steps are sorted by creation_time in descending order. The step_id key

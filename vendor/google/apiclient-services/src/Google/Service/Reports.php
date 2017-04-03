@@ -31,10 +31,10 @@
  */
 class Google_Service_Reports extends Google_Service
 {
-  /** View audit reports of Google Apps for your domain. */
+  /** View audit reports for your G Suite domain. */
   const ADMIN_REPORTS_AUDIT_READONLY =
       "https://www.googleapis.com/auth/admin.reports.audit.readonly";
-  /** View usage reports of Google Apps for your domain. */
+  /** View usage reports for your G Suite domain. */
   const ADMIN_REPORTS_USAGE_READONLY =
       "https://www.googleapis.com/auth/admin.reports.usage.readonly";
 

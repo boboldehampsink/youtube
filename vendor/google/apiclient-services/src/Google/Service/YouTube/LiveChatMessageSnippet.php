@@ -36,6 +36,8 @@ class Google_Service_YouTube_LiveChatMessageSnippet extends Google_Model
   protected $pollVotedDetailsType = 'Google_Service_YouTube_LiveChatPollVotedDetails';
   protected $pollVotedDetailsDataType = '';
   public $publishedAt;
+  protected $superChatDetailsType = 'Google_Service_YouTube_LiveChatSuperChatDetails';
+  protected $superChatDetailsDataType = '';
   protected $textMessageDetailsType = 'Google_Service_YouTube_LiveChatTextMessageDetails';
   protected $textMessageDetailsDataType = '';
   public $type;
@@ -137,6 +139,14 @@ class Google_Service_YouTube_LiveChatMessageSnippet extends Google_Model
   public function getPublishedAt()
   {
     return $this->publishedAt;
+  }
+  public function setSuperChatDetails(Google_Service_YouTube_LiveChatSuperChatDetails $superChatDetails)
+  {
+    $this->superChatDetails = $superChatDetails;
+  }
+  public function getSuperChatDetails()
+  {
+    return $this->superChatDetails;
   }
   public function setTextMessageDetails(Google_Service_YouTube_LiveChatTextMessageDetails $textMessageDetails)
   {

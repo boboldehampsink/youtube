@@ -34,6 +34,7 @@ class Google_Service_IdentityToolkit_VerifyAssertionResponse extends Google_Coll
   public $fullName;
   public $idToken;
   public $inputEmail;
+  public $isNewUser;
   public $kind;
   public $language;
   public $lastName;
@@ -184,6 +185,14 @@ class Google_Service_IdentityToolkit_VerifyAssertionResponse extends Google_Coll
   public function getInputEmail()
   {
     return $this->inputEmail;
+  }
+  public function setIsNewUser($isNewUser)
+  {
+    $this->isNewUser = $isNewUser;
+  }
+  public function getIsNewUser()
+  {
+    return $this->isNewUser;
   }
   public function setKind($kind)
   {

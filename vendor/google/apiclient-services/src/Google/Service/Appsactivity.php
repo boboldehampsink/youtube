@@ -30,7 +30,7 @@
  */
 class Google_Service_Appsactivity extends Google_Service
 {
-  /** View the activity history of your Google Apps. */
+  /** View the activity history of your Google apps. */
   const ACTIVITY =
       "https://www.googleapis.com/auth/activity";
   /** View and manage the files in your Google Drive. */

@@ -18,10 +18,20 @@
 class Google_Service_Vision_ImageContext extends Google_Collection
 {
   protected $collection_key = 'languageHints';
+  protected $cropHintsParamsType = 'Google_Service_Vision_CropHintsParams';
+  protected $cropHintsParamsDataType = '';
   public $languageHints;
   protected $latLongRectType = 'Google_Service_Vision_LatLongRect';
   protected $latLongRectDataType = '';
 
+  public function setCropHintsParams(Google_Service_Vision_CropHintsParams $cropHintsParams)
+  {
+    $this->cropHintsParams = $cropHintsParams;
+  }
+  public function getCropHintsParams()
+  {
+    return $this->cropHintsParams;
+  }
   public function setLanguageHints($languageHints)
   {
     $this->languageHints = $languageHints;

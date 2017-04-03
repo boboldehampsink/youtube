@@ -17,12 +17,21 @@
 
 class Google_Service_People_EmailAddress extends Google_Model
 {
+  public $displayName;
   public $formattedType;
   protected $metadataType = 'Google_Service_People_FieldMetadata';
   protected $metadataDataType = '';
   public $type;
   public $value;
 
+  public function setDisplayName($displayName)
+  {
+    $this->displayName = $displayName;
+  }
+  public function getDisplayName()
+  {
+    return $this->displayName;
+  }
   public function setFormattedType($formattedType)
   {
     $this->formattedType = $formattedType;

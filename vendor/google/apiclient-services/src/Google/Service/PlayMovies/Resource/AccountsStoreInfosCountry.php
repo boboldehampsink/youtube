@@ -26,9 +26,10 @@
 class Google_Service_PlayMovies_Resource_AccountsStoreInfosCountry extends Google_Service_Resource
 {
   /**
-   * Get a StoreInfo given its video id and country. See _Authentication and
-   * Authorization rules_ and _Get methods rules_ for more information about this
-   * method. (country.get)
+   * Get a StoreInfo given its video id and country.
+   *
+   * See _Authentication and Authorization rules_ and _Get methods rules_ for more
+   * information about this method. (country.get)
    *
    * @param string $accountId REQUIRED. See _General rules_ for more information
    * about this field.

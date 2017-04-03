@@ -30,6 +30,8 @@ class Google_Service_Dataflow_Job extends Google_Collection
   public $labels;
   public $location;
   public $name;
+  protected $pipelineDescriptionType = 'Google_Service_Dataflow_PipelineDescription';
+  protected $pipelineDescriptionDataType = '';
   public $projectId;
   public $replaceJobId;
   public $replacedByJobId;
@@ -119,6 +121,14 @@ class Google_Service_Dataflow_Job extends Google_Collection
   public function getName()
   {
     return $this->name;
+  }
+  public function setPipelineDescription(Google_Service_Dataflow_PipelineDescription $pipelineDescription)
+  {
+    $this->pipelineDescription = $pipelineDescription;
+  }
+  public function getPipelineDescription()
+  {
+    return $this->pipelineDescription;
   }
   public function setProjectId($projectId)
   {

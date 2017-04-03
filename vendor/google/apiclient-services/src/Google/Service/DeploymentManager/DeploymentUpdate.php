@@ -18,10 +18,19 @@
 class Google_Service_DeploymentManager_DeploymentUpdate extends Google_Collection
 {
   protected $collection_key = 'labels';
+  public $description;
   protected $labelsType = 'Google_Service_DeploymentManager_DeploymentUpdateLabelEntry';
   protected $labelsDataType = 'array';
   public $manifest;
 
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
   public function setLabels($labels)
   {
     $this->labels = $labels;

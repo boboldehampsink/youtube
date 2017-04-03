@@ -18,6 +18,8 @@
 class Google_Service_Dataproc_InstanceGroupConfig extends Google_Collection
 {
   protected $collection_key = 'instanceNames';
+  protected $acceleratorsType = 'Google_Service_Dataproc_AcceleratorConfig';
+  protected $acceleratorsDataType = 'array';
   protected $diskConfigType = 'Google_Service_Dataproc_DiskConfig';
   protected $diskConfigDataType = '';
   public $imageUri;
@@ -28,6 +30,14 @@ class Google_Service_Dataproc_InstanceGroupConfig extends Google_Collection
   protected $managedGroupConfigDataType = '';
   public $numInstances;
 
+  public function setAccelerators($accelerators)
+  {
+    $this->accelerators = $accelerators;
+  }
+  public function getAccelerators()
+  {
+    return $this->accelerators;
+  }
   public function setDiskConfig(Google_Service_Dataproc_DiskConfig $diskConfig)
   {
     $this->diskConfig = $diskConfig;

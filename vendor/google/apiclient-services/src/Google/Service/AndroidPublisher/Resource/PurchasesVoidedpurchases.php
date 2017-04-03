@@ -33,16 +33,16 @@ class Google_Service_AndroidPublisher_Resource_PurchasesVoidedpurchases extends 
    * voided purchases need to be returned (for example, 'com.some.thing').
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string endTime The end time of list window, in milliseconds since
-   * the epoch (Jan 1, 1970). If not specified, default to current time, which is
-   * also the latest accepted end time. This parameter will be ignored if
-   * pagination token is set.
+   * @opt_param string endTime The time, in milliseconds since the Epoch, of the
+   * newest voided in-app product purchase that you want to see in the response.
+   * The value of this parameter cannot be greater than the current time and is
+   * ignored if a pagination token is set. Default value is current time.
    * @opt_param string maxResults
    * @opt_param string startIndex
-   * @opt_param string startTime The start time of list window, in milliseconds
-   * since the epoch (Jan 1, 1970). If not specified, default to current time - 30
-   * days, which is also the earlies accepted start time. This parameter will be
-   * ignored if pagination token is set.
+   * @opt_param string startTime The time, in milliseconds since the Epoch, of the
+   * oldest voided in-app product purchase that you want to see in the response.
+   * The value of this parameter cannot be older than 30 days and is ignored if a
+   * pagination token is set. Default value is current time minus 30 days.
    * @opt_param string token
    * @return Google_Service_AndroidPublisher_VoidedPurchasesListResponse
    */

@@ -40,4 +40,26 @@ class Google_Service_ServiceManagement_Resource_Operations extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_ServiceManagement_Operation");
   }
+  /**
+   * Lists operations that match the specified filter in the request. If the
+   * server doesn't support this method, it returns `UNIMPLEMENTED`.
+   *
+   * NOTE: the `name` binding below allows API services to override the binding to
+   * use different resource name schemes, such as `users/operations`.
+   * (operations.listOperations)
+   *
+   * @param string $name The name of the operation collection.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter The standard list filter.
+   * @opt_param string pageToken The standard list page token.
+   * @opt_param int pageSize The standard list page size.
+   * @return Google_Service_ServiceManagement_ListOperationsResponse
+   */
+  public function listOperations($name, $optParams = array())
+  {
+    $params = array('name' => $name);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_ServiceManagement_ListOperationsResponse");
+  }
 }

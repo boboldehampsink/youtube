@@ -160,6 +160,24 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Storage_StorageObject");
   }
   /**
+   * Returns an IAM policy for the specified object. (objects.getIamPolicy)
+   *
+   * @param string $bucket Name of the bucket in which the object resides.
+   * @param string $object Name of the object. For information about how to URL
+   * encode object names to be path safe, see Encoding URI Path Parts.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string generation If present, selects a specific revision of this
+   * object (as opposed to the latest version, the default).
+   * @return Google_Service_Storage_Policy
+   */
+  public function getIamPolicy($bucket, $object, $optParams = array())
+  {
+    $params = array('bucket' => $bucket, 'object' => $object);
+    $params = array_merge($params, $optParams);
+    return $this->call('getIamPolicy', array($params), "Google_Service_Storage_Policy");
+  }
+  /**
    * Stores a new object and metadata. (objects.insert)
    *
    * @param string $bucket Name of the bucket in which to store the new object.
@@ -208,9 +226,10 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * delimiter. Objects whose names, aside from the prefix, contain delimiter will
    * have their name, truncated after the delimiter, returned in prefixes.
    * Duplicate prefixes are omitted.
-   * @opt_param string maxResults Maximum number of items plus prefixes to return.
-   * As duplicate prefixes are omitted, fewer total results may be returned than
-   * requested. The default value of this parameter is 1,000 items.
+   * @opt_param string maxResults Maximum number of items plus prefixes to return
+   * in a single page of responses. As duplicate prefixes are omitted, fewer total
+   * results may be returned than requested. The service will use this parameter
+   * or 1,000 items, whichever is smaller.
    * @opt_param string pageToken A previously-returned page token representing
    * part of the larger set of results to view.
    * @opt_param string prefix Filter results to objects whose names begin with
@@ -323,6 +342,45 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
     return $this->call('rewrite', array($params), "Google_Service_Storage_RewriteResponse");
   }
   /**
+   * Updates an IAM policy for the specified object. (objects.setIamPolicy)
+   *
+   * @param string $bucket Name of the bucket in which the object resides.
+   * @param string $object Name of the object. For information about how to URL
+   * encode object names to be path safe, see Encoding URI Path Parts.
+   * @param Google_Service_Storage_Policy $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string generation If present, selects a specific revision of this
+   * object (as opposed to the latest version, the default).
+   * @return Google_Service_Storage_Policy
+   */
+  public function setIamPolicy($bucket, $object, Google_Service_Storage_Policy $postBody, $optParams = array())
+  {
+    $params = array('bucket' => $bucket, 'object' => $object, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setIamPolicy', array($params), "Google_Service_Storage_Policy");
+  }
+  /**
+   * Tests a set of permissions on the given object to see which, if any, are held
+   * by the caller. (objects.testIamPermissions)
+   *
+   * @param string $bucket Name of the bucket in which the object resides.
+   * @param string $object Name of the object. For information about how to URL
+   * encode object names to be path safe, see Encoding URI Path Parts.
+   * @param string|array $permissions Permissions to test.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string generation If present, selects a specific revision of this
+   * object (as opposed to the latest version, the default).
+   * @return Google_Service_Storage_TestIamPermissionsResponse
+   */
+  public function testIamPermissions($bucket, $object, $permissions, $optParams = array())
+  {
+    $params = array('bucket' => $bucket, 'object' => $object, 'permissions' => $permissions);
+    $params = array_merge($params, $optParams);
+    return $this->call('testIamPermissions', array($params), "Google_Service_Storage_TestIamPermissionsResponse");
+  }
+  /**
    * Updates an object's metadata. (objects.update)
    *
    * @param string $bucket Name of the bucket in which the object resides.
@@ -364,9 +422,10 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * delimiter. Objects whose names, aside from the prefix, contain delimiter will
    * have their name, truncated after the delimiter, returned in prefixes.
    * Duplicate prefixes are omitted.
-   * @opt_param string maxResults Maximum number of items plus prefixes to return.
-   * As duplicate prefixes are omitted, fewer total results may be returned than
-   * requested. The default value of this parameter is 1,000 items.
+   * @opt_param string maxResults Maximum number of items plus prefixes to return
+   * in a single page of responses. As duplicate prefixes are omitted, fewer total
+   * results may be returned than requested. The service will use this parameter
+   * or 1,000 items, whichever is smaller.
    * @opt_param string pageToken A previously-returned page token representing
    * part of the larger set of results to view.
    * @opt_param string prefix Filter results to objects whose names begin with

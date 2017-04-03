@@ -26,6 +26,7 @@ class Google_Service_Bigquery_ExplainQueryStage extends Google_Collection
   public $readRatioMax;
   public $recordsRead;
   public $recordsWritten;
+  public $status;
   protected $stepsType = 'Google_Service_Bigquery_ExplainQueryStep';
   protected $stepsDataType = 'array';
   public $waitRatioAvg;
@@ -96,6 +97,14 @@ class Google_Service_Bigquery_ExplainQueryStage extends Google_Collection
   public function getRecordsWritten()
   {
     return $this->recordsWritten;
+  }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+  public function getStatus()
+  {
+    return $this->status;
   }
   public function setSteps($steps)
   {

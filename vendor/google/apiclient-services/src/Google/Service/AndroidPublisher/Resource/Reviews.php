@@ -43,7 +43,8 @@ class Google_Service_AndroidPublisher_Resource_Reviews extends Google_Service_Re
     return $this->call('get', array($params), "Google_Service_AndroidPublisher_Review");
   }
   /**
-   * Returns a list of reviews. (reviews.listReviews)
+   * Returns a list of reviews. Only reviews from last week will be returned.
+   * (reviews.listReviews)
    *
    * @param string $packageName Unique identifier for the Android app for which we
    * want reviews; for example, "com.spiffygame".

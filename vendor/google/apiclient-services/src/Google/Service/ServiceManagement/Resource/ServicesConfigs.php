@@ -52,6 +52,9 @@ class Google_Service_ServiceManagement_Resource_ServicesConfigs extends Google_S
    * `example.googleapis.com`.
    * @param string $configId The id of the service configuration resource.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string view Specifies which parts of the Service Config should be
+   * returned in the response.
    * @return Google_Service_ServiceManagement_Service
    */
   public function get($serviceName, $configId, $optParams = array())
@@ -69,9 +72,9 @@ class Google_Service_ServiceManagement_Resource_ServicesConfigs extends Google_S
    * `example.googleapis.com`.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string pageToken The token of the page to retrieve.
    * @opt_param int pageSize The max number of items to include in the response
    * list.
-   * @opt_param string pageToken The token of the page to retrieve.
    * @return Google_Service_ServiceManagement_ListServiceConfigsResponse
    */
   public function listServicesConfigs($serviceName, $optParams = array())

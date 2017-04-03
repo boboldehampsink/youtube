@@ -108,13 +108,13 @@ class Google_Service_Iam extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),'setIamPolicy' => array(
@@ -129,6 +129,16 @@ class Google_Service_Iam extends Google_Service
               ),
             ),'signBlob' => array(
               'path' => 'v1/{+name}:signBlob',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'signJwt' => array(
+              'path' => 'v1/{+name}:signJwt',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(

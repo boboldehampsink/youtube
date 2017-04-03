@@ -15,8 +15,9 @@
  * the License.
  */
 
-class Google_Service_Drive_Permission extends Google_Model
+class Google_Service_Drive_Permission extends Google_Collection
 {
+  protected $collection_key = 'teamDrivePermissionDetails';
   public $allowFileDiscovery;
   public $displayName;
   public $domain;
@@ -26,6 +27,8 @@ class Google_Service_Drive_Permission extends Google_Model
   public $kind;
   public $photoLink;
   public $role;
+  protected $teamDrivePermissionDetailsType = 'Google_Service_Drive_PermissionTeamDrivePermissionDetails';
+  protected $teamDrivePermissionDetailsDataType = 'array';
   public $type;
 
   public function setAllowFileDiscovery($allowFileDiscovery)
@@ -99,6 +102,14 @@ class Google_Service_Drive_Permission extends Google_Model
   public function getRole()
   {
     return $this->role;
+  }
+  public function setTeamDrivePermissionDetails($teamDrivePermissionDetails)
+  {
+    $this->teamDrivePermissionDetails = $teamDrivePermissionDetails;
+  }
+  public function getTeamDrivePermissionDetails()
+  {
+    return $this->teamDrivePermissionDetails;
   }
   public function setType($type)
   {

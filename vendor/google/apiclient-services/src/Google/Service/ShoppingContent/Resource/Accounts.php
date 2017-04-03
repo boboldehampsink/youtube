@@ -122,8 +122,10 @@ class Google_Service_ShoppingContent_Resource_Accounts extends Google_Service_Re
     return $this->call('list', array($params), "Google_Service_ShoppingContent_AccountsListResponse");
   }
   /**
-   * Updates a Merchant Center account. This method can only be called for multi-
-   * client accounts. This method supports patch semantics. (accounts.patch)
+   * Updates a Merchant Center account. This method can only be called for
+   * accounts to which the managing account has access: either the managing
+   * account itself or sub-accounts if the managing account is a multi-client
+   * account. This method supports patch semantics. (accounts.patch)
    *
    * @param string $merchantId The ID of the managing account.
    * @param string $accountId The ID of the account.
@@ -140,8 +142,10 @@ class Google_Service_ShoppingContent_Resource_Accounts extends Google_Service_Re
     return $this->call('patch', array($params), "Google_Service_ShoppingContent_Account");
   }
   /**
-   * Updates a Merchant Center account. This method can only be called for multi-
-   * client accounts. (accounts.update)
+   * Updates a Merchant Center account. This method can only be called for
+   * accounts to which the managing account has access: either the managing
+   * account itself or sub-accounts if the managing account is a multi-client
+   * account. (accounts.update)
    *
    * @param string $merchantId The ID of the managing account.
    * @param string $accountId The ID of the account.

@@ -19,8 +19,8 @@
  * Service definition for Cloudbilling (v1).
  *
  * <p>
- * Retrieves Google Developers Console billing accounts and associates them with
- * projects.</p>
+ * Allows developers to manage billing for their Google Cloud Platform projects
+ * programmatically.</p>
  *
  * <p>
  * For more information about this service, see the API

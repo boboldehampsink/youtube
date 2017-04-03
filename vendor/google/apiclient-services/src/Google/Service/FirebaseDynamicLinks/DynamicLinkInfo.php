@@ -25,6 +25,8 @@ class Google_Service_FirebaseDynamicLinks_DynamicLinkInfo extends Google_Model
   protected $iosInfoType = 'Google_Service_FirebaseDynamicLinks_IosInfo';
   protected $iosInfoDataType = '';
   public $link;
+  protected $navigationInfoType = 'Google_Service_FirebaseDynamicLinks_NavigationInfo';
+  protected $navigationInfoDataType = '';
   protected $socialMetaTagInfoType = 'Google_Service_FirebaseDynamicLinks_SocialMetaTagInfo';
   protected $socialMetaTagInfoDataType = '';
 
@@ -67,6 +69,14 @@ class Google_Service_FirebaseDynamicLinks_DynamicLinkInfo extends Google_Model
   public function getLink()
   {
     return $this->link;
+  }
+  public function setNavigationInfo(Google_Service_FirebaseDynamicLinks_NavigationInfo $navigationInfo)
+  {
+    $this->navigationInfo = $navigationInfo;
+  }
+  public function getNavigationInfo()
+  {
+    return $this->navigationInfo;
   }
   public function setSocialMetaTagInfo(Google_Service_FirebaseDynamicLinks_SocialMetaTagInfo $socialMetaTagInfo)
   {

@@ -19,14 +19,14 @@
  * Service definition for CloudTrace (v1).
  *
  * <p>
- * Send and retrieve trace data from Google Cloud Trace. Data is generated and
+ * Send and retrieve trace data from Stackdriver Trace. Data is generated and
  * available by default for all App Engine applications. Data from other
- * applications can be written to Cloud Trace for display, reporting, and
+ * applications can be written to Stackdriver Trace for display, reporting, and
  * analysis.</p>
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://cloud.google.com/tools/cloud-trace" target="_blank">Documentation</a>
+ * <a href="https://cloud.google.com/trace" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -109,13 +109,17 @@ class Google_Service_CloudTrace extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'view' => array(
+                'orderBy' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageSize' => array(
+                'filter' => array(
                   'location' => 'query',
-                  'type' => 'integer',
+                  'type' => 'string',
+                ),
+                'endTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -125,15 +129,11 @@ class Google_Service_CloudTrace extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'endTime' => array(
+                'pageSize' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'integer',
                 ),
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'orderBy' => array(
+                'view' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),

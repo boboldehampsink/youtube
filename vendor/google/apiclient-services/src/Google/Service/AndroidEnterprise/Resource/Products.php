@@ -146,7 +146,7 @@ class Google_Service_AndroidEnterprise_Resource_Products extends Google_Service_
    * search box. If omitted, all approved apps will be returned (using the
    * pagination parameters), including apps that are not available in the store
    * (e.g. unpublished apps).
-   * @opt_param string token A pagination token is contained in a requests
+   * @opt_param string token A pagination token is contained in a request''s
    * response when there are more products. The token can be used in a subsequent
    * request to obtain more products, and so forth. This parameter cannot be used
    * in the initial request.
@@ -171,27 +171,5 @@ class Google_Service_AndroidEnterprise_Resource_Products extends Google_Service_
     $params = array('enterpriseId' => $enterpriseId, 'productId' => $productId);
     $params = array_merge($params, $optParams);
     return $this->call('unapprove', array($params));
-  }
-  /**
-   * This method has been deprecated. To programmatically approve applications,
-   * you must use the iframe mechanism via the  generateApprovalUrl and  approve
-   * methods of the Products resource. For more information, see the  Play EMM API
-   * usage requirements.
-   *
-   * The updatePermissions method (deprecated) updates the set of Android app
-   * permissions for this app that have been accepted by the enterprise.
-   * (products.updatePermissions)
-   *
-   * @param string $enterpriseId The ID of the enterprise.
-   * @param string $productId The ID of the product.
-   * @param Google_Service_AndroidEnterprise_ProductPermissions $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_AndroidEnterprise_ProductPermissions
-   */
-  public function updatePermissions($enterpriseId, $productId, Google_Service_AndroidEnterprise_ProductPermissions $postBody, $optParams = array())
-  {
-    $params = array('enterpriseId' => $enterpriseId, 'productId' => $productId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('updatePermissions', array($params), "Google_Service_AndroidEnterprise_ProductPermissions");
   }
 }

@@ -19,6 +19,8 @@ class Google_Service_Slides_SlideProperties extends Google_Model
 {
   public $layoutObjectId;
   public $masterObjectId;
+  protected $notesPageType = 'Google_Service_Slides_Page';
+  protected $notesPageDataType = '';
 
   public function setLayoutObjectId($layoutObjectId)
   {
@@ -35,5 +37,13 @@ class Google_Service_Slides_SlideProperties extends Google_Model
   public function getMasterObjectId()
   {
     return $this->masterObjectId;
+  }
+  public function setNotesPage(Google_Service_Slides_Page $notesPage)
+  {
+    $this->notesPage = $notesPage;
+  }
+  public function getNotesPage()
+  {
+    return $this->notesPage;
   }
 }

@@ -35,6 +35,8 @@ class Google_Service_Slides_Response extends Google_Model
   protected $duplicateObjectDataType = '';
   protected $replaceAllShapesWithImageType = 'Google_Service_Slides_ReplaceAllShapesWithImageResponse';
   protected $replaceAllShapesWithImageDataType = '';
+  protected $replaceAllShapesWithSheetsChartType = 'Google_Service_Slides_ReplaceAllShapesWithSheetsChartResponse';
+  protected $replaceAllShapesWithSheetsChartDataType = '';
   protected $replaceAllTextType = 'Google_Service_Slides_ReplaceAllTextResponse';
   protected $replaceAllTextDataType = '';
 
@@ -109,6 +111,14 @@ class Google_Service_Slides_Response extends Google_Model
   public function getReplaceAllShapesWithImage()
   {
     return $this->replaceAllShapesWithImage;
+  }
+  public function setReplaceAllShapesWithSheetsChart(Google_Service_Slides_ReplaceAllShapesWithSheetsChartResponse $replaceAllShapesWithSheetsChart)
+  {
+    $this->replaceAllShapesWithSheetsChart = $replaceAllShapesWithSheetsChart;
+  }
+  public function getReplaceAllShapesWithSheetsChart()
+  {
+    return $this->replaceAllShapesWithSheetsChart;
   }
   public function setReplaceAllText(Google_Service_Slides_ReplaceAllTextResponse $replaceAllText)
   {

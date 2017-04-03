@@ -18,10 +18,14 @@
 class Google_Service_Vision_AnnotateImageResponse extends Google_Collection
 {
   protected $collection_key = 'textAnnotations';
+  protected $cropHintsAnnotationType = 'Google_Service_Vision_CropHintsAnnotation';
+  protected $cropHintsAnnotationDataType = '';
   protected $errorType = 'Google_Service_Vision_Status';
   protected $errorDataType = '';
   protected $faceAnnotationsType = 'Google_Service_Vision_FaceAnnotation';
   protected $faceAnnotationsDataType = 'array';
+  protected $fullTextAnnotationType = 'Google_Service_Vision_TextAnnotation';
+  protected $fullTextAnnotationDataType = '';
   protected $imagePropertiesAnnotationType = 'Google_Service_Vision_ImageProperties';
   protected $imagePropertiesAnnotationDataType = '';
   protected $labelAnnotationsType = 'Google_Service_Vision_EntityAnnotation';
@@ -34,7 +38,17 @@ class Google_Service_Vision_AnnotateImageResponse extends Google_Collection
   protected $safeSearchAnnotationDataType = '';
   protected $textAnnotationsType = 'Google_Service_Vision_EntityAnnotation';
   protected $textAnnotationsDataType = 'array';
+  protected $webDetectionType = 'Google_Service_Vision_WebDetection';
+  protected $webDetectionDataType = '';
 
+  public function setCropHintsAnnotation(Google_Service_Vision_CropHintsAnnotation $cropHintsAnnotation)
+  {
+    $this->cropHintsAnnotation = $cropHintsAnnotation;
+  }
+  public function getCropHintsAnnotation()
+  {
+    return $this->cropHintsAnnotation;
+  }
   public function setError(Google_Service_Vision_Status $error)
   {
     $this->error = $error;
@@ -50,6 +64,14 @@ class Google_Service_Vision_AnnotateImageResponse extends Google_Collection
   public function getFaceAnnotations()
   {
     return $this->faceAnnotations;
+  }
+  public function setFullTextAnnotation(Google_Service_Vision_TextAnnotation $fullTextAnnotation)
+  {
+    $this->fullTextAnnotation = $fullTextAnnotation;
+  }
+  public function getFullTextAnnotation()
+  {
+    return $this->fullTextAnnotation;
   }
   public function setImagePropertiesAnnotation(Google_Service_Vision_ImageProperties $imagePropertiesAnnotation)
   {
@@ -98,5 +120,13 @@ class Google_Service_Vision_AnnotateImageResponse extends Google_Collection
   public function getTextAnnotations()
   {
     return $this->textAnnotations;
+  }
+  public function setWebDetection(Google_Service_Vision_WebDetection $webDetection)
+  {
+    $this->webDetection = $webDetection;
+  }
+  public function getWebDetection()
+  {
+    return $this->webDetection;
   }
 }

@@ -33,6 +33,7 @@ class Google_Service_Reseller_Subscription extends Google_Collection
   protected $seatsType = 'Google_Service_Reseller_Seats';
   protected $seatsDataType = '';
   public $skuId;
+  public $skuName;
   public $status;
   public $subscriptionId;
   public $suspensionReasons;
@@ -136,6 +137,14 @@ class Google_Service_Reseller_Subscription extends Google_Collection
   public function getSkuId()
   {
     return $this->skuId;
+  }
+  public function setSkuName($skuName)
+  {
+    $this->skuName = $skuName;
+  }
+  public function getSkuName()
+  {
+    return $this->skuName;
   }
   public function setStatus($status)
   {

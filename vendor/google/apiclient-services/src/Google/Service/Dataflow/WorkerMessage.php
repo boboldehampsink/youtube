@@ -23,6 +23,8 @@ class Google_Service_Dataflow_WorkerMessage extends Google_Model
   protected $workerHealthReportDataType = '';
   protected $workerMessageCodeType = 'Google_Service_Dataflow_WorkerMessageCode';
   protected $workerMessageCodeDataType = '';
+  protected $workerMetricsType = 'Google_Service_Dataflow_ResourceUtilizationReport';
+  protected $workerMetricsDataType = '';
 
   public function setLabels($labels)
   {
@@ -55,5 +57,13 @@ class Google_Service_Dataflow_WorkerMessage extends Google_Model
   public function getWorkerMessageCode()
   {
     return $this->workerMessageCode;
+  }
+  public function setWorkerMetrics(Google_Service_Dataflow_ResourceUtilizationReport $workerMetrics)
+  {
+    $this->workerMetrics = $workerMetrics;
+  }
+  public function getWorkerMetrics()
+  {
+    return $this->workerMetrics;
   }
 }

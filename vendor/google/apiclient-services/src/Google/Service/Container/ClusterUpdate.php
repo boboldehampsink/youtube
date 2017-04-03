@@ -15,12 +15,17 @@
  * the License.
  */
 
-class Google_Service_Container_ClusterUpdate extends Google_Model
+class Google_Service_Container_ClusterUpdate extends Google_Collection
 {
+  protected $collection_key = 'desiredLocations';
   protected $desiredAddonsConfigType = 'Google_Service_Container_AddonsConfig';
   protected $desiredAddonsConfigDataType = '';
+  public $desiredImageType;
+  public $desiredLocations;
   public $desiredMasterVersion;
   public $desiredMonitoringService;
+  protected $desiredNodePoolAutoscalingType = 'Google_Service_Container_NodePoolAutoscaling';
+  protected $desiredNodePoolAutoscalingDataType = '';
   public $desiredNodePoolId;
   public $desiredNodeVersion;
 
@@ -31,6 +36,22 @@ class Google_Service_Container_ClusterUpdate extends Google_Model
   public function getDesiredAddonsConfig()
   {
     return $this->desiredAddonsConfig;
+  }
+  public function setDesiredImageType($desiredImageType)
+  {
+    $this->desiredImageType = $desiredImageType;
+  }
+  public function getDesiredImageType()
+  {
+    return $this->desiredImageType;
+  }
+  public function setDesiredLocations($desiredLocations)
+  {
+    $this->desiredLocations = $desiredLocations;
+  }
+  public function getDesiredLocations()
+  {
+    return $this->desiredLocations;
   }
   public function setDesiredMasterVersion($desiredMasterVersion)
   {
@@ -47,6 +68,14 @@ class Google_Service_Container_ClusterUpdate extends Google_Model
   public function getDesiredMonitoringService()
   {
     return $this->desiredMonitoringService;
+  }
+  public function setDesiredNodePoolAutoscaling(Google_Service_Container_NodePoolAutoscaling $desiredNodePoolAutoscaling)
+  {
+    $this->desiredNodePoolAutoscaling = $desiredNodePoolAutoscaling;
+  }
+  public function getDesiredNodePoolAutoscaling()
+  {
+    return $this->desiredNodePoolAutoscaling;
   }
   public function setDesiredNodePoolId($desiredNodePoolId)
   {

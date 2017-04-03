@@ -78,9 +78,9 @@ class Google_Service_AndroidEnterprise_Resource_Enterprises extends Google_Servi
     return $this->call('createWebToken', array($params), "Google_Service_AndroidEnterprise_AdministratorWebToken");
   }
   /**
-   * Deletes the binding between the EMM and enterprise. This is now deprecated;
-   * use this to unenroll customers that were previously enrolled with the
-   * 'insert' call, then enroll them again with the 'enroll' call.
+   * Deletes the binding between the EMM and enterprise. This is now deprecated.
+   * Use this method only to unenroll customers that were previously enrolled with
+   * the insert call, then enroll them again with the enroll call.
    * (enterprises.delete)
    *
    * @param string $enterpriseId The ID of the enterprise.
@@ -224,16 +224,16 @@ class Google_Service_AndroidEnterprise_Resource_Enterprises extends Google_Servi
    * service account authenticated for the request. The notification set may be
    * empty if no notification are pending. A notification set returned needs to be
    * acknowledged within 20 seconds by calling
-   * Enterprises​.AcknowledgeNotificationSet, unless the notification set is
-   * empty. Notifications that are not acknowledged within the 20 seconds will
-   * eventually be included again in the response to another PullNotificationSet
-   * request, and those that are never acknowledged will ultimately be deleted
-   * according to the Google Cloud Platform Pub/Sub system policy. Multiple
-   * requests might be performed concurrently to retrieve notifications, in which
-   * case the pending notifications (if any) will be split among each caller, if
-   * any are pending. If no notifications are present, an empty notification list
-   * is returned. Subsequent requests may return more notifications once they
-   * become available. (enterprises.pullNotificationSet)
+   * Enterprises.AcknowledgeNotificationSet, unless the notification set is empty.
+   * Notifications that are not acknowledged within the 20 seconds will eventually
+   * be included again in the response to another PullNotificationSet request, and
+   * those that are never acknowledged will ultimately be deleted according to the
+   * Google Cloud Platform Pub/Sub system policy. Multiple requests might be
+   * performed concurrently to retrieve notifications, in which case the pending
+   * notifications (if any) will be split among each caller, if any are pending.
+   * If no notifications are present, an empty notification list is returned.
+   * Subsequent requests may return more notifications once they become available.
+   * (enterprises.pullNotificationSet)
    *
    * @param array $optParams Optional parameters.
    *
@@ -268,7 +268,7 @@ class Google_Service_AndroidEnterprise_Resource_Enterprises extends Google_Servi
     return $this->call('sendTestPushNotification', array($params), "Google_Service_AndroidEnterprise_EnterprisesSendTestPushNotificationResponse");
   }
   /**
-   * Set the account that will be used to authenticate to the API as the
+   * Sets the account that will be used to authenticate to the API as the
    * enterprise. (enterprises.setAccount)
    *
    * @param string $enterpriseId The ID of the enterprise.

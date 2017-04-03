@@ -71,6 +71,7 @@ class Google_Service_YouTube extends Google_Service
   public $search;
   public $sponsors;
   public $subscriptions;
+  public $superChatEvents;
   public $thumbnails;
   public $videoAbuseReportReasons;
   public $videoCategories;
@@ -1615,6 +1616,38 @@ class Google_Service_YouTube extends Google_Service
                 'order' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->superChatEvents = new Google_Service_YouTube_Resource_SuperChatEvents(
+        $this,
+        $this->serviceName,
+        'superChatEvents',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'superChatEvents',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'part' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
                 'pageToken' => array(
                   'location' => 'query',

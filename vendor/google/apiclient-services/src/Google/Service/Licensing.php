@@ -19,7 +19,7 @@
  * Service definition for Licensing (v1).
  *
  * <p>
- * Licensing API to view and manage license for your domain.</p>
+ * Views and manages licenses for your domain.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -30,7 +30,7 @@
  */
 class Google_Service_Licensing extends Google_Service
 {
-  /** View and manage Google Apps licenses for your domain. */
+  /** View and manage G Suite licenses for your domain. */
   const APPS_LICENSING =
       "https://www.googleapis.com/auth/apps.licensing";
 

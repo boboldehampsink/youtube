@@ -44,7 +44,7 @@ class Google_Service_Genomics_Resource_Operations extends Google_Service_Resourc
     return $this->call('cancel', array($params), "Google_Service_Genomics_GenomicsEmpty");
   }
   /**
-   * Gets the latest state of a long-running operation. Clients can use this
+   * Gets the latest state of a long-running operation.  Clients can use this
    * method to poll the operation result at intervals as recommended by the API
    * service. (operations.get)
    *
@@ -66,16 +66,23 @@ class Google_Service_Genomics_Resource_Operations extends Google_Service_Resourc
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter A string for filtering Operations. The following
-   * filter fields are supported: * projectId: Required. Corresponds to
-   * OperationMetadata.projectId. * createTime: The time this job was created, in
-   * seconds from the [epoch](http://en.wikipedia.org/wiki/Unix_time). Can use
-   * `>=` and/or `= 1432140000` * `projectId = my-project AND createTime >=
-   * 1432140000 AND createTime <= 1432150000 AND status = RUNNING` * `projectId =
-   * my-project AND labels.color = *` * `projectId = my-project AND labels.color =
-   * red`
+   * filter fields are supported
+   *
+   * * projectId Required. Corresponds to   OperationMetadata.projectId. *
+   * createTime The time this job was created, in seconds from the
+   * [epoch](http://en.wikipedia.org/wiki/Unix_time). Can use `>=` and/or `<=`
+   * operators. * status Can be `RUNNING`, `SUCCESS`, `FAILURE`, or `CANCELED`.
+   * Only   one status may be specified. * labels.key where key is a label key.
+   *
+   * Examples
+   *
+   * * `projectId = my-project AND createTime >= 1432140000` * `projectId = my-
+   * project AND createTime >= 1432140000 AND createTime <= 1432150000 AND status
+   * = RUNNING` * `projectId = my-project AND labels.color = *` * `projectId = my-
+   * project AND labels.color = red`
+   * @opt_param string pageToken The standard list page token.
    * @opt_param int pageSize The maximum number of results to return. If
    * unspecified, defaults to 256. The maximum value is 2048.
-   * @opt_param string pageToken The standard list page token.
    * @return Google_Service_Genomics_ListOperationsResponse
    */
   public function listOperations($name, $optParams = array())

@@ -17,8 +17,17 @@
 
 class Google_Service_ServiceManagement_MediaDownload extends Google_Model
 {
+  public $downloadService;
   public $enabled;
 
+  public function setDownloadService($downloadService)
+  {
+    $this->downloadService = $downloadService;
+  }
+  public function getDownloadService()
+  {
+    return $this->downloadService;
+  }
   public function setEnabled($enabled)
   {
     $this->enabled = $enabled;

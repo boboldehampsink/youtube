@@ -27,10 +27,14 @@ class Google_Service_Genomics_Resource_Annotationsets extends Google_Service_Res
 {
   /**
    * Creates a new annotation set. Caller must have WRITE permission for the
-   * associated dataset. The following fields are required: * datasetId *
-   * referenceSetId All other fields may be optionally specified, unless
-   * documented as being server-generated (for example, the `id` field).
-   * (annotationsets.create)
+   * associated dataset.
+   *
+   * The following fields are required:
+   *
+   *   * datasetId   * referenceSetId
+   *
+   * All other fields may be optionally specified, unless documented as being
+   * server-generated (for example, the `id` field). (annotationsets.create)
    *
    * @param Google_Service_Genomics_AnnotationSet $postBody
    * @param array $optParams Optional parameters.

@@ -30,6 +30,8 @@ class Google_Service_Sheets_CellFormat extends Google_Model
   public $textDirection;
   protected $textFormatType = 'Google_Service_Sheets_TextFormat';
   protected $textFormatDataType = '';
+  protected $textRotationType = 'Google_Service_Sheets_TextRotation';
+  protected $textRotationDataType = '';
   public $verticalAlignment;
   public $wrapStrategy;
 
@@ -96,6 +98,14 @@ class Google_Service_Sheets_CellFormat extends Google_Model
   public function getTextFormat()
   {
     return $this->textFormat;
+  }
+  public function setTextRotation(Google_Service_Sheets_TextRotation $textRotation)
+  {
+    $this->textRotation = $textRotation;
+  }
+  public function getTextRotation()
+  {
+    return $this->textRotation;
   }
   public function setVerticalAlignment($verticalAlignment)
   {

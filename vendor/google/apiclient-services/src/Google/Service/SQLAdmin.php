@@ -277,7 +277,12 @@ class Google_Service_SQLAdmin extends Google_Service
             'list' => array(
               'path' => 'flags',
               'httpMethod' => 'GET',
-              'parameters' => array(),
+              'parameters' => array(
+                'databaseVersion' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
             ),
           )
         )
@@ -396,6 +401,10 @@ class Google_Service_SQLAdmin extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'maxResults' => array(
                   'location' => 'query',

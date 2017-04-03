@@ -19,8 +19,9 @@ class Google_Service_Container_ServerConfig extends Google_Collection
 {
   protected $collection_key = 'validNodeVersions';
   public $defaultClusterVersion;
-  public $defaultImageFamily;
-  public $validImageFamilies;
+  public $defaultImageType;
+  public $validImageTypes;
+  public $validMasterVersions;
   public $validNodeVersions;
 
   public function setDefaultClusterVersion($defaultClusterVersion)
@@ -31,21 +32,29 @@ class Google_Service_Container_ServerConfig extends Google_Collection
   {
     return $this->defaultClusterVersion;
   }
-  public function setDefaultImageFamily($defaultImageFamily)
+  public function setDefaultImageType($defaultImageType)
   {
-    $this->defaultImageFamily = $defaultImageFamily;
+    $this->defaultImageType = $defaultImageType;
   }
-  public function getDefaultImageFamily()
+  public function getDefaultImageType()
   {
-    return $this->defaultImageFamily;
+    return $this->defaultImageType;
   }
-  public function setValidImageFamilies($validImageFamilies)
+  public function setValidImageTypes($validImageTypes)
   {
-    $this->validImageFamilies = $validImageFamilies;
+    $this->validImageTypes = $validImageTypes;
   }
-  public function getValidImageFamilies()
+  public function getValidImageTypes()
   {
-    return $this->validImageFamilies;
+    return $this->validImageTypes;
+  }
+  public function setValidMasterVersions($validMasterVersions)
+  {
+    $this->validMasterVersions = $validMasterVersions;
+  }
+  public function getValidMasterVersions()
+  {
+    return $this->validMasterVersions;
   }
   public function setValidNodeVersions($validNodeVersions)
   {

@@ -18,9 +18,18 @@
 class Google_Service_Slides_Recolor extends Google_Collection
 {
   protected $collection_key = 'recolorStops';
+  public $name;
   protected $recolorStopsType = 'Google_Service_Slides_ColorStop';
   protected $recolorStopsDataType = 'array';
 
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
   public function setRecolorStops($recolorStops)
   {
     $this->recolorStops = $recolorStops;

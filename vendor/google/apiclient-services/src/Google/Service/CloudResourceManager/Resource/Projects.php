@@ -122,8 +122,8 @@ class Google_Service_CloudResourceManager_Resource_Projects extends Google_Servi
    * (projects.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. `resource` is usually specified as a path. For example, a Project
-   * resource is specified as `projects/{project}`.
+   * requested. See the operation documentation for the appropriate value for this
+   * field.
    * @param Google_Service_CloudResourceManager_GetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_CloudResourceManager_Policy
@@ -141,11 +141,6 @@ class Google_Service_CloudResourceManager_Resource_Projects extends Google_Servi
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int pageSize The maximum number of Projects to return in the
-   * response. The server can return fewer Projects than requested. If
-   * unspecified, server picks an appropriate default.
-   *
-   * Optional.
    * @opt_param string filter An expression for filtering the results of the
    * request.  Filter rules are case insensitive. The fields eligible for
    * filtering are:
@@ -164,6 +159,11 @@ class Google_Service_CloudResourceManager_Resource_Projects extends Google_Servi
    * Optional.
    * @opt_param string pageToken A pagination token returned from a previous call
    * to ListProjects that indicates from where listing should continue.
+   *
+   * Optional.
+   * @opt_param int pageSize The maximum number of Projects to return in the
+   * response. The server can return fewer Projects than requested. If
+   * unspecified, server picks an appropriate default.
    *
    * Optional.
    * @return Google_Service_CloudResourceManager_ListProjectsResponse
@@ -214,8 +214,8 @@ class Google_Service_CloudResourceManager_Resource_Projects extends Google_Servi
    * (projects.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. `resource` is usually specified as a path. For example, a Project
-   * resource is specified as `projects/{project}`.
+   * specified. See the operation documentation for the appropriate value for this
+   * field.
    * @param Google_Service_CloudResourceManager_SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_CloudResourceManager_Policy
@@ -231,8 +231,8 @@ class Google_Service_CloudResourceManager_Resource_Projects extends Google_Servi
    * (projects.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. `resource` is usually specified as a path. For example, a
-   * Project resource is specified as `projects/{project}`.
+   * being requested. See the operation documentation for the appropriate value
+   * for this field.
    * @param Google_Service_CloudResourceManager_TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_CloudResourceManager_TestIamPermissionsResponse

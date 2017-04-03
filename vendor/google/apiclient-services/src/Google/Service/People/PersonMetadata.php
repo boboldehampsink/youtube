@@ -19,6 +19,7 @@ class Google_Service_People_PersonMetadata extends Google_Collection
 {
   protected $collection_key = 'sources';
   public $deleted;
+  public $linkedPeopleResourceNames;
   public $objectType;
   public $previousResourceNames;
   protected $sourcesType = 'Google_Service_People_Source';
@@ -31,6 +32,14 @@ class Google_Service_People_PersonMetadata extends Google_Collection
   public function getDeleted()
   {
     return $this->deleted;
+  }
+  public function setLinkedPeopleResourceNames($linkedPeopleResourceNames)
+  {
+    $this->linkedPeopleResourceNames = $linkedPeopleResourceNames;
+  }
+  public function getLinkedPeopleResourceNames()
+  {
+    return $this->linkedPeopleResourceNames;
   }
   public function setObjectType($objectType)
   {
