@@ -149,4 +149,25 @@ class YouTube_HashesElementType extends BaseElementType
             ),
         );
     }
+
+    /**
+     * {@inheritdoc} IElementType::getAvailableActions()
+     *
+     * @param string|null $source
+     *
+     * @return array|null
+     */
+    public function getAvailableActions($source = null)
+    {
+        $actions = array();
+
+        $deleteAction = craft()->elements->getAction('YouTube_HashesDelete');
+        $deleteAction->setParams(array(
+            'confirmationMessage' => Craft::t('Are you sure you want to delete the selected video hash(es)?'),
+            'successMessage' => Craft::t('Hash(es) deleted'),
+        ));
+        $actions[] = $deleteAction;
+
+        return $actions;
+    }
 }
