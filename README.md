@@ -34,7 +34,7 @@ phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/
 Changelog
 =================
 ###0.7.0###
- - Added interface for deleting hashes, so you can re-upload video's that you have deleted from YouTube.
+ - Added interface for deleting hashes, so you can re-upload video's that you deleted from YouTube.
  - Updated dependencies
 
 ###0.6.5###
