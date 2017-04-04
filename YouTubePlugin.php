@@ -32,7 +32,7 @@ class YouTubePlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return '0.6.5';
+        return '0.7.0';
     }
 
     /**
@@ -53,6 +53,16 @@ class YouTubePlugin extends BasePlugin
     public function getDeveloperUrl()
     {
         return 'http://github.com/boboldehampsink';
+    }
+
+    /**
+     * Has CP section?
+     *
+     * @return bool
+     */
+    public function hasCpSection()
+    {
+        return true;
     }
 
     /**
