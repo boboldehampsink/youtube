@@ -145,7 +145,7 @@ class YouTube_HashesElementType extends BaseElementType
     {
         return array(
             '*' => array(
-                'label' => Craft::t('All video\'s'),
+                'label' => Craft::t('All video hashes'),
             ),
         );
     }
