@@ -1,3 +1,8 @@
 {% extends "_layouts/elementindex" %}
 {% set title = "YouTube"|t %}
 {% set elementType = 'YouTube_Hashes' %}
+
+{% block content %}
+    <p>{{ 'This is a list of video\'s you\'ve already uploaded to YouTube once<br>If you deleted a video from YouTube and want to upload it again, you will have to delete it here first.'|t|raw  }}</p>
+    {{ parent() }}
+{% endblock %}
