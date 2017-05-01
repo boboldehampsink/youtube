@@ -120,6 +120,12 @@ class YouTube_HashesElementType extends BaseElementType
         $query->setGroup('');
         unset($query->params[':locale']);
         unset($query->params[':elementsid1']);
+
+        // Apply search criteria
+        if ($criteria->search) {
+            $query->where(DbHelper::parseParam('elements.youtubeId', $criteria->search, $query->params));
+            $criteria->search = false;
+        }
     }
 
     /**
