@@ -33,82 +33,82 @@ phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/
 
 Changelog
 =================
-###0.7.0###
+### 0.7.0 ###
  - Added interface for deleting hashes, so you can re-upload video's that you deleted from YouTube.
  - Updated dependencies
 
-###0.6.5###
+### 0.6.5 ###
  - Updated dependencies and fixed unit tests
 
-###0.6.4###
+### 0.6.4 ###
  - Updated Google API client to 2.0.0
 
-###0.6.3###
+### 0.6.3 ###
  - Updated plugin to work with OAuth Plugin 1.0+
  - Fix search keywords criteria
 
-###0.6.2###
+### 0.6.2 ###
  - Removed the ability to manually set a timeout per step via the config
  - Added user who created the task to the Task Manager plugin table, if installed
  - Updated YouTube API
 
-###0.6.1###
+### 0.6.1 ###
  - Finish task when element doesn't exist anymore
  - Only save element id values
 
-###0.6.0###
+### 0.6.0 ###
  - Verify if element still exists before starting a task
  - Updated YouTube API and implementation
  - Updated OAuth plugin dependency
 
-###0.5.0###
+### 0.5.0 ###
  - Added the ability to manually set a timeout per step via the config
  - Clean up the temporary video file after conversion
  - Improved unit tests for development
 
-###0.4.0###
+### 0.4.0 ###
  - Now handles duplicate video's
 
-###0.3.1###
+### 0.3.1 ###
  - Fixed a bug where the existing content could incorrectly be null
  - Catch unknown exceptions
  - Added unit tests
 
-###0.3.0###
+### 0.3.0 ###
  - Fixed a bug where saving the element without changing the YouTube field would override the YouTube ID's with Asset ID's
 
-###0.2.0###
+### 0.2.0 ###
  - Fixed a bug that could lead to asset id's returning instead of YouTube video id's
 
-###0.1.9###
+### 0.1.9 ###
  - Fixed a bug where tasks would hang
 
-###0.1.8###
+### 0.1.8 ###
  - Fixed a bug where multiple video's on a field couldn't be saved
  - Fixed a bug where getting the right assets could go wrong
 
-###0.1.7###
+### 0.1.7 ###
  - Always handle asset processing before starting the youtube upload task
 
-###0.1.6###
+### 0.1.6 ###
  - Fixed a bug that occured when the youtube field was empty
 
-###0.1.5###
+### 0.1.5 ###
  - Fixed bug when post data is missing
 
-###0.1.4###
+### 0.1.4 ###
  - Fixed field not showing multiple values
  - Try to only process new video's
 
-###0.1.3###
+### 0.1.3 ###
  - Remove the temporary video asset to save space
  - Always produce an array for the front-end
 
-###0.1.2###
+### 0.1.2 ###
  - Don't run uploads task when there's no assets on the field
 
-###0.1.1###
+### 0.1.1 ###
  - Fixed plugin's output not being valid when there was no file connected
 
-###0.1.0###
+### 0.1.0 ###
  - Initial release
