@@ -395,7 +395,7 @@ class SSH2
     var $server_public_host_key;
 
     /**
-     * Session identifer
+     * Session identifier
      *
      * "The exchange hash H from the first key exchange is additionally
      *  used as the session identifier, which is a unique identifier for
@@ -1028,35 +1028,51 @@ class SSH2
            Feed.  Such lines MUST NOT begin with "SSH-", and SHOULD be encoded
            in ISO-10646 UTF-8 [RFC3629] (language is not specified).  Clients
            MUST be able to process such lines." */
-        $temp = '';
-        $extra = '';
-        while (!feof($this->fsock) && !preg_match('#^SSH-(\d\.\d+)#', $temp, $matches)) {
-            if (substr($temp, -2) == "\r\n") {
-                $extra.= $temp;
-                $temp = '';
+        $data = '';
+        while (!feof($this->fsock) && !preg_match('#(.*)^(SSH-(\d\.\d+).*)#ms', $data, $matches)) {
+            $line = '';
+            while (true) {
+                if ($this->curTimeout) {
+                    if ($this->curTimeout < 0) {
+                        $this->is_timeout = true;
+                        return false;
+                    }
+                    $read = array($this->fsock);
+                    $write = $except = null;
+                    $start = microtime(true);
+                    $sec = floor($this->curTimeout);
+                    $usec = 1000000 * ($this->curTimeout - $sec);
+                    // on windows this returns a "Warning: Invalid CRT parameters detected" error
+                    // the !count() is done as a workaround for <https://bugs.php.net/42682>
+                    if (!@stream_select($read, $write, $except, $sec, $usec) && !count($read)) {
+                        $this->is_timeout = true;
+                        return false;
+                    }
+                    $elapsed = microtime(true) - $start;
+                    $this->curTimeout-= $elapsed;
+                }
+
+                $temp = stream_get_line($this->fsock, 255, "\n");
+                if (strlen($temp) == 255) {
+                    continue;
+                }
+
+                $line.= "$temp\n";
+
+                // quoting RFC4253, "Implementers who wish to maintain
+                // compatibility with older, undocumented versions of this protocol may
+                // want to process the identification string without expecting the
+                // presence of the carriage return character for reasons described in
+                // Section 5 of this document."
+
+                //if (substr($line, -2) == "\r\n") {
+                //    break;
+                //}
+
+                break;
             }
 
-            if ($this->curTimeout) {
-                if ($this->curTimeout < 0) {
-                    $this->is_timeout = true;
-                    return false;
-                }
-                $read = array($this->fsock);
-                $write = $except = null;
-                $start = microtime(true);
-                $sec = floor($this->curTimeout);
-                $usec = 1000000 * ($this->curTimeout - $sec);
-                // on windows this returns a "Warning: Invalid CRT parameters detected" error
-                // the !count() is done as a workaround for <https://bugs.php.net/42682>
-                if (!@stream_select($read, $write, $except, $sec, $usec) && !count($read)) {
-                    $this->is_timeout = true;
-                    return false;
-                }
-                $elapsed = microtime(true) - $start;
-                $this->curTimeout-= $elapsed;
-            }
-
-            $temp.= fgets($this->fsock, 255);
+            $data.= $line;
         }
 
         if (feof($this->fsock)) {
@@ -1064,20 +1080,22 @@ class SSH2
             return false;
         }
 
+        $extra = $matches[1];
+
         $this->identifier = $this->_generate_identifier();
 
         if (defined('NET_SSH2_LOGGING')) {
-            $this->_append_log('<-', $extra . $temp);
+            $this->_append_log('<-', $matches[0]);
             $this->_append_log('->', $this->identifier . "\r\n");
         }
 
         $this->server_identifier = trim($temp, "\r\n");
         if (strlen($extra)) {
-            $this->errors[] = utf8_decode($extra);
+            $this->errors[] = utf8_decode($data);
         }
 
-        if ($matches[1] != '1.99' && $matches[1] != '2.0') {
-            user_error("Cannot connect to SSH $matches[1] servers");
+        if ($matches[3] != '1.99' && $matches[3] != '2.0') {
+            user_error("Cannot connect to SSH $matches[3] servers");
             return false;
         }
 
@@ -1160,7 +1178,7 @@ class SSH2
             'diffie-hellman-group-exchange-sha1', // RFC 4419
             'diffie-hellman-group-exchange-sha256', // RFC 4419
         );
-        if (!class_exists('\Sodium')) {
+        if (!function_exists('\\Sodium\\library_version_major')) {
             $kex_algorithms = array_diff(
                 $kex_algorithms,
                 array('curve25519-sha256@libssh.org')
@@ -1382,7 +1400,7 @@ class SSH2
 
         if ($kex_algorithm === 'curve25519-sha256@libssh.org') {
             $x = Random::string(32);
-            $eBytes = \Sodium::crypto_box_publickey_from_secretkey($x);
+            $eBytes = \Sodium\crypto_box_publickey_from_secretkey($x);
             $clientKexInitMessage = NET_SSH2_MSG_KEX_ECDH_INIT;
             $serverKexReplyMessage = NET_SSH2_MSG_KEX_ECDH_REPLY;
             $kexHash = new Hash('sha256');
@@ -1527,8 +1545,8 @@ class SSH2
                 user_error('Received curve25519 public key of invalid length.');
                 return false;
             }
-            $key = new BigInteger(\Sodium::crypto_scalarmult($x, $fBytes), 256);
-            \Sodium::sodium_memzero($x);
+            $key = new BigInteger(\Sodium\crypto_scalarmult($x, $fBytes), 256);
+            \Sodium\memzero($x);
         } else {
             $f = new BigInteger($fBytes, -256);
             $key = $f->modPow($x, $prime);
@@ -2377,7 +2395,7 @@ class SSH2
 
         // RFC4254 defines the (client) window size as "bytes the other party can send before it must wait for the window to
         // be adjusted".  0x7FFFFFFF is, at 2GB, the max size.  technically, it should probably be decremented, but,
-        // honestly, if you're transfering more than 2GB, you probably shouldn't be using phpseclib, anyway.
+        // honestly, if you're transferring more than 2GB, you probably shouldn't be using phpseclib, anyway.
         // see http://tools.ietf.org/html/rfc4254#section-5.2 for more info
         $this->window_size_server_to_client[self::CHANNEL_EXEC] = $this->window_size;
         // 0x8000 is the maximum max packet size, per http://tools.ietf.org/html/rfc4253#section-6.1, although since PuTTy
@@ -2891,7 +2909,7 @@ class SSH2
         }
 
         $start = microtime(true);
-        $raw = fread($this->fsock, $this->decrypt_block_size);
+        $raw = stream_get_contents($this->fsock, $this->decrypt_block_size);
 
         if (!strlen($raw)) {
             return '';
@@ -2919,7 +2937,7 @@ class SSH2
 
         $buffer = '';
         while ($remaining_length > 0) {
-            $temp = fread($this->fsock, $remaining_length);
+            $temp = stream_get_contents($this->fsock, $remaining_length);
             if ($temp === false || feof($this->fsock)) {
                 user_error('Error reading from socket');
                 $this->bitmap = 0;
@@ -2937,7 +2955,7 @@ class SSH2
         $padding = $this->_string_shift($raw, $padding_length); // should leave $raw empty
 
         if ($this->hmac_check !== false) {
-            $hmac = fread($this->fsock, $this->hmac_size);
+            $hmac = stream_get_contents($this->fsock, $this->hmac_size);
             if ($hmac === false || strlen($hmac) != $this->hmac_size) {
                 user_error('Error reading socket');
                 $this->bitmap = 0;
@@ -3369,7 +3387,9 @@ class SSH2
                     }
 
                     $this->channel_status[$channel] = NET_SSH2_MSG_CHANNEL_CLOSE;
-                    return true;
+                    if ($client_channel == $channel) {
+                        return true;
+                    }
                 case NET_SSH2_MSG_CHANNEL_EOF:
                     break;
                 default:
@@ -3771,7 +3791,7 @@ class SSH2
     /**
      * Returns all errors
      *
-     * @return string
+     * @return string[]
      * @access public
      */
     function getErrors()

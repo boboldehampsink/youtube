@@ -19,7 +19,6 @@ namespace Google\Auth\Credentials;
 
 use Google\Auth\CredentialsLoader;
 use Google\Auth\OAuth2;
-use GuzzleHttp\Psr7;
 
 /**
  * Authenticates requests using User Refresh credentials.
@@ -30,64 +29,82 @@ use GuzzleHttp\Psr7;
  * 'gcloud auth login' saves a file with these contents in well known
  * location
  *
- * cf [Application Default Credentials](http://goo.gl/mkAHpZ)
+ * @see [Application Default Credentials](http://goo.gl/mkAHpZ)
  */
 class UserRefreshCredentials extends CredentialsLoader
 {
-  /**
-   * Create a new UserRefreshCredentials.
-   *
-   * @param string|array $scope the scope of the access request, expressed
-   *   either as an Array or as a space-delimited String.
-   *
-   * @param array $jsonKey JSON credentials.
-   *
-   * @param string $jsonKeyPath the path to a file containing JSON credentials.  If
-   *   jsonKeyStream is set, it is ignored.
-   */
-  public function __construct(
-    $scope,
-    $jsonKey,
-    $jsonKeyPath = null
-  ) {
-    if (is_null($jsonKey)) {
-      $jsonKeyStream = Psr7\stream_for(file_get_contents($jsonKeyPath));
-      $jsonKey = json_decode($jsonKeyStream->getContents(), true);
-    }
-    if (!array_key_exists('client_id', $jsonKey)) {
-      throw new \InvalidArgumentException(
-          'json key is missing the client_id field');
-    }
-    if (!array_key_exists('client_secret', $jsonKey)) {
-      throw new \InvalidArgumentException(
-          'json key is missing the client_secret field');
-    }
-    if (!array_key_exists('refresh_token', $jsonKey)) {
-      throw new \InvalidArgumentException(
-          'json key is missing the refresh_token field');
-    }
-    $this->auth = new OAuth2([
-        'clientId' => $jsonKey['client_id'],
-        'clientSecret' => $jsonKey['client_secret'],
-        'refresh_token' => $jsonKey['refresh_token'],
-        'scope' => $scope,
-        'tokenCredentialUri' => self::TOKEN_CREDENTIAL_URI
-    ]);
-  }
+    /**
+     * The OAuth2 instance used to conduct authorization.
+     *
+     * @var OAuth2
+     */
+    protected $auth;
 
-  /**
-   * Implements FetchAuthTokenInterface#fetchAuthToken.
-   */
-  public function fetchAuthToken(callable $httpHandler = null)
-  {
-    return $this->auth->fetchAuthToken($httpHandler);
-  }
+    /**
+     * Create a new UserRefreshCredentials.
+     *
+     * @param string|array $scope the scope of the access request, expressed
+     *   either as an Array or as a space-delimited String.
+     * @param string|array $jsonKey JSON credential file path or JSON credentials
+     *   as an associative array
+     */
+    public function __construct(
+        $scope,
+        $jsonKey
+    ) {
+        if (is_string($jsonKey)) {
+            if (!file_exists($jsonKey)) {
+                throw new \InvalidArgumentException('file does not exist');
+            }
+            $jsonKeyStream = file_get_contents($jsonKey);
+            if (!$jsonKey = json_decode($jsonKeyStream, true)) {
+                throw new \LogicException('invalid json for auth config');
+            }
+        }
+        if (!array_key_exists('client_id', $jsonKey)) {
+            throw new \InvalidArgumentException(
+                'json key is missing the client_id field');
+        }
+        if (!array_key_exists('client_secret', $jsonKey)) {
+            throw new \InvalidArgumentException(
+                'json key is missing the client_secret field');
+        }
+        if (!array_key_exists('refresh_token', $jsonKey)) {
+            throw new \InvalidArgumentException(
+                'json key is missing the refresh_token field');
+        }
+        $this->auth = new OAuth2([
+            'clientId' => $jsonKey['client_id'],
+            'clientSecret' => $jsonKey['client_secret'],
+            'refresh_token' => $jsonKey['refresh_token'],
+            'scope' => $scope,
+            'tokenCredentialUri' => self::TOKEN_CREDENTIAL_URI,
+        ]);
+    }
 
- /**
-  * Implements FetchAuthTokenInterface#getCacheKey.
-  */
-  public function getCacheKey()
-  {
-    return $this->auth->getClientId() . ':' . $this->auth->getCacheKey();
-  }
+    /**
+     * @param callable $httpHandler
+     *
+     * @return array
+     */
+    public function fetchAuthToken(callable $httpHandler = null)
+    {
+        return $this->auth->fetchAuthToken($httpHandler);
+    }
+
+    /**
+     * @return string
+     */
+    public function getCacheKey()
+    {
+        return $this->auth->getClientId() . ':' . $this->auth->getCacheKey();
+    }
+
+    /**
+     * @return array
+     */
+    public function getLastReceivedToken()
+    {
+        return $this->auth->getLastReceivedToken();
+    }
 }

@@ -292,6 +292,7 @@ class BigInteger
                 case !isset($versions['Header']):
                 case !isset($versions['Library']):
                 case $versions['Header'] == $versions['Library']:
+                case version_compare($versions['Header'], '1.0.0') >= 0 && version_compare($versions['Library'], '1.0.0') >= 0:
                     define('MATH_BIGINTEGER_OPENSSL_ENABLED', true);
                     break;
                 default:
@@ -1824,7 +1825,7 @@ class BigInteger
 
         // calculate the appropriate window size.
         // $window_size == 3 if $window_ranges is between 25 and 81, for example.
-        for ($i = 0, $window_size = 1; $e_length > $window_ranges[$i] && $i < count($window_ranges); ++$window_size, ++$i) {
+        for ($i = 0, $window_size = 1; $i < count($window_ranges) && $e_length > $window_ranges[$i]; ++$window_size, ++$i) {
         }
 
         $n_value = $n->value;
@@ -2475,7 +2476,7 @@ class BigInteger
      *
      * Say you have 693 and 609.  The GCD is 21.  Bezout's identity states that there exist integers x and y such that
      * 693*x + 609*y == 21.  In point of fact, there are actually an infinite number of x and y combinations and which
-     * combination is returned is dependant upon which mode is in use.  See
+     * combination is returned is dependent upon which mode is in use.  See
      * {@link http://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity Bezout's identity - Wikipedia} for more information.
      *
      * Here's an example:

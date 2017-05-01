@@ -51,13 +51,6 @@
 
 namespace phpseclib\Crypt;
 
-use phpseclib\Crypt\AES;
-use phpseclib\Crypt\Base;
-use phpseclib\Crypt\DES;
-use phpseclib\Crypt\Hash;
-use phpseclib\Crypt\Random;
-use phpseclib\Crypt\RSA;
-use phpseclib\Crypt\TripleDES;
 use phpseclib\Math\BigInteger;
 
 /**
@@ -252,7 +245,7 @@ class RSA
     /**
      * Precomputed Zero
      *
-     * @var array
+     * @var \phpseclib\Math\BigInteger
      * @access private
      */
     var $zero;
@@ -260,7 +253,7 @@ class RSA
     /**
      * Precomputed One
      *
-     * @var array
+     * @var \phpseclib\Math\BigInteger
      * @access private
      */
     var $one;
@@ -501,6 +494,7 @@ class RSA
                         case !isset($versions['Header']):
                         case !isset($versions['Library']):
                         case $versions['Header'] == $versions['Library']:
+                        case version_compare($versions['Header'], '1.0.0') >= 0 && version_compare($versions['Library'], '1.0.0') >= 0:
                             define('CRYPT_RSA_MODE', self::MODE_OPENSSL);
                             break;
                         default:
@@ -1715,7 +1709,7 @@ class RSA
     function setPrivateKey($key = false, $type = false)
     {
         if ($key === false && !empty($this->publicExponent)) {
-            unset($this->publicExponent);
+            $this->publicExponent = false;
             return true;
         }
 
@@ -1723,7 +1717,7 @@ class RSA
         if (!$rsa->loadKey($key, $type)) {
             return false;
         }
-        unset($rsa->publicExponent);
+        $rsa->publicExponent = false;
 
         // don't overwrite the old key if the new key is invalid
         $this->loadKey($rsa);
@@ -1767,7 +1761,7 @@ class RSA
      * for invalid values.
      * @return mixed
      */
-    public function getPublicKeyFingerprint($algorithm = 'md5')
+    function getPublicKeyFingerprint($algorithm = 'md5')
     {
         if (empty($this->modulus) || empty($this->publicExponent)) {
             return false;
@@ -2092,8 +2086,14 @@ class RSA
      */
     function _exponentiate($x)
     {
-        if (empty($this->primes) || empty($this->coefficients) || empty($this->exponents)) {
-            return $x->modPow($this->exponent, $this->modulus);
+        switch (true) {
+            case empty($this->primes):
+            case $this->primes[1]->equals($this->zero):
+            case empty($this->coefficients):
+            case $this->coefficients[2]->equals($this->zero):
+            case empty($this->exponents):
+            case $this->exponents[1]->equals($this->zero):
+                return $x->modPow($this->exponent, $this->modulus);
         }
 
         $num_primes = count($this->primes);
@@ -2568,7 +2568,7 @@ class RSA
         // be output.
 
         $emLen = ($emBits + 1) >> 3; // ie. ceil($emBits / 8)
-        $sLen = $this->sLen ? $this->sLen : $this->hLen;
+        $sLen = $this->sLen !== null ? $this->sLen : $this->hLen;
 
         $mHash = $this->hash->hash($m);
         if ($emLen < $this->hLen + $sLen + 2) {
@@ -2606,7 +2606,7 @@ class RSA
         // be output.
 
         $emLen = ($emBits + 1) >> 3; // ie. ceil($emBits / 8);
-        $sLen = $this->sLen ? $this->sLen : $this->hLen;
+        $sLen = $this->sLen !== null ? $this->sLen : $this->hLen;
 
         $mHash = $this->hash->hash($m);
         if ($emLen < $this->hLen + $sLen + 2) {

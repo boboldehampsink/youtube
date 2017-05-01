@@ -32,9 +32,6 @@
 
 namespace phpseclib\Net;
 
-use phpseclib\Net\SSH1;
-use phpseclib\Net\SSH2;
-
 /**
  * Pure-PHP implementations of SCP.
  *
@@ -102,9 +99,7 @@ class SCP
      *
      * Connects to an SSH server
      *
-     * @param string $host
-     * @param int $port
-     * @param int $timeout
+     * @param \phpseclib\Net\SSH1|\phpseclin\Net\SSH2 $ssh
      * @return \phpseclib\Net\SCP
      * @access public
      */

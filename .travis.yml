@@ -22,14 +22,12 @@ matrix:
 
 # execute any number of scripts before the test run, custom env's are available as variables
 before_script:
-  - curl -sS https://codeload.github.com/pixelandtonic/Craft-Release/zip/master > craft.zip
+  - curl -sS https://download.craftcdn.com/craft/2.6/2.6.2950/Craft-2.6.2950.zip > craft.zip
   - unzip craft.zip
   - rm craft.zip
-  - mv Craft-Release-master craft
-  - mkdir craft/config
   - echo "<?php return array('user' => 'test');" > craft/config/db.php
-  - mkdir craft/storage
   - mkdir -p craft/plugins/youtube
+  - composer install
   - for item in *; do if [[ ! "$item" == "craft" ]]; then mv $item craft/plugins/youtube; fi; done
   - cd craft/plugins/youtube && composer update --prefer-source --no-interaction && cd ../../../
   - cd craft/app

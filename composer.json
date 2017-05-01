@@ -10,37 +10,13 @@
         }
     ],
     "license": "MIT",
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "dukt/oauth",
-                "version": "1.0.79",
-                "dist": {
-                    "url": "https://github.com/dukt/craft-oauth/archive/1.0.79.zip",
-                    "type": "zip"
-                },
-                "source": {
-                    "url": "https://github.com/dukt/craft-oauth",
-                    "type": "git",
-                    "reference": "1.0.79"
-                }
-            }
-        }
-    ],
     "type": "craft-plugin",
     "require": {
-        "php": "^5.4|^7.0",
-        "ext-gd": "*",
+        "php": ">=5.4",
         "ext-mbstring": "*",
         "ext-mcrypt": "*",
         "composer/installers": "~1.0",
-        "google/apiclient": "^2.0.0@RC",
-        "dukt/oauth": "^1.0.79"
-    },
-    "scripts": {
-        "post-autoload-dump": [
-            "cp -r vendor/dukt/oauth ../"
-        ]
+        "google/apiclient": "^2.0.0",
+        "dukt/craft-oauth": "^2.0.3"
     }
 }

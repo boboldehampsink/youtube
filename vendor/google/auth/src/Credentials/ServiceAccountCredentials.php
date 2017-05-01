@@ -19,7 +19,6 @@ namespace Google\Auth\Credentials;
 
 use Google\Auth\CredentialsLoader;
 use Google\Auth\OAuth2;
-use GuzzleHttp\Psr7;
 
 /**
  * ServiceAccountCredentials supports authorization using a Google service
@@ -37,12 +36,10 @@ use GuzzleHttp\Psr7;
  *   use Google\Auth\Middleware\AuthTokenMiddleware;
  *   use GuzzleHttp\Client;
  *   use GuzzleHttp\HandlerStack;
- *   use GuzzleHttp\Psr7;
  *
- *   $stream = Psr7\stream_for(file_get_contents(<my_key_file>));
  *   $sa = new ServiceAccountCredentials(
  *       'https://www.googleapis.com/auth/taskqueue',
- *       $stream
+ *       '/path/to/your/json/key_file.json'
  *   );
  *   $middleware = new AuthTokenMiddleware($sa);
  *   $stack = HandlerStack::create();
@@ -58,104 +55,123 @@ use GuzzleHttp\Psr7;
  */
 class ServiceAccountCredentials extends CredentialsLoader
 {
-  /**
-   * Create a new ServiceAccountCredentials.
-   *
-   * @param string|array $scope the scope of the access request, expressed
-   *   either as an Array or as a space-delimited String.
-   *
-   * @param array $jsonKey JSON credentials.
-   *
-   * @param string $jsonKeyPath the path to a file containing JSON credentials.  If
-   *   jsonKeyStream is set, it is ignored.
-   *
-   * @param string $sub an email address account to impersonate, in situations when
-   *   the service account has been delegated domain wide access.
-   */
-  public function __construct(
-    $scope,
-    $jsonKey,
-    $jsonKeyPath = null,
-    $sub = null
-  ) {
-    if (is_null($jsonKey)) {
-      $jsonKeyStream = Psr7\stream_for(file_get_contents($jsonKeyPath));
-      $jsonKey = json_decode($jsonKeyStream->getContents(), true);
-    }
-    if (!array_key_exists('client_email', $jsonKey)) {
-      throw new \InvalidArgumentException(
-          'json key is missing the client_email field');
-    }
-    if (!array_key_exists('private_key', $jsonKey)) {
-      throw new \InvalidArgumentException(
-          'json key is missing the private_key field');
-    }
-    $this->auth = new OAuth2([
-        'audience' => self::TOKEN_CREDENTIAL_URI,
-        'issuer' => $jsonKey['client_email'],
-        'scope' => $scope,
-        'signingAlgorithm' => 'RS256',
-        'signingKey' => $jsonKey['private_key'],
-        'sub' => $sub,
-        'tokenCredentialUri' => self::TOKEN_CREDENTIAL_URI
-    ]);
-  }
+    /**
+     * The OAuth2 instance used to conduct authorization.
+     *
+     * @var OAuth2
+     */
+    protected $auth;
 
-  /**
-   * Implements FetchAuthTokenInterface#fetchAuthToken.
-   */
-  public function fetchAuthToken(callable $httpHandler = null)
-  {
-    return $this->auth->fetchAuthToken($httpHandler);
-  }
-
- /**
-  * Implements FetchAuthTokenInterface#getCacheKey.
-  */
-  public function getCacheKey()
-  {
-    $key = $this->auth->getIssuer() . ':' . $this->auth->getCacheKey();
-    if ($sub = $this->auth->getSub()) {
-      $key .= ':' . $sub;
-    }
-    return $key;
-  }
-
-  /**
-   * Updates metadata with the authorization token
-   *
-   * @param array $metadata metadata hashmap
-   * @param string $authUri optional auth uri
-   * @param callable $httpHandler callback which delivers psr7 request
-   *
-   * @return array updated metadata hashmap
-   */
-  public function updateMetadata(
-    $metadata,
-    $authUri = null,
-    callable $httpHandler = null
-  ) {
-    // scope exists. use oauth implementation
-    $scope = $this->auth->getScope();
-    if (!is_null($scope)) {
-      return parent::updateMetadata($metadata, $authUri, $httpHandler);
+    /**
+     * Create a new ServiceAccountCredentials.
+     *
+     * @param string|array $scope the scope of the access request, expressed
+     *   either as an Array or as a space-delimited String.
+     * @param string|array $jsonKey JSON credential file path or JSON credentials
+     *   as an associative array
+     * @param string $sub an email address account to impersonate, in situations when
+     *   the service account has been delegated domain wide access.
+     */
+    public function __construct(
+        $scope,
+        $jsonKey,
+        $sub = null
+    ) {
+        if (is_string($jsonKey)) {
+            if (!file_exists($jsonKey)) {
+                throw new \InvalidArgumentException('file does not exist');
+            }
+            $jsonKeyStream = file_get_contents($jsonKey);
+            if (!$jsonKey = json_decode($jsonKeyStream, true)) {
+                throw new \LogicException('invalid json for auth config');
+            }
+        }
+        if (!array_key_exists('client_email', $jsonKey)) {
+            throw new \InvalidArgumentException(
+                'json key is missing the client_email field');
+        }
+        if (!array_key_exists('private_key', $jsonKey)) {
+            throw new \InvalidArgumentException(
+                'json key is missing the private_key field');
+        }
+        $this->auth = new OAuth2([
+            'audience' => self::TOKEN_CREDENTIAL_URI,
+            'issuer' => $jsonKey['client_email'],
+            'scope' => $scope,
+            'signingAlgorithm' => 'RS256',
+            'signingKey' => $jsonKey['private_key'],
+            'sub' => $sub,
+            'tokenCredentialUri' => self::TOKEN_CREDENTIAL_URI,
+        ]);
     }
 
-    // no scope found. create jwt with the auth uri
-    $credJson = array(
-      'private_key' => $this->auth->getSigningKey(),
-      'client_email' => $this->auth->getIssuer(),
-    );
-    $jwtCreds = new ServiceAccountJwtAccessCredentials($credJson);
-    return $jwtCreds->updateMetadata($metadata, $authUri, $httpHandler);
-  }
+    /**
+     * @param callable $httpHandler
+     *
+     * @return array
+     */
+    public function fetchAuthToken(callable $httpHandler = null)
+    {
+        return $this->auth->fetchAuthToken($httpHandler);
+    }
 
-  /**
-   * @param string $sub an email address account to impersonate, in situations when
-   *   the service account has been delegated domain wide access.
-   */
-  public function setSub($sub)
-  {
-    $this->auth->setSub($sub);
-  }
+    /**
+     * @return string
+     */
+    public function getCacheKey()
+    {
+        $key = $this->auth->getIssuer() . ':' . $this->auth->getCacheKey();
+        if ($sub = $this->auth->getSub()) {
+            $key .= ':' . $sub;
+        }
+
+        return $key;
+    }
+
+    /**
+     * @return array
+     */
+    public function getLastReceivedToken()
+    {
+        return $this->auth->getLastReceivedToken();
+    }
+
+    /**
+     * Updates metadata with the authorization token.
+     *
+     * @param array $metadata metadata hashmap
+     * @param string $authUri optional auth uri
+     * @param callable $httpHandler callback which delivers psr7 request
+     *
+     * @return array updated metadata hashmap
+     */
+    public function updateMetadata(
+        $metadata,
+        $authUri = null,
+        callable $httpHandler = null
+    ) {
+        // scope exists. use oauth implementation
+        $scope = $this->auth->getScope();
+        if (!is_null($scope)) {
+            return parent::updateMetadata($metadata, $authUri, $httpHandler);
+        }
+
+        // no scope found. create jwt with the auth uri
+        $credJson = array(
+            'private_key' => $this->auth->getSigningKey(),
+            'client_email' => $this->auth->getIssuer(),
+        );
+        $jwtCreds = new ServiceAccountJwtAccessCredentials($credJson);
+
+        return $jwtCreds->updateMetadata($metadata, $authUri, $httpHandler);
+    }
+
+    /**
+     * @param string $sub an email address account to impersonate, in situations when
+     *   the service account has been delegated domain wide access.
+     */
+    public function setSub($sub)
+    {
+        $this->auth->setSub($sub);
+    }
 }

@@ -16,11 +16,13 @@
  * limitations under the License.
  */
 
-use Google\Auth\CacheInterface;
+use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use phpseclib\Crypt\RSA;
-use phpseclib\Math\BigInteger;
+use Psr\Cache\CacheItemPoolInterface;
+use Google\Auth\Cache\MemoryCacheItemPool;
+use Stash\Driver\FileSystem;
+use Stash\Pool;
 
 /**
  * Wrapper around Google Access Tokens which provides convenience functions
@@ -38,7 +40,7 @@ class Google_AccessToken_Verify
   private $http;
 
   /**
-   * @var Google\Auth\CacheInterface cache class
+   * @var Psr\Cache\CacheItemPoolInterface cache class
    */
   private $cache;
 
@@ -46,15 +48,22 @@ class Google_AccessToken_Verify
    * Instantiates the class, but does not initiate the login flow, leaving it
    * to the discretion of the caller.
    */
-  public function __construct(ClientInterface $http = null, CacheInterface $cache = null)
-  {
-    if (is_null($http)) {
+  public function __construct(
+      ClientInterface $http = null,
+      CacheItemPoolInterface $cache = null,
+      $jwt = null
+  ) {
+    if (null === $http) {
       $http = new Client();
+    }
+
+    if (null === $cache) {
+      $cache = new MemoryCacheItemPool;
     }
 
     $this->http = $http;
     $this->cache = $cache;
-    $this->jwt = $this->getJwtService();
+    $this->jwt = $jwt ?: $this->getJwtService();
   }
 
   /**
@@ -72,13 +81,18 @@ class Google_AccessToken_Verify
       throw new LogicException('id_token cannot be null');
     }
 
+    // set phpseclib constants if applicable
+    $this->setPhpsecConstants();
+
     // Check signature
     $certs = $this->getFederatedSignOnCerts();
     foreach ($certs as $cert) {
-      $modulus = new BigInteger($this->jwt->urlsafeB64Decode($cert['n']), 256);
-      $exponent = new BigInteger($this->jwt->urlsafeB64Decode($cert['e']), 256);
+      $bigIntClass = $this->getBigIntClass();
+      $rsaClass = $this->getRsaClass();
+      $modulus = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['n']), 256);
+      $exponent = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['e']), 256);
 
-      $rsa = new RSA();
+      $rsa = new $rsaClass();
       $rsa->loadKey(array('n' => $modulus, 'e' => $exponent));
 
       try {
@@ -104,6 +118,8 @@ class Google_AccessToken_Verify
         return (array) $payload;
       } catch (ExpiredException $e) {
         return false;
+      } catch (ExpiredExceptionV3 $e) {
+        return false;
       } catch (DomainException $e) {
         // continue
       }
@@ -114,18 +130,7 @@ class Google_AccessToken_Verify
 
   private function getCache()
   {
-    if (!$this->cache) {
-      $this->cache = $this->createDefaultCache();
-    }
-
     return $this->cache;
-  }
-
-  private function createDefaultCache()
-  {
-    return new Google_Cache_File(
-        sys_get_temp_dir().'/google-api-php-client'
-    );
   }
 
   /**
@@ -168,14 +173,22 @@ class Google_AccessToken_Verify
   // are PEM encoded certificates.
   private function getFederatedSignOnCerts()
   {
-    $cache = $this->getCache();
+    $certs = null;
+    if ($cache = $this->getCache()) {
+      $cacheItem = $cache->getItem('federated_signon_certs_v3', 3600);
+      $certs = $cacheItem->get();
+    }
 
-    if (!$certs = $cache->get('federated_signon_certs_v3', 3600)) {
+
+    if (!$certs) {
       $certs = $this->retrieveCertsFromLocation(
           self::FEDERATED_SIGNON_CERT_URL
       );
 
-      $cache->set('federated_signon_certs_v3', $certs);
+      if ($cache) {
+        $cacheItem->set($certs);
+        $cache->save($cacheItem);
+      }
     }
 
     if (!isset($certs['keys'])) {
@@ -194,10 +207,63 @@ class Google_AccessToken_Verify
       $jwtClass = 'Firebase\JWT\JWT';
     }
 
-    // adds 1 second to JWT leeway
-    // @see https://github.com/google/google-api-php-client/issues/827
-    $jwtClass::$leeway = 1;
+    if (property_exists($jwtClass, 'leeway')) {
+      // adds 1 second to JWT leeway
+      // @see https://github.com/google/google-api-php-client/issues/827
+      $jwtClass::$leeway = 1;
+    }
 
     return new $jwtClass;
+  }
+
+  private function getRsaClass()
+  {
+    if (class_exists('phpseclib\Crypt\RSA')) {
+      return 'phpseclib\Crypt\RSA';
+    }
+
+    return 'Crypt_RSA';
+  }
+
+  private function getBigIntClass()
+  {
+    if (class_exists('phpseclib\Math\BigInteger')) {
+      return 'phpseclib\Math\BigInteger';
+    }
+
+    return 'Math_BigInteger';
+  }
+
+  private function getOpenSslConstant()
+  {
+    if (class_exists('phpseclib\Crypt\RSA')) {
+      return 'phpseclib\Crypt\RSA::MODE_OPENSSL';
+    }
+
+    if (class_exists('Crypt_RSA')) {
+      return 'CRYPT_RSA_MODE_OPENSSL';
+    }
+
+    throw new \Exception('Cannot find RSA class');
+  }
+
+  /**
+   * phpseclib calls "phpinfo" by default, which requires special
+   * whitelisting in the AppEngine VM environment. This function
+   * sets constants to bypass the need for phpseclib to check phpinfo
+   *
+   * @see phpseclib/Math/BigInteger
+   * @see https://github.com/GoogleCloudPlatform/getting-started-php/issues/85
+   */
+  private function setPhpsecConstants()
+  {
+    if (filter_var(getenv('GAE_VM'), FILTER_VALIDATE_BOOLEAN)) {
+      if (!defined('MATH_BIGINTEGER_OPENSSL_ENABLED')) {
+        define('MATH_BIGINTEGER_OPENSSL_ENABLED', true);
+      }
+      if (!defined('CRYPT_RSA_MODE')) {
+        define('CRYPT_RSA_MODE', constant($this->getOpenSslConstant()));
+      }
+    }
   }
 }
