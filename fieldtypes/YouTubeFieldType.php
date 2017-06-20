@@ -218,6 +218,29 @@ class YouTubeFieldType extends AssetsFieldType
         }
     }
 
+    /**
+     * Make sure we only validate id's (real assets).
+     *
+     * @param mixed $value
+     *
+     * @return bool
+     */
+    public function validate($value)
+    {
+        if (is_array($value)) {
+            $newValue = array();
+            foreach ($value as $id) {
+                if (is_numeric($id)) {
+                    $newValue[] = $id;
+                }
+            }
+
+            return parent::validate($newValue);
+        }
+
+        return parent::validate($value);
+    }
+
     // Protected
     // =========================================================================
 
