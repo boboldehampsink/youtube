@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2016 Google Inc.
+ * Copyright 2014 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -48,6 +48,7 @@ class Google_Service_ServiceManagement extends Google_Service
   public $operations;
   public $services;
   public $services_configs;
+  public $services_consumers;
   public $services_rollouts;
   
   /**
@@ -80,19 +81,18 @@ class Google_Service_ServiceManagement extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'v1/{+name}',
+              'path' => 'v1/operations',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'name' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
                 'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'name' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -191,10 +191,6 @@ class Google_Service_ServiceManagement extends Google_Service
               'path' => 'v1/services',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'consumerId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -204,6 +200,10 @@ class Google_Service_ServiceManagement extends Google_Service
                   'type' => 'integer',
                 ),
                 'producerProjectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'consumerId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -309,6 +309,46 @@ class Google_Service_ServiceManagement extends Google_Service
           )
         )
     );
+    $this->services_consumers = new Google_Service_ServiceManagement_Resource_ServicesConsumers(
+        $this,
+        $this->serviceName,
+        'consumers',
+        array(
+          'methods' => array(
+            'getIamPolicy' => array(
+              'path' => 'v1/{+resource}:getIamPolicy',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'setIamPolicy' => array(
+              'path' => 'v1/{+resource}:setIamPolicy',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'testIamPermissions' => array(
+              'path' => 'v1/{+resource}:testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->services_rollouts = new Google_Service_ServiceManagement_Resource_ServicesRollouts(
         $this,
         $this->serviceName,
@@ -348,6 +388,10 @@ class Google_Service_ServiceManagement extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'pageToken' => array(
                   'location' => 'query',

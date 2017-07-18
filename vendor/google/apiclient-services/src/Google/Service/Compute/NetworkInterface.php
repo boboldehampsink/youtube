@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2016 Google Inc.
+ * Copyright 2014 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -26,10 +26,16 @@ class Google_Service_Compute_NetworkInterface extends Google_Collection
   public $networkIP;
   public $subnetwork;
 
+  /**
+   * @param Google_Service_Compute_AccessConfig
+   */
   public function setAccessConfigs($accessConfigs)
   {
     $this->accessConfigs = $accessConfigs;
   }
+  /**
+   * @return Google_Service_Compute_AccessConfig
+   */
   public function getAccessConfigs()
   {
     return $this->accessConfigs;

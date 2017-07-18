@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2016 Google Inc.
+ * Copyright 2014 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -19,9 +19,9 @@
  * Service definition for Clouderrorreporting (v1beta1).
  *
  * <p>
- * Stackdriver Error Reporting groups and counts similar errors from cloud
- * services. The Stackdriver Error Reporting API provides a way to report new
- * errors and read access to error groups and their associated errors.</p>
+ * Groups and counts similar errors from cloud services and applications,
+ * reports new errors, and provides access to error groups and their associated
+ * errors.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -147,6 +147,26 @@ class Google_Service_Clouderrorreporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'serviceFilter.version' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'order' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'serviceFilter.resourceType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'alignmentTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'timedCountDuration' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -169,26 +189,6 @@ class Google_Service_Clouderrorreporting extends Google_Service
                   'repeated' => true,
                 ),
                 'serviceFilter.service' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'serviceFilter.version' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'order' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'serviceFilter.resourceType' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'alignmentTime' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
