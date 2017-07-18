@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2016 Google Inc.
+ * Copyright 2014 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -78,6 +78,13 @@ class Google_Service_Monitoring_Resource_ProjectsGroups extends Google_Service_R
    * "projects/{project_id_or_number}".
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize A positive number that is the maximum number of
+   * results to return.
+   * @opt_param string ancestorsOfGroup A group name:
+   * "projects/{project_id_or_number}/groups/{group_id}". Returns groups that are
+   * ancestors of the specified group. The groups are returned in order, starting
+   * with the immediate parent and ending with the most distant ancestor. If the
+   * specified group has no immediate parent, the results are empty.
    * @opt_param string childrenOfGroup A group name:
    * "projects/{project_id_or_number}/groups/{group_id}". Returns groups whose
    * parentName field contains the group name. If no groups have this parent, the
@@ -90,13 +97,6 @@ class Google_Service_Monitoring_Resource_ProjectsGroups extends Google_Service_R
    * the nextPageToken value returned by a previous call to this method. Using
    * this field causes the method to return additional results from the previous
    * method call.
-   * @opt_param int pageSize A positive number that is the maximum number of
-   * results to return.
-   * @opt_param string ancestorsOfGroup A group name:
-   * "projects/{project_id_or_number}/groups/{group_id}". Returns groups that are
-   * ancestors of the specified group. The groups are returned in order, starting
-   * with the immediate parent and ending with the most distant ancestor. If the
-   * specified group has no immediate parent, the results are empty.
    * @return Google_Service_Monitoring_ListGroupsResponse
    */
   public function listProjectsGroups($name, $optParams = array())

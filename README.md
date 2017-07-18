@@ -33,6 +33,10 @@ phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/
 
 Changelog
 =================
+### 0.7.2 ###
+ - Added missing dutch translation
+ - Updated dependencies
+
 ### 0.7.1 ###
  - Fixed rare cases of validation issues
  - Updated dependencies

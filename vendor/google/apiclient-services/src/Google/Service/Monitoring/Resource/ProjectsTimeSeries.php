@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2016 Google Inc.
+ * Copyright 2014 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -51,6 +51,9 @@ class Google_Service_Monitoring_Resource_ProjectsTimeSeries extends Google_Servi
    * is "projects/{project_id_or_number}".
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string orderBy Specifies the order in which the points of the time
+   * series should be returned. By default, results are not ordered. Currently,
+   * this field must be left blank.
    * @opt_param string aggregation.crossSeriesReducer The approach to be used to
    * combine time series. Not all reducer functions may be applied to all time
    * series, depending on the metric type and the value type of the original time
@@ -105,9 +108,6 @@ class Google_Service_Monitoring_Resource_ProjectsTimeSeries extends Google_Servi
    * results to return. When view field sets to FULL, it limits the number of
    * Points server will return; if view field is HEADERS, it limits the number of
    * TimeSeries server will return.
-   * @opt_param string orderBy Specifies the order in which the points of the time
-   * series should be returned. By default, results are not ordered. Currently,
-   * this field must be left blank.
    * @return Google_Service_Monitoring_ListTimeSeriesResponse
    */
   public function listProjectsTimeSeries($name, $optParams = array())

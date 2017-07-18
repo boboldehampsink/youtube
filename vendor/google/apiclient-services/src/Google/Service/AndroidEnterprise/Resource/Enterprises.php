@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2016 Google Inc.
+ * Copyright 2014 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -172,7 +172,7 @@ class Google_Service_AndroidEnterprise_Resource_Enterprises extends Google_Servi
   }
   /**
    * Returns the store layout for the enterprise. If the store layout has not been
-   * set, or if the store layout has no homepageId set, returns a NOT_FOUND error.
+   * set, returns "basic" as the store layout type and no homepage.
    * (enterprises.getStoreLayout)
    *
    * @param string $enterpriseId The ID of the enterprise.
@@ -288,8 +288,8 @@ class Google_Service_AndroidEnterprise_Resource_Enterprises extends Google_Servi
    * contains apps approved by the admin, and that have been added to the
    * available product set for a user (using the  setAvailableProductSet call).
    * Apps on the page are sorted in order of their product ID value. If you create
-   * a custom store layout (by setting storeLayoutType = "custom"), the basic
-   * store layout is disabled. (enterprises.setStoreLayout)
+   * a custom store layout (by setting storeLayoutType = "custom" and setting a
+   * homepage), the basic store layout is disabled. (enterprises.setStoreLayout)
    *
    * @param string $enterpriseId The ID of the enterprise.
    * @param Google_Service_AndroidEnterprise_StoreLayout $postBody
