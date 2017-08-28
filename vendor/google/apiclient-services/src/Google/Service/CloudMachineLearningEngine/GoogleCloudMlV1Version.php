@@ -17,8 +17,8 @@
 
 class Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1Version extends Google_Model
 {
-  protected $automaticScalingType = 'Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1AutomaticScaling';
-  protected $automaticScalingDataType = '';
+  protected $autoScalingType = 'Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1AutoScaling';
+  protected $autoScalingDataType = '';
   public $createTime;
   public $deploymentUri;
   public $description;
@@ -32,18 +32,18 @@ class Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1Version extends G
   public $state;
 
   /**
-   * @param Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1AutomaticScaling
+   * @param Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1AutoScaling
    */
-  public function setAutomaticScaling(Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1AutomaticScaling $automaticScaling)
+  public function setAutoScaling(Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1AutoScaling $autoScaling)
   {
-    $this->automaticScaling = $automaticScaling;
+    $this->autoScaling = $autoScaling;
   }
   /**
-   * @return Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1AutomaticScaling
+   * @return Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1AutoScaling
    */
-  public function getAutomaticScaling()
+  public function getAutoScaling()
   {
-    return $this->automaticScaling;
+    return $this->autoScaling;
   }
   public function setCreateTime($createTime)
   {

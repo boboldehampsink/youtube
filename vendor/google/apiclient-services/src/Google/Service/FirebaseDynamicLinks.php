@@ -45,7 +45,7 @@ class Google_Service_FirebaseDynamicLinks extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->rootUrl = 'https://firebasedynamiclinks.googleapis.com/';
+    $this->rootUrl = 'https://firebasedynamiclinks-ipv6.googleapis.com/';
     $this->servicePath = '';
     $this->version = 'v1';
     $this->serviceName = 'firebasedynamiclinks';

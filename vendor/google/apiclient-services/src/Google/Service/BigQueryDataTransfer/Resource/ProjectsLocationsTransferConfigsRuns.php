@@ -64,6 +64,7 @@ class Google_Service_BigQueryDataTransfer_Resource_ProjectsLocationsTransferConf
    * `projects/{project_id}/transferConfigs/{config_id}`.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string runAttempt Indicates how run attempts are to be pulled.
    * @opt_param string pageToken Pagination token, which can be used to request a
    * specific page of `ListTransferRunsRequest` list results. For multiple-page
    * results, `ListTransferRunsResponse` outputs a `next_page` token, which can be
@@ -72,7 +73,6 @@ class Google_Service_BigQueryDataTransfer_Resource_ProjectsLocationsTransferConf
    * of 1000 results.
    * @opt_param string statuses When specified, only transfer runs with requested
    * statuses are returned.
-   * @opt_param string runAttempt Indicates how run attempts are to be pulled.
    * @return Google_Service_BigQueryDataTransfer_ListTransferRunsResponse
    */
   public function listProjectsLocationsTransferConfigsRuns($parent, $optParams = array())

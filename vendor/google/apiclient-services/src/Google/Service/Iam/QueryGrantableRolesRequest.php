@@ -20,6 +20,7 @@ class Google_Service_Iam_QueryGrantableRolesRequest extends Google_Model
   public $fullResourceName;
   public $pageSize;
   public $pageToken;
+  public $view;
 
   public function setFullResourceName($fullResourceName)
   {
@@ -44,5 +45,13 @@ class Google_Service_Iam_QueryGrantableRolesRequest extends Google_Model
   public function getPageToken()
   {
     return $this->pageToken;
+  }
+  public function setView($view)
+  {
+    $this->view = $view;
+  }
+  public function getView()
+  {
+    return $this->view;
   }
 }

@@ -18,6 +18,8 @@
 class Google_Service_Container_NodeConfig extends Google_Collection
 {
   protected $collection_key = 'tags';
+  protected $acceleratorsType = 'Google_Service_Container_AcceleratorConfig';
+  protected $acceleratorsDataType = 'array';
   public $diskSizeGb;
   public $imageType;
   public $labels;
@@ -29,6 +31,20 @@ class Google_Service_Container_NodeConfig extends Google_Collection
   public $serviceAccount;
   public $tags;
 
+  /**
+   * @param Google_Service_Container_AcceleratorConfig
+   */
+  public function setAccelerators($accelerators)
+  {
+    $this->accelerators = $accelerators;
+  }
+  /**
+   * @return Google_Service_Container_AcceleratorConfig
+   */
+  public function getAccelerators()
+  {
+    return $this->accelerators;
+  }
   public function setDiskSizeGb($diskSizeGb)
   {
     $this->diskSizeGb = $diskSizeGb;

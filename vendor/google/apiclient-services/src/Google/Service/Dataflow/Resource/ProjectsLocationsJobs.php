@@ -34,9 +34,9 @@ class Google_Service_Dataflow_Resource_ProjectsLocationsJobs extends Google_Serv
    * @param Google_Service_Dataflow_Job $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string view The level of information requested in response.
    * @opt_param string replaceJobId Deprecated. This field is now in the Job
    * message.
+   * @opt_param string view The level of information requested in response.
    * @return Google_Service_Dataflow_Job
    */
   public function create($projectId, $location, Google_Service_Dataflow_Job $postBody, $optParams = array())
@@ -84,7 +84,8 @@ class Google_Service_Dataflow_Resource_ProjectsLocationsJobs extends Google_Serv
     return $this->call('getMetrics', array($params), "Google_Service_Dataflow_JobMetrics");
   }
   /**
-   * List the jobs of a project. (jobs.listProjectsLocationsJobs)
+   * List the jobs of a project in a given region.
+   * (jobs.listProjectsLocationsJobs)
    *
    * @param string $projectId The project which owns the jobs.
    * @param string $location The location that contains this job.

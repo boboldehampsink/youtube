@@ -32,10 +32,10 @@ class Google_Service_Dataflow_Resource_ProjectsJobsMessages extends Google_Servi
    * @param string $jobId The job to get messages about.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string endTime Return only messages with timestamps < end_time.
-   * The default is now (i.e. return up to the latest messages available).
    * @opt_param string location The location which contains the job specified by
    * job_id.
+   * @opt_param string endTime Return only messages with timestamps < end_time.
+   * The default is now (i.e. return up to the latest messages available).
    * @opt_param string pageToken If supplied, this should be the value of
    * next_page_token returned by an earlier call. This will cause the next page of
    * results to be returned.

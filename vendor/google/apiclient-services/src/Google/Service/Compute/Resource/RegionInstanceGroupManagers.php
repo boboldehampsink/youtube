@@ -47,6 +47,19 @@ class Google_Service_Compute_Resource_RegionInstanceGroupManagers extends Google
    * @param string $instanceGroupManager Name of the managed instance group.
    * @param Google_Service_Compute_RegionInstanceGroupManagersAbandonInstancesRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function abandonInstances($project, $region, $instanceGroupManager, Google_Service_Compute_RegionInstanceGroupManagersAbandonInstancesRequest $postBody, $optParams = array())
@@ -64,6 +77,19 @@ class Google_Service_Compute_Resource_RegionInstanceGroupManagers extends Google
    * @param string $instanceGroupManager Name of the managed instance group to
    * delete.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function delete($project, $region, $instanceGroupManager, $optParams = array())
@@ -93,6 +119,19 @@ class Google_Service_Compute_Resource_RegionInstanceGroupManagers extends Google
    * @param string $instanceGroupManager Name of the managed instance group.
    * @param Google_Service_Compute_RegionInstanceGroupManagersDeleteInstancesRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function deleteInstances($project, $region, $instanceGroupManager, Google_Service_Compute_RegionInstanceGroupManagersDeleteInstancesRequest $postBody, $optParams = array())
@@ -133,6 +172,19 @@ class Google_Service_Compute_Resource_RegionInstanceGroupManagers extends Google
    * @param string $region Name of the region scoping this request.
    * @param Google_Service_Compute_InstanceGroupManager $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function insert($project, $region, Google_Service_Compute_InstanceGroupManager $postBody, $optParams = array())
@@ -243,6 +295,19 @@ class Google_Service_Compute_Resource_RegionInstanceGroupManagers extends Google
    * @param string $instanceGroupManager Name of the managed instance group.
    * @param Google_Service_Compute_RegionInstanceGroupManagersRecreateRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function recreateInstances($project, $region, $instanceGroupManager, Google_Service_Compute_RegionInstanceGroupManagersRecreateRequest $postBody, $optParams = array())
@@ -271,6 +336,19 @@ class Google_Service_Compute_Resource_RegionInstanceGroupManagers extends Google
    * @param int $size Number of instances that should exist in this instance group
    * manager.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function resize($project, $region, $instanceGroupManager, $size, $optParams = array())
@@ -289,6 +367,19 @@ class Google_Service_Compute_Resource_RegionInstanceGroupManagers extends Google
    * @param string $instanceGroupManager The name of the managed instance group.
    * @param Google_Service_Compute_RegionInstanceGroupManagersSetTemplateRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function setInstanceTemplate($project, $region, $instanceGroupManager, Google_Service_Compute_RegionInstanceGroupManagersSetTemplateRequest $postBody, $optParams = array())
@@ -307,6 +398,19 @@ class Google_Service_Compute_Resource_RegionInstanceGroupManagers extends Google
    * @param string $instanceGroupManager Name of the managed instance group.
    * @param Google_Service_Compute_RegionInstanceGroupManagersSetTargetPoolsRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function setTargetPools($project, $region, $instanceGroupManager, Google_Service_Compute_RegionInstanceGroupManagersSetTargetPoolsRequest $postBody, $optParams = array())

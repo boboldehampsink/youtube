@@ -17,6 +17,7 @@
 
 class Google_Service_Appengine_ReadinessCheck extends Google_Model
 {
+  public $appStartTimeout;
   public $checkInterval;
   public $failureThreshold;
   public $host;
@@ -24,6 +25,14 @@ class Google_Service_Appengine_ReadinessCheck extends Google_Model
   public $successThreshold;
   public $timeout;
 
+  public function setAppStartTimeout($appStartTimeout)
+  {
+    $this->appStartTimeout = $appStartTimeout;
+  }
+  public function getAppStartTimeout()
+  {
+    return $this->appStartTimeout;
+  }
   public function setCheckInterval($checkInterval)
   {
     $this->checkInterval = $checkInterval;

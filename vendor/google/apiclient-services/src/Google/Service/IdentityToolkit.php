@@ -103,6 +103,10 @@ class Google_Service_IdentityToolkit extends Google_Service
               'path' => 'resetPassword',
               'httpMethod' => 'POST',
               'parameters' => array(),
+            ),'sendVerificationCode' => array(
+              'path' => 'sendVerificationCode',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
             ),'setAccountInfo' => array(
               'path' => 'setAccountInfo',
               'httpMethod' => 'POST',
@@ -133,6 +137,10 @@ class Google_Service_IdentityToolkit extends Google_Service
               'parameters' => array(),
             ),'verifyPassword' => array(
               'path' => 'verifyPassword',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'verifyPhoneNumber' => array(
+              'path' => 'verifyPhoneNumber',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),

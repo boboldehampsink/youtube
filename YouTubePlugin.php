@@ -11,7 +11,7 @@ namespace Craft;
  * @copyright Copyright (c) 2015, Itmundi
  * @license   MIT
  *
- * @link      http://github.com/boboldehampsink
+ * @see      http://github.com/boboldehampsink
  */
 class YouTubePlugin extends BasePlugin
 {
@@ -32,7 +32,7 @@ class YouTubePlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return '0.7.2';
+        return '0.7.3';
     }
 
     /**
@@ -89,7 +89,6 @@ class YouTubePlugin extends BasePlugin
     public function getTaskManagerTableAttributeHtml(BaseElementModel $element, $attribute)
     {
         if ($attribute == 'user') {
-
             // Get user
             $user = craft()->users->getUserById($element->settings['user']);
 
@@ -133,11 +132,9 @@ class YouTubePlugin extends BasePlugin
         $provider = craft()->oauth->getProvider('google', false);
         if ($provider) {
             if ($provider->isConfigured()) {
-
                 // Get token
                 $token = craft()->youTube_oauth->getToken();
                 if ($token) {
-
                     // Get account
                     try {
                         $account = $provider->getAccount($token);

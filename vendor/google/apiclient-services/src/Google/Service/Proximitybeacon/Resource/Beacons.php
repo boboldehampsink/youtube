@@ -187,6 +187,13 @@ class Google_Service_Proximitybeacon_Resource_Beacons extends Google_Service_Res
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string projectId The project id to list beacons under. If not
+   * present then the project credential that made the request is used as the
+   * project. Optional.
+   * @opt_param string pageToken A pagination token obtained from a previous
+   * request to list beacons.
+   * @opt_param int pageSize The maximum number of records to return for this
+   * request, up to a server-defined upper limit.
    * @opt_param string q Filter query string that supports the following field
    * filters:
    *
@@ -241,13 +248,6 @@ class Google_Service_Proximitybeacon_Resource_Beacons extends Google_Service_Res
    *
    * Example REST request: `GET
    * /v1beta1/beacons?q=status:active%20lat:51.123%20lng:-1.095%20radius:1000`
-   * @opt_param int pageSize The maximum number of records to return for this
-   * request, up to a server-defined upper limit.
-   * @opt_param string projectId The project id to list beacons under. If not
-   * present then the project credential that made the request is used as the
-   * project. Optional.
-   * @opt_param string pageToken A pagination token obtained from a previous
-   * request to list beacons.
    * @return Google_Service_Proximitybeacon_ListBeaconsResponse
    */
   public function listBeacons($optParams = array())

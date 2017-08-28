@@ -26,10 +26,23 @@
 class Google_Service_Compute_Resource_Projects extends Google_Service_Resource
 {
   /**
-   * Disable this project as an XPN host project. (projects.disableXpnHost)
+   * Disable this project as a shared VPC host project. (projects.disableXpnHost)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function disableXpnHost($project, $optParams = array())
@@ -39,12 +52,25 @@ class Google_Service_Compute_Resource_Projects extends Google_Service_Resource
     return $this->call('disableXpnHost', array($params), "Google_Service_Compute_Operation");
   }
   /**
-   * Disable an XPN resource associated with this host project.
-   * (projects.disableXpnResource)
+   * Disable a serivce resource (a.k.a service project) associated with this host
+   * project. (projects.disableXpnResource)
    *
    * @param string $project Project ID for this request.
    * @param Google_Service_Compute_ProjectsDisableXpnResourceRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function disableXpnResource($project, Google_Service_Compute_ProjectsDisableXpnResourceRequest $postBody, $optParams = array())
@@ -54,10 +80,23 @@ class Google_Service_Compute_Resource_Projects extends Google_Service_Resource
     return $this->call('disableXpnResource', array($params), "Google_Service_Compute_Operation");
   }
   /**
-   * Enable this project as an XPN host project. (projects.enableXpnHost)
+   * Enable this project as a shared VPC host project. (projects.enableXpnHost)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function enableXpnHost($project, $optParams = array())
@@ -67,13 +106,26 @@ class Google_Service_Compute_Resource_Projects extends Google_Service_Resource
     return $this->call('enableXpnHost', array($params), "Google_Service_Compute_Operation");
   }
   /**
-   * Enable XPN resource (a.k.a service project or service folder in the future)
-   * for a host project, so that subnetworks in the host project can be used by
-   * instances in the service project or folder. (projects.enableXpnResource)
+   * Enable service resource (a.k.a service project) for a host project, so that
+   * subnets in the host project can be used by instances in the service project.
+   * (projects.enableXpnResource)
    *
    * @param string $project Project ID for this request.
    * @param Google_Service_Compute_ProjectsEnableXpnResourceRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function enableXpnResource($project, Google_Service_Compute_ProjectsEnableXpnResourceRequest $postBody, $optParams = array())
@@ -96,8 +148,8 @@ class Google_Service_Compute_Resource_Projects extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Compute_Project");
   }
   /**
-   * Get the XPN host project that this project links to. May be empty if no link
-   * exists. (projects.getXpnHost)
+   * Get the shared VPC host project that this project links to. May be empty if
+   * no link exists. (projects.getXpnHost)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
@@ -110,8 +162,8 @@ class Google_Service_Compute_Resource_Projects extends Google_Service_Resource
     return $this->call('getXpnHost', array($params), "Google_Service_Compute_Project");
   }
   /**
-   * Get XPN resources associated with this host project.
-   * (projects.getXpnResources)
+   * Get service resources (a.k.a service project) associated with this host
+   * project. (projects.getXpnResources)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
@@ -129,7 +181,7 @@ class Google_Service_Compute_Resource_Projects extends Google_Service_Resource
     return $this->call('getXpnResources', array($params), "Google_Service_Compute_ProjectsGetXpnResources");
   }
   /**
-   * List all XPN host projects visible to the user in an organization.
+   * List all shared VPC host projects visible to the user in an organization.
    * (projects.listXpnHosts)
    *
    * @param string $project Project ID for this request.
@@ -154,6 +206,19 @@ class Google_Service_Compute_Resource_Projects extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param Google_Service_Compute_DiskMoveRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function moveDisk($project, Google_Service_Compute_DiskMoveRequest $postBody, $optParams = array())
@@ -169,6 +234,19 @@ class Google_Service_Compute_Resource_Projects extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param Google_Service_Compute_InstanceMoveRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function moveInstance($project, Google_Service_Compute_InstanceMoveRequest $postBody, $optParams = array())
@@ -184,6 +262,19 @@ class Google_Service_Compute_Resource_Projects extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param Google_Service_Compute_Metadata $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function setCommonInstanceMetadata($project, Google_Service_Compute_Metadata $postBody, $optParams = array())
@@ -200,6 +291,19 @@ class Google_Service_Compute_Resource_Projects extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param Google_Service_Compute_UsageExportLocation $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function setUsageExportBucket($project, Google_Service_Compute_UsageExportLocation $postBody, $optParams = array())

@@ -19,6 +19,8 @@ class Google_Service_DLP_GooglePrivacyDlpV2beta1OutputStorageConfig extends Goog
 {
   protected $storagePathType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1CloudStoragePath';
   protected $storagePathDataType = '';
+  protected $tableType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1BigQueryTable';
+  protected $tableDataType = '';
 
   /**
    * @param Google_Service_DLP_GooglePrivacyDlpV2beta1CloudStoragePath
@@ -33,5 +35,19 @@ class Google_Service_DLP_GooglePrivacyDlpV2beta1OutputStorageConfig extends Goog
   public function getStoragePath()
   {
     return $this->storagePath;
+  }
+  /**
+   * @param Google_Service_DLP_GooglePrivacyDlpV2beta1BigQueryTable
+   */
+  public function setTable(Google_Service_DLP_GooglePrivacyDlpV2beta1BigQueryTable $table)
+  {
+    $this->table = $table;
+  }
+  /**
+   * @return Google_Service_DLP_GooglePrivacyDlpV2beta1BigQueryTable
+   */
+  public function getTable()
+  {
+    return $this->table;
   }
 }

@@ -31,7 +31,7 @@ class Google_Service_DLP_Resource_InspectResultsFindings extends Google_Service_
    *
    * @param string $name Identifier of the results set returned as metadata of the
    * longrunning operation created by a call to CreateInspectOperation. Should be
-   * in the format of `inspect/results/{id}.
+   * in the format of `inspect/results/{id}`.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string pageToken The value returned by the last

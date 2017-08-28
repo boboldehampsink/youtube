@@ -17,11 +17,27 @@
 
 class Google_Service_DLP_GooglePrivacyDlpV2beta1StorageConfig extends Google_Model
 {
+  protected $bigQueryOptionsType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1BigQueryOptions';
+  protected $bigQueryOptionsDataType = '';
   protected $cloudStorageOptionsType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1CloudStorageOptions';
   protected $cloudStorageOptionsDataType = '';
   protected $datastoreOptionsType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1DatastoreOptions';
   protected $datastoreOptionsDataType = '';
 
+  /**
+   * @param Google_Service_DLP_GooglePrivacyDlpV2beta1BigQueryOptions
+   */
+  public function setBigQueryOptions(Google_Service_DLP_GooglePrivacyDlpV2beta1BigQueryOptions $bigQueryOptions)
+  {
+    $this->bigQueryOptions = $bigQueryOptions;
+  }
+  /**
+   * @return Google_Service_DLP_GooglePrivacyDlpV2beta1BigQueryOptions
+   */
+  public function getBigQueryOptions()
+  {
+    return $this->bigQueryOptions;
+  }
   /**
    * @param Google_Service_DLP_GooglePrivacyDlpV2beta1CloudStorageOptions
    */

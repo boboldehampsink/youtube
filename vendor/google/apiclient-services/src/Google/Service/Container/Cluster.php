@@ -41,6 +41,8 @@ class Google_Service_Container_Cluster extends Google_Collection
   public $loggingService;
   protected $masterAuthType = 'Google_Service_Container_MasterAuth';
   protected $masterAuthDataType = '';
+  protected $masterAuthorizedNetworksConfigType = 'Google_Service_Container_MasterAuthorizedNetworksConfig';
+  protected $masterAuthorizedNetworksConfigDataType = '';
   public $monitoringService;
   public $name;
   public $network;
@@ -234,6 +236,20 @@ class Google_Service_Container_Cluster extends Google_Collection
   public function getMasterAuth()
   {
     return $this->masterAuth;
+  }
+  /**
+   * @param Google_Service_Container_MasterAuthorizedNetworksConfig
+   */
+  public function setMasterAuthorizedNetworksConfig(Google_Service_Container_MasterAuthorizedNetworksConfig $masterAuthorizedNetworksConfig)
+  {
+    $this->masterAuthorizedNetworksConfig = $masterAuthorizedNetworksConfig;
+  }
+  /**
+   * @return Google_Service_Container_MasterAuthorizedNetworksConfig
+   */
+  public function getMasterAuthorizedNetworksConfig()
+  {
+    return $this->masterAuthorizedNetworksConfig;
   }
   public function setMonitoringService($monitoringService)
   {

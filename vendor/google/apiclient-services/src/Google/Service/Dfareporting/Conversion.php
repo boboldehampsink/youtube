@@ -25,6 +25,7 @@ class Google_Service_Dfareporting_Conversion extends Google_Collection
   public $encryptedUserIdCandidates;
   public $floodlightActivityId;
   public $floodlightConfigurationId;
+  public $gclid;
   public $kind;
   public $limitAdTracking;
   public $mobileDeviceId;
@@ -86,6 +87,14 @@ class Google_Service_Dfareporting_Conversion extends Google_Collection
   public function getFloodlightConfigurationId()
   {
     return $this->floodlightConfigurationId;
+  }
+  public function setGclid($gclid)
+  {
+    $this->gclid = $gclid;
+  }
+  public function getGclid()
+  {
+    return $this->gclid;
   }
   public function setKind($kind)
   {

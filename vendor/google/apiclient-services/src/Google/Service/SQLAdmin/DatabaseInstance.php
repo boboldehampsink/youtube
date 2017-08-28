@@ -25,6 +25,7 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   public $etag;
   protected $failoverReplicaType = 'Google_Service_SQLAdmin_DatabaseInstanceFailoverReplica';
   protected $failoverReplicaDataType = '';
+  public $gceZone;
   public $instanceType;
   protected $ipAddressesType = 'Google_Service_SQLAdmin_IpMapping';
   protected $ipAddressesDataType = 'array';
@@ -102,6 +103,14 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   public function getFailoverReplica()
   {
     return $this->failoverReplica;
+  }
+  public function setGceZone($gceZone)
+  {
+    $this->gceZone = $gceZone;
+  }
+  public function getGceZone()
+  {
+    return $this->gceZone;
   }
   public function setInstanceType($instanceType)
   {

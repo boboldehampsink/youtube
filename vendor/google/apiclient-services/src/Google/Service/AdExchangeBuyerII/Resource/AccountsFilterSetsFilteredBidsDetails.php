@@ -35,17 +35,17 @@ class Google_Service_AdExchangeBuyerII_Resource_AccountsFilterSetsFilteredBidsDe
    * @param int $creativeStatusId The ID of the creative status for which to
    * retrieve a breakdown by detail. See [creative-status-
    * codes](https://developers.google.com/ad-exchange/rtb/downloads/creative-
-   * status-codes). Details are only available for statuses 14, 15, 17, 18, 19,
-   * 86, and 87.
+   * status-codes). Details are only available for statuses 10, 14, 15, 17, 18,
+   * 19, 86, and 87.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize Requested page size. The server may return fewer
+   * results than requested. If unspecified, the server will pick an appropriate
+   * default.
    * @opt_param string pageToken A token identifying a page of results the server
    * should return. Typically, this is the value of
    * ListCreativeStatusBreakdownByDetailResponse.nextPageToken returned from the
    * previous call to the accounts.filterSets.filteredBids.details.list method.
-   * @opt_param int pageSize Requested page size. The server may return fewer
-   * results than requested. If unspecified, the server will pick an appropriate
-   * default.
    * @return Google_Service_AdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse
    */
   public function listAccountsFilterSetsFilteredBidsDetails($accountId, $filterSetId, $creativeStatusId, $optParams = array())

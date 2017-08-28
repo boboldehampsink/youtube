@@ -39,6 +39,8 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public $skipLeadingRows;
   public $sourceFormat;
   public $sourceUris;
+  protected $timePartitioningType = 'Google_Service_Bigquery_TimePartitioning';
+  protected $timePartitioningDataType = '';
   public $writeDisposition;
 
   public function setAllowJaggedRows($allowJaggedRows)
@@ -204,6 +206,20 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public function getSourceUris()
   {
     return $this->sourceUris;
+  }
+  /**
+   * @param Google_Service_Bigquery_TimePartitioning
+   */
+  public function setTimePartitioning(Google_Service_Bigquery_TimePartitioning $timePartitioning)
+  {
+    $this->timePartitioning = $timePartitioning;
+  }
+  /**
+   * @return Google_Service_Bigquery_TimePartitioning
+   */
+  public function getTimePartitioning()
+  {
+    return $this->timePartitioning;
   }
   public function setWriteDisposition($writeDisposition)
   {

@@ -51,6 +51,30 @@ class Google_Service_Monitoring_Resource_ProjectsTimeSeries extends Google_Servi
    * is "projects/{project_id_or_number}".
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string aggregation.groupByFields The set of fields to preserve
+   * when crossSeriesReducer is specified. The groupByFields determine how the
+   * time series are partitioned into subsets prior to applying the aggregation
+   * function. Each subset contains time series that have the same value for each
+   * of the grouping fields. Each individual time series is a member of exactly
+   * one subset. The crossSeriesReducer is applied to each subset of time series.
+   * It is not possible to reduce across different resource types, so this field
+   * implicitly contains resource.type. Fields not specified in groupByFields are
+   * aggregated away. If groupByFields is not specified and all the time series
+   * have the same resource type, then the time series are aggregated into a
+   * single output time series. If crossSeriesReducer is not defined, this field
+   * is ignored.
+   * @opt_param string interval.endTime Required. The end of the time interval.
+   * @opt_param string aggregation.alignmentPeriod The alignment period for per-
+   * time series alignment. If present, alignmentPeriod must be at least 60
+   * seconds. After per-time series alignment, each time series will contain data
+   * points only on the period boundaries. If perSeriesAligner is not specified or
+   * equals ALIGN_NONE, then this field is ignored. If perSeriesAligner is
+   * specified and does not equal ALIGN_NONE, then this field must be defined;
+   * otherwise an error is returned.
+   * @opt_param int pageSize A positive number that is the maximum number of
+   * results to return. When view field sets to FULL, it limits the number of
+   * Points server will return; if view field is HEADERS, it limits the number of
+   * TimeSeries server will return.
    * @opt_param string orderBy Specifies the order in which the points of the time
    * series should be returned. By default, results are not ordered. Currently,
    * this field must be left blank.
@@ -84,30 +108,6 @@ class Google_Service_Monitoring_Resource_ProjectsTimeSeries extends Google_Servi
    * time must not be later than the end time.
    * @opt_param string view Specifies which information is returned about the time
    * series.
-   * @opt_param string aggregation.groupByFields The set of fields to preserve
-   * when crossSeriesReducer is specified. The groupByFields determine how the
-   * time series are partitioned into subsets prior to applying the aggregation
-   * function. Each subset contains time series that have the same value for each
-   * of the grouping fields. Each individual time series is a member of exactly
-   * one subset. The crossSeriesReducer is applied to each subset of time series.
-   * It is not possible to reduce across different resource types, so this field
-   * implicitly contains resource.type. Fields not specified in groupByFields are
-   * aggregated away. If groupByFields is not specified and all the time series
-   * have the same resource type, then the time series are aggregated into a
-   * single output time series. If crossSeriesReducer is not defined, this field
-   * is ignored.
-   * @opt_param string interval.endTime Required. The end of the time interval.
-   * @opt_param string aggregation.alignmentPeriod The alignment period for per-
-   * time series alignment. If present, alignmentPeriod must be at least 60
-   * seconds. After per-time series alignment, each time series will contain data
-   * points only on the period boundaries. If perSeriesAligner is not specified or
-   * equals ALIGN_NONE, then this field is ignored. If perSeriesAligner is
-   * specified and does not equal ALIGN_NONE, then this field must be defined;
-   * otherwise an error is returned.
-   * @opt_param int pageSize A positive number that is the maximum number of
-   * results to return. When view field sets to FULL, it limits the number of
-   * Points server will return; if view field is HEADERS, it limits the number of
-   * TimeSeries server will return.
    * @return Google_Service_Monitoring_ListTimeSeriesResponse
    */
   public function listProjectsTimeSeries($name, $optParams = array())

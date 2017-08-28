@@ -18,6 +18,7 @@
 class Google_Service_ServiceUser_AuthProvider extends Google_Model
 {
   public $audiences;
+  public $authorizationUrl;
   public $id;
   public $issuer;
   public $jwksUri;
@@ -29,6 +30,14 @@ class Google_Service_ServiceUser_AuthProvider extends Google_Model
   public function getAudiences()
   {
     return $this->audiences;
+  }
+  public function setAuthorizationUrl($authorizationUrl)
+  {
+    $this->authorizationUrl = $authorizationUrl;
+  }
+  public function getAuthorizationUrl()
+  {
+    return $this->authorizationUrl;
   }
   public function setId($id)
   {

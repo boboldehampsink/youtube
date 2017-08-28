@@ -40,7 +40,8 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * @opt_param string destinationPredefinedAcl Apply a predefined set of access
    * controls to the destination object.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
-   * whether the object's current generation matches the given value.
+   * whether the object's current generation matches the given value. Setting to 0
+   * makes the operation succeed only if there are no live versions of the object.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
    * @opt_param string kmsKeyName Resource name of the Cloud KMS key, of the form
@@ -79,9 +80,12 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * controls to the destination object.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
    * whether the destination object's current generation matches the given value.
+   * Setting to 0 makes the operation succeed only if there are no live versions
+   * of the object.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
    * whether the destination object's current generation does not match the given
-   * value.
+   * value. If no live object exists, the precondition fails. Setting to 0 makes
+   * the operation succeed only if there is a live version of the object.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the destination object's current metageneration matches the given
    * value.
@@ -89,9 +93,10 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * whether the destination object's current metageneration does not match the
    * given value.
    * @opt_param string ifSourceGenerationMatch Makes the operation conditional on
-   * whether the source object's generation matches the given value.
+   * whether the source object's current generation matches the given value.
    * @opt_param string ifSourceGenerationNotMatch Makes the operation conditional
-   * on whether the source object's generation does not match the given value.
+   * on whether the source object's current generation does not match the given
+   * value.
    * @opt_param string ifSourceMetagenerationMatch Makes the operation conditional
    * on whether the source object's current metageneration matches the given
    * value.
@@ -126,9 +131,12 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * @opt_param string generation If present, permanently deletes a specific
    * revision of this object (as opposed to the latest version, the default).
    * @opt_param string ifGenerationMatch Makes the operation conditional on
-   * whether the object's current generation matches the given value.
+   * whether the object's current generation matches the given value. Setting to 0
+   * makes the operation succeed only if there are no live versions of the object.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
-   * whether the object's current generation does not match the given value.
+   * whether the object's current generation does not match the given value. If no
+   * live object exists, the precondition fails. Setting to 0 makes the operation
+   * succeed only if there is a live version of the object.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
    * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
@@ -153,9 +161,12 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * @opt_param string generation If present, selects a specific revision of this
    * object (as opposed to the latest version, the default).
    * @opt_param string ifGenerationMatch Makes the operation conditional on
-   * whether the object's generation matches the given value.
+   * whether the object's current generation matches the given value. Setting to 0
+   * makes the operation succeed only if there are no live versions of the object.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
-   * whether the object's generation does not match the given value.
+   * whether the object's current generation does not match the given value. If no
+   * live object exists, the precondition fails. Setting to 0 makes the operation
+   * succeed only if there is a live version of the object.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
    * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
@@ -205,9 +216,12 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * uploading an object with uploadType=media to indicate the encoding of the
    * content being uploaded.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
-   * whether the object's current generation matches the given value.
+   * whether the object's current generation matches the given value. Setting to 0
+   * makes the operation succeed only if there are no live versions of the object.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
-   * whether the object's current generation does not match the given value.
+   * whether the object's current generation does not match the given value. If no
+   * live object exists, the precondition fails. Setting to 0 makes the operation
+   * succeed only if there is a live version of the object.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
    * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
@@ -280,9 +294,12 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * @opt_param string generation If present, selects a specific revision of this
    * object (as opposed to the latest version, the default).
    * @opt_param string ifGenerationMatch Makes the operation conditional on
-   * whether the object's current generation matches the given value.
+   * whether the object's current generation matches the given value. Setting to 0
+   * makes the operation succeed only if there are no live versions of the object.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
-   * whether the object's current generation does not match the given value.
+   * whether the object's current generation does not match the given value. If no
+   * live object exists, the precondition fails. Setting to 0 makes the operation
+   * succeed only if there is a live version of the object.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
    * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
@@ -324,10 +341,12 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * @opt_param string destinationPredefinedAcl Apply a predefined set of access
    * controls to the destination object.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
-   * whether the destination object's current generation matches the given value.
+   * whether the object's current generation matches the given value. Setting to 0
+   * makes the operation succeed only if there are no live versions of the object.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
-   * whether the destination object's current generation does not match the given
-   * value.
+   * whether the object's current generation does not match the given value. If no
+   * live object exists, the precondition fails. Setting to 0 makes the operation
+   * succeed only if there is a live version of the object.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the destination object's current metageneration matches the given
    * value.
@@ -335,9 +354,10 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * whether the destination object's current metageneration does not match the
    * given value.
    * @opt_param string ifSourceGenerationMatch Makes the operation conditional on
-   * whether the source object's generation matches the given value.
+   * whether the source object's current generation matches the given value.
    * @opt_param string ifSourceGenerationNotMatch Makes the operation conditional
-   * on whether the source object's generation does not match the given value.
+   * on whether the source object's current generation does not match the given
+   * value.
    * @opt_param string ifSourceMetagenerationMatch Makes the operation conditional
    * on whether the source object's current metageneration matches the given
    * value.
@@ -426,9 +446,12 @@ class Google_Service_Storage_Resource_Objects extends Google_Service_Resource
    * @opt_param string generation If present, selects a specific revision of this
    * object (as opposed to the latest version, the default).
    * @opt_param string ifGenerationMatch Makes the operation conditional on
-   * whether the object's current generation matches the given value.
+   * whether the object's current generation matches the given value. Setting to 0
+   * makes the operation succeed only if there are no live versions of the object.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
-   * whether the object's current generation does not match the given value.
+   * whether the object's current generation does not match the given value. If no
+   * live object exists, the precondition fails. Setting to 0 makes the operation
+   * succeed only if there is a live version of the object.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
    * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on

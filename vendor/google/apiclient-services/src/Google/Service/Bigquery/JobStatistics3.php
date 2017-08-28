@@ -17,11 +17,20 @@
 
 class Google_Service_Bigquery_JobStatistics3 extends Google_Model
 {
+  public $badRecords;
   public $inputFileBytes;
   public $inputFiles;
   public $outputBytes;
   public $outputRows;
 
+  public function setBadRecords($badRecords)
+  {
+    $this->badRecords = $badRecords;
+  }
+  public function getBadRecords()
+  {
+    return $this->badRecords;
+  }
   public function setInputFileBytes($inputFileBytes)
   {
     $this->inputFileBytes = $inputFileBytes;

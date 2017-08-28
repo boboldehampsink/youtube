@@ -26,7 +26,7 @@
 class Google_Service_Storage_Resource_ProjectsServiceAccount extends Google_Service_Resource
 {
   /**
-   * Get the email address of this project's GCS service account.
+   * Get the email address of this project's Google Cloud Storage service account.
    * (serviceAccount.get)
    *
    * @param string $projectId Project ID

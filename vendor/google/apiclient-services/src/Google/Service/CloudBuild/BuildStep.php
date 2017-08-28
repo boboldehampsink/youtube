@@ -24,6 +24,9 @@ class Google_Service_CloudBuild_BuildStep extends Google_Collection
   public $env;
   public $id;
   public $name;
+  public $secretEnv;
+  protected $volumesType = 'Google_Service_CloudBuild_Volume';
+  protected $volumesDataType = 'array';
   public $waitFor;
 
   public function setArgs($args)
@@ -73,6 +76,28 @@ class Google_Service_CloudBuild_BuildStep extends Google_Collection
   public function getName()
   {
     return $this->name;
+  }
+  public function setSecretEnv($secretEnv)
+  {
+    $this->secretEnv = $secretEnv;
+  }
+  public function getSecretEnv()
+  {
+    return $this->secretEnv;
+  }
+  /**
+   * @param Google_Service_CloudBuild_Volume
+   */
+  public function setVolumes($volumes)
+  {
+    $this->volumes = $volumes;
+  }
+  /**
+   * @return Google_Service_CloudBuild_Volume
+   */
+  public function getVolumes()
+  {
+    return $this->volumes;
   }
   public function setWaitFor($waitFor)
   {

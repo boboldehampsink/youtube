@@ -18,8 +18,8 @@
 class Google_Service_AdExperienceReport_PlatformSummary extends Google_Collection
 {
   protected $collection_key = 'region';
+  public $abusiveStatus;
   public $betterAdsStatus;
-  public $egregiousStatus;
   public $enforcementTime;
   public $filterStatus;
   public $lastChangeTime;
@@ -27,6 +27,14 @@ class Google_Service_AdExperienceReport_PlatformSummary extends Google_Collectio
   public $reportUrl;
   public $underReview;
 
+  public function setAbusiveStatus($abusiveStatus)
+  {
+    $this->abusiveStatus = $abusiveStatus;
+  }
+  public function getAbusiveStatus()
+  {
+    return $this->abusiveStatus;
+  }
   public function setBetterAdsStatus($betterAdsStatus)
   {
     $this->betterAdsStatus = $betterAdsStatus;
@@ -34,14 +42,6 @@ class Google_Service_AdExperienceReport_PlatformSummary extends Google_Collectio
   public function getBetterAdsStatus()
   {
     return $this->betterAdsStatus;
-  }
-  public function setEgregiousStatus($egregiousStatus)
-  {
-    $this->egregiousStatus = $egregiousStatus;
-  }
-  public function getEgregiousStatus()
-  {
-    return $this->egregiousStatus;
   }
   public function setEnforcementTime($enforcementTime)
   {

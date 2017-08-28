@@ -19,6 +19,8 @@ class Google_Service_ShoppingContent_AccountStatus extends Google_Collection
 {
   protected $collection_key = 'dataQualityIssues';
   public $accountId;
+  protected $accountLevelIssuesType = 'Google_Service_ShoppingContent_AccountStatusAccountLevelIssue';
+  protected $accountLevelIssuesDataType = 'array';
   protected $dataQualityIssuesType = 'Google_Service_ShoppingContent_AccountStatusDataQualityIssue';
   protected $dataQualityIssuesDataType = 'array';
   public $kind;
@@ -31,6 +33,20 @@ class Google_Service_ShoppingContent_AccountStatus extends Google_Collection
   public function getAccountId()
   {
     return $this->accountId;
+  }
+  /**
+   * @param Google_Service_ShoppingContent_AccountStatusAccountLevelIssue
+   */
+  public function setAccountLevelIssues($accountLevelIssues)
+  {
+    $this->accountLevelIssues = $accountLevelIssues;
+  }
+  /**
+   * @return Google_Service_ShoppingContent_AccountStatusAccountLevelIssue
+   */
+  public function getAccountLevelIssues()
+  {
+    return $this->accountLevelIssues;
   }
   /**
    * @param Google_Service_ShoppingContent_AccountStatusDataQualityIssue

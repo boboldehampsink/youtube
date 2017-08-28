@@ -20,6 +20,8 @@ class Google_Service_DLP_GooglePrivacyDlpV2beta1InspectConfig extends Google_Col
   protected $collection_key = 'infoTypes';
   public $excludeTypes;
   public $includeQuote;
+  protected $infoTypeLimitsType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1InfoTypeLimit';
+  protected $infoTypeLimitsDataType = 'array';
   protected $infoTypesType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1InfoType';
   protected $infoTypesDataType = 'array';
   public $maxFindings;
@@ -40,6 +42,20 @@ class Google_Service_DLP_GooglePrivacyDlpV2beta1InspectConfig extends Google_Col
   public function getIncludeQuote()
   {
     return $this->includeQuote;
+  }
+  /**
+   * @param Google_Service_DLP_GooglePrivacyDlpV2beta1InfoTypeLimit
+   */
+  public function setInfoTypeLimits($infoTypeLimits)
+  {
+    $this->infoTypeLimits = $infoTypeLimits;
+  }
+  /**
+   * @return Google_Service_DLP_GooglePrivacyDlpV2beta1InfoTypeLimit
+   */
+  public function getInfoTypeLimits()
+  {
+    return $this->infoTypeLimits;
   }
   /**
    * @param Google_Service_DLP_GooglePrivacyDlpV2beta1InfoType

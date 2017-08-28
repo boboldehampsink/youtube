@@ -119,12 +119,44 @@ class Google_Service_Logging_Resource_OrganizationsSinks extends Google_Service_
     return $this->call('list', array($params), "Google_Service_Logging_ListSinksResponse");
   }
   /**
-   * Updates a sink. If the named sink doesn't exist, then this method is
-   * identical to sinks.create. If the named sink does exist, then this method
-   * replaces the following fields in the existing sink with values from the new
-   * sink: destination, filter, output_version_format, start_time, and end_time.
-   * The updated filter might also have a new writer_identity; see the
-   * unique_writer_identity field. (sinks.update)
+   * Updates a sink. This method replaces the following fields in the existing
+   * sink with values from the new sink: destination, filter,
+   * output_version_format, start_time, and end_time. The updated sink might also
+   * have a new writer_identity; see the unique_writer_identity field.
+   * (sinks.patch)
+   *
+   * @param string $sinkName Required. The full resource name of the sink to
+   * update, including the parent resource and the sink identifier:
+   * "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+   * "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
+   * "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
+   * "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example: "projects/my-project-id/sinks
+   * /my-sink-id".
+   * @param Google_Service_Logging_LogSink $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool uniqueWriterIdentity Optional. See sinks.create for a
+   * description of this field. When updating a sink, the effect of this field on
+   * the value of writer_identity in the updated sink depends on both the old and
+   * new values of this field: If the old and new values of this field are both
+   * false or both true, then there is no change to the sink's writer_identity. If
+   * the old value is false and the new value is true, then writer_identity is
+   * changed to a unique service account. It is an error if the old value is true
+   * and the new value is set to false or defaulted to false.
+   * @return Google_Service_Logging_LogSink
+   */
+  public function patch($sinkName, Google_Service_Logging_LogSink $postBody, $optParams = array())
+  {
+    $params = array('sinkName' => $sinkName, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_Logging_LogSink");
+  }
+  /**
+   * Updates a sink. This method replaces the following fields in the existing
+   * sink with values from the new sink: destination, filter,
+   * output_version_format, start_time, and end_time. The updated sink might also
+   * have a new writer_identity; see the unique_writer_identity field.
+   * (sinks.update)
    *
    * @param string $sinkName Required. The full resource name of the sink to
    * update, including the parent resource and the sink identifier:

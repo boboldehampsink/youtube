@@ -199,15 +199,6 @@ class Google_Service_CloudResourceManager_Resource_Projects extends Google_Servi
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken A pagination token returned from a previous call
-   * to ListProjects that indicates from where listing should continue.
-   *
-   * Optional.
-   * @opt_param int pageSize The maximum number of Projects to return in the
-   * response. The server can return fewer Projects than requested. If
-   * unspecified, server picks an appropriate default.
-   *
-   * Optional.
    * @opt_param string filter An expression for filtering the results of the
    * request.  Filter rules are case insensitive. The fields eligible for
    * filtering are:
@@ -232,6 +223,15 @@ class Google_Service_CloudResourceManager_Resource_Projects extends Google_Servi
    * permission will be returned after remaining filters have been applied. If no
    * filter is specified, the call will return projects for which the user has
    * `resourcemanager.projects.get` permissions.
+   *
+   * Optional.
+   * @opt_param string pageToken A pagination token returned from a previous call
+   * to ListProjects that indicates from where listing should continue.
+   *
+   * Optional.
+   * @opt_param int pageSize The maximum number of Projects to return in the
+   * response. The server can return fewer Projects than requested. If
+   * unspecified, server picks an appropriate default.
    *
    * Optional.
    * @return Google_Service_CloudResourceManager_ListProjectsResponse

@@ -22,6 +22,8 @@ class Google_Service_Container_ClusterUpdate extends Google_Collection
   protected $desiredAddonsConfigDataType = '';
   public $desiredImageType;
   public $desiredLocations;
+  protected $desiredMasterAuthorizedNetworksConfigType = 'Google_Service_Container_MasterAuthorizedNetworksConfig';
+  protected $desiredMasterAuthorizedNetworksConfigDataType = '';
   public $desiredMasterVersion;
   public $desiredMonitoringService;
   protected $desiredNodePoolAutoscalingType = 'Google_Service_Container_NodePoolAutoscaling';
@@ -58,6 +60,20 @@ class Google_Service_Container_ClusterUpdate extends Google_Collection
   public function getDesiredLocations()
   {
     return $this->desiredLocations;
+  }
+  /**
+   * @param Google_Service_Container_MasterAuthorizedNetworksConfig
+   */
+  public function setDesiredMasterAuthorizedNetworksConfig(Google_Service_Container_MasterAuthorizedNetworksConfig $desiredMasterAuthorizedNetworksConfig)
+  {
+    $this->desiredMasterAuthorizedNetworksConfig = $desiredMasterAuthorizedNetworksConfig;
+  }
+  /**
+   * @return Google_Service_Container_MasterAuthorizedNetworksConfig
+   */
+  public function getDesiredMasterAuthorizedNetworksConfig()
+  {
+    return $this->desiredMasterAuthorizedNetworksConfig;
   }
   public function setDesiredMasterVersion($desiredMasterVersion)
   {

@@ -28,6 +28,8 @@ class Google_Service_DLP_GooglePrivacyDlpV2beta1Location extends Google_Collecti
   protected $imageBoxesDataType = 'array';
   protected $recordKeyType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1RecordKey';
   protected $recordKeyDataType = '';
+  protected $tableLocationType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1TableLocation';
+  protected $tableLocationDataType = '';
 
   /**
    * @param Google_Service_DLP_GooglePrivacyDlpV2beta1Range
@@ -98,5 +100,19 @@ class Google_Service_DLP_GooglePrivacyDlpV2beta1Location extends Google_Collecti
   public function getRecordKey()
   {
     return $this->recordKey;
+  }
+  /**
+   * @param Google_Service_DLP_GooglePrivacyDlpV2beta1TableLocation
+   */
+  public function setTableLocation(Google_Service_DLP_GooglePrivacyDlpV2beta1TableLocation $tableLocation)
+  {
+    $this->tableLocation = $tableLocation;
+  }
+  /**
+   * @return Google_Service_DLP_GooglePrivacyDlpV2beta1TableLocation
+   */
+  public function getTableLocation()
+  {
+    return $this->tableLocation;
   }
 }

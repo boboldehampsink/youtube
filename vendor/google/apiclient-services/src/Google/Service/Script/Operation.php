@@ -21,7 +21,6 @@ class Google_Service_Script_Operation extends Google_Model
   protected $errorType = 'Google_Service_Script_Status';
   protected $errorDataType = '';
   public $metadata;
-  public $name;
   public $response;
 
   public function setDone($done)
@@ -53,14 +52,6 @@ class Google_Service_Script_Operation extends Google_Model
   public function getMetadata()
   {
     return $this->metadata;
-  }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-  public function getName()
-  {
-    return $this->name;
   }
   public function setResponse($response)
   {

@@ -19,6 +19,7 @@ class Google_Service_IdentityToolkit_UserInfo extends Google_Collection
 {
   protected $collection_key = 'providerUserInfo';
   public $createdAt;
+  public $customAttributes;
   public $customAuth;
   public $disabled;
   public $displayName;
@@ -45,6 +46,14 @@ class Google_Service_IdentityToolkit_UserInfo extends Google_Collection
   public function getCreatedAt()
   {
     return $this->createdAt;
+  }
+  public function setCustomAttributes($customAttributes)
+  {
+    $this->customAttributes = $customAttributes;
+  }
+  public function getCustomAttributes()
+  {
+    return $this->customAttributes;
   }
   public function setCustomAuth($customAuth)
   {

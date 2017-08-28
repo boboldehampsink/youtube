@@ -44,8 +44,8 @@ class Google_Service_ShoppingContent_Resource_Shippingsettings extends Google_Se
   /**
    * Retrieves the shipping settings of the account. This method can only be
    * called for accounts to which the managing account has access: either the
-   * managing account itself or sub-accounts if the managing account is a multi-
-   * client account. (shippingsettings.get)
+   * managing account itself for any Merchant Center account, or any sub-account
+   * when the managing account is a multi-client account. (shippingsettings.get)
    *
    * @param string $merchantId The ID of the managing account.
    * @param string $accountId The ID of the account for which to get/update
@@ -96,8 +96,9 @@ class Google_Service_ShoppingContent_Resource_Shippingsettings extends Google_Se
   /**
    * Updates the shipping settings of the account. This method can only be called
    * for accounts to which the managing account has access: either the managing
-   * account itself or sub-accounts if the managing account is a multi-client
-   * account. This method supports patch semantics. (shippingsettings.patch)
+   * account itself for any Merchant Center account, or any sub-account when the
+   * managing account is a multi-client account. This method supports patch
+   * semantics. (shippingsettings.patch)
    *
    * @param string $merchantId The ID of the managing account.
    * @param string $accountId The ID of the account for which to get/update
@@ -117,8 +118,8 @@ class Google_Service_ShoppingContent_Resource_Shippingsettings extends Google_Se
   /**
    * Updates the shipping settings of the account. This method can only be called
    * for accounts to which the managing account has access: either the managing
-   * account itself or sub-accounts if the managing account is a multi-client
-   * account. (shippingsettings.update)
+   * account itself for any Merchant Center account, or any sub-account when the
+   * managing account is a multi-client account. (shippingsettings.update)
    *
    * @param string $merchantId The ID of the managing account.
    * @param string $accountId The ID of the account for which to get/update

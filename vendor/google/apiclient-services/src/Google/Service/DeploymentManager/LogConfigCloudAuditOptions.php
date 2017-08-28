@@ -17,8 +17,24 @@
 
 class Google_Service_DeploymentManager_LogConfigCloudAuditOptions extends Google_Model
 {
+  protected $authorizationLoggingOptionsType = 'Google_Service_DeploymentManager_AuthorizationLoggingOptions';
+  protected $authorizationLoggingOptionsDataType = '';
   public $logName;
 
+  /**
+   * @param Google_Service_DeploymentManager_AuthorizationLoggingOptions
+   */
+  public function setAuthorizationLoggingOptions(Google_Service_DeploymentManager_AuthorizationLoggingOptions $authorizationLoggingOptions)
+  {
+    $this->authorizationLoggingOptions = $authorizationLoggingOptions;
+  }
+  /**
+   * @return Google_Service_DeploymentManager_AuthorizationLoggingOptions
+   */
+  public function getAuthorizationLoggingOptions()
+  {
+    return $this->authorizationLoggingOptions;
+  }
   public function setLogName($logName)
   {
     $this->logName = $logName;

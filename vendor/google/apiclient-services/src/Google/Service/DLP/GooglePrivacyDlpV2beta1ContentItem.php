@@ -18,6 +18,8 @@
 class Google_Service_DLP_GooglePrivacyDlpV2beta1ContentItem extends Google_Model
 {
   public $data;
+  protected $tableType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1Table';
+  protected $tableDataType = '';
   public $type;
   public $value;
 
@@ -28,6 +30,20 @@ class Google_Service_DLP_GooglePrivacyDlpV2beta1ContentItem extends Google_Model
   public function getData()
   {
     return $this->data;
+  }
+  /**
+   * @param Google_Service_DLP_GooglePrivacyDlpV2beta1Table
+   */
+  public function setTable(Google_Service_DLP_GooglePrivacyDlpV2beta1Table $table)
+  {
+    $this->table = $table;
+  }
+  /**
+   * @return Google_Service_DLP_GooglePrivacyDlpV2beta1Table
+   */
+  public function getTable()
+  {
+    return $this->table;
   }
   public function setType($type)
   {

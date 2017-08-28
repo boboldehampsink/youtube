@@ -17,4 +17,14 @@
 
 class Google_Service_CloudMachineLearningEngine_GoogleIamV1LogConfigDataAccessOptions extends Google_Model
 {
+  public $logMode;
+
+  public function setLogMode($logMode)
+  {
+    $this->logMode = $logMode;
+  }
+  public function getLogMode()
+  {
+    return $this->logMode;
+  }
 }

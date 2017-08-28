@@ -21,6 +21,8 @@ class Google_Service_DeploymentManager_LogConfig extends Google_Model
   protected $cloudAuditDataType = '';
   protected $counterType = 'Google_Service_DeploymentManager_LogConfigCounterOptions';
   protected $counterDataType = '';
+  protected $dataAccessType = 'Google_Service_DeploymentManager_LogConfigDataAccessOptions';
+  protected $dataAccessDataType = '';
 
   /**
    * @param Google_Service_DeploymentManager_LogConfigCloudAuditOptions
@@ -49,5 +51,19 @@ class Google_Service_DeploymentManager_LogConfig extends Google_Model
   public function getCounter()
   {
     return $this->counter;
+  }
+  /**
+   * @param Google_Service_DeploymentManager_LogConfigDataAccessOptions
+   */
+  public function setDataAccess(Google_Service_DeploymentManager_LogConfigDataAccessOptions $dataAccess)
+  {
+    $this->dataAccess = $dataAccess;
+  }
+  /**
+   * @return Google_Service_DeploymentManager_LogConfigDataAccessOptions
+   */
+  public function getDataAccess()
+  {
+    return $this->dataAccess;
   }
 }

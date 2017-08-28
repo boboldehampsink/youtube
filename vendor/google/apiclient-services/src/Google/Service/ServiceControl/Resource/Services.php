@@ -64,7 +64,7 @@ class Google_Service_ServiceControl_Resource_Services extends Google_Service_Res
    * seconds. In case of server errors, the client can rely on the cached results
    * for longer time.
    *
-   * NOTE: the `CheckRequest` has the size limit of 64KB.
+   * NOTE: the CheckRequest has the size limit of 64KB.
    *
    * This method requires the `servicemanagement.services.check` permission on the
    * specified service. For more information, see [Google Cloud
@@ -73,7 +73,9 @@ class Google_Service_ServiceControl_Resource_Services extends Google_Service_Res
    * @param string $serviceName The service name as specified in its service
    * configuration. For example, `"pubsub.googleapis.com"`.
    *
-   * See google.api.Service for the definition of a service name.
+   * See [google.api.Service](https://cloud.google.com/service-
+   * management/reference/rpc/google.api#google.api.Service) for the definition of
+   * a service name.
    * @param Google_Service_ServiceControl_CheckRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_ServiceControl_CheckResponse
@@ -145,7 +147,7 @@ class Google_Service_ServiceControl_Resource_Services extends Google_Service_Res
    * time window to avoid data loss risk more than 0.01% for business and
    * compliance reasons.
    *
-   * NOTE: the `ReportRequest` has the size limit of 1MB.
+   * NOTE: the ReportRequest has the size limit of 1MB.
    *
    * This method requires the `servicemanagement.services.report` permission on
    * the specified service. For more information, see [Google Cloud
@@ -154,7 +156,9 @@ class Google_Service_ServiceControl_Resource_Services extends Google_Service_Res
    * @param string $serviceName The service name as specified in its service
    * configuration. For example, `"pubsub.googleapis.com"`.
    *
-   * See google.api.Service for the definition of a service name.
+   * See [google.api.Service](https://cloud.google.com/service-
+   * management/reference/rpc/google.api#google.api.Service) for the definition of
+   * a service name.
    * @param Google_Service_ServiceControl_ReportRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_ServiceControl_ReportResponse

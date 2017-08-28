@@ -19,6 +19,8 @@ class Google_Service_DLP_GooglePrivacyDlpV2beta1CreateInspectOperationRequest ex
 {
   protected $inspectConfigType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1InspectConfig';
   protected $inspectConfigDataType = '';
+  protected $operationConfigType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1OperationConfig';
+  protected $operationConfigDataType = '';
   protected $outputConfigType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1OutputStorageConfig';
   protected $outputConfigDataType = '';
   protected $storageConfigType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1StorageConfig';
@@ -37,6 +39,20 @@ class Google_Service_DLP_GooglePrivacyDlpV2beta1CreateInspectOperationRequest ex
   public function getInspectConfig()
   {
     return $this->inspectConfig;
+  }
+  /**
+   * @param Google_Service_DLP_GooglePrivacyDlpV2beta1OperationConfig
+   */
+  public function setOperationConfig(Google_Service_DLP_GooglePrivacyDlpV2beta1OperationConfig $operationConfig)
+  {
+    $this->operationConfig = $operationConfig;
+  }
+  /**
+   * @return Google_Service_DLP_GooglePrivacyDlpV2beta1OperationConfig
+   */
+  public function getOperationConfig()
+  {
+    return $this->operationConfig;
   }
   /**
    * @param Google_Service_DLP_GooglePrivacyDlpV2beta1OutputStorageConfig

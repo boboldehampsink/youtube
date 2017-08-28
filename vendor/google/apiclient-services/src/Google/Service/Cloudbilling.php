@@ -38,6 +38,8 @@ class Google_Service_Cloudbilling extends Google_Service
   public $billingAccounts;
   public $billingAccounts_projects;
   public $projects;
+  public $services;
+  public $services_skus;
   
   /**
    * Constructs the internal representation of the Cloudbilling service.
@@ -137,6 +139,69 @@ class Google_Service_Cloudbilling extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->services = new Google_Service_Cloudbilling_Resource_Services(
+        $this,
+        $this->serviceName,
+        'services',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'v1/services',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->services_skus = new Google_Service_Cloudbilling_Resource_ServicesSkus(
+        $this,
+        $this->serviceName,
+        'skus',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'v1/{+parent}/skus',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'currencyCode' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'endTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'startTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),

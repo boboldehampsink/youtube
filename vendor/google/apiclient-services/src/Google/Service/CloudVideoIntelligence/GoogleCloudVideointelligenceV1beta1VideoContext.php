@@ -20,9 +20,11 @@ class Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1V
   protected $collection_key = 'segments';
   public $labelDetectionMode;
   public $labelDetectionModel;
+  public $safeSearchDetectionModel;
   protected $segmentsType = 'Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoSegment';
   protected $segmentsDataType = 'array';
   public $shotChangeDetectionModel;
+  public $stationaryCamera;
 
   public function setLabelDetectionMode($labelDetectionMode)
   {
@@ -39,6 +41,14 @@ class Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1V
   public function getLabelDetectionModel()
   {
     return $this->labelDetectionModel;
+  }
+  public function setSafeSearchDetectionModel($safeSearchDetectionModel)
+  {
+    $this->safeSearchDetectionModel = $safeSearchDetectionModel;
+  }
+  public function getSafeSearchDetectionModel()
+  {
+    return $this->safeSearchDetectionModel;
   }
   /**
    * @param Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoSegment
@@ -61,5 +71,13 @@ class Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1V
   public function getShotChangeDetectionModel()
   {
     return $this->shotChangeDetectionModel;
+  }
+  public function setStationaryCamera($stationaryCamera)
+  {
+    $this->stationaryCamera = $stationaryCamera;
+  }
+  public function getStationaryCamera()
+  {
+    return $this->stationaryCamera;
   }
 }

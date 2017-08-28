@@ -17,17 +17,8 @@
 
 class Google_Service_ServiceManagement_CloudAuditOptions extends Google_Model
 {
-  public $isReadPermissionType;
   public $logName;
 
-  public function setIsReadPermissionType($isReadPermissionType)
-  {
-    $this->isReadPermissionType = $isReadPermissionType;
-  }
-  public function getIsReadPermissionType()
-  {
-    return $this->isReadPermissionType;
-  }
   public function setLogName($logName)
   {
     $this->logName = $logName;

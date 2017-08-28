@@ -19,6 +19,7 @@ class Google_Service_Sheets_CandlestickDomain extends Google_Model
 {
   protected $dataType = 'Google_Service_Sheets_ChartData';
   protected $dataDataType = '';
+  public $reversed;
 
   /**
    * @param Google_Service_Sheets_ChartData
@@ -33,5 +34,13 @@ class Google_Service_Sheets_CandlestickDomain extends Google_Model
   public function getData()
   {
     return $this->data;
+  }
+  public function setReversed($reversed)
+  {
+    $this->reversed = $reversed;
+  }
+  public function getReversed()
+  {
+    return $this->reversed;
   }
 }

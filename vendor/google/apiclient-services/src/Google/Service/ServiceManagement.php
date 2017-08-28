@@ -191,6 +191,10 @@ class Google_Service_ServiceManagement extends Google_Service
               'path' => 'v1/services',
               'httpMethod' => 'GET',
               'parameters' => array(
+                'consumerId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -200,10 +204,6 @@ class Google_Service_ServiceManagement extends Google_Service
                   'type' => 'integer',
                 ),
                 'producerProjectId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'consumerId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -286,13 +286,13 @@ class Google_Service_ServiceManagement extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'submit' => array(

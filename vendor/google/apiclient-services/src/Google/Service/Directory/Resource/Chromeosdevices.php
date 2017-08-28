@@ -82,6 +82,22 @@ class Google_Service_Directory_Resource_Chromeosdevices extends Google_Service_R
     return $this->call('list', array($params), "Google_Service_Directory_ChromeOsDevices");
   }
   /**
+   * Move or insert multiple Chrome OS Devices to Organization Unit
+   * (chromeosdevices.moveDevicesToOu)
+   *
+   * @param string $customerId Immutable ID of the G Suite account
+   * @param string $orgUnitPath Full path of the target organization unit or its
+   * Id
+   * @param Google_Service_Directory_ChromeOsMoveDevicesToOu $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function moveDevicesToOu($customerId, $orgUnitPath, Google_Service_Directory_ChromeOsMoveDevicesToOu $postBody, $optParams = array())
+  {
+    $params = array('customerId' => $customerId, 'orgUnitPath' => $orgUnitPath, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('moveDevicesToOu', array($params));
+  }
+  /**
    * Update Chrome OS Device. This method supports patch semantics.
    * (chromeosdevices.patch)
    *

@@ -17,9 +17,11 @@
 
 class Google_Service_ServiceUser_HttpRule extends Google_Collection
 {
-  protected $collection_key = 'additionalBindings';
+  protected $collection_key = 'authorizations';
   protected $additionalBindingsType = 'Google_Service_ServiceUser_HttpRule';
   protected $additionalBindingsDataType = 'array';
+  protected $authorizationsType = 'Google_Service_ServiceUser_AuthorizationRule';
+  protected $authorizationsDataType = 'array';
   public $body;
   protected $customType = 'Google_Service_ServiceUser_CustomHttpPattern';
   protected $customDataType = '';
@@ -50,6 +52,20 @@ class Google_Service_ServiceUser_HttpRule extends Google_Collection
   public function getAdditionalBindings()
   {
     return $this->additionalBindings;
+  }
+  /**
+   * @param Google_Service_ServiceUser_AuthorizationRule
+   */
+  public function setAuthorizations($authorizations)
+  {
+    $this->authorizations = $authorizations;
+  }
+  /**
+   * @return Google_Service_ServiceUser_AuthorizationRule
+   */
+  public function getAuthorizations()
+  {
+    return $this->authorizations;
   }
   public function setBody($body)
   {

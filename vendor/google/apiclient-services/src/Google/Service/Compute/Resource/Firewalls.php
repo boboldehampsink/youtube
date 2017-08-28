@@ -31,6 +31,19 @@ class Google_Service_Compute_Resource_Firewalls extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param string $firewall Name of the firewall rule to delete.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function delete($project, $firewall, $optParams = array())
@@ -60,6 +73,19 @@ class Google_Service_Compute_Resource_Firewalls extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param Google_Service_Compute_Firewall $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function insert($project, Google_Service_Compute_Firewall $postBody, $optParams = array())
@@ -127,14 +153,26 @@ class Google_Service_Compute_Resource_Firewalls extends Google_Service_Resource
   }
   /**
    * Updates the specified firewall rule with the data included in the request.
-   * Using PUT method, can only update following fields of firewall rule: allowed,
-   * description, sourceRanges, sourceTags, targetTags. This method supports patch
-   * semantics. (firewalls.patch)
+   * This method supports PATCH semantics and uses the JSON merge patch format and
+   * processing rules. (firewalls.patch)
    *
    * @param string $project Project ID for this request.
-   * @param string $firewall Name of the firewall rule to update.
+   * @param string $firewall Name of the firewall rule to patch.
    * @param Google_Service_Compute_Firewall $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function patch($project, $firewall, Google_Service_Compute_Firewall $postBody, $optParams = array())
@@ -152,6 +190,19 @@ class Google_Service_Compute_Resource_Firewalls extends Google_Service_Resource
    * @param string $firewall Name of the firewall rule to update.
    * @param Google_Service_Compute_Firewall $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function update($project, $firewall, Google_Service_Compute_Firewall $postBody, $optParams = array())

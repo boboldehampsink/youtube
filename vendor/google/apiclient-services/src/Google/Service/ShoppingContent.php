@@ -115,6 +115,10 @@ class Google_Service_ShoppingContent extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
+                'force' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
             ),'get' => array(
               'path' => '{merchantId}/accounts/{accountId}',

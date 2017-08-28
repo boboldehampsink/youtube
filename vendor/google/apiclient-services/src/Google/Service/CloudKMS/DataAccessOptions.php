@@ -17,4 +17,14 @@
 
 class Google_Service_CloudKMS_DataAccessOptions extends Google_Model
 {
+  public $logMode;
+
+  public function setLogMode($logMode)
+  {
+    $this->logMode = $logMode;
+  }
+  public function getLogMode()
+  {
+    return $this->logMode;
+  }
 }

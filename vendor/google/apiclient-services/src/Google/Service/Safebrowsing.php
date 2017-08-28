@@ -19,10 +19,8 @@
  * Service definition for Safebrowsing (v4).
  *
  * <p>
- * The Safe Browsing API is an experimental API that allows client applications
- * to check URLs against Google's constantly-updated blacklists of suspected
- * phishing and malware pages. Your client application can use the API to
- * download an encrypted table for local, client-side lookups of URLs.</p>
+ * Enables client applications to check web resources (most commonly URLs)
+ * against Google-generated lists of unsafe web resources.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -70,11 +68,11 @@ class Google_Service_Safebrowsing extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'clientId' => array(
+                'clientVersion' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'clientVersion' => array(
+                'clientId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -98,11 +96,11 @@ class Google_Service_Safebrowsing extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'clientId' => array(
+                'clientVersion' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'clientVersion' => array(
+                'clientId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),

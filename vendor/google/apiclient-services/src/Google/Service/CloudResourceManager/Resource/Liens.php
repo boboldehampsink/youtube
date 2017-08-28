@@ -71,12 +71,12 @@ class Google_Service_CloudResourceManager_Resource_Liens extends Google_Service_
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The `next_page_token` value returned from a
-   * previous List request, if any.
    * @opt_param int pageSize The maximum number of items to return. This is a
    * suggestion for the server.
    * @opt_param string parent The name of the resource to list all attached Liens.
    * For example, `projects/1234`.
+   * @opt_param string pageToken The `next_page_token` value returned from a
+   * previous List request, if any.
    * @return Google_Service_CloudResourceManager_ListLiensResponse
    */
   public function listLiens($optParams = array())

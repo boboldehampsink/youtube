@@ -17,18 +17,9 @@
 
 class Google_Service_Iam_CreateServiceAccountKeyRequest extends Google_Model
 {
-  public $includePublicKeyData;
   public $keyAlgorithm;
   public $privateKeyType;
 
-  public function setIncludePublicKeyData($includePublicKeyData)
-  {
-    $this->includePublicKeyData = $includePublicKeyData;
-  }
-  public function getIncludePublicKeyData()
-  {
-    return $this->includePublicKeyData;
-  }
   public function setKeyAlgorithm($keyAlgorithm)
   {
     $this->keyAlgorithm = $keyAlgorithm;

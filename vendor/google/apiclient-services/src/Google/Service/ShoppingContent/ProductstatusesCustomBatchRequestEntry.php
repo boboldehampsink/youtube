@@ -18,6 +18,7 @@
 class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequestEntry extends Google_Model
 {
   public $batchId;
+  public $includeAttributes;
   public $merchantId;
   public $method;
   public $productId;
@@ -29,6 +30,14 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequestEntry exte
   public function getBatchId()
   {
     return $this->batchId;
+  }
+  public function setIncludeAttributes($includeAttributes)
+  {
+    $this->includeAttributes = $includeAttributes;
+  }
+  public function getIncludeAttributes()
+  {
+    return $this->includeAttributes;
   }
   public function setMerchantId($merchantId)
   {

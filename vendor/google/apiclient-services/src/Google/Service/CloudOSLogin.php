@@ -19,12 +19,11 @@
  * Service definition for CloudOSLogin (v1alpha).
  *
  * <p>
- * A Google Cloud API for managing OS login configuration for Directory API
- * users.</p>
+ * Manages OS login configuration for Directory API users.</p>
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/apis-explorer/#p/oslogin/v1alpha/" target="_blank">Documentation</a>
+ * <a href="https://cloud.google.com/compute/docs/oslogin/rest/" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.

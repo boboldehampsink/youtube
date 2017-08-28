@@ -21,6 +21,7 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
   public $captchaChallenge;
   public $captchaResponse;
   public $createdAt;
+  public $customAttributes;
   public $delegatedProjectNumber;
   public $deleteAttribute;
   public $deleteProvider;
@@ -64,6 +65,14 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
   public function getCreatedAt()
   {
     return $this->createdAt;
+  }
+  public function setCustomAttributes($customAttributes)
+  {
+    $this->customAttributes = $customAttributes;
+  }
+  public function getCustomAttributes()
+  {
+    return $this->customAttributes;
   }
   public function setDelegatedProjectNumber($delegatedProjectNumber)
   {

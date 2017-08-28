@@ -44,15 +44,6 @@ class Google_Service_Genomics_Resource_ReadgroupsetsCoveragebuckets extends Goog
    * which coverage is requested.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string targetBucketWidth The desired width of each reported
-   * coverage bucket in base pairs. This will be rounded down to the nearest
-   * precomputed bucket width; the value of which is returned as `bucketWidth` in
-   * the response. Defaults to infinity (each bucket spans an entire reference
-   * sequence) or the length of the target range, if specified. The smallest
-   * precomputed `bucketWidth` is currently 2048 base pairs; this is subject to
-   * change.
-   * @opt_param string referenceName The name of the reference to query, within
-   * the reference set associated with this query. Optional.
    * @opt_param string end The end position of the range on the reference, 0-based
    * exclusive. If specified, `referenceName` must also be specified. If unset or
    * 0, defaults to the length of the reference.
@@ -64,6 +55,15 @@ class Google_Service_Genomics_Resource_ReadgroupsetsCoveragebuckets extends Goog
    * @opt_param string start The start position of the range on the reference,
    * 0-based inclusive. If specified, `referenceName` must also be specified.
    * Defaults to 0.
+   * @opt_param string targetBucketWidth The desired width of each reported
+   * coverage bucket in base pairs. This will be rounded down to the nearest
+   * precomputed bucket width; the value of which is returned as `bucketWidth` in
+   * the response. Defaults to infinity (each bucket spans an entire reference
+   * sequence) or the length of the target range, if specified. The smallest
+   * precomputed `bucketWidth` is currently 2048 base pairs; this is subject to
+   * change.
+   * @opt_param string referenceName The name of the reference to query, within
+   * the reference set associated with this query. Optional.
    * @return Google_Service_Genomics_ListCoverageBucketsResponse
    */
   public function listReadgroupsetsCoveragebuckets($readGroupSetId, $optParams = array())

@@ -88,6 +88,19 @@ class Google_Service_Compute_Resource_Routers extends Google_Service_Resource
    * @param string $region Name of the region for this request.
    * @param string $router Name of the Router resource to delete.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function delete($project, $region, $router, $optParams = array())
@@ -136,6 +149,19 @@ class Google_Service_Compute_Resource_Routers extends Google_Service_Resource
    * @param string $region Name of the region for this request.
    * @param Google_Service_Compute_Router $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function insert($project, $region, Google_Service_Compute_Router $postBody, $optParams = array())
@@ -204,13 +230,27 @@ class Google_Service_Compute_Resource_Routers extends Google_Service_Resource
   }
   /**
    * Patches the specified Router resource with the data included in the request.
-   * This method supports patch semantics. (routers.patch)
+   * This method supports PATCH semantics and uses JSON merge patch format and
+   * processing rules. (routers.patch)
    *
    * @param string $project Project ID for this request.
    * @param string $region Name of the region for this request.
    * @param string $router Name of the Router resource to patch.
    * @param Google_Service_Compute_Router $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function patch($project, $region, $router, Google_Service_Compute_Router $postBody, $optParams = array())
@@ -245,6 +285,19 @@ class Google_Service_Compute_Resource_Routers extends Google_Service_Resource
    * @param string $router Name of the Router resource to update.
    * @param Google_Service_Compute_Router $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
    * @return Google_Service_Compute_Operation
    */
   public function update($project, $region, $router, Google_Service_Compute_Router $postBody, $optParams = array())

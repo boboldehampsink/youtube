@@ -146,6 +146,19 @@ class Google_Service_IdentityToolkit_Resource_Relyingparty extends Google_Servic
     return $this->call('resetPassword', array($params), "Google_Service_IdentityToolkit_ResetPasswordResponse");
   }
   /**
+   * Send SMS verification code. (relyingparty.sendVerificationCode)
+   *
+   * @param Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySendVerificationCodeRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySendVerificationCodeResponse
+   */
+  public function sendVerificationCode(Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySendVerificationCodeRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('sendVerificationCode', array($params), "Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySendVerificationCodeResponse");
+  }
+  /**
    * Set account info for a user. (relyingparty.setAccountInfo)
    *
    * @param Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRequest $postBody
@@ -248,5 +261,19 @@ class Google_Service_IdentityToolkit_Resource_Relyingparty extends Google_Servic
     $params = array('postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('verifyPassword', array($params), "Google_Service_IdentityToolkit_VerifyPasswordResponse");
+  }
+  /**
+   * Verifies ownership of a phone number and creates/updates the user account
+   * accordingly. (relyingparty.verifyPhoneNumber)
+   *
+   * @param Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyVerifyPhoneNumberRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyVerifyPhoneNumberResponse
+   */
+  public function verifyPhoneNumber(Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyVerifyPhoneNumberRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('verifyPhoneNumber', array($params), "Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyVerifyPhoneNumberResponse");
   }
 }

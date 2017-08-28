@@ -17,6 +17,7 @@
 
 class Google_Service_Sheets_ChartSpec extends Google_Model
 {
+  public $altText;
   protected $backgroundColorType = 'Google_Service_Sheets_Color';
   protected $backgroundColorDataType = '';
   protected $basicChartType = 'Google_Service_Sheets_BasicChartSpec';
@@ -38,6 +39,14 @@ class Google_Service_Sheets_ChartSpec extends Google_Model
   protected $titleTextFormatType = 'Google_Service_Sheets_TextFormat';
   protected $titleTextFormatDataType = '';
 
+  public function setAltText($altText)
+  {
+    $this->altText = $altText;
+  }
+  public function getAltText()
+  {
+    return $this->altText;
+  }
   /**
    * @param Google_Service_Sheets_Color
    */

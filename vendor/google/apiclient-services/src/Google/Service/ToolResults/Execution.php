@@ -24,6 +24,8 @@ class Google_Service_ToolResults_Execution extends Google_Model
   public $executionId;
   protected $outcomeType = 'Google_Service_ToolResults_Outcome';
   protected $outcomeDataType = '';
+  protected $specificationType = 'Google_Service_ToolResults_Specification';
+  protected $specificationDataType = '';
   public $state;
   public $testExecutionMatrixId;
 
@@ -76,6 +78,20 @@ class Google_Service_ToolResults_Execution extends Google_Model
   public function getOutcome()
   {
     return $this->outcome;
+  }
+  /**
+   * @param Google_Service_ToolResults_Specification
+   */
+  public function setSpecification(Google_Service_ToolResults_Specification $specification)
+  {
+    $this->specification = $specification;
+  }
+  /**
+   * @return Google_Service_ToolResults_Specification
+   */
+  public function getSpecification()
+  {
+    return $this->specification;
   }
   public function setState($state)
   {

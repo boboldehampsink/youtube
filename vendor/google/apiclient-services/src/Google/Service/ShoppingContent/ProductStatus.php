@@ -27,6 +27,8 @@ class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
   public $kind;
   public $lastUpdateDate;
   public $link;
+  protected $productType = 'Google_Service_ShoppingContent_Product';
+  protected $productDataType = '';
   public $productId;
   public $title;
 
@@ -97,6 +99,20 @@ class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
   public function getLink()
   {
     return $this->link;
+  }
+  /**
+   * @param Google_Service_ShoppingContent_Product
+   */
+  public function setProduct(Google_Service_ShoppingContent_Product $product)
+  {
+    $this->product = $product;
+  }
+  /**
+   * @return Google_Service_ShoppingContent_Product
+   */
+  public function getProduct()
+  {
+    return $this->product;
   }
   public function setProductId($productId)
   {

@@ -55,9 +55,10 @@ class Google_Service_ManufacturerCenter_Resource_AccountsProducts extends Google
    * Gets the product from a Manufacturer Center account, including product
    * issues.
    *
-   * A recently updated product takes some time to be processed before any changes
-   * are visible. While some issues may be available once the product has been
-   * processed, other issues may take days to appear. (products.get)
+   * A recently updated product takes around 15 minutes to process. Changes are
+   * only visible after it has been processed. While some issues may be available
+   * once the product has been processed, other issues may take days to appear.
+   * (products.get)
    *
    * @param string $parent Parent ID in the format `accounts/{account_id}`.
    *

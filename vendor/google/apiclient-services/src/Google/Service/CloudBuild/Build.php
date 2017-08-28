@@ -30,6 +30,8 @@ class Google_Service_CloudBuild_Build extends Google_Collection
   public $projectId;
   protected $resultsType = 'Google_Service_CloudBuild_Results';
   protected $resultsDataType = '';
+  protected $secretsType = 'Google_Service_CloudBuild_Secret';
+  protected $secretsDataType = 'array';
   protected $sourceType = 'Google_Service_CloudBuild_Source';
   protected $sourceDataType = '';
   protected $sourceProvenanceType = 'Google_Service_CloudBuild_SourceProvenance';
@@ -134,6 +136,20 @@ class Google_Service_CloudBuild_Build extends Google_Collection
   public function getResults()
   {
     return $this->results;
+  }
+  /**
+   * @param Google_Service_CloudBuild_Secret
+   */
+  public function setSecrets($secrets)
+  {
+    $this->secrets = $secrets;
+  }
+  /**
+   * @return Google_Service_CloudBuild_Secret
+   */
+  public function getSecrets()
+  {
+    return $this->secrets;
   }
   /**
    * @param Google_Service_CloudBuild_Source

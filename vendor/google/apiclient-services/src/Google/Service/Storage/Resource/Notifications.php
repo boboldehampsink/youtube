@@ -80,7 +80,7 @@ class Google_Service_Storage_Resource_Notifications extends Google_Service_Resou
    * Retrieves a list of notification subscriptions for a given bucket.
    * (notifications.listNotifications)
    *
-   * @param string $bucket Name of a GCS bucket.
+   * @param string $bucket Name of a Google Cloud Storage bucket.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string userProject The project to be billed for this request, for

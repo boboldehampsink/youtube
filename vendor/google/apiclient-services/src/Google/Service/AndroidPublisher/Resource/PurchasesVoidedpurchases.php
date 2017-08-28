@@ -36,13 +36,17 @@ class Google_Service_AndroidPublisher_Resource_PurchasesVoidedpurchases extends 
    * @opt_param string endTime The time, in milliseconds since the Epoch, of the
    * newest voided in-app product purchase that you want to see in the response.
    * The value of this parameter cannot be greater than the current time and is
-   * ignored if a pagination token is set. Default value is current time.
+   * ignored if a pagination token is set. Default value is current time. Note:
+   * This filter is applied on the time at which the record is seen as voided by
+   * our systems and not the actual voided time returned in the response.
    * @opt_param string maxResults
    * @opt_param string startIndex
    * @opt_param string startTime The time, in milliseconds since the Epoch, of the
    * oldest voided in-app product purchase that you want to see in the response.
    * The value of this parameter cannot be older than 30 days and is ignored if a
-   * pagination token is set. Default value is current time minus 30 days.
+   * pagination token is set. Default value is current time minus 30 days. Note:
+   * This filter is applied on the time at which the record is seen as voided by
+   * our systems and not the actual voided time returned in the response.
    * @opt_param string token
    * @return Google_Service_AndroidPublisher_VoidedPurchasesListResponse
    */

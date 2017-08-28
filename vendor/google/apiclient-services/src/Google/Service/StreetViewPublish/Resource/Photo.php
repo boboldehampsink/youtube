@@ -118,6 +118,12 @@ class Google_Service_StreetViewPublish_Resource_Photo extends Google_Service_Res
    * Updates the metadata of a Photo, such as pose, place association,
    * connections, etc. Changing the pixels of a photo is not supported.
    *
+   * Only the fields specified in updateMask field are used. If `updateMask` is
+   * not present, the update applies to all fields.
+   *
+   * Note: To update Pose.altitude, Pose.latLngPair has to be filled as well.
+   * Otherwise, the request will fail.
+   *
    * This method returns the following error codes:
    *
    * * google.rpc.Code.PERMISSION_DENIED if the requesting user did not create the
@@ -125,7 +131,7 @@ class Google_Service_StreetViewPublish_Resource_Photo extends Google_Service_Res
    * malformed. * google.rpc.Code.NOT_FOUND if the requested photo does not exist.
    * (photo.update)
    *
-   * @param string $id Required. A base64 encoded identifier.
+   * @param string $id Required. A unique identifier for a photo.
    * @param Google_Service_StreetViewPublish_Photo $postBody
    * @param array $optParams Optional parameters.
    *
@@ -137,14 +143,13 @@ class Google_Service_StreetViewPublish_Resource_Photo extends Google_Service_Res
    *
    * The following fields are valid:
    *
-   * * `pose.heading` * `pose.latlngpair` * `pose.pitch` * `pose.roll` *
+   * * `pose.heading` * `pose.latLngPair` * `pose.pitch` * `pose.roll` *
    * `pose.level` * `pose.altitude` * `connections` * `places`
    *
    * Note: Repeated fields in updateMask mean the entire set of repeated values
    * will be replaced with the new contents. For example, if updateMask contains
-   * `connections` and
-   * google.streetview.publish.v1.UpdatePhotoRequest.photo.connections is empty,
-   * all connections will be removed.
+   * `connections` and `UpdatePhotoRequest.photo.connections` is empty, all
+   * connections will be removed.
    * @return Google_Service_StreetViewPublish_Photo
    */
   public function update($id, Google_Service_StreetViewPublish_Photo $postBody, $optParams = array())

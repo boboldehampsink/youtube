@@ -21,11 +21,16 @@ class Google_Service_Compute_Firewall extends Google_Collection
   protected $allowedType = 'Google_Service_Compute_FirewallAllowed';
   protected $allowedDataType = 'array';
   public $creationTimestamp;
+  protected $deniedType = 'Google_Service_Compute_FirewallDenied';
+  protected $deniedDataType = 'array';
   public $description;
+  public $destinationRanges;
+  public $direction;
   public $id;
   public $kind;
   public $name;
   public $network;
+  public $priority;
   public $selfLink;
   public $sourceRanges;
   public $sourceTags;
@@ -53,6 +58,20 @@ class Google_Service_Compute_Firewall extends Google_Collection
   {
     return $this->creationTimestamp;
   }
+  /**
+   * @param Google_Service_Compute_FirewallDenied
+   */
+  public function setDenied($denied)
+  {
+    $this->denied = $denied;
+  }
+  /**
+   * @return Google_Service_Compute_FirewallDenied
+   */
+  public function getDenied()
+  {
+    return $this->denied;
+  }
   public function setDescription($description)
   {
     $this->description = $description;
@@ -60,6 +79,22 @@ class Google_Service_Compute_Firewall extends Google_Collection
   public function getDescription()
   {
     return $this->description;
+  }
+  public function setDestinationRanges($destinationRanges)
+  {
+    $this->destinationRanges = $destinationRanges;
+  }
+  public function getDestinationRanges()
+  {
+    return $this->destinationRanges;
+  }
+  public function setDirection($direction)
+  {
+    $this->direction = $direction;
+  }
+  public function getDirection()
+  {
+    return $this->direction;
   }
   public function setId($id)
   {
@@ -92,6 +127,14 @@ class Google_Service_Compute_Firewall extends Google_Collection
   public function getNetwork()
   {
     return $this->network;
+  }
+  public function setPriority($priority)
+  {
+    $this->priority = $priority;
+  }
+  public function getPriority()
+  {
+    return $this->priority;
   }
   public function setSelfLink($selfLink)
   {

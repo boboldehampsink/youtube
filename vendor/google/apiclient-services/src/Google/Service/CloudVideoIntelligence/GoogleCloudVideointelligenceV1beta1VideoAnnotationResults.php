@@ -23,6 +23,8 @@ class Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1V
   public $inputUri;
   protected $labelAnnotationsType = 'Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1LabelAnnotation';
   protected $labelAnnotationsDataType = 'array';
+  protected $safeSearchAnnotationsType = 'Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation';
+  protected $safeSearchAnnotationsDataType = 'array';
   protected $shotAnnotationsType = 'Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoSegment';
   protected $shotAnnotationsDataType = 'array';
 
@@ -61,6 +63,20 @@ class Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1V
   public function getLabelAnnotations()
   {
     return $this->labelAnnotations;
+  }
+  /**
+   * @param Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation
+   */
+  public function setSafeSearchAnnotations($safeSearchAnnotations)
+  {
+    $this->safeSearchAnnotations = $safeSearchAnnotations;
+  }
+  /**
+   * @return Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1SafeSearchAnnotation
+   */
+  public function getSafeSearchAnnotations()
+  {
+    return $this->safeSearchAnnotations;
   }
   /**
    * @param Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1beta1VideoSegment

@@ -36,8 +36,8 @@ class Google_Service_Script_Resource_Scripts extends Google_Service_Resource
    * token, open the project in the script editor, then select **File > Project
    * properties** and click the **Scopes** tab. (scripts.run)
    *
-   * @param string $scriptId The project key of the script to be executed. To find
-   * the project key, open the project in the script editor and select **File >
+   * @param string $scriptId The script ID of the script to be executed. To find
+   * the script ID, open the project in the script editor and select **File >
    * Project properties**.
    * @param Google_Service_Script_ExecutionRequest $postBody
    * @param array $optParams Optional parameters.

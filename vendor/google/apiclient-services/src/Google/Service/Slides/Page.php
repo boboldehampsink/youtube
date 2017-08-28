@@ -20,6 +20,8 @@ class Google_Service_Slides_Page extends Google_Collection
   protected $collection_key = 'pageElements';
   protected $layoutPropertiesType = 'Google_Service_Slides_LayoutProperties';
   protected $layoutPropertiesDataType = '';
+  protected $masterPropertiesType = 'Google_Service_Slides_MasterProperties';
+  protected $masterPropertiesDataType = '';
   protected $notesPropertiesType = 'Google_Service_Slides_NotesProperties';
   protected $notesPropertiesDataType = '';
   public $objectId;
@@ -45,6 +47,20 @@ class Google_Service_Slides_Page extends Google_Collection
   public function getLayoutProperties()
   {
     return $this->layoutProperties;
+  }
+  /**
+   * @param Google_Service_Slides_MasterProperties
+   */
+  public function setMasterProperties(Google_Service_Slides_MasterProperties $masterProperties)
+  {
+    $this->masterProperties = $masterProperties;
+  }
+  /**
+   * @return Google_Service_Slides_MasterProperties
+   */
+  public function getMasterProperties()
+  {
+    return $this->masterProperties;
   }
   /**
    * @param Google_Service_Slides_NotesProperties

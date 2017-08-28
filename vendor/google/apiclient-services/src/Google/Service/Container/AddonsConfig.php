@@ -21,6 +21,8 @@ class Google_Service_Container_AddonsConfig extends Google_Model
   protected $horizontalPodAutoscalingDataType = '';
   protected $httpLoadBalancingType = 'Google_Service_Container_HttpLoadBalancing';
   protected $httpLoadBalancingDataType = '';
+  protected $kubernetesDashboardType = 'Google_Service_Container_KubernetesDashboard';
+  protected $kubernetesDashboardDataType = '';
 
   /**
    * @param Google_Service_Container_HorizontalPodAutoscaling
@@ -49,5 +51,19 @@ class Google_Service_Container_AddonsConfig extends Google_Model
   public function getHttpLoadBalancing()
   {
     return $this->httpLoadBalancing;
+  }
+  /**
+   * @param Google_Service_Container_KubernetesDashboard
+   */
+  public function setKubernetesDashboard(Google_Service_Container_KubernetesDashboard $kubernetesDashboard)
+  {
+    $this->kubernetesDashboard = $kubernetesDashboard;
+  }
+  /**
+   * @return Google_Service_Container_KubernetesDashboard
+   */
+  public function getKubernetesDashboard()
+  {
+    return $this->kubernetesDashboard;
   }
 }
