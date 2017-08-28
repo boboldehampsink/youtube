@@ -34,6 +34,7 @@ phpunit --bootstrap craft/app/tests/bootstrap.php --configuration craft/plugins/
 Changelog
 =================
 ### 0.7.3 ###
+ - Disable field when YouTube's daily upload limit is reached (400 uploads)
  - Updated dependencies
 
 ### 0.7.2 ###

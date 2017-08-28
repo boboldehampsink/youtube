@@ -16,6 +16,13 @@ namespace Craft;
 class YouTubeFieldType extends AssetsFieldType
 {
     /**
+     * Template to use for field rendering.
+     *
+     * @var string
+     */
+    protected $inputTemplate = 'youTube/_input';
+
+    /**
      * The actual attribute we're working with.
      *
      * @var mixed

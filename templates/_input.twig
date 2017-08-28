@@ -1,0 +1,5 @@
+{% if craft.youTube.maxUploadsReached() %}
+    <p class="error">{{ "You have reached the upload limit for today. Try again tomorrow."|t }}</p>
+{% else %}
+    {% include "_components/fieldtypes/Assets/input" %}
+{% endif %}
