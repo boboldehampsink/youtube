@@ -19,7 +19,7 @@
  * Service definition for CloudOSLogin (v1alpha).
  *
  * <p>
- * Manages OS login configuration for Directory API users.</p>
+ * Manages OS login configuration for Google account users.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -36,8 +36,15 @@ class Google_Service_CloudOSLogin extends Google_Service
   /** View your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM_READ_ONLY =
       "https://www.googleapis.com/auth/cloud-platform.read-only";
+  /** View and manage your Google Compute Engine resources. */
+  const COMPUTE =
+      "https://www.googleapis.com/auth/compute";
+  /** View your Google Compute Engine resources. */
+  const COMPUTE_READONLY =
+      "https://www.googleapis.com/auth/compute.readonly";
 
   public $users;
+  public $users_projects;
   public $users_sshPublicKeys;
   
   /**
@@ -74,6 +81,30 @@ class Google_Service_CloudOSLogin extends Google_Service
               'httpMethod' => 'POST',
               'parameters' => array(
                 'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->users_projects = new Google_Service_CloudOSLogin_Resource_UsersProjects(
+        $this,
+        $this->serviceName,
+        'projects',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => 'v1alpha/{+name}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'name' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,

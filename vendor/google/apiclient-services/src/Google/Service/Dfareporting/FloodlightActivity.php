@@ -34,11 +34,11 @@ class Google_Service_Dfareporting_FloodlightActivity extends Google_Collection
   public $floodlightConfigurationId;
   protected $floodlightConfigurationIdDimensionValueType = 'Google_Service_Dfareporting_DimensionValue';
   protected $floodlightConfigurationIdDimensionValueDataType = '';
+  public $floodlightTagType;
   public $hidden;
   public $id;
   protected $idDimensionValueType = 'Google_Service_Dfareporting_DimensionValue';
   protected $idDimensionValueDataType = '';
-  public $imageTagEnabled;
   public $kind;
   public $name;
   public $notes;
@@ -174,6 +174,14 @@ class Google_Service_Dfareporting_FloodlightActivity extends Google_Collection
   {
     return $this->floodlightConfigurationIdDimensionValue;
   }
+  public function setFloodlightTagType($floodlightTagType)
+  {
+    $this->floodlightTagType = $floodlightTagType;
+  }
+  public function getFloodlightTagType()
+  {
+    return $this->floodlightTagType;
+  }
   public function setHidden($hidden)
   {
     $this->hidden = $hidden;
@@ -203,14 +211,6 @@ class Google_Service_Dfareporting_FloodlightActivity extends Google_Collection
   public function getIdDimensionValue()
   {
     return $this->idDimensionValue;
-  }
-  public function setImageTagEnabled($imageTagEnabled)
-  {
-    $this->imageTagEnabled = $imageTagEnabled;
-  }
-  public function getImageTagEnabled()
-  {
-    return $this->imageTagEnabled;
   }
   public function setKind($kind)
   {

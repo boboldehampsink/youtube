@@ -42,12 +42,11 @@ class Google_Service_ShoppingContent_Resource_Accounttax extends Google_Service_
     return $this->call('custombatch', array($params), "Google_Service_ShoppingContent_AccounttaxCustomBatchResponse");
   }
   /**
-   * Retrieves the tax settings of the account. This method can only be called for
-   * accounts to which the managing account has access: either the managing
-   * account itself for any Merchant Center account, or any sub-account when the
-   * managing account is a multi-client account. (accounttax.get)
+   * Retrieves the tax settings of the account. (accounttax.get)
    *
-   * @param string $merchantId The ID of the managing account.
+   * @param string $merchantId The ID of the managing account. If this account is
+   * not a multi-client account, then this parameter must be the same as
+   * accountId.
    * @param string $accountId The ID of the account for which to get/update
    * account tax settings.
    * @param array $optParams Optional parameters.
@@ -61,10 +60,10 @@ class Google_Service_ShoppingContent_Resource_Accounttax extends Google_Service_
   }
   /**
    * Lists the tax settings of the sub-accounts in your Merchant Center account.
-   * This method can only be called for multi-client accounts.
    * (accounttax.listAccounttax)
    *
-   * @param string $merchantId The ID of the managing account.
+   * @param string $merchantId The ID of the managing account. This must be a
+   * multi-client account.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string maxResults The maximum number of tax settings to return in
@@ -79,13 +78,12 @@ class Google_Service_ShoppingContent_Resource_Accounttax extends Google_Service_
     return $this->call('list', array($params), "Google_Service_ShoppingContent_AccounttaxListResponse");
   }
   /**
-   * Updates the tax settings of the account. This method can only be called for
-   * accounts to which the managing account has access: either the managing
-   * account itself for any Merchant Center account, or any sub-account when the
-   * managing account is a multi-client account. This method supports patch
+   * Updates the tax settings of the account. This method supports patch
    * semantics. (accounttax.patch)
    *
-   * @param string $merchantId The ID of the managing account.
+   * @param string $merchantId The ID of the managing account. If this account is
+   * not a multi-client account, then this parameter must be the same as
+   * accountId.
    * @param string $accountId The ID of the account for which to get/update
    * account tax settings.
    * @param Google_Service_ShoppingContent_AccountTax $postBody
@@ -101,12 +99,11 @@ class Google_Service_ShoppingContent_Resource_Accounttax extends Google_Service_
     return $this->call('patch', array($params), "Google_Service_ShoppingContent_AccountTax");
   }
   /**
-   * Updates the tax settings of the account. This method can only be called for
-   * accounts to which the managing account has access: either the managing
-   * account itself for any Merchant Center account, or any sub-account when the
-   * managing account is a multi-client account. (accounttax.update)
+   * Updates the tax settings of the account. (accounttax.update)
    *
-   * @param string $merchantId The ID of the managing account.
+   * @param string $merchantId The ID of the managing account. If this account is
+   * not a multi-client account, then this parameter must be the same as
+   * accountId.
    * @param string $accountId The ID of the account for which to get/update
    * account tax settings.
    * @param Google_Service_ShoppingContent_AccountTax $postBody

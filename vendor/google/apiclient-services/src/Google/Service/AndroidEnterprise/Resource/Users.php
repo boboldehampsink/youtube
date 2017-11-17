@@ -161,6 +161,23 @@ class Google_Service_AndroidEnterprise_Resource_Users extends Google_Service_Res
     return $this->call('patch', array($params), "Google_Service_AndroidEnterprise_User");
   }
   /**
+   * Revokes access to all devices currently provisioned to the user. The user
+   * will no longer be able to use the managed Play store on any of their managed
+   * devices.
+   *
+   * This call only works with EMM-managed accounts. (users.revokeDeviceAccess)
+   *
+   * @param string $enterpriseId The ID of the enterprise.
+   * @param string $userId The ID of the user.
+   * @param array $optParams Optional parameters.
+   */
+  public function revokeDeviceAccess($enterpriseId, $userId, $optParams = array())
+  {
+    $params = array('enterpriseId' => $enterpriseId, 'userId' => $userId);
+    $params = array_merge($params, $optParams);
+    return $this->call('revokeDeviceAccess', array($params));
+  }
+  /**
    * Revokes a previously generated token (activation code) for the user.
    * (users.revokeToken)
    *

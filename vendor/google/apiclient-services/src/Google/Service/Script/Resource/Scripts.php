@@ -27,7 +27,7 @@ class Google_Service_Script_Resource_Scripts extends Google_Service_Resource
 {
   /**
    * Runs a function in an Apps Script project. The project must be deployed for
-   * use with the Apps Script Execution API.
+   * use with the Apps Script API.
    *
    * This method requires authorization with an OAuth 2.0 token that includes at
    * least one of the scopes listed in the [Authorization](#authorization)

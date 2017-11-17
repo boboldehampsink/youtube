@@ -94,8 +94,11 @@ class Google_Service_Directory_Resource_ResourcesCalendars extends Google_Servic
     return $this->call('list', array($params), "Google_Service_Directory_CalendarResources");
   }
   /**
-   * Updates a calendar resource. This method supports patch semantics.
-   * (calendars.patch)
+   * Updates a calendar resource.
+   *
+   * This method supports patch semantics, meaning you only need to include the
+   * fields you wish to update. Fields that are not present in the request will be
+   * preserved. This method supports patch semantics. (calendars.patch)
    *
    * @param string $customer The unique ID for the customer's G Suite account. As
    * an account administrator, you can also use the my_customer alias to represent
@@ -113,7 +116,11 @@ class Google_Service_Directory_Resource_ResourcesCalendars extends Google_Servic
     return $this->call('patch', array($params), "Google_Service_Directory_CalendarResource");
   }
   /**
-   * Updates a calendar resource. (calendars.update)
+   * Updates a calendar resource.
+   *
+   * This method supports patch semantics, meaning you only need to include the
+   * fields you wish to update. Fields that are not present in the request will be
+   * preserved. (calendars.update)
    *
    * @param string $customer The unique ID for the customer's G Suite account. As
    * an account administrator, you can also use the my_customer alias to represent

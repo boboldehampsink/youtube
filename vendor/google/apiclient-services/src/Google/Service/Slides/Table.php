@@ -17,13 +17,17 @@
 
 class Google_Service_Slides_Table extends Google_Collection
 {
-  protected $collection_key = 'tableRows';
+  protected $collection_key = 'verticalBorderRows';
   public $columns;
+  protected $horizontalBorderRowsType = 'Google_Service_Slides_TableBorderRow';
+  protected $horizontalBorderRowsDataType = 'array';
   public $rows;
   protected $tableColumnsType = 'Google_Service_Slides_TableColumnProperties';
   protected $tableColumnsDataType = 'array';
   protected $tableRowsType = 'Google_Service_Slides_TableRow';
   protected $tableRowsDataType = 'array';
+  protected $verticalBorderRowsType = 'Google_Service_Slides_TableBorderRow';
+  protected $verticalBorderRowsDataType = 'array';
 
   public function setColumns($columns)
   {
@@ -32,6 +36,20 @@ class Google_Service_Slides_Table extends Google_Collection
   public function getColumns()
   {
     return $this->columns;
+  }
+  /**
+   * @param Google_Service_Slides_TableBorderRow
+   */
+  public function setHorizontalBorderRows($horizontalBorderRows)
+  {
+    $this->horizontalBorderRows = $horizontalBorderRows;
+  }
+  /**
+   * @return Google_Service_Slides_TableBorderRow
+   */
+  public function getHorizontalBorderRows()
+  {
+    return $this->horizontalBorderRows;
   }
   public function setRows($rows)
   {
@@ -68,5 +86,19 @@ class Google_Service_Slides_Table extends Google_Collection
   public function getTableRows()
   {
     return $this->tableRows;
+  }
+  /**
+   * @param Google_Service_Slides_TableBorderRow
+   */
+  public function setVerticalBorderRows($verticalBorderRows)
+  {
+    $this->verticalBorderRows = $verticalBorderRows;
+  }
+  /**
+   * @return Google_Service_Slides_TableBorderRow
+   */
+  public function getVerticalBorderRows()
+  {
+    return $this->verticalBorderRows;
   }
 }

@@ -19,6 +19,7 @@ class Google_Service_CloudBuild_RepoSource extends Google_Model
 {
   public $branchName;
   public $commitSha;
+  public $dir;
   public $projectId;
   public $repoName;
   public $tagName;
@@ -38,6 +39,14 @@ class Google_Service_CloudBuild_RepoSource extends Google_Model
   public function getCommitSha()
   {
     return $this->commitSha;
+  }
+  public function setDir($dir)
+  {
+    $this->dir = $dir;
+  }
+  public function getDir()
+  {
+    return $this->dir;
   }
   public function setProjectId($projectId)
   {

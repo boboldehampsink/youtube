@@ -17,7 +17,7 @@
 
 class Google_Service_TagManager_Trigger extends Google_Collection
 {
-  protected $collection_key = 'filter';
+  protected $collection_key = 'parameter';
   public $accountId;
   protected $autoEventFilterType = 'Google_Service_TagManager_Condition';
   protected $autoEventFilterDataType = 'array';
@@ -45,6 +45,8 @@ class Google_Service_TagManager_Trigger extends Google_Collection
   protected $maxTimerLengthSecondsDataType = '';
   public $name;
   public $notes;
+  protected $parameterType = 'Google_Service_TagManager_Parameter';
+  protected $parameterDataType = 'array';
   public $parentFolderId;
   public $path;
   protected $selectorType = 'Google_Service_TagManager_Parameter';
@@ -263,6 +265,20 @@ class Google_Service_TagManager_Trigger extends Google_Collection
   public function getNotes()
   {
     return $this->notes;
+  }
+  /**
+   * @param Google_Service_TagManager_Parameter
+   */
+  public function setParameter($parameter)
+  {
+    $this->parameter = $parameter;
+  }
+  /**
+   * @return Google_Service_TagManager_Parameter
+   */
+  public function getParameter()
+  {
+    return $this->parameter;
   }
   public function setParentFolderId($parentFolderId)
   {

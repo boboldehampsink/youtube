@@ -19,17 +19,21 @@ class Google_Service_Classroom_CourseWork extends Google_Collection
 {
   protected $collection_key = 'materials';
   public $alternateLink;
+  public $assigneeMode;
   protected $assignmentType = 'Google_Service_Classroom_Assignment';
   protected $assignmentDataType = '';
   public $associatedWithDeveloper;
   public $courseId;
   public $creationTime;
+  public $creatorUserId;
   public $description;
   protected $dueDateType = 'Google_Service_Classroom_Date';
   protected $dueDateDataType = '';
   protected $dueTimeType = 'Google_Service_Classroom_TimeOfDay';
   protected $dueTimeDataType = '';
   public $id;
+  protected $individualStudentsOptionsType = 'Google_Service_Classroom_IndividualStudentsOptions';
+  protected $individualStudentsOptionsDataType = '';
   protected $materialsType = 'Google_Service_Classroom_Material';
   protected $materialsDataType = 'array';
   public $maxPoints;
@@ -49,6 +53,14 @@ class Google_Service_Classroom_CourseWork extends Google_Collection
   public function getAlternateLink()
   {
     return $this->alternateLink;
+  }
+  public function setAssigneeMode($assigneeMode)
+  {
+    $this->assigneeMode = $assigneeMode;
+  }
+  public function getAssigneeMode()
+  {
+    return $this->assigneeMode;
   }
   /**
    * @param Google_Service_Classroom_Assignment
@@ -87,6 +99,14 @@ class Google_Service_Classroom_CourseWork extends Google_Collection
   public function getCreationTime()
   {
     return $this->creationTime;
+  }
+  public function setCreatorUserId($creatorUserId)
+  {
+    $this->creatorUserId = $creatorUserId;
+  }
+  public function getCreatorUserId()
+  {
+    return $this->creatorUserId;
   }
   public function setDescription($description)
   {
@@ -131,6 +151,20 @@ class Google_Service_Classroom_CourseWork extends Google_Collection
   public function getId()
   {
     return $this->id;
+  }
+  /**
+   * @param Google_Service_Classroom_IndividualStudentsOptions
+   */
+  public function setIndividualStudentsOptions(Google_Service_Classroom_IndividualStudentsOptions $individualStudentsOptions)
+  {
+    $this->individualStudentsOptions = $individualStudentsOptions;
+  }
+  /**
+   * @return Google_Service_Classroom_IndividualStudentsOptions
+   */
+  public function getIndividualStudentsOptions()
+  {
+    return $this->individualStudentsOptions;
   }
   /**
    * @param Google_Service_Classroom_Material

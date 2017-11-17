@@ -32,6 +32,7 @@ class Google_Service_TagManager_Tag extends Google_Collection
   protected $parameterDataType = 'array';
   public $parentFolderId;
   public $path;
+  public $paused;
   protected $priorityType = 'Google_Service_TagManager_Parameter';
   protected $priorityDataType = '';
   public $scheduleEndMs;
@@ -155,6 +156,14 @@ class Google_Service_TagManager_Tag extends Google_Collection
   public function getPath()
   {
     return $this->path;
+  }
+  public function setPaused($paused)
+  {
+    $this->paused = $paused;
+  }
+  public function getPaused()
+  {
+    return $this->paused;
   }
   /**
    * @param Google_Service_TagManager_Parameter

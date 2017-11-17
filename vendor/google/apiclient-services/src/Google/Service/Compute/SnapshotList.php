@@ -24,6 +24,8 @@ class Google_Service_Compute_SnapshotList extends Google_Collection
   public $kind;
   public $nextPageToken;
   public $selfLink;
+  protected $warningType = 'Google_Service_Compute_SnapshotListWarning';
+  protected $warningDataType = '';
 
   public function setId($id)
   {
@@ -70,5 +72,19 @@ class Google_Service_Compute_SnapshotList extends Google_Collection
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+  /**
+   * @param Google_Service_Compute_SnapshotListWarning
+   */
+  public function setWarning(Google_Service_Compute_SnapshotListWarning $warning)
+  {
+    $this->warning = $warning;
+  }
+  /**
+   * @return Google_Service_Compute_SnapshotListWarning
+   */
+  public function getWarning()
+  {
+    return $this->warning;
   }
 }

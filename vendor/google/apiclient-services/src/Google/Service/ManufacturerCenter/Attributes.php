@@ -54,7 +54,7 @@ class Google_Service_ManufacturerCenter_Attributes extends Google_Collection
   public $sizeType;
   protected $suggestedRetailPriceType = 'Google_Service_ManufacturerCenter_Price';
   protected $suggestedRetailPriceDataType = '';
-  public $targetAccountId;
+  public $targetClientId;
   public $theme;
   public $title;
   public $videoLink;
@@ -333,13 +333,13 @@ class Google_Service_ManufacturerCenter_Attributes extends Google_Collection
   {
     return $this->suggestedRetailPrice;
   }
-  public function setTargetAccountId($targetAccountId)
+  public function setTargetClientId($targetClientId)
   {
-    $this->targetAccountId = $targetAccountId;
+    $this->targetClientId = $targetClientId;
   }
-  public function getTargetAccountId()
+  public function getTargetClientId()
   {
-    return $this->targetAccountId;
+    return $this->targetClientId;
   }
   public function setTheme($theme)
   {

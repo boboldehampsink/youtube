@@ -18,6 +18,7 @@
 class Google_Service_Dfareporting_FloodlightActivitiesGenerateTagResponse extends Google_Model
 {
   public $floodlightActivityTag;
+  public $globalSiteTagGlobalSnippet;
   public $kind;
 
   public function setFloodlightActivityTag($floodlightActivityTag)
@@ -27,6 +28,14 @@ class Google_Service_Dfareporting_FloodlightActivitiesGenerateTagResponse extend
   public function getFloodlightActivityTag()
   {
     return $this->floodlightActivityTag;
+  }
+  public function setGlobalSiteTagGlobalSnippet($globalSiteTagGlobalSnippet)
+  {
+    $this->globalSiteTagGlobalSnippet = $globalSiteTagGlobalSnippet;
+  }
+  public function getGlobalSiteTagGlobalSnippet()
+  {
+    return $this->globalSiteTagGlobalSnippet;
   }
   public function setKind($kind)
   {

@@ -25,6 +25,8 @@ class Google_Service_Dataflow_WorkerMessage extends Google_Model
   protected $workerMessageCodeDataType = '';
   protected $workerMetricsType = 'Google_Service_Dataflow_ResourceUtilizationReport';
   protected $workerMetricsDataType = '';
+  protected $workerShutdownNoticeType = 'Google_Service_Dataflow_WorkerShutdownNotice';
+  protected $workerShutdownNoticeDataType = '';
 
   public function setLabels($labels)
   {
@@ -83,5 +85,19 @@ class Google_Service_Dataflow_WorkerMessage extends Google_Model
   public function getWorkerMetrics()
   {
     return $this->workerMetrics;
+  }
+  /**
+   * @param Google_Service_Dataflow_WorkerShutdownNotice
+   */
+  public function setWorkerShutdownNotice(Google_Service_Dataflow_WorkerShutdownNotice $workerShutdownNotice)
+  {
+    $this->workerShutdownNotice = $workerShutdownNotice;
+  }
+  /**
+   * @return Google_Service_Dataflow_WorkerShutdownNotice
+   */
+  public function getWorkerShutdownNotice()
+  {
+    return $this->workerShutdownNotice;
   }
 }

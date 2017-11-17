@@ -22,7 +22,8 @@ class Google_Service_Dfareporting_CreativeCustomEvent extends Google_Model
   public $advertiserCustomEventType;
   public $artworkLabel;
   public $artworkType;
-  public $exitUrl;
+  protected $exitClickThroughUrlType = 'Google_Service_Dfareporting_CreativeClickThroughUrl';
+  protected $exitClickThroughUrlDataType = '';
   public $id;
   protected $popupWindowPropertiesType = 'Google_Service_Dfareporting_PopupWindowProperties';
   protected $popupWindowPropertiesDataType = '';
@@ -69,13 +70,19 @@ class Google_Service_Dfareporting_CreativeCustomEvent extends Google_Model
   {
     return $this->artworkType;
   }
-  public function setExitUrl($exitUrl)
+  /**
+   * @param Google_Service_Dfareporting_CreativeClickThroughUrl
+   */
+  public function setExitClickThroughUrl(Google_Service_Dfareporting_CreativeClickThroughUrl $exitClickThroughUrl)
   {
-    $this->exitUrl = $exitUrl;
+    $this->exitClickThroughUrl = $exitClickThroughUrl;
   }
-  public function getExitUrl()
+  /**
+   * @return Google_Service_Dfareporting_CreativeClickThroughUrl
+   */
+  public function getExitClickThroughUrl()
   {
-    return $this->exitUrl;
+    return $this->exitClickThroughUrl;
   }
   public function setId($id)
   {

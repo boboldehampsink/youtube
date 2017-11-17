@@ -26,8 +26,8 @@
 class Google_Service_DLP_Resource_InspectOperations extends Google_Service_Resource
 {
   /**
-   * Cancels an operation. Use the get method to check whether the cancellation
-   * succeeded or whether the operation completed despite cancellation.
+   * Cancels an operation. Use the `inspect.operations.get` to check whether the
+   * cancellation succeeded or the operation completed despite cancellation.
    * (operations.cancel)
    *
    * @param string $name The name of the operation resource to be cancelled.
@@ -85,16 +85,17 @@ class Google_Service_DLP_Resource_InspectOperations extends Google_Service_Resou
     return $this->call('get', array($params), "Google_Service_DLP_GoogleLongrunningOperation");
   }
   /**
-   * Fetch the list of long running operations. (operations.listInspectOperations)
+   * Fetches the list of long running operations.
+   * (operations.listInspectOperations)
    *
    * @param string $name The name of the operation's parent resource.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter This parameter supports filtering by done, ie
-   * done=true or done=false.
+   * @opt_param string filter Filters by `done`. That is, `done=true` or
+   * `done=false`.
    * @opt_param string pageToken The standard list page token.
-   * @opt_param int pageSize The list page size. The max allowed value is 256 and
-   * default is 100.
+   * @opt_param int pageSize The list page size. The maximum allowed value is 256
+   * and the default is 100.
    * @return Google_Service_DLP_GoogleLongrunningListOperationsResponse
    */
   public function listInspectOperations($name, $optParams = array())

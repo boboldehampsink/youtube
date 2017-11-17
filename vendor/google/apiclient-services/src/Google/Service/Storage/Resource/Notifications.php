@@ -32,8 +32,8 @@ class Google_Service_Storage_Resource_Notifications extends Google_Service_Resou
    * @param string $notification ID of the notification to delete.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    */
   public function delete($bucket, $notification, $optParams = array())
   {
@@ -48,8 +48,8 @@ class Google_Service_Storage_Resource_Notifications extends Google_Service_Resou
    * @param string $notification Notification ID
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_Notification
    */
   public function get($bucket, $notification, $optParams = array())
@@ -66,8 +66,8 @@ class Google_Service_Storage_Resource_Notifications extends Google_Service_Resou
    * @param Google_Service_Storage_Notification $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_Notification
    */
   public function insert($bucket, Google_Service_Storage_Notification $postBody, $optParams = array())
@@ -83,8 +83,8 @@ class Google_Service_Storage_Resource_Notifications extends Google_Service_Resou
    * @param string $bucket Name of a Google Cloud Storage bucket.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_Notifications
    */
   public function listNotifications($bucket, $optParams = array())

@@ -33,6 +33,9 @@ class Google_Service_CloudSourceRepositories extends Google_Service
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
+  /** Manage your source code repositories. */
+  const SOURCE_FULL_CONTROL =
+      "https://www.googleapis.com/auth/source.full_control";
   /** View the contents of your source code repositories. */
   const SOURCE_READ_ONLY =
       "https://www.googleapis.com/auth/source.read_only";

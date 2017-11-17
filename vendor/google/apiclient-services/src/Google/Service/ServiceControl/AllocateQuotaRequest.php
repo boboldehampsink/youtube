@@ -19,7 +19,6 @@ class Google_Service_ServiceControl_AllocateQuotaRequest extends Google_Model
 {
   protected $allocateOperationType = 'Google_Service_ServiceControl_QuotaOperation';
   protected $allocateOperationDataType = '';
-  public $allocationMode;
   public $serviceConfigId;
 
   /**
@@ -35,14 +34,6 @@ class Google_Service_ServiceControl_AllocateQuotaRequest extends Google_Model
   public function getAllocateOperation()
   {
     return $this->allocateOperation;
-  }
-  public function setAllocationMode($allocationMode)
-  {
-    $this->allocationMode = $allocationMode;
-  }
-  public function getAllocationMode()
-  {
-    return $this->allocationMode;
   }
   public function setServiceConfigId($serviceConfigId)
   {

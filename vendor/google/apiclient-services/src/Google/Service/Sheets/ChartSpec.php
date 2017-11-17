@@ -35,9 +35,16 @@ class Google_Service_Sheets_ChartSpec extends Google_Model
   protected $orgChartDataType = '';
   protected $pieChartType = 'Google_Service_Sheets_PieChartSpec';
   protected $pieChartDataType = '';
+  public $subtitle;
+  protected $subtitleTextFormatType = 'Google_Service_Sheets_TextFormat';
+  protected $subtitleTextFormatDataType = '';
+  protected $subtitleTextPositionType = 'Google_Service_Sheets_TextPosition';
+  protected $subtitleTextPositionDataType = '';
   public $title;
   protected $titleTextFormatType = 'Google_Service_Sheets_TextFormat';
   protected $titleTextFormatDataType = '';
+  protected $titleTextPositionType = 'Google_Service_Sheets_TextPosition';
+  protected $titleTextPositionDataType = '';
 
   public function setAltText($altText)
   {
@@ -169,6 +176,42 @@ class Google_Service_Sheets_ChartSpec extends Google_Model
   {
     return $this->pieChart;
   }
+  public function setSubtitle($subtitle)
+  {
+    $this->subtitle = $subtitle;
+  }
+  public function getSubtitle()
+  {
+    return $this->subtitle;
+  }
+  /**
+   * @param Google_Service_Sheets_TextFormat
+   */
+  public function setSubtitleTextFormat(Google_Service_Sheets_TextFormat $subtitleTextFormat)
+  {
+    $this->subtitleTextFormat = $subtitleTextFormat;
+  }
+  /**
+   * @return Google_Service_Sheets_TextFormat
+   */
+  public function getSubtitleTextFormat()
+  {
+    return $this->subtitleTextFormat;
+  }
+  /**
+   * @param Google_Service_Sheets_TextPosition
+   */
+  public function setSubtitleTextPosition(Google_Service_Sheets_TextPosition $subtitleTextPosition)
+  {
+    $this->subtitleTextPosition = $subtitleTextPosition;
+  }
+  /**
+   * @return Google_Service_Sheets_TextPosition
+   */
+  public function getSubtitleTextPosition()
+  {
+    return $this->subtitleTextPosition;
+  }
   public function setTitle($title)
   {
     $this->title = $title;
@@ -190,5 +233,19 @@ class Google_Service_Sheets_ChartSpec extends Google_Model
   public function getTitleTextFormat()
   {
     return $this->titleTextFormat;
+  }
+  /**
+   * @param Google_Service_Sheets_TextPosition
+   */
+  public function setTitleTextPosition(Google_Service_Sheets_TextPosition $titleTextPosition)
+  {
+    $this->titleTextPosition = $titleTextPosition;
+  }
+  /**
+   * @return Google_Service_Sheets_TextPosition
+   */
+  public function getTitleTextPosition()
+  {
+    return $this->titleTextPosition;
   }
 }

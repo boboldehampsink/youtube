@@ -109,6 +109,8 @@ class Google_Service_CloudMachineLearningEngine_Resource_ProjectsModelsVersions 
    * response message will contain a valid value in the `next_page_token` field.
    *
    * The default value is 20, and the maximum page size is 100.
+   * @opt_param string filter Optional. Specifies the subset of versions to
+   * retrieve.
    * @return Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1ListVersionsResponse
    */
   public function listProjectsModelsVersions($parent, $optParams = array())
@@ -116,6 +118,38 @@ class Google_Service_CloudMachineLearningEngine_Resource_ProjectsModelsVersions 
     $params = array('parent' => $parent);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1ListVersionsResponse");
+  }
+  /**
+   * Updates the specified Version resource.
+   *
+   * Currently the only supported field to update is `description`.
+   * (versions.patch)
+   *
+   * @param string $name Required. The name of the model.
+   * @param Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1Version $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string updateMask Required. Specifies the path, relative to
+   * `Version`, of the field to update. Must be present and non-empty.
+   *
+   * For example, to change the description of a version to "foo", the
+   * `update_mask` parameter would be specified as `description`, and the `PATCH`
+   * request body would specify the new value, as follows:     {
+   * "description": "foo"     } In this example, the version is blindly
+   * overwritten since no etag is given.
+   *
+   * To adopt etag mechanism, include `etag` field in the mask, and include the
+   * `etag` value in your version resource.
+   *
+   * Currently the only supported update masks are `description`, `labels`, and
+   * `etag`.
+   * @return Google_Service_CloudMachineLearningEngine_GoogleLongrunningOperation
+   */
+  public function patch($name, Google_Service_CloudMachineLearningEngine_GoogleCloudMlV1Version $postBody, $optParams = array())
+  {
+    $params = array('name' => $name, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_CloudMachineLearningEngine_GoogleLongrunningOperation");
   }
   /**
    * Designates a version to be the default for the model.

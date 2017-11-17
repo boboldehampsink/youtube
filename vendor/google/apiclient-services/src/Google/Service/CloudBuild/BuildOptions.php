@@ -18,10 +18,19 @@
 class Google_Service_CloudBuild_BuildOptions extends Google_Collection
 {
   protected $collection_key = 'sourceProvenanceHash';
+  public $logStreamingOption;
   public $requestedVerifyOption;
   public $sourceProvenanceHash;
   public $substitutionOption;
 
+  public function setLogStreamingOption($logStreamingOption)
+  {
+    $this->logStreamingOption = $logStreamingOption;
+  }
+  public function getLogStreamingOption()
+  {
+    return $this->logStreamingOption;
+  }
   public function setRequestedVerifyOption($requestedVerifyOption)
   {
     $this->requestedVerifyOption = $requestedVerifyOption;

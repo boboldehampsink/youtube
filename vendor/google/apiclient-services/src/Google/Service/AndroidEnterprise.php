@@ -1421,6 +1421,21 @@ class Google_Service_AndroidEnterprise extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'revokeDeviceAccess' => array(
+              'path' => 'enterprises/{enterpriseId}/users/{userId}/deviceAccess',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'revokeToken' => array(
               'path' => 'enterprises/{enterpriseId}/users/{userId}/token',
               'httpMethod' => 'DELETE',

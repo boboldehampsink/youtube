@@ -60,6 +60,22 @@ class Google_Service_SQLAdmin_Resource_Instances extends Google_Service_Resource
     return $this->call('delete', array($params), "Google_Service_SQLAdmin_Operation");
   }
   /**
+   * Demotes the standalone instance to be a read replica Cloud SQL instance of an
+   * on-premises master. (instances.demoteMaster)
+   *
+   * @param string $project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance name.
+   * @param Google_Service_SQLAdmin_InstancesDemoteMasterRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_SQLAdmin_Operation
+   */
+  public function demoteMaster($project, $instance, Google_Service_SQLAdmin_InstancesDemoteMasterRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'instance' => $instance, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('demoteMaster', array($params), "Google_Service_SQLAdmin_Operation");
+  }
+  /**
    * Exports data from a Cloud SQL instance to a Google Cloud Storage bucket as a
    * MySQL dump file. (instances.export)
    *

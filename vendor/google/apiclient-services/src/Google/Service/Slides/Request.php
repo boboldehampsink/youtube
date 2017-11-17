@@ -45,12 +45,16 @@ class Google_Service_Slides_Request extends Google_Model
   protected $deleteTextDataType = '';
   protected $duplicateObjectType = 'Google_Service_Slides_DuplicateObjectRequest';
   protected $duplicateObjectDataType = '';
+  protected $groupObjectsType = 'Google_Service_Slides_GroupObjectsRequest';
+  protected $groupObjectsDataType = '';
   protected $insertTableColumnsType = 'Google_Service_Slides_InsertTableColumnsRequest';
   protected $insertTableColumnsDataType = '';
   protected $insertTableRowsType = 'Google_Service_Slides_InsertTableRowsRequest';
   protected $insertTableRowsDataType = '';
   protected $insertTextType = 'Google_Service_Slides_InsertTextRequest';
   protected $insertTextDataType = '';
+  protected $mergeTableCellsType = 'Google_Service_Slides_MergeTableCellsRequest';
+  protected $mergeTableCellsDataType = '';
   protected $refreshSheetsChartType = 'Google_Service_Slides_RefreshSheetsChartRequest';
   protected $refreshSheetsChartDataType = '';
   protected $replaceAllShapesWithImageType = 'Google_Service_Slides_ReplaceAllShapesWithImageRequest';
@@ -59,6 +63,10 @@ class Google_Service_Slides_Request extends Google_Model
   protected $replaceAllShapesWithSheetsChartDataType = '';
   protected $replaceAllTextType = 'Google_Service_Slides_ReplaceAllTextRequest';
   protected $replaceAllTextDataType = '';
+  protected $ungroupObjectsType = 'Google_Service_Slides_UngroupObjectsRequest';
+  protected $ungroupObjectsDataType = '';
+  protected $unmergeTableCellsType = 'Google_Service_Slides_UnmergeTableCellsRequest';
+  protected $unmergeTableCellsDataType = '';
   protected $updateImagePropertiesType = 'Google_Service_Slides_UpdateImagePropertiesRequest';
   protected $updateImagePropertiesDataType = '';
   protected $updateLinePropertiesType = 'Google_Service_Slides_UpdateLinePropertiesRequest';
@@ -73,8 +81,14 @@ class Google_Service_Slides_Request extends Google_Model
   protected $updateShapePropertiesDataType = '';
   protected $updateSlidesPositionType = 'Google_Service_Slides_UpdateSlidesPositionRequest';
   protected $updateSlidesPositionDataType = '';
+  protected $updateTableBorderPropertiesType = 'Google_Service_Slides_UpdateTableBorderPropertiesRequest';
+  protected $updateTableBorderPropertiesDataType = '';
   protected $updateTableCellPropertiesType = 'Google_Service_Slides_UpdateTableCellPropertiesRequest';
   protected $updateTableCellPropertiesDataType = '';
+  protected $updateTableColumnPropertiesType = 'Google_Service_Slides_UpdateTableColumnPropertiesRequest';
+  protected $updateTableColumnPropertiesDataType = '';
+  protected $updateTableRowPropertiesType = 'Google_Service_Slides_UpdateTableRowPropertiesRequest';
+  protected $updateTableRowPropertiesDataType = '';
   protected $updateTextStyleType = 'Google_Service_Slides_UpdateTextStyleRequest';
   protected $updateTextStyleDataType = '';
   protected $updateVideoPropertiesType = 'Google_Service_Slides_UpdateVideoPropertiesRequest';
@@ -277,6 +291,20 @@ class Google_Service_Slides_Request extends Google_Model
     return $this->duplicateObject;
   }
   /**
+   * @param Google_Service_Slides_GroupObjectsRequest
+   */
+  public function setGroupObjects(Google_Service_Slides_GroupObjectsRequest $groupObjects)
+  {
+    $this->groupObjects = $groupObjects;
+  }
+  /**
+   * @return Google_Service_Slides_GroupObjectsRequest
+   */
+  public function getGroupObjects()
+  {
+    return $this->groupObjects;
+  }
+  /**
    * @param Google_Service_Slides_InsertTableColumnsRequest
    */
   public function setInsertTableColumns(Google_Service_Slides_InsertTableColumnsRequest $insertTableColumns)
@@ -317,6 +345,20 @@ class Google_Service_Slides_Request extends Google_Model
   public function getInsertText()
   {
     return $this->insertText;
+  }
+  /**
+   * @param Google_Service_Slides_MergeTableCellsRequest
+   */
+  public function setMergeTableCells(Google_Service_Slides_MergeTableCellsRequest $mergeTableCells)
+  {
+    $this->mergeTableCells = $mergeTableCells;
+  }
+  /**
+   * @return Google_Service_Slides_MergeTableCellsRequest
+   */
+  public function getMergeTableCells()
+  {
+    return $this->mergeTableCells;
   }
   /**
    * @param Google_Service_Slides_RefreshSheetsChartRequest
@@ -373,6 +415,34 @@ class Google_Service_Slides_Request extends Google_Model
   public function getReplaceAllText()
   {
     return $this->replaceAllText;
+  }
+  /**
+   * @param Google_Service_Slides_UngroupObjectsRequest
+   */
+  public function setUngroupObjects(Google_Service_Slides_UngroupObjectsRequest $ungroupObjects)
+  {
+    $this->ungroupObjects = $ungroupObjects;
+  }
+  /**
+   * @return Google_Service_Slides_UngroupObjectsRequest
+   */
+  public function getUngroupObjects()
+  {
+    return $this->ungroupObjects;
+  }
+  /**
+   * @param Google_Service_Slides_UnmergeTableCellsRequest
+   */
+  public function setUnmergeTableCells(Google_Service_Slides_UnmergeTableCellsRequest $unmergeTableCells)
+  {
+    $this->unmergeTableCells = $unmergeTableCells;
+  }
+  /**
+   * @return Google_Service_Slides_UnmergeTableCellsRequest
+   */
+  public function getUnmergeTableCells()
+  {
+    return $this->unmergeTableCells;
   }
   /**
    * @param Google_Service_Slides_UpdateImagePropertiesRequest
@@ -473,6 +543,20 @@ class Google_Service_Slides_Request extends Google_Model
     return $this->updateSlidesPosition;
   }
   /**
+   * @param Google_Service_Slides_UpdateTableBorderPropertiesRequest
+   */
+  public function setUpdateTableBorderProperties(Google_Service_Slides_UpdateTableBorderPropertiesRequest $updateTableBorderProperties)
+  {
+    $this->updateTableBorderProperties = $updateTableBorderProperties;
+  }
+  /**
+   * @return Google_Service_Slides_UpdateTableBorderPropertiesRequest
+   */
+  public function getUpdateTableBorderProperties()
+  {
+    return $this->updateTableBorderProperties;
+  }
+  /**
    * @param Google_Service_Slides_UpdateTableCellPropertiesRequest
    */
   public function setUpdateTableCellProperties(Google_Service_Slides_UpdateTableCellPropertiesRequest $updateTableCellProperties)
@@ -485,6 +569,34 @@ class Google_Service_Slides_Request extends Google_Model
   public function getUpdateTableCellProperties()
   {
     return $this->updateTableCellProperties;
+  }
+  /**
+   * @param Google_Service_Slides_UpdateTableColumnPropertiesRequest
+   */
+  public function setUpdateTableColumnProperties(Google_Service_Slides_UpdateTableColumnPropertiesRequest $updateTableColumnProperties)
+  {
+    $this->updateTableColumnProperties = $updateTableColumnProperties;
+  }
+  /**
+   * @return Google_Service_Slides_UpdateTableColumnPropertiesRequest
+   */
+  public function getUpdateTableColumnProperties()
+  {
+    return $this->updateTableColumnProperties;
+  }
+  /**
+   * @param Google_Service_Slides_UpdateTableRowPropertiesRequest
+   */
+  public function setUpdateTableRowProperties(Google_Service_Slides_UpdateTableRowPropertiesRequest $updateTableRowProperties)
+  {
+    $this->updateTableRowProperties = $updateTableRowProperties;
+  }
+  /**
+   * @return Google_Service_Slides_UpdateTableRowPropertiesRequest
+   */
+  public function getUpdateTableRowProperties()
+  {
+    return $this->updateTableRowProperties;
   }
   /**
    * @param Google_Service_Slides_UpdateTextStyleRequest

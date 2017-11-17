@@ -21,6 +21,8 @@ class Google_Service_Sheets_BasicChartAxis extends Google_Model
   protected $formatDataType = '';
   public $position;
   public $title;
+  protected $titleTextPositionType = 'Google_Service_Sheets_TextPosition';
+  protected $titleTextPositionDataType = '';
 
   /**
    * @param Google_Service_Sheets_TextFormat
@@ -51,5 +53,19 @@ class Google_Service_Sheets_BasicChartAxis extends Google_Model
   public function getTitle()
   {
     return $this->title;
+  }
+  /**
+   * @param Google_Service_Sheets_TextPosition
+   */
+  public function setTitleTextPosition(Google_Service_Sheets_TextPosition $titleTextPosition)
+  {
+    $this->titleTextPosition = $titleTextPosition;
+  }
+  /**
+   * @return Google_Service_Sheets_TextPosition
+   */
+  public function getTitleTextPosition()
+  {
+    return $this->titleTextPosition;
   }
 }

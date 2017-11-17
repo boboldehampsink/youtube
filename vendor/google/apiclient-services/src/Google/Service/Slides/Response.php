@@ -33,6 +33,8 @@ class Google_Service_Slides_Response extends Google_Model
   protected $createVideoDataType = '';
   protected $duplicateObjectType = 'Google_Service_Slides_DuplicateObjectResponse';
   protected $duplicateObjectDataType = '';
+  protected $groupObjectsType = 'Google_Service_Slides_GroupObjectsResponse';
+  protected $groupObjectsDataType = '';
   protected $replaceAllShapesWithImageType = 'Google_Service_Slides_ReplaceAllShapesWithImageResponse';
   protected $replaceAllShapesWithImageDataType = '';
   protected $replaceAllShapesWithSheetsChartType = 'Google_Service_Slides_ReplaceAllShapesWithSheetsChartResponse';
@@ -151,6 +153,20 @@ class Google_Service_Slides_Response extends Google_Model
   public function getDuplicateObject()
   {
     return $this->duplicateObject;
+  }
+  /**
+   * @param Google_Service_Slides_GroupObjectsResponse
+   */
+  public function setGroupObjects(Google_Service_Slides_GroupObjectsResponse $groupObjects)
+  {
+    $this->groupObjects = $groupObjects;
+  }
+  /**
+   * @return Google_Service_Slides_GroupObjectsResponse
+   */
+  public function getGroupObjects()
+  {
+    return $this->groupObjects;
   }
   /**
    * @param Google_Service_Slides_ReplaceAllShapesWithImageResponse

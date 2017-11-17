@@ -19,7 +19,7 @@
  * Service definition for CloudVideoIntelligence (v1beta1).
  *
  * <p>
- * Google Cloud Video Intelligence API.</p>
+ * Cloud Video Intelligence API.</p>
  *
  * <p>
  * For more information about this service, see the API

@@ -19,7 +19,7 @@
  * Service definition for Script (v1).
  *
  * <p>
- * Executes functions in Google Apps Script projects.</p>
+ * An API for managing and executing Google Apps Script projects.</p>
  *
  * <p>
  * For more information about this service, see the API

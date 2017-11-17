@@ -17,40 +17,70 @@
 
 class Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation extends Google_Collection
 {
-  protected $collection_key = 'locations';
-  public $description;
-  public $languageCode;
-  protected $locationsType = 'Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelLocation';
-  protected $locationsDataType = 'array';
+  protected $collection_key = 'segments';
+  protected $categoryEntitiesType = 'Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity';
+  protected $categoryEntitiesDataType = 'array';
+  protected $entityType = 'Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity';
+  protected $entityDataType = '';
+  protected $framesType = 'Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelFrame';
+  protected $framesDataType = 'array';
+  protected $segmentsType = 'Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelSegment';
+  protected $segmentsDataType = 'array';
 
-  public function setDescription($description)
+  /**
+   * @param Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity
+   */
+  public function setCategoryEntities($categoryEntities)
   {
-    $this->description = $description;
-  }
-  public function getDescription()
-  {
-    return $this->description;
-  }
-  public function setLanguageCode($languageCode)
-  {
-    $this->languageCode = $languageCode;
-  }
-  public function getLanguageCode()
-  {
-    return $this->languageCode;
+    $this->categoryEntities = $categoryEntities;
   }
   /**
-   * @param Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelLocation
+   * @return Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity
    */
-  public function setLocations($locations)
+  public function getCategoryEntities()
   {
-    $this->locations = $locations;
+    return $this->categoryEntities;
   }
   /**
-   * @return Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelLocation
+   * @param Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity
    */
-  public function getLocations()
+  public function setEntity(Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity $entity)
   {
-    return $this->locations;
+    $this->entity = $entity;
+  }
+  /**
+   * @return Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity
+   */
+  public function getEntity()
+  {
+    return $this->entity;
+  }
+  /**
+   * @param Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelFrame
+   */
+  public function setFrames($frames)
+  {
+    $this->frames = $frames;
+  }
+  /**
+   * @return Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelFrame
+   */
+  public function getFrames()
+  {
+    return $this->frames;
+  }
+  /**
+   * @param Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelSegment
+   */
+  public function setSegments($segments)
+  {
+    $this->segments = $segments;
+  }
+  /**
+   * @return Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelSegment
+   */
+  public function getSegments()
+  {
+    return $this->segments;
   }
 }

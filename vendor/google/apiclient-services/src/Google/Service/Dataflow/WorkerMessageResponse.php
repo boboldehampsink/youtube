@@ -21,6 +21,8 @@ class Google_Service_Dataflow_WorkerMessageResponse extends Google_Model
   protected $workerHealthReportResponseDataType = '';
   protected $workerMetricsResponseType = 'Google_Service_Dataflow_ResourceUtilizationReportResponse';
   protected $workerMetricsResponseDataType = '';
+  protected $workerShutdownNoticeResponseType = 'Google_Service_Dataflow_WorkerShutdownNoticeResponse';
+  protected $workerShutdownNoticeResponseDataType = '';
 
   /**
    * @param Google_Service_Dataflow_WorkerHealthReportResponse
@@ -49,5 +51,19 @@ class Google_Service_Dataflow_WorkerMessageResponse extends Google_Model
   public function getWorkerMetricsResponse()
   {
     return $this->workerMetricsResponse;
+  }
+  /**
+   * @param Google_Service_Dataflow_WorkerShutdownNoticeResponse
+   */
+  public function setWorkerShutdownNoticeResponse(Google_Service_Dataflow_WorkerShutdownNoticeResponse $workerShutdownNoticeResponse)
+  {
+    $this->workerShutdownNoticeResponse = $workerShutdownNoticeResponse;
+  }
+  /**
+   * @return Google_Service_Dataflow_WorkerShutdownNoticeResponse
+   */
+  public function getWorkerShutdownNoticeResponse()
+  {
+    return $this->workerShutdownNoticeResponse;
   }
 }

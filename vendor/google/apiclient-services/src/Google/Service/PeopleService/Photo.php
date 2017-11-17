@@ -17,10 +17,19 @@
 
 class Google_Service_PeopleService_Photo extends Google_Model
 {
+  public $default;
   protected $metadataType = 'Google_Service_PeopleService_FieldMetadata';
   protected $metadataDataType = '';
   public $url;
 
+  public function setDefault($default)
+  {
+    $this->default = $default;
+  }
+  public function getDefault()
+  {
+    return $this->default;
+  }
   /**
    * @param Google_Service_PeopleService_FieldMetadata
    */

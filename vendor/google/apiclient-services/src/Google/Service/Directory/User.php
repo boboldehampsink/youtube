@@ -29,6 +29,7 @@ class Google_Service_Directory_User extends Google_Collection
   public $emails;
   public $etag;
   public $externalIds;
+  public $gender;
   public $hashFunction;
   public $id;
   public $ims;
@@ -149,6 +150,14 @@ class Google_Service_Directory_User extends Google_Collection
   public function getExternalIds()
   {
     return $this->externalIds;
+  }
+  public function setGender($gender)
+  {
+    $this->gender = $gender;
+  }
+  public function getGender()
+  {
+    return $this->gender;
   }
   public function setHashFunction($hashFunction)
   {

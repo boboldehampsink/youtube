@@ -21,6 +21,7 @@ class Google_Service_Sheets_BasicChartSpec extends Google_Collection
   protected $axisType = 'Google_Service_Sheets_BasicChartAxis';
   protected $axisDataType = 'array';
   public $chartType;
+  public $compareMode;
   protected $domainsType = 'Google_Service_Sheets_BasicChartDomain';
   protected $domainsDataType = 'array';
   public $headerCount;
@@ -53,6 +54,14 @@ class Google_Service_Sheets_BasicChartSpec extends Google_Collection
   public function getChartType()
   {
     return $this->chartType;
+  }
+  public function setCompareMode($compareMode)
+  {
+    $this->compareMode = $compareMode;
+  }
+  public function getCompareMode()
+  {
+    return $this->compareMode;
   }
   /**
    * @param Google_Service_Sheets_BasicChartDomain

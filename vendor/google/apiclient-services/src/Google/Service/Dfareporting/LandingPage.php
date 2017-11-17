@@ -17,19 +17,28 @@
 
 class Google_Service_Dfareporting_LandingPage extends Google_Model
 {
-  public $default;
+  public $advertiserId;
+  public $archived;
   public $id;
   public $kind;
   public $name;
   public $url;
 
-  public function setDefault($default)
+  public function setAdvertiserId($advertiserId)
   {
-    $this->default = $default;
+    $this->advertiserId = $advertiserId;
   }
-  public function getDefault()
+  public function getAdvertiserId()
   {
-    return $this->default;
+    return $this->advertiserId;
+  }
+  public function setArchived($archived)
+  {
+    $this->archived = $archived;
+  }
+  public function getArchived()
+  {
+    return $this->archived;
   }
   public function setId($id)
   {

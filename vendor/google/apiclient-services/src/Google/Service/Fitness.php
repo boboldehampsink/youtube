@@ -86,6 +86,7 @@ class Google_Service_Fitness extends Google_Service
       "https://www.googleapis.com/auth/fitness.reproductive_health.write";
 
   public $users_dataSources;
+  public $users_dataSources_dataPointChanges;
   public $users_dataSources_datasets;
   public $users_dataset;
   public $users_sessions;
@@ -192,6 +193,39 @@ class Google_Service_Fitness extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->users_dataSources_dataPointChanges = new Google_Service_Fitness_Resource_UsersDataSourcesDataPointChanges(
+        $this,
+        $this->serviceName,
+        'dataPointChanges',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => '{userId}/dataSources/{dataSourceId}/dataPointChanges',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'dataSourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'limit' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),

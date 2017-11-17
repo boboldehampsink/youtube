@@ -35,8 +35,8 @@ class Google_Service_Storage_Resource_Buckets extends Google_Service_Resource
    * its metageneration matches this value.
    * @opt_param string ifMetagenerationNotMatch If set, only deletes the bucket if
    * its metageneration does not match this value.
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    */
   public function delete($bucket, $optParams = array())
   {
@@ -57,8 +57,8 @@ class Google_Service_Storage_Resource_Buckets extends Google_Service_Resource
    * metadata conditional on whether the bucket's current metageneration does not
    * match the given value.
    * @opt_param string projection Set of properties to return. Defaults to noAcl.
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_Bucket
    */
   public function get($bucket, $optParams = array())
@@ -73,8 +73,8 @@ class Google_Service_Storage_Resource_Buckets extends Google_Service_Resource
    * @param string $bucket Name of a bucket.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_Policy
    */
   public function getIamPolicy($bucket, $optParams = array())
@@ -97,6 +97,7 @@ class Google_Service_Storage_Resource_Buckets extends Google_Service_Resource
    * @opt_param string projection Set of properties to return. Defaults to noAcl,
    * unless the bucket resource specifies acl or defaultObjectAcl properties, when
    * it defaults to full.
+   * @opt_param string userProject The project to be billed for this request.
    * @return Google_Service_Storage_Bucket
    */
   public function insert($project, Google_Service_Storage_Bucket $postBody, $optParams = array())
@@ -119,6 +120,7 @@ class Google_Service_Storage_Resource_Buckets extends Google_Service_Resource
    * @opt_param string prefix Filter results to buckets whose names begin with
    * this prefix.
    * @opt_param string projection Set of properties to return. Defaults to noAcl.
+   * @opt_param string userProject The project to be billed for this request.
    * @return Google_Service_Storage_Buckets
    */
   public function listBuckets($project, $optParams = array())
@@ -147,8 +149,8 @@ class Google_Service_Storage_Resource_Buckets extends Google_Service_Resource
    * @opt_param string predefinedDefaultObjectAcl Apply a predefined set of
    * default object access controls to this bucket.
    * @opt_param string projection Set of properties to return. Defaults to full.
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_Bucket
    */
   public function patch($bucket, Google_Service_Storage_Bucket $postBody, $optParams = array())
@@ -164,8 +166,8 @@ class Google_Service_Storage_Resource_Buckets extends Google_Service_Resource
    * @param Google_Service_Storage_Policy $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_Policy
    */
   public function setIamPolicy($bucket, Google_Service_Storage_Policy $postBody, $optParams = array())
@@ -182,8 +184,8 @@ class Google_Service_Storage_Resource_Buckets extends Google_Service_Resource
    * @param string|array $permissions Permissions to test.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_TestIamPermissionsResponse
    */
   public function testIamPermissions($bucket, $permissions, $optParams = array())
@@ -212,8 +214,8 @@ class Google_Service_Storage_Resource_Buckets extends Google_Service_Resource
    * @opt_param string predefinedDefaultObjectAcl Apply a predefined set of
    * default object access controls to this bucket.
    * @opt_param string projection Set of properties to return. Defaults to full.
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_Bucket
    */
   public function update($bucket, Google_Service_Storage_Bucket $postBody, $optParams = array())

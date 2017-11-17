@@ -17,7 +17,7 @@
 
 class Google_Service_ShoppingContent_Account extends Google_Collection
 {
-  protected $collection_key = 'users';
+  protected $collection_key = 'youtubeChannelLinks';
   public $adultContent;
   protected $adwordsLinksType = 'Google_Service_ShoppingContent_AccountAdwordsLink';
   protected $adwordsLinksDataType = 'array';
@@ -29,6 +29,8 @@ class Google_Service_ShoppingContent_Account extends Google_Collection
   protected $usersType = 'Google_Service_ShoppingContent_AccountUser';
   protected $usersDataType = 'array';
   public $websiteUrl;
+  protected $youtubeChannelLinksType = 'Google_Service_ShoppingContent_AccountYouTubeChannelLink';
+  protected $youtubeChannelLinksDataType = 'array';
 
   public function setAdultContent($adultContent)
   {
@@ -113,5 +115,19 @@ class Google_Service_ShoppingContent_Account extends Google_Collection
   public function getWebsiteUrl()
   {
     return $this->websiteUrl;
+  }
+  /**
+   * @param Google_Service_ShoppingContent_AccountYouTubeChannelLink
+   */
+  public function setYoutubeChannelLinks($youtubeChannelLinks)
+  {
+    $this->youtubeChannelLinks = $youtubeChannelLinks;
+  }
+  /**
+   * @return Google_Service_ShoppingContent_AccountYouTubeChannelLink
+   */
+  public function getYoutubeChannelLinks()
+  {
+    return $this->youtubeChannelLinks;
   }
 }

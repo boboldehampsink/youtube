@@ -34,12 +34,12 @@ class Google_Service_Monitoring_Resource_ProjectsCollectdTimeSeries extends Goog
    * format is "projects/PROJECT_ID_OR_NUMBER".
    * @param Google_Service_Monitoring_CreateCollectdTimeSeriesRequest $postBody
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Monitoring_MonitoringEmpty
+   * @return Google_Service_Monitoring_CreateCollectdTimeSeriesResponse
    */
   public function create($name, Google_Service_Monitoring_CreateCollectdTimeSeriesRequest $postBody, $optParams = array())
   {
     $params = array('name' => $name, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('create', array($params), "Google_Service_Monitoring_MonitoringEmpty");
+    return $this->call('create', array($params), "Google_Service_Monitoring_CreateCollectdTimeSeriesResponse");
   }
 }

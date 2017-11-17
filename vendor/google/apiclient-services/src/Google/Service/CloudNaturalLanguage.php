@@ -64,6 +64,10 @@ class Google_Service_CloudNaturalLanguage extends Google_Service
               'path' => 'v1/documents:analyzeEntities',
               'httpMethod' => 'POST',
               'parameters' => array(),
+            ),'analyzeEntitySentiment' => array(
+              'path' => 'v1/documents:analyzeEntitySentiment',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
             ),'analyzeSentiment' => array(
               'path' => 'v1/documents:analyzeSentiment',
               'httpMethod' => 'POST',
@@ -74,6 +78,10 @@ class Google_Service_CloudNaturalLanguage extends Google_Service
               'parameters' => array(),
             ),'annotateText' => array(
               'path' => 'v1/documents:annotateText',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'classifyText' => array(
+              'path' => 'v1/documents:classifyText',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),

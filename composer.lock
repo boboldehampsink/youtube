@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "27be24cbd54226ee7eea471d27655f27",
+    "content-hash": "bf3b12e61cd2845cefb9a4a1eb744fbd",
     "packages": [
+        {
+            "name": "adam-paterson/oauth2-slack",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adam-paterson/oauth2-slack.git",
+                "reference": "0ca93518910f91e64de8cc9d92777df89092a952"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adam-paterson/oauth2-slack/zipball/0ca93518910f91e64de8cc9d92777df89092a952",
+                "reference": "0ca93518910f91e64de8cc9d92777df89092a952",
+                "shasum": ""
+            },
+            "require": {
+                "league/oauth2-client": "^1.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AdamPaterson\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Paterson",
+                    "email": "hello@adampaterson.co.uk"
+                }
+            ],
+            "description": "Slack OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "Authentication",
+                "SSO",
+                "authorization",
+                "identity",
+                "idp",
+                "oauth",
+                "oauth2",
+                "single sign on",
+                "slack",
+                "slack api"
+            ],
+            "time": "2015-09-22T19:06:36+00:00"
+        },
         {
             "name": "composer/installers",
             "version": "v1.4.0",
@@ -124,37 +178,49 @@
             "time": "2017-08-09T07:53:48+00:00"
         },
         {
-            "name": "dukt/craft-oauth",
-            "version": "2.0.3",
+            "name": "dukt/oauth",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dukt/oauth.git",
-                "reference": "b67f69c16fc9e8e79bfdf7e9a6e40f9a04821532"
+                "reference": "6a5402769903c2caa503aadce85759667e08c333"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dukt/oauth/zipball/b67f69c16fc9e8e79bfdf7e9a6e40f9a04821532",
-                "reference": "b67f69c16fc9e8e79bfdf7e9a6e40f9a04821532",
+                "url": "https://api.github.com/repos/dukt/oauth/zipball/6a5402769903c2caa503aadce85759667e08c333",
+                "reference": "6a5402769903c2caa503aadce85759667e08c333",
                 "shasum": ""
             },
             "require": {
+                "adam-paterson/oauth2-slack": "1.1.2@dev",
                 "composer/installers": "~1.0",
                 "dukt/oauth2-google": "~1.0",
                 "league/oauth1-client": "1.7.0@dev",
                 "league/oauth2-client": "1.4.2@dev",
                 "league/oauth2-facebook": "1.4.4@dev",
+                "league/oauth2-github": "0.2.1@dev",
+                "league/oauth2-instagram": "0.2.2",
+                "league/oauth2-linkedin": "0.4.0@dev",
                 "saf33r/oauth2-vimeo": "~0.1"
             },
             "type": "craft-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Dukt\\OAuth\\Guzzle\\Subscribers\\": "subscribers/"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
-                    "name": "Benjamin David",
-                    "email": "ben@dukt.net"
+                    "name": "Dukt",
+                    "homepage": "https://dukt.net/"
                 }
             ],
             "description": "OAuth Plugin for Craft CMS",
-            "time": "2017-01-10T15:03:56+00:00"
+            "time": "2017-09-29T13:34:00+00:00"
         },
         {
             "name": "dukt/oauth2-google",
@@ -249,16 +315,16 @@
         },
         {
             "name": "google/apiclient",
-            "version": "v2.2.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client.git",
-                "reference": "f3fadd538315d62ebd1191d89ac791468c617260"
+                "reference": "b69b8ac4bf6501793c389d4e013a79d09c85c5f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/f3fadd538315d62ebd1191d89ac791468c617260",
-                "reference": "f3fadd538315d62ebd1191d89ac791468c617260",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/b69b8ac4bf6501793c389d4e013a79d09c85c5f2",
+                "reference": "b69b8ac4bf6501793c389d4e013a79d09c85c5f2",
                 "shasum": ""
             },
             "require": {
@@ -304,20 +370,20 @@
             "keywords": [
                 "google"
             ],
-            "time": "2017-07-10T15:34:54+00:00"
+            "time": "2017-11-03T01:19:53+00:00"
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.21",
+            "version": "v0.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client-services.git",
-                "reference": "b8282036684f2989e820b7830e8270f337304f23"
+                "reference": "4d0d438e323929579cabf0b4d420177a96835c6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/b8282036684f2989e820b7830e8270f337304f23",
-                "reference": "b8282036684f2989e820b7830e8270f337304f23",
+                "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/4d0d438e323929579cabf0b4d420177a96835c6d",
+                "reference": "4d0d438e323929579cabf0b4d420177a96835c6d",
                 "shasum": ""
             },
             "require": {
@@ -341,20 +407,20 @@
             "keywords": [
                 "google"
             ],
-            "time": "2017-08-28T00:23:45+00:00"
+            "time": "2017-11-11T00:27:24+00:00"
         },
         {
             "name": "google/auth",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-auth-library-php.git",
-                "reference": "db8e3022a308cb0e988026d38e67b91a42b41622"
+                "reference": "548d27d670f0236dc5258fa4cdde6e7b63464cfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/db8e3022a308cb0e988026d38e67b91a42b41622",
-                "reference": "db8e3022a308cb0e988026d38e67b91a42b41622",
+                "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/548d27d670f0236dc5258fa4cdde6e7b63464cfd",
+                "reference": "548d27d670f0236dc5258fa4cdde6e7b63464cfd",
                 "shasum": ""
             },
             "require": {
@@ -371,9 +437,6 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ],
                 "psr-4": {
                     "Google\\Auth\\": "src"
                 }
@@ -389,7 +452,7 @@
                 "google",
                 "oauth2"
             ],
-            "time": "2017-07-31T16:34:40+00:00"
+            "time": "2017-10-10T17:01:45+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -674,6 +737,39 @@
             "time": "2015-03-20T14:31:23+00:00"
         },
         {
+            "name": "jakeasmith/http_build_url",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jakeasmith/http_build_url.git",
+                "reference": "93c273e77cb1edead0cf8bcf8cd2003428e74e37"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jakeasmith/http_build_url/zipball/93c273e77cb1edead0cf8bcf8cd2003428e74e37",
+                "reference": "93c273e77cb1edead0cf8bcf8cd2003428e74e37",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/http_build_url.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jake A. Smith",
+                    "email": "theman@jakeasmith.com"
+                }
+            ],
+            "description": "Provides functionality for http_build_url() to environments without pecl_http.",
+            "time": "2017-05-01T15:36:40+00:00"
+        },
+        {
             "name": "league/oauth1-client",
             "version": "1.7.0",
             "source": {
@@ -851,6 +947,62 @@
             "time": "2016-10-21T00:54:37+00:00"
         },
         {
+            "name": "league/oauth2-github",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth2-github.git",
+                "reference": "0c8b940e63f04167e60c7c61b67a4c925803afb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-github/zipball/0c8b940e63f04167e60c7c61b67a4c925803afb0",
+                "reference": "0c8b940e63f04167e60c7c61b67a4c925803afb0",
+                "shasum": ""
+            },
+            "require": {
+                "league/oauth2-client": "~1.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steven Maguire",
+                    "email": "stevenmaguire@gmail.com",
+                    "homepage": "https://github.com/stevenmaguire"
+                }
+            ],
+            "description": "Github OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "authorisation",
+                "authorization",
+                "client",
+                "github",
+                "oauth",
+                "oauth2"
+            ],
+            "time": "2016-04-14T01:57:14+00:00"
+        },
+        {
             "name": "league/oauth2-google",
             "version": "1.0.1",
             "source": {
@@ -899,6 +1051,119 @@
                 "oauth2"
             ],
             "time": "2015-08-28T18:33:30+00:00"
+        },
+        {
+            "name": "league/oauth2-instagram",
+            "version": "0.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth2-instagram.git",
+                "reference": "f973049ded5f819e88a94d84a77b6a875da750bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-instagram/zipball/f973049ded5f819e88a94d84a77b6a875da750bd",
+                "reference": "f973049ded5f819e88a94d84a77b6a875da750bd",
+                "shasum": ""
+            },
+            "require": {
+                "jakeasmith/http_build_url": "^1.0",
+                "league/oauth2-client": "~1.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steven Maguire",
+                    "email": "stevenmaguire@gmail.com",
+                    "homepage": "https://github.com/stevenmaguire"
+                }
+            ],
+            "description": "Instagram OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "authorisation",
+                "authorization",
+                "client",
+                "instagram",
+                "oauth",
+                "oauth2"
+            ],
+            "time": "2016-04-14T02:15:44+00:00"
+        },
+        {
+            "name": "league/oauth2-linkedin",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth2-linkedin.git",
+                "reference": "04d30e7c59963396156daf39aa84e8521ca470e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-linkedin/zipball/04d30e7c59963396156daf39aa84e8521ca470e1",
+                "reference": "04d30e7c59963396156daf39aa84e8521ca470e1",
+                "shasum": ""
+            },
+            "require": {
+                "league/oauth2-client": "~1.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steven Maguire",
+                    "email": "stevenmaguire@gmail.com",
+                    "homepage": "https://github.com/stevenmaguire"
+                }
+            ],
+            "description": "LinkedIn OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "authorisation",
+                "authorization",
+                "client",
+                "linkedin",
+                "oauth",
+                "oauth2"
+            ],
+            "time": "2015-08-20T14:59:40+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -980,16 +1245,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "34a7699e6f31b1ef4035ee36444407cecf9f56aa"
+                "reference": "f4b6a522dfa1fd1e477c9cfe5909d5b31f098c0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/34a7699e6f31b1ef4035ee36444407cecf9f56aa",
-                "reference": "34a7699e6f31b1ef4035ee36444407cecf9f56aa",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/f4b6a522dfa1fd1e477c9cfe5909d5b31f098c0b",
+                "reference": "f4b6a522dfa1fd1e477c9cfe5909d5b31f098c0b",
                 "shasum": ""
             },
             "require": {
@@ -1068,7 +1333,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2017-06-05T06:31:10+00:00"
+            "time": "2017-10-23T05:04:54+00:00"
         },
         {
             "name": "psr/cache",

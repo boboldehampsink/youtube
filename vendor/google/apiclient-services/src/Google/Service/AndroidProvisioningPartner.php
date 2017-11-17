@@ -19,7 +19,7 @@
  * Service definition for AndroidProvisioningPartner (v1).
  *
  * <p>
- * Automates reseller integration into Zero Touch Provisioning by assigning
+ * Automates reseller integration into zero-touch enrollment by assigning
  * devices to customers and creating device reports.</p>
  *
  * <p>
@@ -77,7 +77,17 @@ class Google_Service_AndroidProvisioningPartner extends Google_Service
         'customers',
         array(
           'methods' => array(
-            'list' => array(
+            'create' => array(
+              'path' => 'v1/{+parent}/customers',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'parent' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
               'path' => 'v1/partners/{+partnerId}/customers',
               'httpMethod' => 'GET',
               'parameters' => array(

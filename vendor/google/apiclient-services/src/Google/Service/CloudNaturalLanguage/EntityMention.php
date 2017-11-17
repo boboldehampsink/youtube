@@ -17,10 +17,26 @@
 
 class Google_Service_CloudNaturalLanguage_EntityMention extends Google_Model
 {
+  protected $sentimentType = 'Google_Service_CloudNaturalLanguage_Sentiment';
+  protected $sentimentDataType = '';
   protected $textType = 'Google_Service_CloudNaturalLanguage_TextSpan';
   protected $textDataType = '';
   public $type;
 
+  /**
+   * @param Google_Service_CloudNaturalLanguage_Sentiment
+   */
+  public function setSentiment(Google_Service_CloudNaturalLanguage_Sentiment $sentiment)
+  {
+    $this->sentiment = $sentiment;
+  }
+  /**
+   * @return Google_Service_CloudNaturalLanguage_Sentiment
+   */
+  public function getSentiment()
+  {
+    return $this->sentiment;
+  }
   /**
    * @param Google_Service_CloudNaturalLanguage_TextSpan
    */

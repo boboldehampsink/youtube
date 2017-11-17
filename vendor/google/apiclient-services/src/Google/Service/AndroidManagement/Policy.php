@@ -22,6 +22,7 @@ class Google_Service_AndroidManagement_Policy extends Google_Collection
   public $adjustVolumeDisabled;
   protected $applicationsType = 'Google_Service_AndroidManagement_ApplicationPolicy';
   protected $applicationsDataType = 'array';
+  public $autoTimeRequired;
   public $blockApplicationsEnabled;
   public $cameraDisabled;
   protected $complianceRulesType = 'Google_Service_AndroidManagement_ComplianceRule';
@@ -53,6 +54,8 @@ class Google_Service_AndroidManagement_Policy extends Google_Collection
   protected $systemUpdateDataType = '';
   public $unmuteMicrophoneDisabled;
   public $version;
+  public $wifiConfigDisabled;
+  public $wifiConfigsLockdownEnabled;
 
   public function setAddUserDisabled($addUserDisabled)
   {
@@ -83,6 +86,14 @@ class Google_Service_AndroidManagement_Policy extends Google_Collection
   public function getApplications()
   {
     return $this->applications;
+  }
+  public function setAutoTimeRequired($autoTimeRequired)
+  {
+    $this->autoTimeRequired = $autoTimeRequired;
+  }
+  public function getAutoTimeRequired()
+  {
+    return $this->autoTimeRequired;
   }
   public function setBlockApplicationsEnabled($blockApplicationsEnabled)
   {
@@ -321,5 +332,21 @@ class Google_Service_AndroidManagement_Policy extends Google_Collection
   public function getVersion()
   {
     return $this->version;
+  }
+  public function setWifiConfigDisabled($wifiConfigDisabled)
+  {
+    $this->wifiConfigDisabled = $wifiConfigDisabled;
+  }
+  public function getWifiConfigDisabled()
+  {
+    return $this->wifiConfigDisabled;
+  }
+  public function setWifiConfigsLockdownEnabled($wifiConfigsLockdownEnabled)
+  {
+    $this->wifiConfigsLockdownEnabled = $wifiConfigsLockdownEnabled;
+  }
+  public function getWifiConfigsLockdownEnabled()
+  {
+    return $this->wifiConfigsLockdownEnabled;
   }
 }

@@ -24,6 +24,8 @@ class Google_Service_Compute_RegionInstanceGroupsListInstances extends Google_Co
   public $kind;
   public $nextPageToken;
   public $selfLink;
+  protected $warningType = 'Google_Service_Compute_RegionInstanceGroupsListInstancesWarning';
+  protected $warningDataType = '';
 
   public function setId($id)
   {
@@ -70,5 +72,19 @@ class Google_Service_Compute_RegionInstanceGroupsListInstances extends Google_Co
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+  /**
+   * @param Google_Service_Compute_RegionInstanceGroupsListInstancesWarning
+   */
+  public function setWarning(Google_Service_Compute_RegionInstanceGroupsListInstancesWarning $warning)
+  {
+    $this->warning = $warning;
+  }
+  /**
+   * @return Google_Service_Compute_RegionInstanceGroupsListInstancesWarning
+   */
+  public function getWarning()
+  {
+    return $this->warning;
   }
 }

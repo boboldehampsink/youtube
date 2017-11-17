@@ -34,10 +34,6 @@ class Google_Service_Partners_Resource_Users extends Google_Service_Resource
    * @param Google_Service_Partners_CompanyRelation $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string requestMetadata.partnersSessionId Google Partners session
-   * ID.
-   * @opt_param string requestMetadata.userOverrides.userId Logged-in user ID to
-   * impersonate instead of the user's ID.
    * @opt_param string requestMetadata.trafficSource.trafficSourceId Identifier to
    * indicate where the traffic comes from. An identifier has multiple letters
    * created by a team which redirected the traffic to us.
@@ -50,6 +46,10 @@ class Google_Service_Partners_Resource_Users extends Google_Service_Resource
    * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
    * identifier to indicate where the traffic comes from. An identifier has
    * multiple letters created by a team which redirected the traffic to us.
+   * @opt_param string requestMetadata.userOverrides.userId Logged-in user ID to
+   * impersonate instead of the user's ID.
+   * @opt_param string requestMetadata.partnersSessionId Google Partners session
+   * ID.
    * @return Google_Service_Partners_CompanyRelation
    */
   public function createCompanyRelation($userId, Google_Service_Partners_CompanyRelation $postBody, $optParams = array())
@@ -66,6 +66,13 @@ class Google_Service_Partners_Resource_Users extends Google_Service_Resource
    * currently authenticated user.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
+   * identifier to indicate where the traffic comes from. An identifier has
+   * multiple letters created by a team which redirected the traffic to us.
+   * @opt_param string requestMetadata.userOverrides.userId Logged-in user ID to
+   * impersonate instead of the user's ID.
+   * @opt_param string requestMetadata.partnersSessionId Google Partners session
+   * ID.
    * @opt_param string requestMetadata.trafficSource.trafficSourceId Identifier to
    * indicate where the traffic comes from. An identifier has multiple letters
    * created by a team which redirected the traffic to us.
@@ -75,13 +82,6 @@ class Google_Service_Partners_Resource_Users extends Google_Service_Resource
    * instead of the user's geo-located IP address.
    * @opt_param string requestMetadata.experimentIds Experiment IDs the current
    * request belongs to.
-   * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
-   * identifier to indicate where the traffic comes from. An identifier has
-   * multiple letters created by a team which redirected the traffic to us.
-   * @opt_param string requestMetadata.partnersSessionId Google Partners session
-   * ID.
-   * @opt_param string requestMetadata.userOverrides.userId Logged-in user ID to
-   * impersonate instead of the user's ID.
    * @return Google_Service_Partners_PartnersEmpty
    */
   public function deleteCompanyRelation($userId, $optParams = array())
@@ -97,6 +97,9 @@ class Google_Service_Partners_Resource_Users extends Google_Service_Resource
    * currently authenticated user.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
+   * identifier to indicate where the traffic comes from. An identifier has
+   * multiple letters created by a team which redirected the traffic to us.
    * @opt_param string requestMetadata.partnersSessionId Google Partners session
    * ID.
    * @opt_param string requestMetadata.userOverrides.userId Logged-in user ID to
@@ -112,9 +115,6 @@ class Google_Service_Partners_Resource_Users extends Google_Service_Resource
    * instead of the user's geo-located IP address.
    * @opt_param string requestMetadata.experimentIds Experiment IDs the current
    * request belongs to.
-   * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
-   * identifier to indicate where the traffic comes from. An identifier has
-   * multiple letters created by a team which redirected the traffic to us.
    * @return Google_Service_Partners_User
    */
   public function get($userId, $optParams = array())
@@ -130,6 +130,13 @@ class Google_Service_Partners_Resource_Users extends Google_Service_Resource
    * @param Google_Service_Partners_UserProfile $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
+   * identifier to indicate where the traffic comes from. An identifier has
+   * multiple letters created by a team which redirected the traffic to us.
+   * @opt_param string requestMetadata.userOverrides.userId Logged-in user ID to
+   * impersonate instead of the user's ID.
+   * @opt_param string requestMetadata.partnersSessionId Google Partners session
+   * ID.
    * @opt_param string requestMetadata.trafficSource.trafficSourceId Identifier to
    * indicate where the traffic comes from. An identifier has multiple letters
    * created by a team which redirected the traffic to us.
@@ -139,13 +146,6 @@ class Google_Service_Partners_Resource_Users extends Google_Service_Resource
    * instead of the user's geo-located IP address.
    * @opt_param string requestMetadata.experimentIds Experiment IDs the current
    * request belongs to.
-   * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
-   * identifier to indicate where the traffic comes from. An identifier has
-   * multiple letters created by a team which redirected the traffic to us.
-   * @opt_param string requestMetadata.partnersSessionId Google Partners session
-   * ID.
-   * @opt_param string requestMetadata.userOverrides.userId Logged-in user ID to
-   * impersonate instead of the user's ID.
    * @return Google_Service_Partners_UserProfile
    */
   public function updateProfile(Google_Service_Partners_UserProfile $postBody, $optParams = array())

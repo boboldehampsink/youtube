@@ -22,6 +22,7 @@ class Google_Service_ServiceControl_AuditLog extends Google_Collection
   protected $authenticationInfoDataType = '';
   protected $authorizationInfoType = 'Google_Service_ServiceControl_AuthorizationInfo';
   protected $authorizationInfoDataType = 'array';
+  public $metadata;
   public $methodName;
   public $numResponseItems;
   public $request;
@@ -61,6 +62,14 @@ class Google_Service_ServiceControl_AuditLog extends Google_Collection
   public function getAuthorizationInfo()
   {
     return $this->authorizationInfo;
+  }
+  public function setMetadata($metadata)
+  {
+    $this->metadata = $metadata;
+  }
+  public function getMetadata()
+  {
+    return $this->metadata;
   }
   public function setMethodName($methodName)
   {

@@ -18,7 +18,6 @@
 class Google_Service_AdExperienceReport_PlatformSummary extends Google_Collection
 {
   protected $collection_key = 'region';
-  public $abusiveStatus;
   public $betterAdsStatus;
   public $enforcementTime;
   public $filterStatus;
@@ -27,14 +26,6 @@ class Google_Service_AdExperienceReport_PlatformSummary extends Google_Collectio
   public $reportUrl;
   public $underReview;
 
-  public function setAbusiveStatus($abusiveStatus)
-  {
-    $this->abusiveStatus = $abusiveStatus;
-  }
-  public function getAbusiveStatus()
-  {
-    return $this->abusiveStatus;
-  }
   public function setBetterAdsStatus($betterAdsStatus)
   {
     $this->betterAdsStatus = $betterAdsStatus;

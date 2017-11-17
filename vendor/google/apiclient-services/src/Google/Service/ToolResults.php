@@ -250,7 +250,32 @@ class Google_Service_ToolResults extends Google_Service
         'clusters',
         array(
           'methods' => array(
-            'list' => array(
+            'get' => array(
+              'path' => '{projectId}/histories/{historyId}/executions/{executionId}/clusters/{clusterId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'historyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'executionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'clusterId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
               'path' => '{projectId}/histories/{historyId}/executions/{executionId}/clusters',
               'httpMethod' => 'GET',
               'parameters' => array(

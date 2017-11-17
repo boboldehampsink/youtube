@@ -26,11 +26,11 @@
 class Google_Service_ToolResults_Resource_ProjectsHistoriesExecutionsStepsPerfMetricsSummary extends Google_Service_Resource
 {
   /**
-   * Creates a PerfMetricsSummary resource.
+   * Creates a PerfMetricsSummary resource. Returns the existing one if it has
+   * already been created.
    *
-   * May return any of the following error code(s): - ALREADY_EXISTS - A
-   * PerfMetricSummary already exists for the given Step - NOT_FOUND - The
-   * containing Step does not exist (perfMetricsSummary.create)
+   * May return any of the following error code(s): - NOT_FOUND - The containing
+   * Step does not exist (perfMetricsSummary.create)
    *
    * @param string $projectId The cloud project
    * @param string $historyId A tool results history ID.

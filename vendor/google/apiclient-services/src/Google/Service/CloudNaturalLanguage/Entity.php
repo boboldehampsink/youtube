@@ -23,6 +23,8 @@ class Google_Service_CloudNaturalLanguage_Entity extends Google_Collection
   public $metadata;
   public $name;
   public $salience;
+  protected $sentimentType = 'Google_Service_CloudNaturalLanguage_Sentiment';
+  protected $sentimentDataType = '';
   public $type;
 
   /**
@@ -62,6 +64,20 @@ class Google_Service_CloudNaturalLanguage_Entity extends Google_Collection
   public function getSalience()
   {
     return $this->salience;
+  }
+  /**
+   * @param Google_Service_CloudNaturalLanguage_Sentiment
+   */
+  public function setSentiment(Google_Service_CloudNaturalLanguage_Sentiment $sentiment)
+  {
+    $this->sentiment = $sentiment;
+  }
+  /**
+   * @return Google_Service_CloudNaturalLanguage_Sentiment
+   */
+  public function getSentiment()
+  {
+    return $this->sentiment;
   }
   public function setType($type)
   {

@@ -19,8 +19,8 @@ class Google_Service_CloudTrace_TimeEvent extends Google_Model
 {
   protected $annotationType = 'Google_Service_CloudTrace_Annotation';
   protected $annotationDataType = '';
-  protected $networkEventType = 'Google_Service_CloudTrace_NetworkEvent';
-  protected $networkEventDataType = '';
+  protected $messageEventType = 'Google_Service_CloudTrace_MessageEvent';
+  protected $messageEventDataType = '';
   public $time;
 
   /**
@@ -38,18 +38,18 @@ class Google_Service_CloudTrace_TimeEvent extends Google_Model
     return $this->annotation;
   }
   /**
-   * @param Google_Service_CloudTrace_NetworkEvent
+   * @param Google_Service_CloudTrace_MessageEvent
    */
-  public function setNetworkEvent(Google_Service_CloudTrace_NetworkEvent $networkEvent)
+  public function setMessageEvent(Google_Service_CloudTrace_MessageEvent $messageEvent)
   {
-    $this->networkEvent = $networkEvent;
+    $this->messageEvent = $messageEvent;
   }
   /**
-   * @return Google_Service_CloudTrace_NetworkEvent
+   * @return Google_Service_CloudTrace_MessageEvent
    */
-  public function getNetworkEvent()
+  public function getMessageEvent()
   {
-    return $this->networkEvent;
+    return $this->messageEvent;
   }
   public function setTime($time)
   {

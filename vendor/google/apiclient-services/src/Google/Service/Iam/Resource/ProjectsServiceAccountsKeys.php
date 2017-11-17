@@ -29,10 +29,10 @@ class Google_Service_Iam_Resource_ProjectsServiceAccountsKeys extends Google_Ser
    * Creates a ServiceAccountKey and returns it. (keys.create)
    *
    * @param string $name The resource name of the service account in the following
-   * format: `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
-   * Using `-` as a wildcard for the project will infer the project from the
-   * account. The `account` value can be the `email` address or the `unique_id` of
-   * the service account.
+   * format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. Using `-` as a
+   * wildcard for the `PROJECT_ID` will infer the project from the account. The
+   * `ACCOUNT` value can be the `email` address or the `unique_id` of the service
+   * account.
    * @param Google_Service_Iam_CreateServiceAccountKeyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Iam_ServiceAccountKey
@@ -48,10 +48,10 @@ class Google_Service_Iam_Resource_ProjectsServiceAccountsKeys extends Google_Ser
    *
    * @param string $name The resource name of the service account key in the
    * following format:
-   * `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}/keys/{key}`.
-   * Using `-` as a wildcard for the project will infer the project from the
-   * account. The `account` value can be the `email` address or the `unique_id` of
-   * the service account.
+   * `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using `-` as a
+   * wildcard for the `PROJECT_ID` will infer the project from the account. The
+   * `ACCOUNT` value can be the `email` address or the `unique_id` of the service
+   * account.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Iam_IamEmpty
    */
@@ -66,10 +66,10 @@ class Google_Service_Iam_Resource_ProjectsServiceAccountsKeys extends Google_Ser
    *
    * @param string $name The resource name of the service account key in the
    * following format:
-   * `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}/keys/{key}`.
+   * `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`.
    *
-   * Using `-` as a wildcard for the project will infer the project from the
-   * account. The `account` value can be the `email` address or the `unique_id` of
+   * Using `-` as a wildcard for the `PROJECT_ID` will infer the project from the
+   * account. The `ACCOUNT` value can be the `email` address or the `unique_id` of
    * the service account.
    * @param array $optParams Optional parameters.
    *
@@ -87,10 +87,10 @@ class Google_Service_Iam_Resource_ProjectsServiceAccountsKeys extends Google_Ser
    * Lists ServiceAccountKeys. (keys.listProjectsServiceAccountsKeys)
    *
    * @param string $name The resource name of the service account in the following
-   * format: `projects/{PROJECT_ID}/serviceAccounts/{SERVICE_ACCOUNT_EMAIL}`.
+   * format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
    *
-   * Using `-` as a wildcard for the project, will infer the project from the
-   * account. The `account` value can be the `email` address or the `unique_id` of
+   * Using `-` as a wildcard for the `PROJECT_ID`, will infer the project from the
+   * account. The `ACCOUNT` value can be the `email` address or the `unique_id` of
    * the service account.
    * @param array $optParams Optional parameters.
    *

@@ -37,8 +37,10 @@ class Google_Service_DLP extends Google_Service
       "https://www.googleapis.com/auth/cloud-platform";
 
   public $content;
+  public $dataSource;
   public $inspect_operations;
   public $inspect_results_findings;
+  public $riskAnalysis_operations;
   public $rootCategories;
   public $rootCategories_infoTypes;
   
@@ -61,12 +63,30 @@ class Google_Service_DLP extends Google_Service
         'content',
         array(
           'methods' => array(
-            'inspect' => array(
+            'deidentify' => array(
+              'path' => 'v2beta1/content:deidentify',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'inspect' => array(
               'path' => 'v2beta1/content:inspect',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),'redact' => array(
               'path' => 'v2beta1/content:redact',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),
+          )
+        )
+    );
+    $this->dataSource = new Google_Service_DLP_Resource_DataSource(
+        $this,
+        $this->serviceName,
+        'dataSource',
+        array(
+          'methods' => array(
+            'analyze' => array(
+              'path' => 'v2beta1/dataSource:analyze',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),
@@ -147,6 +167,68 @@ class Google_Service_DLP extends Google_Service
           'methods' => array(
             'list' => array(
               'path' => 'v2beta1/{+name}/findings',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->riskAnalysis_operations = new Google_Service_DLP_Resource_RiskAnalysisOperations(
+        $this,
+        $this->serviceName,
+        'operations',
+        array(
+          'methods' => array(
+            'cancel' => array(
+              'path' => 'v2beta1/{+name}:cancel',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'delete' => array(
+              'path' => 'v2beta1/{+name}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'v2beta1/{+name}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'v2beta1/{+name}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'name' => array(

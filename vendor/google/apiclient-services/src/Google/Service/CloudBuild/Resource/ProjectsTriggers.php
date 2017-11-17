@@ -106,4 +106,19 @@ class Google_Service_CloudBuild_Resource_ProjectsTriggers extends Google_Service
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params), "Google_Service_CloudBuild_BuildTrigger");
   }
+  /**
+   * Runs a BuildTrigger at a particular source revision. (triggers.run)
+   *
+   * @param string $projectId ID of the project.
+   * @param string $triggerId ID of the trigger.
+   * @param Google_Service_CloudBuild_RepoSource $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_CloudBuild_Operation
+   */
+  public function run($projectId, $triggerId, Google_Service_CloudBuild_RepoSource $postBody, $optParams = array())
+  {
+    $params = array('projectId' => $projectId, 'triggerId' => $triggerId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('run', array($params), "Google_Service_CloudBuild_Operation");
+  }
 }

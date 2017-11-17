@@ -258,6 +258,24 @@ class Google_Service_Container_Resource_ProjectsZonesClusters extends Google_Ser
     return $this->call('resourceLabels', array($params), "Google_Service_Container_Operation");
   }
   /**
+   * Sets the maintenance policy for a cluster. (clusters.setMaintenancePolicy)
+   *
+   * @param string $projectId The Google Developers Console [project ID or project
+   * number](https://support.google.com/cloud/answer/6158840).
+   * @param string $zone The name of the Google Compute Engine
+   * [zone](/compute/docs/zones#available) in which the cluster resides.
+   * @param string $clusterId The name of the cluster to update.
+   * @param Google_Service_Container_SetMaintenancePolicyRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Container_Operation
+   */
+  public function setMaintenancePolicy($projectId, $zone, $clusterId, Google_Service_Container_SetMaintenancePolicyRequest $postBody, $optParams = array())
+  {
+    $params = array('projectId' => $projectId, 'zone' => $zone, 'clusterId' => $clusterId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setMaintenancePolicy', array($params), "Google_Service_Container_Operation");
+  }
+  /**
    * Used to set master auth materials. Currently supports :- Changing the admin
    * password of a specific cluster. This can be either via password generation or
    * explicitly set the password. (clusters.setMasterAuth)

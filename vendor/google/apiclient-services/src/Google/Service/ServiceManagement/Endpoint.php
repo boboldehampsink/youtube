@@ -20,7 +20,6 @@ class Google_Service_ServiceManagement_Endpoint extends Google_Collection
   protected $collection_key = 'features';
   public $aliases;
   public $allowCors;
-  public $apis;
   public $features;
   public $name;
   public $target;
@@ -40,14 +39,6 @@ class Google_Service_ServiceManagement_Endpoint extends Google_Collection
   public function getAllowCors()
   {
     return $this->allowCors;
-  }
-  public function setApis($apis)
-  {
-    $this->apis = $apis;
-  }
-  public function getApis()
-  {
-    return $this->apis;
   }
   public function setFeatures($features)
   {

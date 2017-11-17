@@ -39,6 +39,8 @@ class Google_Service_Container_Cluster extends Google_Collection
   protected $legacyAbacDataType = '';
   public $locations;
   public $loggingService;
+  protected $maintenancePolicyType = 'Google_Service_Container_MaintenancePolicy';
+  protected $maintenancePolicyDataType = '';
   protected $masterAuthType = 'Google_Service_Container_MasterAuth';
   protected $masterAuthDataType = '';
   protected $masterAuthorizedNetworksConfigType = 'Google_Service_Container_MasterAuthorizedNetworksConfig';
@@ -222,6 +224,20 @@ class Google_Service_Container_Cluster extends Google_Collection
   public function getLoggingService()
   {
     return $this->loggingService;
+  }
+  /**
+   * @param Google_Service_Container_MaintenancePolicy
+   */
+  public function setMaintenancePolicy(Google_Service_Container_MaintenancePolicy $maintenancePolicy)
+  {
+    $this->maintenancePolicy = $maintenancePolicy;
+  }
+  /**
+   * @return Google_Service_Container_MaintenancePolicy
+   */
+  public function getMaintenancePolicy()
+  {
+    return $this->maintenancePolicy;
   }
   /**
    * @param Google_Service_Container_MasterAuth

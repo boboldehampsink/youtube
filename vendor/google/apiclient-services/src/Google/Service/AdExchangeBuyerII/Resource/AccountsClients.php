@@ -69,6 +69,9 @@ class Google_Service_AdExchangeBuyerII_Resource_AccountsClients extends Google_S
    * should return. Typically, this is the value of
    * ListClientsResponse.nextPageToken returned from the previous call to the
    * accounts.clients.list method.
+   * @opt_param string partnerClientId Optional unique identifier (from the
+   * standpoint of an Ad Exchange sponsor buyer partner) of the client to return.
+   * If specified, at most one client will be returned in the response.
    * @opt_param int pageSize Requested page size. The server may return fewer
    * clients than requested. If unspecified, the server will pick an appropriate
    * default.

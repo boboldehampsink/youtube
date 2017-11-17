@@ -30,16 +30,13 @@ class Google_Service_ServiceControl_Resource_Services extends Google_Service_Res
    * before the operation is executed.
    *
    * This method requires the `servicemanagement.services.quota` permission on the
-   * specified service. For more information, see [Google Cloud
+   * specified service. For more information, see [Cloud
    * IAM](https://cloud.google.com/iam).
    *
-   * **NOTE:** the client code **must** fail-open if the server returns one of the
-   * following quota errors: -   `PROJECT_STATUS_UNAVAILABLE` -
-   * `SERVICE_STATUS_UNAVAILABLE` -   `BILLING_STATUS_UNAVAILABLE` -
-   * `QUOTA_SYSTEM_UNAVAILABLE`
-   *
-   * The server may inject above errors to prohibit any hard dependency on the
-   * quota system. (services.allocateQuota)
+   * **NOTE:** The client **must** fail-open on server errors `INTERNAL`,
+   * `UNKNOWN`, `DEADLINE_EXCEEDED`, and `UNAVAILABLE`. To ensure system
+   * reliability, the server may inject these errors to prohibit any hard
+   * dependency on the quota functionality. (services.allocateQuota)
    *
    * @param string $serviceName Name of the service as specified in the service
    * configuration. For example, `"pubsub.googleapis.com"`.
@@ -112,16 +109,13 @@ class Google_Service_ServiceControl_Resource_Services extends Google_Service_Res
    * Releases previously allocated quota done through AllocateQuota method.
    *
    * This method requires the `servicemanagement.services.quota` permission on the
-   * specified service. For more information, see [Google Cloud
+   * specified service. For more information, see [Cloud
    * IAM](https://cloud.google.com/iam).
    *
-   * **NOTE:** the client code **must** fail-open if the server returns one of the
-   * following quota errors: -   `PROJECT_STATUS_UNAVAILABLE` -
-   * `SERVICE_STATUS_UNAVAILABLE` -   `BILLING_STATUS_UNAVAILABLE` -
-   * `QUOTA_SYSTEM_UNAVAILABLE`
-   *
-   * The server may inject above errors to prohibit any hard dependency on the
-   * quota system. (services.releaseQuota)
+   * **NOTE:** The client **must** fail-open on server errors `INTERNAL`,
+   * `UNKNOWN`, `DEADLINE_EXCEEDED`, and `UNAVAILABLE`. To ensure system
+   * reliability, the server may inject these errors to prohibit any hard
+   * dependency on the quota functionality. (services.releaseQuota)
    *
    * @param string $serviceName Name of the service as specified in the service
    * configuration. For example, `"pubsub.googleapis.com"`.

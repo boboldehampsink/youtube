@@ -19,9 +19,13 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyUploadAccountReq
 {
   protected $collection_key = 'users';
   public $allowOverwrite;
+  public $blockSize;
+  public $cpuMemCost;
   public $delegatedProjectNumber;
+  public $dkLen;
   public $hashAlgorithm;
   public $memoryCost;
+  public $parallelization;
   public $rounds;
   public $saltSeparator;
   public $sanityCheck;
@@ -38,6 +42,22 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyUploadAccountReq
   {
     return $this->allowOverwrite;
   }
+  public function setBlockSize($blockSize)
+  {
+    $this->blockSize = $blockSize;
+  }
+  public function getBlockSize()
+  {
+    return $this->blockSize;
+  }
+  public function setCpuMemCost($cpuMemCost)
+  {
+    $this->cpuMemCost = $cpuMemCost;
+  }
+  public function getCpuMemCost()
+  {
+    return $this->cpuMemCost;
+  }
   public function setDelegatedProjectNumber($delegatedProjectNumber)
   {
     $this->delegatedProjectNumber = $delegatedProjectNumber;
@@ -45,6 +65,14 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyUploadAccountReq
   public function getDelegatedProjectNumber()
   {
     return $this->delegatedProjectNumber;
+  }
+  public function setDkLen($dkLen)
+  {
+    $this->dkLen = $dkLen;
+  }
+  public function getDkLen()
+  {
+    return $this->dkLen;
   }
   public function setHashAlgorithm($hashAlgorithm)
   {
@@ -61,6 +89,14 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyUploadAccountReq
   public function getMemoryCost()
   {
     return $this->memoryCost;
+  }
+  public function setParallelization($parallelization)
+  {
+    $this->parallelization = $parallelization;
+  }
+  public function getParallelization()
+  {
+    return $this->parallelization;
   }
   public function setRounds($rounds)
   {

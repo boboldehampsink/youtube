@@ -17,7 +17,7 @@
 
 class Google_Service_IdentityToolkit_CreateAuthUriResponse extends Google_Collection
 {
-  protected $collection_key = 'allProviders';
+  protected $collection_key = 'signinMethods';
   public $allProviders;
   public $authUri;
   public $captchaRequired;
@@ -26,6 +26,7 @@ class Google_Service_IdentityToolkit_CreateAuthUriResponse extends Google_Collec
   public $providerId;
   public $registered;
   public $sessionId;
+  public $signinMethods;
 
   public function setAllProviders($allProviders)
   {
@@ -90,5 +91,13 @@ class Google_Service_IdentityToolkit_CreateAuthUriResponse extends Google_Collec
   public function getSessionId()
   {
     return $this->sessionId;
+  }
+  public function setSigninMethods($signinMethods)
+  {
+    $this->signinMethods = $signinMethods;
+  }
+  public function getSigninMethods()
+  {
+    return $this->signinMethods;
   }
 }

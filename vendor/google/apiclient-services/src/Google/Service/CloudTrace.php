@@ -19,10 +19,9 @@
  * Service definition for CloudTrace (v2).
  *
  * <p>
- * Send and retrieve trace data from Stackdriver Trace. Data is generated and
- * available by default for all App Engine applications. Data from other
- * applications can be written to Stackdriver Trace for display, reporting, and
- * analysis.</p>
+ * Sends application trace data to Stackdriver Trace for viewing. Trace data is
+ * collected for all App Engine applications by default. Trace data from other
+ * applications can be provided using this API.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -39,9 +38,6 @@ class Google_Service_CloudTrace extends Google_Service
   /** Write Trace data for a project or application. */
   const TRACE_APPEND =
       "https://www.googleapis.com/auth/trace.append";
-  /** Read Trace data for a project or application. */
-  const TRACE_READONLY =
-      "https://www.googleapis.com/auth/trace.readonly";
 
   public $projects_traces;
   public $projects_traces_spans;
@@ -75,54 +71,6 @@ class Google_Service_CloudTrace extends Google_Service
                   'required' => true,
                 ),
               ),
-            ),'list' => array(
-              'path' => 'v2/{+parent}/traces',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'endTime' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'startTime' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'orderBy' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'listSpans' => array(
-              'path' => 'v2/{+parent}:listSpans',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'parent' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
             ),
           )
         )
@@ -134,8 +82,8 @@ class Google_Service_CloudTrace extends Google_Service
         array(
           'methods' => array(
             'create' => array(
-              'path' => 'v2/{+name}',
-              'httpMethod' => 'PUT',
+              'path' => 'v2/{+name}/spans',
+              'httpMethod' => 'POST',
               'parameters' => array(
                 'name' => array(
                   'location' => 'path',

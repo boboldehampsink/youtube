@@ -60,8 +60,8 @@ class Google_Service_Vault_Resource_MattersHoldsAccounts extends Google_Service_
   }
   /**
    * Lists HeldAccounts for a hold. This will only list individually specified
-   * held accounts. If the hold is on an OU, then use the Admin SDK to enumerate
-   * its members. (accounts.listMattersHoldsAccounts)
+   * held accounts. If the hold is on an OU, then use Admin SDK to enumerate its
+   * members. (accounts.listMattersHoldsAccounts)
    *
    * @param string $matterId The matter ID.
    * @param string $holdId The hold ID.

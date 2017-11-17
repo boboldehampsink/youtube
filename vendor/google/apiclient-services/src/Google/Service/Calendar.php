@@ -104,6 +104,10 @@ class Google_Service_Calendar extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'sendNotifications' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
             ),'list' => array(
               'path' => 'calendars/{calendarId}/acl',
@@ -145,6 +149,10 @@ class Google_Service_Calendar extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'sendNotifications' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
             ),'update' => array(
               'path' => 'calendars/{calendarId}/acl/{ruleId}',
@@ -159,6 +167,10 @@ class Google_Service_Calendar extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'sendNotifications' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),'watch' => array(

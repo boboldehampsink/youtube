@@ -24,6 +24,8 @@ class Google_Service_Compute_BackendServiceList extends Google_Collection
   public $kind;
   public $nextPageToken;
   public $selfLink;
+  protected $warningType = 'Google_Service_Compute_BackendServiceListWarning';
+  protected $warningDataType = '';
 
   public function setId($id)
   {
@@ -70,5 +72,19 @@ class Google_Service_Compute_BackendServiceList extends Google_Collection
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+  /**
+   * @param Google_Service_Compute_BackendServiceListWarning
+   */
+  public function setWarning(Google_Service_Compute_BackendServiceListWarning $warning)
+  {
+    $this->warning = $warning;
+  }
+  /**
+   * @return Google_Service_Compute_BackendServiceListWarning
+   */
+  public function getWarning()
+  {
+    return $this->warning;
   }
 }

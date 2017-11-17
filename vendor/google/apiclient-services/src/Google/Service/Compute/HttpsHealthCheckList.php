@@ -24,6 +24,8 @@ class Google_Service_Compute_HttpsHealthCheckList extends Google_Collection
   public $kind;
   public $nextPageToken;
   public $selfLink;
+  protected $warningType = 'Google_Service_Compute_HttpsHealthCheckListWarning';
+  protected $warningDataType = '';
 
   public function setId($id)
   {
@@ -70,5 +72,19 @@ class Google_Service_Compute_HttpsHealthCheckList extends Google_Collection
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+  /**
+   * @param Google_Service_Compute_HttpsHealthCheckListWarning
+   */
+  public function setWarning(Google_Service_Compute_HttpsHealthCheckListWarning $warning)
+  {
+    $this->warning = $warning;
+  }
+  /**
+   * @return Google_Service_Compute_HttpsHealthCheckListWarning
+   */
+  public function getWarning()
+  {
+    return $this->warning;
   }
 }

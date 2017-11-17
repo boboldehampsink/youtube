@@ -17,10 +17,11 @@
 
 class Google_Service_AndroidEnterprise_Product extends Google_Collection
 {
-  protected $collection_key = 'appVersion';
+  protected $collection_key = 'availableTracks';
   protected $appVersionType = 'Google_Service_AndroidEnterprise_AppVersion';
   protected $appVersionDataType = 'array';
   public $authorName;
+  public $availableTracks;
   public $detailsUrl;
   public $distributionChannel;
   public $iconUrl;
@@ -28,6 +29,8 @@ class Google_Service_AndroidEnterprise_Product extends Google_Collection
   public $productId;
   public $productPricing;
   public $requiresContainerApp;
+  protected $signingCertificateType = 'Google_Service_AndroidEnterprise_ProductSigningCertificate';
+  protected $signingCertificateDataType = '';
   public $smallIconUrl;
   public $title;
   public $workDetailsUrl;
@@ -53,6 +56,14 @@ class Google_Service_AndroidEnterprise_Product extends Google_Collection
   public function getAuthorName()
   {
     return $this->authorName;
+  }
+  public function setAvailableTracks($availableTracks)
+  {
+    $this->availableTracks = $availableTracks;
+  }
+  public function getAvailableTracks()
+  {
+    return $this->availableTracks;
   }
   public function setDetailsUrl($detailsUrl)
   {
@@ -109,6 +120,20 @@ class Google_Service_AndroidEnterprise_Product extends Google_Collection
   public function getRequiresContainerApp()
   {
     return $this->requiresContainerApp;
+  }
+  /**
+   * @param Google_Service_AndroidEnterprise_ProductSigningCertificate
+   */
+  public function setSigningCertificate(Google_Service_AndroidEnterprise_ProductSigningCertificate $signingCertificate)
+  {
+    $this->signingCertificate = $signingCertificate;
+  }
+  /**
+   * @return Google_Service_AndroidEnterprise_ProductSigningCertificate
+   */
+  public function getSigningCertificate()
+  {
+    return $this->signingCertificate;
   }
   public function setSmallIconUrl($smallIconUrl)
   {

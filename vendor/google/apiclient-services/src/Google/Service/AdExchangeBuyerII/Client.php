@@ -22,6 +22,7 @@ class Google_Service_AdExchangeBuyerII_Client extends Google_Model
   public $entityId;
   public $entityName;
   public $entityType;
+  public $partnerClientId;
   public $role;
   public $status;
   public $visibleToSeller;
@@ -65,6 +66,14 @@ class Google_Service_AdExchangeBuyerII_Client extends Google_Model
   public function getEntityType()
   {
     return $this->entityType;
+  }
+  public function setPartnerClientId($partnerClientId)
+  {
+    $this->partnerClientId = $partnerClientId;
+  }
+  public function getPartnerClientId()
+  {
+    return $this->partnerClientId;
   }
   public function setRole($role)
   {

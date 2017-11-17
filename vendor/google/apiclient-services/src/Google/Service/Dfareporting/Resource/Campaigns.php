@@ -43,17 +43,13 @@ class Google_Service_Dfareporting_Resource_Campaigns extends Google_Service_Reso
    * Inserts a new campaign. (campaigns.insert)
    *
    * @param string $profileId User profile ID associated with this request.
-   * @param string $defaultLandingPageName Default landing page name for this new
-   * campaign. Must be less than 256 characters long.
-   * @param string $defaultLandingPageUrl Default landing page URL for this new
-   * campaign.
    * @param Google_Service_Dfareporting_Campaign $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Dfareporting_Campaign
    */
-  public function insert($profileId, $defaultLandingPageName, $defaultLandingPageUrl, Google_Service_Dfareporting_Campaign $postBody, $optParams = array())
+  public function insert($profileId, Google_Service_Dfareporting_Campaign $postBody, $optParams = array())
   {
-    $params = array('profileId' => $profileId, 'defaultLandingPageName' => $defaultLandingPageName, 'defaultLandingPageUrl' => $defaultLandingPageUrl, 'postBody' => $postBody);
+    $params = array('profileId' => $profileId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Dfareporting_Campaign");
   }

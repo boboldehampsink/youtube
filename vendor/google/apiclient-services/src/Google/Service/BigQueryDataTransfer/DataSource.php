@@ -28,14 +28,15 @@ class Google_Service_BigQueryDataTransfer_DataSource extends Google_Collection
   public $displayName;
   public $helpUrl;
   public $manualRunsDisabled;
+  public $minimumScheduleInterval;
   public $name;
   protected $parametersType = 'Google_Service_BigQueryDataTransfer_DataSourceParameter';
   protected $parametersDataType = 'array';
   public $scopes;
-  public $statusUpdateDeadlineSeconds;
   public $supportsCustomSchedule;
   public $supportsMultipleTransfers;
   public $transferType;
+  public $updateDeadlineSeconds;
 
   public function setAuthorizationType($authorizationType)
   {
@@ -117,6 +118,14 @@ class Google_Service_BigQueryDataTransfer_DataSource extends Google_Collection
   {
     return $this->manualRunsDisabled;
   }
+  public function setMinimumScheduleInterval($minimumScheduleInterval)
+  {
+    $this->minimumScheduleInterval = $minimumScheduleInterval;
+  }
+  public function getMinimumScheduleInterval()
+  {
+    return $this->minimumScheduleInterval;
+  }
   public function setName($name)
   {
     $this->name = $name;
@@ -147,14 +156,6 @@ class Google_Service_BigQueryDataTransfer_DataSource extends Google_Collection
   {
     return $this->scopes;
   }
-  public function setStatusUpdateDeadlineSeconds($statusUpdateDeadlineSeconds)
-  {
-    $this->statusUpdateDeadlineSeconds = $statusUpdateDeadlineSeconds;
-  }
-  public function getStatusUpdateDeadlineSeconds()
-  {
-    return $this->statusUpdateDeadlineSeconds;
-  }
   public function setSupportsCustomSchedule($supportsCustomSchedule)
   {
     $this->supportsCustomSchedule = $supportsCustomSchedule;
@@ -178,5 +179,13 @@ class Google_Service_BigQueryDataTransfer_DataSource extends Google_Collection
   public function getTransferType()
   {
     return $this->transferType;
+  }
+  public function setUpdateDeadlineSeconds($updateDeadlineSeconds)
+  {
+    $this->updateDeadlineSeconds = $updateDeadlineSeconds;
+  }
+  public function getUpdateDeadlineSeconds()
+  {
+    return $this->updateDeadlineSeconds;
   }
 }

@@ -17,7 +17,7 @@
 
 class Google_Service_PeopleService_Person extends Google_Collection
 {
-  protected $collection_key = 'urls';
+  protected $collection_key = 'userDefined';
   protected $addressesType = 'Google_Service_PeopleService_Address';
   protected $addressesDataType = 'array';
   public $ageRange;
@@ -75,6 +75,8 @@ class Google_Service_PeopleService_Person extends Google_Collection
   protected $taglinesDataType = 'array';
   protected $urlsType = 'Google_Service_PeopleService_Url';
   protected $urlsDataType = 'array';
+  protected $userDefinedType = 'Google_Service_PeopleService_UserDefined';
+  protected $userDefinedDataType = 'array';
 
   /**
    * @param Google_Service_PeopleService_Address
@@ -477,5 +479,19 @@ class Google_Service_PeopleService_Person extends Google_Collection
   public function getUrls()
   {
     return $this->urls;
+  }
+  /**
+   * @param Google_Service_PeopleService_UserDefined
+   */
+  public function setUserDefined($userDefined)
+  {
+    $this->userDefined = $userDefined;
+  }
+  /**
+   * @return Google_Service_PeopleService_UserDefined
+   */
+  public function getUserDefined()
+  {
+    return $this->userDefined;
   }
 }

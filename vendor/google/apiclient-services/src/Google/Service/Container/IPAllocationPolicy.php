@@ -18,9 +18,14 @@
 class Google_Service_Container_IPAllocationPolicy extends Google_Model
 {
   public $clusterIpv4Cidr;
+  public $clusterIpv4CidrBlock;
+  public $clusterSecondaryRangeName;
   public $createSubnetwork;
   public $nodeIpv4Cidr;
+  public $nodeIpv4CidrBlock;
   public $servicesIpv4Cidr;
+  public $servicesIpv4CidrBlock;
+  public $servicesSecondaryRangeName;
   public $subnetworkName;
   public $useIpAliases;
 
@@ -31,6 +36,22 @@ class Google_Service_Container_IPAllocationPolicy extends Google_Model
   public function getClusterIpv4Cidr()
   {
     return $this->clusterIpv4Cidr;
+  }
+  public function setClusterIpv4CidrBlock($clusterIpv4CidrBlock)
+  {
+    $this->clusterIpv4CidrBlock = $clusterIpv4CidrBlock;
+  }
+  public function getClusterIpv4CidrBlock()
+  {
+    return $this->clusterIpv4CidrBlock;
+  }
+  public function setClusterSecondaryRangeName($clusterSecondaryRangeName)
+  {
+    $this->clusterSecondaryRangeName = $clusterSecondaryRangeName;
+  }
+  public function getClusterSecondaryRangeName()
+  {
+    return $this->clusterSecondaryRangeName;
   }
   public function setCreateSubnetwork($createSubnetwork)
   {
@@ -48,6 +69,14 @@ class Google_Service_Container_IPAllocationPolicy extends Google_Model
   {
     return $this->nodeIpv4Cidr;
   }
+  public function setNodeIpv4CidrBlock($nodeIpv4CidrBlock)
+  {
+    $this->nodeIpv4CidrBlock = $nodeIpv4CidrBlock;
+  }
+  public function getNodeIpv4CidrBlock()
+  {
+    return $this->nodeIpv4CidrBlock;
+  }
   public function setServicesIpv4Cidr($servicesIpv4Cidr)
   {
     $this->servicesIpv4Cidr = $servicesIpv4Cidr;
@@ -55,6 +84,22 @@ class Google_Service_Container_IPAllocationPolicy extends Google_Model
   public function getServicesIpv4Cidr()
   {
     return $this->servicesIpv4Cidr;
+  }
+  public function setServicesIpv4CidrBlock($servicesIpv4CidrBlock)
+  {
+    $this->servicesIpv4CidrBlock = $servicesIpv4CidrBlock;
+  }
+  public function getServicesIpv4CidrBlock()
+  {
+    return $this->servicesIpv4CidrBlock;
+  }
+  public function setServicesSecondaryRangeName($servicesSecondaryRangeName)
+  {
+    $this->servicesSecondaryRangeName = $servicesSecondaryRangeName;
+  }
+  public function getServicesSecondaryRangeName()
+  {
+    return $this->servicesSecondaryRangeName;
   }
   public function setSubnetworkName($subnetworkName)
   {

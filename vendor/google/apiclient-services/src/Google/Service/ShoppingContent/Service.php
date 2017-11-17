@@ -23,6 +23,8 @@ class Google_Service_ShoppingContent_Service extends Google_Collection
   public $deliveryCountry;
   protected $deliveryTimeType = 'Google_Service_ShoppingContent_DeliveryTime';
   protected $deliveryTimeDataType = '';
+  protected $minimumOrderValueType = 'Google_Service_ShoppingContent_Price';
+  protected $minimumOrderValueDataType = '';
   public $name;
   protected $rateGroupsType = 'Google_Service_ShoppingContent_RateGroup';
   protected $rateGroupsDataType = 'array';
@@ -64,6 +66,20 @@ class Google_Service_ShoppingContent_Service extends Google_Collection
   public function getDeliveryTime()
   {
     return $this->deliveryTime;
+  }
+  /**
+   * @param Google_Service_ShoppingContent_Price
+   */
+  public function setMinimumOrderValue(Google_Service_ShoppingContent_Price $minimumOrderValue)
+  {
+    $this->minimumOrderValue = $minimumOrderValue;
+  }
+  /**
+   * @return Google_Service_ShoppingContent_Price
+   */
+  public function getMinimumOrderValue()
+  {
+    return $this->minimumOrderValue;
   }
   public function setName($name)
   {

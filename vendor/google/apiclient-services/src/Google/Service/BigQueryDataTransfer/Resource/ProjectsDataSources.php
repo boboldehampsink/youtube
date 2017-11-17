@@ -27,7 +27,10 @@ class Google_Service_BigQueryDataTransfer_Resource_ProjectsDataSources extends G
 {
   /**
    * Returns true if valid credentials exist for the given data source and
-   * requesting user. (dataSources.checkValidCreds)
+   * requesting user. Some data sources doesn't support service account, so we
+   * need to talk to them on behalf of the end user. This API just checks whether
+   * we have OAuth token for the particular user, which is a pre-requisite before
+   * user can create a transfer config. (dataSources.checkValidCreds)
    *
    * @param string $name The data source in the form:
    * `projects/{project_id}/dataSources/{data_source_id}`

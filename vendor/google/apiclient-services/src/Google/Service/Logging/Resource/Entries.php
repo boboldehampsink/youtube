@@ -41,7 +41,10 @@ class Google_Service_Logging_Resource_Entries extends Google_Service_Resource
     return $this->call('list', array($params), "Google_Service_Logging_ListLogEntriesResponse");
   }
   /**
-   * Writes log entries to Stackdriver Logging. (entries.write)
+   * Log entry resourcesWrites log entries to Stackdriver Logging. This API method
+   * is the only way to send log entries to Stackdriver Logging. This method is
+   * used, directly or indirectly, by the Stackdriver Logging agent (fluentd) and
+   * all logging libraries configured to use Stackdriver Logging. (entries.write)
    *
    * @param Google_Service_Logging_WriteLogEntriesRequest $postBody
    * @param array $optParams Optional parameters.

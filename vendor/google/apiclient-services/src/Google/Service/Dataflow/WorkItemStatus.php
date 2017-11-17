@@ -39,6 +39,7 @@ class Google_Service_Dataflow_WorkItemStatus extends Google_Collection
   protected $sourceOperationResponseDataType = '';
   protected $stopPositionType = 'Google_Service_Dataflow_Position';
   protected $stopPositionDataType = '';
+  public $totalThrottlerWaitTimeSeconds;
   public $workItemId;
 
   public function setCompleted($completed)
@@ -190,6 +191,14 @@ class Google_Service_Dataflow_WorkItemStatus extends Google_Collection
   public function getStopPosition()
   {
     return $this->stopPosition;
+  }
+  public function setTotalThrottlerWaitTimeSeconds($totalThrottlerWaitTimeSeconds)
+  {
+    $this->totalThrottlerWaitTimeSeconds = $totalThrottlerWaitTimeSeconds;
+  }
+  public function getTotalThrottlerWaitTimeSeconds()
+  {
+    return $this->totalThrottlerWaitTimeSeconds;
   }
   public function setWorkItemId($workItemId)
   {

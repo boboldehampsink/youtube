@@ -48,7 +48,7 @@ class Google_Service_Gmail extends Google_Service
   /** View and modify but not delete your email. */
   const GMAIL_MODIFY =
       "https://www.googleapis.com/auth/gmail.modify";
-  /** View your emails messages and settings. */
+  /** View your email messages and settings. */
   const GMAIL_READONLY =
       "https://www.googleapis.com/auth/gmail.readonly";
   /** Send email on your behalf. */

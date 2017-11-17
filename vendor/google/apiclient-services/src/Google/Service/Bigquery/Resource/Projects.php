@@ -26,6 +26,21 @@
 class Google_Service_Bigquery_Resource_Projects extends Google_Service_Resource
 {
   /**
+   * Returns the email address of the service account for your project used for
+   * interactions with Google Cloud KMS. (projects.getServiceAccount)
+   *
+   * @param string $projectId Project ID for which the service account is
+   * requested.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Bigquery_GetServiceAccountResponse
+   */
+  public function getServiceAccount($projectId, $optParams = array())
+  {
+    $params = array('projectId' => $projectId);
+    $params = array_merge($params, $optParams);
+    return $this->call('getServiceAccount', array($params), "Google_Service_Bigquery_GetServiceAccountResponse");
+  }
+  /**
    * Lists all projects to which you have been granted any project role.
    * (projects.listProjects)
    *

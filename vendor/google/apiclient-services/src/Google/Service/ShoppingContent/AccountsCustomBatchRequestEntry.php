@@ -21,6 +21,7 @@ class Google_Service_ShoppingContent_AccountsCustomBatchRequestEntry extends Goo
   protected $accountDataType = '';
   public $accountId;
   public $batchId;
+  public $force;
   public $merchantId;
   public $method;
   public $overwrite;
@@ -54,6 +55,14 @@ class Google_Service_ShoppingContent_AccountsCustomBatchRequestEntry extends Goo
   public function getBatchId()
   {
     return $this->batchId;
+  }
+  public function setForce($force)
+  {
+    $this->force = $force;
+  }
+  public function getForce()
+  {
+    return $this->force;
   }
   public function setMerchantId($merchantId)
   {

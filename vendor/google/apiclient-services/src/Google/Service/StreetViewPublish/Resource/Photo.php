@@ -29,12 +29,18 @@ class Google_Service_StreetViewPublish_Resource_Photo extends Google_Service_Res
    * After the client finishes uploading the photo with the returned UploadRef,
    * CreatePhoto publishes the uploaded Photo to Street View on Google Maps.
    *
+   * Currently, the only way to set heading, pitch, and roll in CreatePhoto is
+   * through the [Photo Sphere XMP
+   * metadata](https://developers.google.com/streetview/spherical-metadata) in the
+   * photo bytes. The `pose.heading`, `pose.pitch`, `pose.roll`, `pose.altitude`,
+   * and `pose.level` fields in Pose are ignored for CreatePhoto.
+   *
    * This method returns the following error codes:
    *
-   * * google.rpc.Code.INVALID_ARGUMENT if the request is malformed. *
-   * google.rpc.Code.NOT_FOUND if the upload reference does not exist. *
-   * google.rpc.Code.RESOURCE_EXHAUSTED if the account has reached the storage
-   * limit. (photo.create)
+   * * google.rpc.Code.INVALID_ARGUMENT if the request is malformed or if the
+   * uploaded photo is not a 360 photo. * google.rpc.Code.NOT_FOUND if the upload
+   * reference does not exist. * google.rpc.Code.RESOURCE_EXHAUSTED if the account
+   * has reached the storage limit. (photo.create)
    *
    * @param Google_Service_StreetViewPublish_Photo $postBody
    * @param array $optParams Optional parameters.
@@ -118,8 +124,8 @@ class Google_Service_StreetViewPublish_Resource_Photo extends Google_Service_Res
    * Updates the metadata of a Photo, such as pose, place association,
    * connections, etc. Changing the pixels of a photo is not supported.
    *
-   * Only the fields specified in updateMask field are used. If `updateMask` is
-   * not present, the update applies to all fields.
+   * Only the fields specified in the updateMask field are used. If `updateMask`
+   * is not present, the update applies to all fields.
    *
    * Note: To update Pose.altitude, Pose.latLngPair has to be filled as well.
    * Otherwise, the request will fail.

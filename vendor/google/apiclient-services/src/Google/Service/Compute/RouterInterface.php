@@ -18,6 +18,7 @@
 class Google_Service_Compute_RouterInterface extends Google_Model
 {
   public $ipRange;
+  public $linkedInterconnectAttachment;
   public $linkedVpnTunnel;
   public $name;
 
@@ -28,6 +29,14 @@ class Google_Service_Compute_RouterInterface extends Google_Model
   public function getIpRange()
   {
     return $this->ipRange;
+  }
+  public function setLinkedInterconnectAttachment($linkedInterconnectAttachment)
+  {
+    $this->linkedInterconnectAttachment = $linkedInterconnectAttachment;
+  }
+  public function getLinkedInterconnectAttachment()
+  {
+    return $this->linkedInterconnectAttachment;
   }
   public function setLinkedVpnTunnel($linkedVpnTunnel)
   {

@@ -17,7 +17,7 @@
 
 class Google_Service_TagManager_ContainerVersion extends Google_Collection
 {
-  protected $collection_key = 'variable';
+  protected $collection_key = 'zone';
   public $accountId;
   protected $builtInVariableType = 'Google_Service_TagManager_BuiltInVariable';
   protected $builtInVariableDataType = 'array';
@@ -39,6 +39,8 @@ class Google_Service_TagManager_ContainerVersion extends Google_Collection
   protected $triggerDataType = 'array';
   protected $variableType = 'Google_Service_TagManager_Variable';
   protected $variableDataType = 'array';
+  protected $zoneType = 'Google_Service_TagManager_Zone';
+  protected $zoneDataType = 'array';
 
   public function setAccountId($accountId)
   {
@@ -195,5 +197,19 @@ class Google_Service_TagManager_ContainerVersion extends Google_Collection
   public function getVariable()
   {
     return $this->variable;
+  }
+  /**
+   * @param Google_Service_TagManager_Zone
+   */
+  public function setZone($zone)
+  {
+    $this->zone = $zone;
+  }
+  /**
+   * @return Google_Service_TagManager_Zone
+   */
+  public function getZone()
+  {
+    return $this->zone;
   }
 }

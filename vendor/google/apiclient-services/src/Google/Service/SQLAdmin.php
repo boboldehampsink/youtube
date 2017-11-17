@@ -323,6 +323,21 @@ class Google_Service_SQLAdmin extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'demoteMaster' => array(
+              'path' => 'projects/{project}/instances/{instance}/demoteMaster',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'export' => array(
               'path' => 'projects/{project}/instances/{instance}/export',
               'httpMethod' => 'POST',

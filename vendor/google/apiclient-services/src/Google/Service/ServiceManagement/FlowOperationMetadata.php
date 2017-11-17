@@ -21,8 +21,10 @@ class Google_Service_ServiceManagement_FlowOperationMetadata extends Google_Coll
   public $cancelState;
   public $deadline;
   public $flowName;
+  public $operationType;
   public $resourceNames;
   public $startTime;
+  public $surface;
 
   public function setCancelState($cancelState)
   {
@@ -48,6 +50,14 @@ class Google_Service_ServiceManagement_FlowOperationMetadata extends Google_Coll
   {
     return $this->flowName;
   }
+  public function setOperationType($operationType)
+  {
+    $this->operationType = $operationType;
+  }
+  public function getOperationType()
+  {
+    return $this->operationType;
+  }
   public function setResourceNames($resourceNames)
   {
     $this->resourceNames = $resourceNames;
@@ -63,5 +73,13 @@ class Google_Service_ServiceManagement_FlowOperationMetadata extends Google_Coll
   public function getStartTime()
   {
     return $this->startTime;
+  }
+  public function setSurface($surface)
+  {
+    $this->surface = $surface;
+  }
+  public function getSurface()
+  {
+    return $this->surface;
   }
 }

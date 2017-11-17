@@ -26,6 +26,30 @@
 class Google_Service_ToolResults_Resource_ProjectsHistoriesExecutionsClusters extends Google_Service_Resource
 {
   /**
+   * Retrieves a single screenshot cluster by its ID (clusters.get)
+   *
+   * @param string $projectId A Project id.
+   *
+   * Required.
+   * @param string $historyId A History id.
+   *
+   * Required.
+   * @param string $executionId An Execution id.
+   *
+   * Required.
+   * @param string $clusterId A Cluster id
+   *
+   * Required.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ToolResults_ScreenshotCluster
+   */
+  public function get($projectId, $historyId, $executionId, $clusterId, $optParams = array())
+  {
+    $params = array('projectId' => $projectId, 'historyId' => $historyId, 'executionId' => $executionId, 'clusterId' => $clusterId);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_ToolResults_ScreenshotCluster");
+  }
+  /**
    * Lists Screenshot Clusters
    *
    * Returns the list of screenshot clusters corresponding to an execution.

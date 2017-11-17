@@ -26,19 +26,6 @@
 class Google_Service_AndroidPublisher_Resource_Inappproducts extends Google_Service_Resource
 {
   /**
-   * (inappproducts.batch)
-   *
-   * @param Google_Service_AndroidPublisher_InappproductsBatchRequest $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_AndroidPublisher_InappproductsBatchResponse
-   */
-  public function batch(Google_Service_AndroidPublisher_InappproductsBatchRequest $postBody, $optParams = array())
-  {
-    $params = array('postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('batch', array($params), "Google_Service_AndroidPublisher_InappproductsBatchResponse");
-  }
-  /**
    * Delete an in-app product for an app. (inappproducts.delete)
    *
    * @param string $packageName Unique identifier for the Android app with the in-

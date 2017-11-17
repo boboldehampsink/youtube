@@ -31,6 +31,8 @@ class Google_Service_Storage_Resource_ProjectsServiceAccount extends Google_Serv
    *
    * @param string $projectId Project ID
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string userProject The project to be billed for this request.
    * @return Google_Service_Storage_ServiceAccount
    */
   public function get($projectId, $optParams = array())

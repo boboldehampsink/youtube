@@ -82,18 +82,30 @@ class Google_Service_Sheets_Resource_SpreadsheetsValues extends Google_Service_R
     return $this->call('batchClear', array($params), "Google_Service_Sheets_BatchClearValuesResponse");
   }
   /**
+   * Clears one or more ranges of values from a spreadsheet. The caller must
+   * specify the spreadsheet ID and one or more DataFilters. Ranges matching any
+   * of the specified data filters will be cleared.  Only values are cleared --
+   * all other properties of the cell (such as formatting, data validation, etc..)
+   * are kept. (values.batchClearByDataFilter)
+   *
+   * @param string $spreadsheetId The ID of the spreadsheet to update.
+   * @param Google_Service_Sheets_BatchClearValuesByDataFilterRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Sheets_BatchClearValuesByDataFilterResponse
+   */
+  public function batchClearByDataFilter($spreadsheetId, Google_Service_Sheets_BatchClearValuesByDataFilterRequest $postBody, $optParams = array())
+  {
+    $params = array('spreadsheetId' => $spreadsheetId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchClearByDataFilter', array($params), "Google_Service_Sheets_BatchClearValuesByDataFilterResponse");
+  }
+  /**
    * Returns one or more ranges of values from a spreadsheet. The caller must
    * specify the spreadsheet ID and one or more ranges. (values.batchGet)
    *
    * @param string $spreadsheetId The ID of the spreadsheet to retrieve data from.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string dateTimeRenderOption How dates, times, and durations should
-   * be represented in the output. This is ignored if value_render_option is
-   * FORMATTED_VALUE. The default dateTime render option is
-   * [DateTimeRenderOption.SERIAL_NUMBER].
-   * @opt_param string valueRenderOption How values should be represented in the
-   * output. The default render option is ValueRenderOption.FORMATTED_VALUE.
    * @opt_param string majorDimension The major dimension that results should use.
    *
    * For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`, then
@@ -101,6 +113,12 @@ class Google_Service_Sheets_Resource_SpreadsheetsValues extends Google_Service_R
    * whereas requesting `range=A1:B2,majorDimension=COLUMNS` will return
    * `[[1,3],[2,4]]`.
    * @opt_param string ranges The A1 notation of the values to retrieve.
+   * @opt_param string dateTimeRenderOption How dates, times, and durations should
+   * be represented in the output. This is ignored if value_render_option is
+   * FORMATTED_VALUE. The default dateTime render option is
+   * [DateTimeRenderOption.SERIAL_NUMBER].
+   * @opt_param string valueRenderOption How values should be represented in the
+   * output. The default render option is ValueRenderOption.FORMATTED_VALUE.
    * @return Google_Service_Sheets_BatchGetValuesResponse
    */
   public function batchGet($spreadsheetId, $optParams = array())
@@ -108,6 +126,23 @@ class Google_Service_Sheets_Resource_SpreadsheetsValues extends Google_Service_R
     $params = array('spreadsheetId' => $spreadsheetId);
     $params = array_merge($params, $optParams);
     return $this->call('batchGet', array($params), "Google_Service_Sheets_BatchGetValuesResponse");
+  }
+  /**
+   * Returns one or more ranges of values that match the specified data filters.
+   * The caller must specify the spreadsheet ID and one or more DataFilters.
+   * Ranges that match any of the data filters in the request will be returned.
+   * (values.batchGetByDataFilter)
+   *
+   * @param string $spreadsheetId The ID of the spreadsheet to retrieve data from.
+   * @param Google_Service_Sheets_BatchGetValuesByDataFilterRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Sheets_BatchGetValuesByDataFilterResponse
+   */
+  public function batchGetByDataFilter($spreadsheetId, Google_Service_Sheets_BatchGetValuesByDataFilterRequest $postBody, $optParams = array())
+  {
+    $params = array('spreadsheetId' => $spreadsheetId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchGetByDataFilter', array($params), "Google_Service_Sheets_BatchGetValuesByDataFilterResponse");
   }
   /**
    * Sets values in one or more ranges of a spreadsheet. The caller must specify
@@ -124,6 +159,22 @@ class Google_Service_Sheets_Resource_SpreadsheetsValues extends Google_Service_R
     $params = array('spreadsheetId' => $spreadsheetId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('batchUpdate', array($params), "Google_Service_Sheets_BatchUpdateValuesResponse");
+  }
+  /**
+   * Sets values in one or more ranges of a spreadsheet. The caller must specify
+   * the spreadsheet ID, a valueInputOption, and one or more
+   * DataFilterValueRanges. (values.batchUpdateByDataFilter)
+   *
+   * @param string $spreadsheetId The ID of the spreadsheet to update.
+   * @param Google_Service_Sheets_BatchUpdateValuesByDataFilterRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Sheets_BatchUpdateValuesByDataFilterResponse
+   */
+  public function batchUpdateByDataFilter($spreadsheetId, Google_Service_Sheets_BatchUpdateValuesByDataFilterRequest $postBody, $optParams = array())
+  {
+    $params = array('spreadsheetId' => $spreadsheetId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchUpdateByDataFilter', array($params), "Google_Service_Sheets_BatchUpdateValuesByDataFilterResponse");
   }
   /**
    * Clears values from a spreadsheet. The caller must specify the spreadsheet ID
@@ -150,18 +201,18 @@ class Google_Service_Sheets_Resource_SpreadsheetsValues extends Google_Service_R
    * @param string $range The A1 notation of the values to retrieve.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string majorDimension The major dimension that results should use.
-   *
-   * For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`, then
-   * requesting `range=A1:B2,majorDimension=ROWS` will return `[[1,2],[3,4]]`,
-   * whereas requesting `range=A1:B2,majorDimension=COLUMNS` will return
-   * `[[1,3],[2,4]]`.
    * @opt_param string dateTimeRenderOption How dates, times, and durations should
    * be represented in the output. This is ignored if value_render_option is
    * FORMATTED_VALUE. The default dateTime render option is
    * [DateTimeRenderOption.SERIAL_NUMBER].
    * @opt_param string valueRenderOption How values should be represented in the
    * output. The default render option is ValueRenderOption.FORMATTED_VALUE.
+   * @opt_param string majorDimension The major dimension that results should use.
+   *
+   * For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`, then
+   * requesting `range=A1:B2,majorDimension=ROWS` will return `[[1,2],[3,4]]`,
+   * whereas requesting `range=A1:B2,majorDimension=COLUMNS` will return
+   * `[[1,3],[2,4]]`.
    * @return Google_Service_Sheets_ValueRange
    */
   public function get($spreadsheetId, $range, $optParams = array())
@@ -179,6 +230,9 @@ class Google_Service_Sheets_Resource_SpreadsheetsValues extends Google_Service_R
    * @param Google_Service_Sheets_ValueRange $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string responseValueRenderOption Determines how values in the
+   * response should be rendered. The default render option is
+   * ValueRenderOption.FORMATTED_VALUE.
    * @opt_param string valueInputOption How the input data should be interpreted.
    * @opt_param string responseDateTimeRenderOption Determines how dates, times,
    * and durations in the response should be rendered. This is ignored if
@@ -189,9 +243,6 @@ class Google_Service_Sheets_Resource_SpreadsheetsValues extends Google_Service_R
    * responses do not include the updated values. If the range to write was larger
    * than than the range actually written, the response will include all values in
    * the requested range (excluding trailing empty rows and columns).
-   * @opt_param string responseValueRenderOption Determines how values in the
-   * response should be rendered. The default render option is
-   * ValueRenderOption.FORMATTED_VALUE.
    * @return Google_Service_Sheets_UpdateValuesResponse
    */
   public function update($spreadsheetId, $range, Google_Service_Sheets_ValueRange $postBody, $optParams = array())

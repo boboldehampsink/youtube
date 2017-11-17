@@ -20,13 +20,11 @@ class Google_Service_AdExchangeBuyerII_FilterSet extends Google_Collection
   protected $collection_key = 'sellerNetworkIds';
   protected $absoluteDateRangeType = 'Google_Service_AdExchangeBuyerII_AbsoluteDateRange';
   protected $absoluteDateRangeDataType = '';
-  public $buyerAccountId;
   public $creativeId;
   public $dealId;
   public $environment;
-  public $filterSetId;
   public $format;
-  public $ownerAccountId;
+  public $name;
   public $platforms;
   protected $realtimeTimeRangeType = 'Google_Service_AdExchangeBuyerII_RealtimeTimeRange';
   protected $realtimeTimeRangeDataType = '';
@@ -48,14 +46,6 @@ class Google_Service_AdExchangeBuyerII_FilterSet extends Google_Collection
   public function getAbsoluteDateRange()
   {
     return $this->absoluteDateRange;
-  }
-  public function setBuyerAccountId($buyerAccountId)
-  {
-    $this->buyerAccountId = $buyerAccountId;
-  }
-  public function getBuyerAccountId()
-  {
-    return $this->buyerAccountId;
   }
   public function setCreativeId($creativeId)
   {
@@ -81,14 +71,6 @@ class Google_Service_AdExchangeBuyerII_FilterSet extends Google_Collection
   {
     return $this->environment;
   }
-  public function setFilterSetId($filterSetId)
-  {
-    $this->filterSetId = $filterSetId;
-  }
-  public function getFilterSetId()
-  {
-    return $this->filterSetId;
-  }
   public function setFormat($format)
   {
     $this->format = $format;
@@ -97,13 +79,13 @@ class Google_Service_AdExchangeBuyerII_FilterSet extends Google_Collection
   {
     return $this->format;
   }
-  public function setOwnerAccountId($ownerAccountId)
+  public function setName($name)
   {
-    $this->ownerAccountId = $ownerAccountId;
+    $this->name = $name;
   }
-  public function getOwnerAccountId()
+  public function getName()
   {
-    return $this->ownerAccountId;
+    return $this->name;
   }
   public function setPlatforms($platforms)
   {

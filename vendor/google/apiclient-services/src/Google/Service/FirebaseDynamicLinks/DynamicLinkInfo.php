@@ -21,6 +21,8 @@ class Google_Service_FirebaseDynamicLinks_DynamicLinkInfo extends Google_Model
   protected $analyticsInfoDataType = '';
   protected $androidInfoType = 'Google_Service_FirebaseDynamicLinks_AndroidInfo';
   protected $androidInfoDataType = '';
+  protected $desktopInfoType = 'Google_Service_FirebaseDynamicLinks_DesktopInfo';
+  protected $desktopInfoDataType = '';
   public $dynamicLinkDomain;
   protected $iosInfoType = 'Google_Service_FirebaseDynamicLinks_IosInfo';
   protected $iosInfoDataType = '';
@@ -57,6 +59,20 @@ class Google_Service_FirebaseDynamicLinks_DynamicLinkInfo extends Google_Model
   public function getAndroidInfo()
   {
     return $this->androidInfo;
+  }
+  /**
+   * @param Google_Service_FirebaseDynamicLinks_DesktopInfo
+   */
+  public function setDesktopInfo(Google_Service_FirebaseDynamicLinks_DesktopInfo $desktopInfo)
+  {
+    $this->desktopInfo = $desktopInfo;
+  }
+  /**
+   * @return Google_Service_FirebaseDynamicLinks_DesktopInfo
+   */
+  public function getDesktopInfo()
+  {
+    return $this->desktopInfo;
   }
   public function setDynamicLinkDomain($dynamicLinkDomain)
   {

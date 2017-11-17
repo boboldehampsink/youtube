@@ -28,6 +28,7 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   public $machineType;
   protected $metadataType = 'Google_Service_Compute_Metadata';
   protected $metadataDataType = '';
+  public $minCpuPlatform;
   protected $networkInterfacesType = 'Google_Service_Compute_NetworkInterface';
   protected $networkInterfacesDataType = 'array';
   protected $schedulingType = 'Google_Service_Compute_Scheduling';
@@ -110,6 +111,14 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   public function getMetadata()
   {
     return $this->metadata;
+  }
+  public function setMinCpuPlatform($minCpuPlatform)
+  {
+    $this->minCpuPlatform = $minCpuPlatform;
+  }
+  public function getMinCpuPlatform()
+  {
+    return $this->minCpuPlatform;
   }
   /**
    * @param Google_Service_Compute_NetworkInterface

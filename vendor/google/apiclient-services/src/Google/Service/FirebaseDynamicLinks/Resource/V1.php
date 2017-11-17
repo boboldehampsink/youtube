@@ -43,4 +43,18 @@ class Google_Service_FirebaseDynamicLinks_Resource_V1 extends Google_Service_Res
     $params = array_merge($params, $optParams);
     return $this->call('getLinkStats', array($params), "Google_Service_FirebaseDynamicLinks_DynamicLinkStats");
   }
+  /**
+   * Get iOS strong/weak-match info for post-install attribution.
+   * (v1.installAttribution)
+   *
+   * @param Google_Service_FirebaseDynamicLinks_GetIosPostInstallAttributionRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_FirebaseDynamicLinks_GetIosPostInstallAttributionResponse
+   */
+  public function installAttribution(Google_Service_FirebaseDynamicLinks_GetIosPostInstallAttributionRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('installAttribution', array($params), "Google_Service_FirebaseDynamicLinks_GetIosPostInstallAttributionResponse");
+  }
 }

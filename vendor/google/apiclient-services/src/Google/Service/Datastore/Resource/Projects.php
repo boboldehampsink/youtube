@@ -88,6 +88,22 @@ class Google_Service_Datastore_Resource_Projects extends Google_Service_Resource
     return $this->call('lookup', array($params), "Google_Service_Datastore_LookupResponse");
   }
   /**
+   * Prevents the supplied keys' IDs from being auto-allocated by Cloud Datastore.
+   * (projects.reserveIds)
+   *
+   * @param string $projectId The ID of the project against which to make the
+   * request.
+   * @param Google_Service_Datastore_ReserveIdsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Datastore_ReserveIdsResponse
+   */
+  public function reserveIds($projectId, Google_Service_Datastore_ReserveIdsRequest $postBody, $optParams = array())
+  {
+    $params = array('projectId' => $projectId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('reserveIds', array($params), "Google_Service_Datastore_ReserveIdsResponse");
+  }
+  /**
    * Rolls back a transaction. (projects.rollback)
    *
    * @param string $projectId The ID of the project against which to make the

@@ -18,6 +18,8 @@
 class Google_Service_Sheets_Spreadsheet extends Google_Collection
 {
   protected $collection_key = 'sheets';
+  protected $developerMetadataType = 'Google_Service_Sheets_DeveloperMetadata';
+  protected $developerMetadataDataType = 'array';
   protected $namedRangesType = 'Google_Service_Sheets_NamedRange';
   protected $namedRangesDataType = 'array';
   protected $propertiesType = 'Google_Service_Sheets_SpreadsheetProperties';
@@ -27,6 +29,20 @@ class Google_Service_Sheets_Spreadsheet extends Google_Collection
   public $spreadsheetId;
   public $spreadsheetUrl;
 
+  /**
+   * @param Google_Service_Sheets_DeveloperMetadata
+   */
+  public function setDeveloperMetadata($developerMetadata)
+  {
+    $this->developerMetadata = $developerMetadata;
+  }
+  /**
+   * @return Google_Service_Sheets_DeveloperMetadata
+   */
+  public function getDeveloperMetadata()
+  {
+    return $this->developerMetadata;
+  }
   /**
    * @param Google_Service_Sheets_NamedRange
    */

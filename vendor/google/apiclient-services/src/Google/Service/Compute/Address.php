@@ -19,6 +19,7 @@ class Google_Service_Compute_Address extends Google_Collection
 {
   protected $collection_key = 'users';
   public $address;
+  public $addressType;
   public $creationTimestamp;
   public $description;
   public $id;
@@ -28,6 +29,7 @@ class Google_Service_Compute_Address extends Google_Collection
   public $region;
   public $selfLink;
   public $status;
+  public $subnetwork;
   public $users;
 
   public function setAddress($address)
@@ -37,6 +39,14 @@ class Google_Service_Compute_Address extends Google_Collection
   public function getAddress()
   {
     return $this->address;
+  }
+  public function setAddressType($addressType)
+  {
+    $this->addressType = $addressType;
+  }
+  public function getAddressType()
+  {
+    return $this->addressType;
   }
   public function setCreationTimestamp($creationTimestamp)
   {
@@ -109,6 +119,14 @@ class Google_Service_Compute_Address extends Google_Collection
   public function getStatus()
   {
     return $this->status;
+  }
+  public function setSubnetwork($subnetwork)
+  {
+    $this->subnetwork = $subnetwork;
+  }
+  public function getSubnetwork()
+  {
+    return $this->subnetwork;
   }
   public function setUsers($users)
   {

@@ -42,6 +42,10 @@ class Google_Service_Compute_Image extends Google_Collection
   protected $sourceDiskEncryptionKeyType = 'Google_Service_Compute_CustomerEncryptionKey';
   protected $sourceDiskEncryptionKeyDataType = '';
   public $sourceDiskId;
+  public $sourceImage;
+  protected $sourceImageEncryptionKeyType = 'Google_Service_Compute_CustomerEncryptionKey';
+  protected $sourceImageEncryptionKeyDataType = '';
+  public $sourceImageId;
   public $sourceType;
   public $status;
 
@@ -226,6 +230,36 @@ class Google_Service_Compute_Image extends Google_Collection
   public function getSourceDiskId()
   {
     return $this->sourceDiskId;
+  }
+  public function setSourceImage($sourceImage)
+  {
+    $this->sourceImage = $sourceImage;
+  }
+  public function getSourceImage()
+  {
+    return $this->sourceImage;
+  }
+  /**
+   * @param Google_Service_Compute_CustomerEncryptionKey
+   */
+  public function setSourceImageEncryptionKey(Google_Service_Compute_CustomerEncryptionKey $sourceImageEncryptionKey)
+  {
+    $this->sourceImageEncryptionKey = $sourceImageEncryptionKey;
+  }
+  /**
+   * @return Google_Service_Compute_CustomerEncryptionKey
+   */
+  public function getSourceImageEncryptionKey()
+  {
+    return $this->sourceImageEncryptionKey;
+  }
+  public function setSourceImageId($sourceImageId)
+  {
+    $this->sourceImageId = $sourceImageId;
+  }
+  public function getSourceImageId()
+  {
+    return $this->sourceImageId;
   }
   public function setSourceType($sourceType)
   {

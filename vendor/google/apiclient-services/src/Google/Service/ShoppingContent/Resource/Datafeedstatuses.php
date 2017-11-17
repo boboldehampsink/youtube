@@ -39,13 +39,22 @@ class Google_Service_ShoppingContent_Resource_Datafeedstatuses extends Google_Se
     return $this->call('custombatch', array($params), "Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponse");
   }
   /**
-   * Retrieves the status of a datafeed from your Merchant Center account. This
-   * method can only be called for non-multi-client accounts.
+   * Retrieves the status of a datafeed from your Merchant Center account.
    * (datafeedstatuses.get)
    *
-   * @param string $merchantId
-   * @param string $datafeedId
+   * @param string $merchantId The ID of the account that manages the datafeed.
+   * This account cannot be a multi-client account.
+   * @param string $datafeedId The ID of the datafeed.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string country The country for which to get the datafeed status.
+   * If this parameter is provided then language must also be provided. Note that
+   * this parameter is required for feeds targeting multiple countries and
+   * languages, since a feed may have a different status for each target.
+   * @opt_param string language The language for which to get the datafeed status.
+   * If this parameter is provided then country must also be provided. Note that
+   * this parameter is required for feeds targeting multiple countries and
+   * languages, since a feed may have a different status for each target.
    * @return Google_Service_ShoppingContent_DatafeedStatus
    */
   public function get($merchantId, $datafeedId, $optParams = array())
@@ -55,11 +64,11 @@ class Google_Service_ShoppingContent_Resource_Datafeedstatuses extends Google_Se
     return $this->call('get', array($params), "Google_Service_ShoppingContent_DatafeedStatus");
   }
   /**
-   * Lists the statuses of the datafeeds in your Merchant Center account. This
-   * method can only be called for non-multi-client accounts.
+   * Lists the statuses of the datafeeds in your Merchant Center account.
    * (datafeedstatuses.listDatafeedstatuses)
    *
-   * @param string $merchantId The ID of the managing account.
+   * @param string $merchantId The ID of the account that manages the datafeeds.
+   * This account cannot be a multi-client account.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string maxResults The maximum number of products to return in the

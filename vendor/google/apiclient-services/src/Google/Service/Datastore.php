@@ -100,6 +100,16 @@ class Google_Service_Datastore extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'reserveIds' => array(
+              'path' => 'v1/projects/{projectId}:reserveIds',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'rollback' => array(
               'path' => 'v1/projects/{projectId}:rollback',
               'httpMethod' => 'POST',

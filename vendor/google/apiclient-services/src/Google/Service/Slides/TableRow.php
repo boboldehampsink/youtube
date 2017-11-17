@@ -22,6 +22,8 @@ class Google_Service_Slides_TableRow extends Google_Collection
   protected $rowHeightDataType = '';
   protected $tableCellsType = 'Google_Service_Slides_TableCell';
   protected $tableCellsDataType = 'array';
+  protected $tableRowPropertiesType = 'Google_Service_Slides_TableRowProperties';
+  protected $tableRowPropertiesDataType = '';
 
   /**
    * @param Google_Service_Slides_Dimension
@@ -50,5 +52,19 @@ class Google_Service_Slides_TableRow extends Google_Collection
   public function getTableCells()
   {
     return $this->tableCells;
+  }
+  /**
+   * @param Google_Service_Slides_TableRowProperties
+   */
+  public function setTableRowProperties(Google_Service_Slides_TableRowProperties $tableRowProperties)
+  {
+    $this->tableRowProperties = $tableRowProperties;
+  }
+  /**
+   * @return Google_Service_Slides_TableRowProperties
+   */
+  public function getTableRowProperties()
+  {
+    return $this->tableRowProperties;
   }
 }

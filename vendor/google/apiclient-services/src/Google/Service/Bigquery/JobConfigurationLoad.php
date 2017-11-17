@@ -22,6 +22,8 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public $allowQuotedNewlines;
   public $autodetect;
   public $createDisposition;
+  protected $destinationEncryptionConfigurationType = 'Google_Service_Bigquery_EncryptionConfiguration';
+  protected $destinationEncryptionConfigurationDataType = '';
   protected $destinationTableType = 'Google_Service_Bigquery_TableReference';
   protected $destinationTableDataType = '';
   public $encoding;
@@ -74,6 +76,20 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public function getCreateDisposition()
   {
     return $this->createDisposition;
+  }
+  /**
+   * @param Google_Service_Bigquery_EncryptionConfiguration
+   */
+  public function setDestinationEncryptionConfiguration(Google_Service_Bigquery_EncryptionConfiguration $destinationEncryptionConfiguration)
+  {
+    $this->destinationEncryptionConfiguration = $destinationEncryptionConfiguration;
+  }
+  /**
+   * @return Google_Service_Bigquery_EncryptionConfiguration
+   */
+  public function getDestinationEncryptionConfiguration()
+  {
+    return $this->destinationEncryptionConfiguration;
   }
   /**
    * @param Google_Service_Bigquery_TableReference

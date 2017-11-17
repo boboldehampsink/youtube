@@ -21,6 +21,7 @@ class Google_Service_Compute_Instance extends Google_Collection
   public $canIpForward;
   public $cpuPlatform;
   public $creationTimestamp;
+  public $deletionProtection;
   public $description;
   protected $disksType = 'Google_Service_Compute_AttachedDisk';
   protected $disksDataType = 'array';
@@ -33,6 +34,7 @@ class Google_Service_Compute_Instance extends Google_Collection
   public $machineType;
   protected $metadataType = 'Google_Service_Compute_Metadata';
   protected $metadataDataType = '';
+  public $minCpuPlatform;
   public $name;
   protected $networkInterfacesType = 'Google_Service_Compute_NetworkInterface';
   protected $networkInterfacesDataType = 'array';
@@ -71,6 +73,14 @@ class Google_Service_Compute_Instance extends Google_Collection
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
+  }
+  public function setDeletionProtection($deletionProtection)
+  {
+    $this->deletionProtection = $deletionProtection;
+  }
+  public function getDeletionProtection()
+  {
+    return $this->deletionProtection;
   }
   public function setDescription($description)
   {
@@ -161,6 +171,14 @@ class Google_Service_Compute_Instance extends Google_Collection
   public function getMetadata()
   {
     return $this->metadata;
+  }
+  public function setMinCpuPlatform($minCpuPlatform)
+  {
+    $this->minCpuPlatform = $minCpuPlatform;
+  }
+  public function getMinCpuPlatform()
+  {
+    return $this->minCpuPlatform;
   }
   public function setName($name)
   {

@@ -28,6 +28,8 @@ class Google_Service_Sheets_Sheet extends Google_Collection
   protected $conditionalFormatsDataType = 'array';
   protected $dataType = 'Google_Service_Sheets_GridData';
   protected $dataDataType = 'array';
+  protected $developerMetadataType = 'Google_Service_Sheets_DeveloperMetadata';
+  protected $developerMetadataDataType = 'array';
   protected $filterViewsType = 'Google_Service_Sheets_FilterView';
   protected $filterViewsDataType = 'array';
   protected $mergesType = 'Google_Service_Sheets_GridRange';
@@ -106,6 +108,20 @@ class Google_Service_Sheets_Sheet extends Google_Collection
   public function getData()
   {
     return $this->data;
+  }
+  /**
+   * @param Google_Service_Sheets_DeveloperMetadata
+   */
+  public function setDeveloperMetadata($developerMetadata)
+  {
+    $this->developerMetadata = $developerMetadata;
+  }
+  /**
+   * @return Google_Service_Sheets_DeveloperMetadata
+   */
+  public function getDeveloperMetadata()
+  {
+    return $this->developerMetadata;
   }
   /**
    * @param Google_Service_Sheets_FilterView

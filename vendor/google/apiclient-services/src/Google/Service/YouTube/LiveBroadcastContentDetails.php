@@ -25,6 +25,8 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   public $enableDvr;
   public $enableEmbed;
   public $enableLowLatency;
+  public $latencyPreference;
+  public $mesh;
   protected $monitorStreamType = 'Google_Service_YouTube_MonitorStreamInfo';
   protected $monitorStreamDataType = '';
   public $projection;
@@ -94,6 +96,22 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   public function getEnableLowLatency()
   {
     return $this->enableLowLatency;
+  }
+  public function setLatencyPreference($latencyPreference)
+  {
+    $this->latencyPreference = $latencyPreference;
+  }
+  public function getLatencyPreference()
+  {
+    return $this->latencyPreference;
+  }
+  public function setMesh($mesh)
+  {
+    $this->mesh = $mesh;
+  }
+  public function getMesh()
+  {
+    return $this->mesh;
   }
   /**
    * @param Google_Service_YouTube_MonitorStreamInfo

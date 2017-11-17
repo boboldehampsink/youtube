@@ -17,31 +17,12 @@
 
 class Google_Service_Spanner_Policy extends Google_Collection
 {
-  protected $collection_key = 'rules';
-  protected $auditConfigsType = 'Google_Service_Spanner_AuditConfig';
-  protected $auditConfigsDataType = 'array';
+  protected $collection_key = 'bindings';
   protected $bindingsType = 'Google_Service_Spanner_Binding';
   protected $bindingsDataType = 'array';
   public $etag;
-  public $iamOwned;
-  protected $rulesType = 'Google_Service_Spanner_Rule';
-  protected $rulesDataType = 'array';
   public $version;
 
-  /**
-   * @param Google_Service_Spanner_AuditConfig
-   */
-  public function setAuditConfigs($auditConfigs)
-  {
-    $this->auditConfigs = $auditConfigs;
-  }
-  /**
-   * @return Google_Service_Spanner_AuditConfig
-   */
-  public function getAuditConfigs()
-  {
-    return $this->auditConfigs;
-  }
   /**
    * @param Google_Service_Spanner_Binding
    */
@@ -63,28 +44,6 @@ class Google_Service_Spanner_Policy extends Google_Collection
   public function getEtag()
   {
     return $this->etag;
-  }
-  public function setIamOwned($iamOwned)
-  {
-    $this->iamOwned = $iamOwned;
-  }
-  public function getIamOwned()
-  {
-    return $this->iamOwned;
-  }
-  /**
-   * @param Google_Service_Spanner_Rule
-   */
-  public function setRules($rules)
-  {
-    $this->rules = $rules;
-  }
-  /**
-   * @return Google_Service_Spanner_Rule
-   */
-  public function getRules()
-  {
-    return $this->rules;
   }
   public function setVersion($version)
   {

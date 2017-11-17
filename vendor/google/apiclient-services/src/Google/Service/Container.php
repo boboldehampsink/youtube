@@ -314,6 +314,26 @@ class Google_Service_Container extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'setMaintenancePolicy' => array(
+              'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setMaintenancePolicy',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'clusterId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'setMasterAuth' => array(
               'path' => 'v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setMasterAuth',
               'httpMethod' => 'POST',

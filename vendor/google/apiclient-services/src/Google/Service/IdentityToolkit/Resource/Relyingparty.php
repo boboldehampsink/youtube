@@ -66,6 +66,19 @@ class Google_Service_IdentityToolkit_Resource_Relyingparty extends Google_Servic
     return $this->call('downloadAccount', array($params), "Google_Service_IdentityToolkit_DownloadAccountResponse");
   }
   /**
+   * Reset password for a user. (relyingparty.emailLinkSignin)
+   *
+   * @param Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyEmailLinkSigninRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_IdentityToolkit_EmailLinkSigninResponse
+   */
+  public function emailLinkSignin(Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyEmailLinkSigninRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('emailLinkSignin', array($params), "Google_Service_IdentityToolkit_EmailLinkSigninResponse");
+  }
+  /**
    * Returns the account info. (relyingparty.getAccountInfo)
    *
    * @param Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyGetAccountInfoRequest $postBody

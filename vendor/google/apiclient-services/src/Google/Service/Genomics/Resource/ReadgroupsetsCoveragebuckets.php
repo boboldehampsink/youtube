@@ -44,6 +44,8 @@ class Google_Service_Genomics_Resource_ReadgroupsetsCoveragebuckets extends Goog
    * which coverage is requested.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string referenceName The name of the reference to query, within
+   * the reference set associated with this query. Optional.
    * @opt_param string end The end position of the range on the reference, 0-based
    * exclusive. If specified, `referenceName` must also be specified. If unset or
    * 0, defaults to the length of the reference.
@@ -62,8 +64,6 @@ class Google_Service_Genomics_Resource_ReadgroupsetsCoveragebuckets extends Goog
    * sequence) or the length of the target range, if specified. The smallest
    * precomputed `bucketWidth` is currently 2048 base pairs; this is subject to
    * change.
-   * @opt_param string referenceName The name of the reference to query, within
-   * the reference set associated with this query. Optional.
    * @return Google_Service_Genomics_ListCoverageBucketsResponse
    */
   public function listReadgroupsetsCoveragebuckets($readGroupSetId, $optParams = array())

@@ -19,6 +19,8 @@ class Google_Service_Bigquery_Table extends Google_Model
 {
   public $creationTime;
   public $description;
+  protected $encryptionConfigurationType = 'Google_Service_Bigquery_EncryptionConfiguration';
+  protected $encryptionConfigurationDataType = '';
   public $etag;
   public $expirationTime;
   protected $externalDataConfigurationType = 'Google_Service_Bigquery_ExternalDataConfiguration';
@@ -60,6 +62,20 @@ class Google_Service_Bigquery_Table extends Google_Model
   public function getDescription()
   {
     return $this->description;
+  }
+  /**
+   * @param Google_Service_Bigquery_EncryptionConfiguration
+   */
+  public function setEncryptionConfiguration(Google_Service_Bigquery_EncryptionConfiguration $encryptionConfiguration)
+  {
+    $this->encryptionConfiguration = $encryptionConfiguration;
+  }
+  /**
+   * @return Google_Service_Bigquery_EncryptionConfiguration
+   */
+  public function getEncryptionConfiguration()
+  {
+    return $this->encryptionConfiguration;
   }
   public function setEtag($etag)
   {

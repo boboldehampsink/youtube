@@ -17,23 +17,23 @@
 
 class Google_Service_CloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment extends Google_Model
 {
-  public $endTime;
-  public $startTime;
+  public $endTimeOffset;
+  public $startTimeOffset;
 
-  public function setEndTime($endTime)
+  public function setEndTimeOffset($endTimeOffset)
   {
-    $this->endTime = $endTime;
+    $this->endTimeOffset = $endTimeOffset;
   }
-  public function getEndTime()
+  public function getEndTimeOffset()
   {
-    return $this->endTime;
+    return $this->endTimeOffset;
   }
-  public function setStartTime($startTime)
+  public function setStartTimeOffset($startTimeOffset)
   {
-    $this->startTime = $startTime;
+    $this->startTimeOffset = $startTimeOffset;
   }
-  public function getStartTime()
+  public function getStartTimeOffset()
   {
-    return $this->startTime;
+    return $this->startTimeOffset;
   }
 }

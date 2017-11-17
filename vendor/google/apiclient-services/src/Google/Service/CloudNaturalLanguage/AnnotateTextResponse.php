@@ -18,6 +18,8 @@
 class Google_Service_CloudNaturalLanguage_AnnotateTextResponse extends Google_Collection
 {
   protected $collection_key = 'tokens';
+  protected $categoriesType = 'Google_Service_CloudNaturalLanguage_ClassificationCategory';
+  protected $categoriesDataType = 'array';
   protected $documentSentimentType = 'Google_Service_CloudNaturalLanguage_Sentiment';
   protected $documentSentimentDataType = '';
   protected $entitiesType = 'Google_Service_CloudNaturalLanguage_Entity';
@@ -28,6 +30,20 @@ class Google_Service_CloudNaturalLanguage_AnnotateTextResponse extends Google_Co
   protected $tokensType = 'Google_Service_CloudNaturalLanguage_Token';
   protected $tokensDataType = 'array';
 
+  /**
+   * @param Google_Service_CloudNaturalLanguage_ClassificationCategory
+   */
+  public function setCategories($categories)
+  {
+    $this->categories = $categories;
+  }
+  /**
+   * @return Google_Service_CloudNaturalLanguage_ClassificationCategory
+   */
+  public function getCategories()
+  {
+    return $this->categories;
+  }
   /**
    * @param Google_Service_CloudNaturalLanguage_Sentiment
    */

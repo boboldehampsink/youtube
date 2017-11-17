@@ -49,6 +49,7 @@ class Google_Service_Dfareporting_CreativeAsset extends Google_Collection
   public $mimeType;
   protected $offsetType = 'Google_Service_Dfareporting_OffsetPosition';
   protected $offsetDataType = '';
+  public $orientation;
   public $originalBackup;
   protected $positionType = 'Google_Service_Dfareporting_OffsetPosition';
   protected $positionDataType = '';
@@ -306,6 +307,14 @@ class Google_Service_Dfareporting_CreativeAsset extends Google_Collection
   public function getOffset()
   {
     return $this->offset;
+  }
+  public function setOrientation($orientation)
+  {
+    $this->orientation = $orientation;
+  }
+  public function getOrientation()
+  {
+    return $this->orientation;
   }
   public function setOriginalBackup($originalBackup)
   {

@@ -30,7 +30,8 @@ class Google_Service_Dfareporting_Creative extends Google_Collection
   public $authoringTool;
   public $autoAdvanceImages;
   public $backgroundColor;
-  public $backupImageClickThroughUrl;
+  protected $backupImageClickThroughUrlType = 'Google_Service_Dfareporting_CreativeClickThroughUrl';
+  protected $backupImageClickThroughUrlDataType = '';
   public $backupImageFeatures;
   public $backupImageReportingLabel;
   protected $backupImageTargetWindowType = 'Google_Service_Dfareporting_TargetWindow';
@@ -66,6 +67,7 @@ class Google_Service_Dfareporting_Creative extends Google_Collection
   public $latestTraffickedCreativeId;
   public $name;
   public $overrideCss;
+  public $politeLoadAssetId;
   protected $progressOffsetType = 'Google_Service_Dfareporting_VideoOffset';
   protected $progressOffsetDataType = '';
   public $redirectUrl;
@@ -195,10 +197,16 @@ class Google_Service_Dfareporting_Creative extends Google_Collection
   {
     return $this->backgroundColor;
   }
-  public function setBackupImageClickThroughUrl($backupImageClickThroughUrl)
+  /**
+   * @param Google_Service_Dfareporting_CreativeClickThroughUrl
+   */
+  public function setBackupImageClickThroughUrl(Google_Service_Dfareporting_CreativeClickThroughUrl $backupImageClickThroughUrl)
   {
     $this->backupImageClickThroughUrl = $backupImageClickThroughUrl;
   }
+  /**
+   * @return Google_Service_Dfareporting_CreativeClickThroughUrl
+   */
   public function getBackupImageClickThroughUrl()
   {
     return $this->backupImageClickThroughUrl;
@@ -462,6 +470,14 @@ class Google_Service_Dfareporting_Creative extends Google_Collection
   public function getOverrideCss()
   {
     return $this->overrideCss;
+  }
+  public function setPoliteLoadAssetId($politeLoadAssetId)
+  {
+    $this->politeLoadAssetId = $politeLoadAssetId;
+  }
+  public function getPoliteLoadAssetId()
+  {
+    return $this->politeLoadAssetId;
   }
   /**
    * @param Google_Service_Dfareporting_VideoOffset

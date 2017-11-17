@@ -18,17 +18,27 @@
 class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
 {
   protected $collection_key = 'warnings';
+  public $country;
   public $datafeedId;
   protected $errorsType = 'Google_Service_ShoppingContent_DatafeedStatusError';
   protected $errorsDataType = 'array';
   public $itemsTotal;
   public $itemsValid;
   public $kind;
+  public $language;
   public $lastUploadDate;
   public $processingStatus;
   protected $warningsType = 'Google_Service_ShoppingContent_DatafeedStatusError';
   protected $warningsDataType = 'array';
 
+  public function setCountry($country)
+  {
+    $this->country = $country;
+  }
+  public function getCountry()
+  {
+    return $this->country;
+  }
   public function setDatafeedId($datafeedId)
   {
     $this->datafeedId = $datafeedId;
@@ -74,6 +84,14 @@ class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setLanguage($language)
+  {
+    $this->language = $language;
+  }
+  public function getLanguage()
+  {
+    return $this->language;
   }
   public function setLastUploadDate($lastUploadDate)
   {

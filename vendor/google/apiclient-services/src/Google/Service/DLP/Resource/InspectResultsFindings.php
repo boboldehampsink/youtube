@@ -30,21 +30,24 @@ class Google_Service_DLP_Resource_InspectResultsFindings extends Google_Service_
    * (findings.listInspectResultsFindings)
    *
    * @param string $name Identifier of the results set returned as metadata of the
-   * longrunning operation created by a call to CreateInspectOperation. Should be
-   * in the format of `inspect/results/{id}`.
+   * longrunning operation created by a call to InspectDataSource. Should be in
+   * the format of `inspect/results/{id}`.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string filter Restricts findings to items that match. Supports
+   * info_type and likelihood.
+   *
+   * Examples:
+   *
+   * - info_type=EMAIL_ADDRESS - info_type=PHONE_NUMBER,EMAIL_ADDRESS -
+   * likelihood=VERY_LIKELY - likelihood=VERY_LIKELY,LIKELY -
+   * info_type=EMAIL_ADDRESS,likelihood=VERY_LIKELY,LIKELY
    * @opt_param string pageToken The value returned by the last
    * `ListInspectFindingsResponse`; indicates that this is a continuation of a
    * prior `ListInspectFindings` call, and that the system should return the next
    * page of data.
    * @opt_param int pageSize Maximum number of results to return. If 0, the
    * implementation selects a reasonable value.
-   * @opt_param string filter Restricts findings to items that match. Supports
-   * info_type and likelihood. Examples: info_type=EMAIL_ADDRESS
-   * info_type=PHONE_NUMBER,EMAIL_ADDRESS likelihood=VERY_LIKELY
-   * likelihood=VERY_LIKELY,LIKELY
-   * info_type=EMAIL_ADDRESS,likelihood=VERY_LIKELY,LIKELY
    * @return Google_Service_DLP_GooglePrivacyDlpV2beta1ListInspectFindingsResponse
    */
   public function listInspectResultsFindings($name, $optParams = array())

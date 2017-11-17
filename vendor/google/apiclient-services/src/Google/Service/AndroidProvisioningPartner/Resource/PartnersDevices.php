@@ -28,7 +28,7 @@ class Google_Service_AndroidProvisioningPartner_Resource_PartnersDevices extends
   /**
    * Claim the device identified by device identifier. (devices.claim)
    *
-   * @param string $partnerId Id of the partner.
+   * @param string $partnerId ID of the partner.
    * @param Google_Service_AndroidProvisioningPartner_ClaimDeviceRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AndroidProvisioningPartner_ClaimDeviceResponse
@@ -40,9 +40,9 @@ class Google_Service_AndroidProvisioningPartner_Resource_PartnersDevices extends
     return $this->call('claim', array($params), "Google_Service_AndroidProvisioningPartner_ClaimDeviceResponse");
   }
   /**
-   * Claim devices asynchronously (devices.claimAsync)
+   * Claim devices asynchronously. (devices.claimAsync)
    *
-   * @param string $partnerId partner id.
+   * @param string $partnerId Partner ID.
    * @param Google_Service_AndroidProvisioningPartner_ClaimDevicesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AndroidProvisioningPartner_Operation
@@ -56,7 +56,7 @@ class Google_Service_AndroidProvisioningPartner_Resource_PartnersDevices extends
   /**
    * Find devices by device identifier. (devices.findByIdentifier)
    *
-   * @param string $partnerId id of the partner.
+   * @param string $partnerId ID of the partner.
    * @param Google_Service_AndroidProvisioningPartner_FindDevicesByDeviceIdentifierRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AndroidProvisioningPartner_FindDevicesByDeviceIdentifierResponse
@@ -70,7 +70,7 @@ class Google_Service_AndroidProvisioningPartner_Resource_PartnersDevices extends
   /**
    * Find devices by ownership. (devices.findByOwner)
    *
-   * @param string $partnerId id of the partner.
+   * @param string $partnerId ID of the partner.
    * @param Google_Service_AndroidProvisioningPartner_FindDevicesByOwnerRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AndroidProvisioningPartner_FindDevicesByOwnerResponse
@@ -82,10 +82,10 @@ class Google_Service_AndroidProvisioningPartner_Resource_PartnersDevices extends
     return $this->call('findByOwner', array($params), "Google_Service_AndroidProvisioningPartner_FindDevicesByOwnerResponse");
   }
   /**
-   * Get a device (devices.get)
+   * Get a device. (devices.get)
    *
-   * @param string $name resource name in
-   * 'partners/[PARTNER_ID]/devices/[DEVICE_ID]'.
+   * @param string $name Resource name in
+   * `partners/[PARTNER_ID]/devices/[DEVICE_ID]`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AndroidProvisioningPartner_Device
    */
@@ -96,11 +96,11 @@ class Google_Service_AndroidProvisioningPartner_Resource_PartnersDevices extends
     return $this->call('get', array($params), "Google_Service_AndroidProvisioningPartner_Device");
   }
   /**
-   * Update the metadata (devices.metadata)
+   * Update the metadata. (devices.metadata)
    *
-   * @param string $metadataOwnerId The owner of the newly set metadata. Should be
-   * partner id itself.
-   * @param string $deviceId id of the partner.
+   * @param string $metadataOwnerId The owner of the newly set metadata. Set this
+   * to the partner ID.
+   * @param string $deviceId ID of the partner.
    * @param Google_Service_AndroidProvisioningPartner_UpdateDeviceMetadataRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AndroidProvisioningPartner_DeviceMetadata
@@ -112,9 +112,10 @@ class Google_Service_AndroidProvisioningPartner_Resource_PartnersDevices extends
     return $this->call('metadata', array($params), "Google_Service_AndroidProvisioningPartner_DeviceMetadata");
   }
   /**
-   * Unclaim the device identified by device_id or identifier. (devices.unclaim)
+   * Unclaim the device identified by the `device_id` or the `deviceIdentifier`.
+   * (devices.unclaim)
    *
-   * @param string $partnerId Id of the partner.
+   * @param string $partnerId ID of the partner.
    * @param Google_Service_AndroidProvisioningPartner_UnclaimDeviceRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AndroidProvisioningPartner_AndroiddeviceprovisioningEmpty
@@ -126,9 +127,9 @@ class Google_Service_AndroidProvisioningPartner_Resource_PartnersDevices extends
     return $this->call('unclaim', array($params), "Google_Service_AndroidProvisioningPartner_AndroiddeviceprovisioningEmpty");
   }
   /**
-   * Unclaim devices asynchronously (devices.unclaimAsync)
+   * Unclaim devices asynchronously. (devices.unclaimAsync)
    *
-   * @param string $partnerId partner id.
+   * @param string $partnerId Partner ID.
    * @param Google_Service_AndroidProvisioningPartner_UnclaimDevicesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AndroidProvisioningPartner_Operation
@@ -142,7 +143,7 @@ class Google_Service_AndroidProvisioningPartner_Resource_PartnersDevices extends
   /**
    * Set metadata in batch asynchronously. (devices.updateMetadataAsync)
    *
-   * @param string $partnerId partner id.
+   * @param string $partnerId Partner ID.
    * @param Google_Service_AndroidProvisioningPartner_UpdateDeviceMetadataInBatchRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AndroidProvisioningPartner_Operation

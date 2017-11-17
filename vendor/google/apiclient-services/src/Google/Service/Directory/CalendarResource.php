@@ -18,6 +18,7 @@
 class Google_Service_Directory_CalendarResource extends Google_Model
 {
   public $etags;
+  public $generatedResourceName;
   public $kind;
   public $resourceDescription;
   public $resourceEmail;
@@ -32,6 +33,14 @@ class Google_Service_Directory_CalendarResource extends Google_Model
   public function getEtags()
   {
     return $this->etags;
+  }
+  public function setGeneratedResourceName($generatedResourceName)
+  {
+    $this->generatedResourceName = $generatedResourceName;
+  }
+  public function getGeneratedResourceName()
+  {
+    return $this->generatedResourceName;
   }
   public function setKind($kind)
   {

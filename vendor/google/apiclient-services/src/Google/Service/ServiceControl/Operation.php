@@ -17,7 +17,7 @@
 
 class Google_Service_ServiceControl_Operation extends Google_Collection
 {
-  protected $collection_key = 'resourceContainers';
+  protected $collection_key = 'resources';
   public $consumerId;
   public $endTime;
   public $importance;
@@ -31,7 +31,8 @@ class Google_Service_ServiceControl_Operation extends Google_Collection
   protected $quotaPropertiesType = 'Google_Service_ServiceControl_QuotaProperties';
   protected $quotaPropertiesDataType = '';
   public $resourceContainer;
-  public $resourceContainers;
+  protected $resourcesType = 'Google_Service_ServiceControl_ResourceInfo';
+  protected $resourcesDataType = 'array';
   public $startTime;
   public $userLabels;
 
@@ -133,13 +134,19 @@ class Google_Service_ServiceControl_Operation extends Google_Collection
   {
     return $this->resourceContainer;
   }
-  public function setResourceContainers($resourceContainers)
+  /**
+   * @param Google_Service_ServiceControl_ResourceInfo
+   */
+  public function setResources($resources)
   {
-    $this->resourceContainers = $resourceContainers;
+    $this->resources = $resources;
   }
-  public function getResourceContainers()
+  /**
+   * @return Google_Service_ServiceControl_ResourceInfo
+   */
+  public function getResources()
   {
-    return $this->resourceContainers;
+    return $this->resources;
   }
   public function setStartTime($startTime)
   {

@@ -35,8 +35,8 @@ class Google_Service_Storage_Resource_DefaultObjectAccessControls extends Google
    * allAuthenticatedUsers.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    */
   public function delete($bucket, $entity, $optParams = array())
   {
@@ -54,8 +54,8 @@ class Google_Service_Storage_Resource_DefaultObjectAccessControls extends Google
    * allAuthenticatedUsers.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_ObjectAccessControl
    */
   public function get($bucket, $entity, $optParams = array())
@@ -72,8 +72,8 @@ class Google_Service_Storage_Resource_DefaultObjectAccessControls extends Google
    * @param Google_Service_Storage_ObjectAccessControl $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_ObjectAccessControl
    */
   public function insert($bucket, Google_Service_Storage_ObjectAccessControl $postBody, $optParams = array())
@@ -94,8 +94,8 @@ class Google_Service_Storage_Resource_DefaultObjectAccessControls extends Google
    * @opt_param string ifMetagenerationNotMatch If present, only return default
    * ACL listing if the bucket's current metageneration does not match the given
    * value.
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_ObjectAccessControls
    */
   public function listDefaultObjectAccessControls($bucket, $optParams = array())
@@ -115,8 +115,8 @@ class Google_Service_Storage_Resource_DefaultObjectAccessControls extends Google
    * @param Google_Service_Storage_ObjectAccessControl $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_ObjectAccessControl
    */
   public function patch($bucket, $entity, Google_Service_Storage_ObjectAccessControl $postBody, $optParams = array())
@@ -136,8 +136,8 @@ class Google_Service_Storage_Resource_DefaultObjectAccessControls extends Google
    * @param Google_Service_Storage_ObjectAccessControl $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string userProject The project to be billed for this request, for
-   * Requester Pays buckets.
+   * @opt_param string userProject The project to be billed for this request.
+   * Required for Requester Pays buckets.
    * @return Google_Service_Storage_ObjectAccessControl
    */
   public function update($bucket, $entity, Google_Service_Storage_ObjectAccessControl $postBody, $optParams = array())

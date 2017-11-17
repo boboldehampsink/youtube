@@ -18,6 +18,8 @@
 class Google_Service_DLP_GooglePrivacyDlpV2beta1InspectConfig extends Google_Collection
 {
   protected $collection_key = 'infoTypes';
+  protected $customInfoTypesType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1CustomInfoType';
+  protected $customInfoTypesDataType = 'array';
   public $excludeTypes;
   public $includeQuote;
   protected $infoTypeLimitsType = 'Google_Service_DLP_GooglePrivacyDlpV2beta1InfoTypeLimit';
@@ -27,6 +29,20 @@ class Google_Service_DLP_GooglePrivacyDlpV2beta1InspectConfig extends Google_Col
   public $maxFindings;
   public $minLikelihood;
 
+  /**
+   * @param Google_Service_DLP_GooglePrivacyDlpV2beta1CustomInfoType
+   */
+  public function setCustomInfoTypes($customInfoTypes)
+  {
+    $this->customInfoTypes = $customInfoTypes;
+  }
+  /**
+   * @return Google_Service_DLP_GooglePrivacyDlpV2beta1CustomInfoType
+   */
+  public function getCustomInfoTypes()
+  {
+    return $this->customInfoTypes;
+  }
   public function setExcludeTypes($excludeTypes)
   {
     $this->excludeTypes = $excludeTypes;

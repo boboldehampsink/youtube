@@ -390,6 +390,36 @@ class Google_Service_Compute_Resource_Instances extends Google_Service_Resource
     return $this->call('reset', array($params), "Google_Service_Compute_Operation");
   }
   /**
+   * Sets deletion protection on the instance. (instances.setDeletionProtection)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
+   * @param string $resource Name of the resource for this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool deletionProtection Whether the resource should be protected
+   * against deletion.
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
+   * @return Google_Service_Compute_Operation
+   */
+  public function setDeletionProtection($project, $zone, $resource, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'resource' => $resource);
+    $params = array_merge($params, $optParams);
+    return $this->call('setDeletionProtection', array($params), "Google_Service_Compute_Operation");
+  }
+  /**
    * Sets the auto-delete flag for a disk attached to an instance.
    * (instances.setDiskAutoDelete)
    *
@@ -540,6 +570,37 @@ class Google_Service_Compute_Resource_Instances extends Google_Service_Resource
     $params = array('project' => $project, 'zone' => $zone, 'instance' => $instance, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('setMetadata', array($params), "Google_Service_Compute_Operation");
+  }
+  /**
+   * Changes the minimum CPU platform that this instance should use. This method
+   * can only be called on a stopped instance. For more information, read
+   * Specifying a Minimum CPU Platform. (instances.setMinCpuPlatform)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
+   * @param string $instance Name of the instance scoping this request.
+   * @param Google_Service_Compute_InstancesSetMinCpuPlatformRequest $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string requestId An optional request ID to identify requests.
+   * Specify a unique request ID so that if you must retry your request, the
+   * server will know to ignore the request if it has already been completed.
+   *
+   * For example, consider a situation where you make an initial request and the
+   * request times out. If you make the request again with the same request ID,
+   * the server can check if original operation with the same request ID was
+   * received, and if so, will ignore the second request. This prevents clients
+   * from accidentally creating duplicate commitments.
+   *
+   * The request ID must be a valid UUID with the exception that zero UUID is not
+   * supported (00000000-0000-0000-0000-000000000000).
+   * @return Google_Service_Compute_Operation
+   */
+  public function setMinCpuPlatform($project, $zone, $instance, Google_Service_Compute_InstancesSetMinCpuPlatformRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instance' => $instance, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setMinCpuPlatform', array($params), "Google_Service_Compute_Operation");
   }
   /**
    * Sets an instance's scheduling options. (instances.setScheduling)
@@ -693,11 +754,11 @@ class Google_Service_Compute_Resource_Instances extends Google_Service_Resource
   }
   /**
    * Stops a running instance, shutting it down cleanly, and allows you to restart
-   * the instance at a later time. Stopped instances do not incur per-minute,
-   * virtual machine usage charges while they are stopped, but any resources that
-   * the virtual machine is using, such as persistent disks and static IP
-   * addresses, will continue to be charged until they are deleted. For more
-   * information, see Stopping an instance. (instances.stop)
+   * the instance at a later time. Stopped instances do not incur VM usage charges
+   * while they are stopped. However, resources that the VM is using, such as
+   * persistent disks and static IP addresses, will continue to be charged until
+   * they are deleted. For more information, see Stopping an instance.
+   * (instances.stop)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.

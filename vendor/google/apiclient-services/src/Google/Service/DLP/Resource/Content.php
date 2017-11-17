@@ -26,6 +26,20 @@
 class Google_Service_DLP_Resource_Content extends Google_Service_Resource
 {
   /**
+   * De-identifies potentially sensitive info from a list of strings. This method
+   * has limits on input size and output size. (content.deidentify)
+   *
+   * @param Google_Service_DLP_GooglePrivacyDlpV2beta1DeidentifyContentRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_DLP_GooglePrivacyDlpV2beta1DeidentifyContentResponse
+   */
+  public function deidentify(Google_Service_DLP_GooglePrivacyDlpV2beta1DeidentifyContentRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('deidentify', array($params), "Google_Service_DLP_GooglePrivacyDlpV2beta1DeidentifyContentResponse");
+  }
+  /**
    * Finds potentially sensitive info in a list of strings. This method has limits
    * on input size, processing time, and output size. (content.inspect)
    *

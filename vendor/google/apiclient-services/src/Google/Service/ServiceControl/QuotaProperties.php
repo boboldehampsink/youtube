@@ -17,17 +17,8 @@
 
 class Google_Service_ServiceControl_QuotaProperties extends Google_Model
 {
-  public $limitByIds;
   public $quotaMode;
 
-  public function setLimitByIds($limitByIds)
-  {
-    $this->limitByIds = $limitByIds;
-  }
-  public function getLimitByIds()
-  {
-    return $this->limitByIds;
-  }
   public function setQuotaMode($quotaMode)
   {
     $this->quotaMode = $quotaMode;

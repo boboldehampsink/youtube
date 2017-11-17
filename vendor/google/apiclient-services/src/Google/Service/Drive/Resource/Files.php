@@ -178,11 +178,12 @@ class Google_Service_Drive_Resource_Files extends Google_Service_Resource
    * included in results.
    * @opt_param string orderBy A comma-separated list of sort keys. Valid keys are
    * 'createdTime', 'folder', 'modifiedByMeTime', 'modifiedTime', 'name',
-   * 'quotaBytesUsed', 'recency', 'sharedWithMeTime', 'starred', and
-   * 'viewedByMeTime'. Each key sorts ascending by default, but may be reversed
-   * with the 'desc' modifier. Example usage: ?orderBy=folder,modifiedTime
-   * desc,name. Please note that there is a current limitation for users with
-   * approximately one million files in which the requested sort order is ignored.
+   * 'name_natural', 'quotaBytesUsed', 'recency', 'sharedWithMeTime', 'starred',
+   * and 'viewedByMeTime'. Each key sorts ascending by default, but may be
+   * reversed with the 'desc' modifier. Example usage:
+   * ?orderBy=folder,modifiedTime desc,name. Please note that there is a current
+   * limitation for users with approximately one million files in which the
+   * requested sort order is ignored.
    * @opt_param int pageSize The maximum number of files to return per page.
    * Partial or empty result pages are possible even before the end of the files
    * list has been reached.

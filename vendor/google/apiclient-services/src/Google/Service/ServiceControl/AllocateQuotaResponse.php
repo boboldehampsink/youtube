@@ -20,6 +20,8 @@ class Google_Service_ServiceControl_AllocateQuotaResponse extends Google_Collect
   protected $collection_key = 'quotaMetrics';
   protected $allocateErrorsType = 'Google_Service_ServiceControl_QuotaError';
   protected $allocateErrorsDataType = 'array';
+  protected $allocateInfoType = 'Google_Service_ServiceControl_AllocateInfo';
+  protected $allocateInfoDataType = '';
   public $operationId;
   protected $quotaMetricsType = 'Google_Service_ServiceControl_MetricValueSet';
   protected $quotaMetricsDataType = 'array';
@@ -38,6 +40,20 @@ class Google_Service_ServiceControl_AllocateQuotaResponse extends Google_Collect
   public function getAllocateErrors()
   {
     return $this->allocateErrors;
+  }
+  /**
+   * @param Google_Service_ServiceControl_AllocateInfo
+   */
+  public function setAllocateInfo(Google_Service_ServiceControl_AllocateInfo $allocateInfo)
+  {
+    $this->allocateInfo = $allocateInfo;
+  }
+  /**
+   * @return Google_Service_ServiceControl_AllocateInfo
+   */
+  public function getAllocateInfo()
+  {
+    return $this->allocateInfo;
   }
   public function setOperationId($operationId)
   {

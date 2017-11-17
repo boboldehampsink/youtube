@@ -22,6 +22,8 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Collection
   public $createDisposition;
   protected $defaultDatasetType = 'Google_Service_Bigquery_DatasetReference';
   protected $defaultDatasetDataType = '';
+  protected $destinationEncryptionConfigurationType = 'Google_Service_Bigquery_EncryptionConfiguration';
+  protected $destinationEncryptionConfigurationDataType = '';
   protected $destinationTableType = 'Google_Service_Bigquery_TableReference';
   protected $destinationTableDataType = '';
   public $flattenResults;
@@ -73,6 +75,20 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Collection
   public function getDefaultDataset()
   {
     return $this->defaultDataset;
+  }
+  /**
+   * @param Google_Service_Bigquery_EncryptionConfiguration
+   */
+  public function setDestinationEncryptionConfiguration(Google_Service_Bigquery_EncryptionConfiguration $destinationEncryptionConfiguration)
+  {
+    $this->destinationEncryptionConfiguration = $destinationEncryptionConfiguration;
+  }
+  /**
+   * @return Google_Service_Bigquery_EncryptionConfiguration
+   */
+  public function getDestinationEncryptionConfiguration()
+  {
+    return $this->destinationEncryptionConfiguration;
   }
   /**
    * @param Google_Service_Bigquery_TableReference

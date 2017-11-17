@@ -19,8 +19,12 @@ class Google_Service_Dataflow_SourceOperationRequest extends Google_Model
 {
   protected $getMetadataType = 'Google_Service_Dataflow_SourceGetMetadataRequest';
   protected $getMetadataDataType = '';
+  public $name;
+  public $originalName;
   protected $splitType = 'Google_Service_Dataflow_SourceSplitRequest';
   protected $splitDataType = '';
+  public $stageName;
+  public $systemName;
 
   /**
    * @param Google_Service_Dataflow_SourceGetMetadataRequest
@@ -36,6 +40,22 @@ class Google_Service_Dataflow_SourceOperationRequest extends Google_Model
   {
     return $this->getMetadata;
   }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setOriginalName($originalName)
+  {
+    $this->originalName = $originalName;
+  }
+  public function getOriginalName()
+  {
+    return $this->originalName;
+  }
   /**
    * @param Google_Service_Dataflow_SourceSplitRequest
    */
@@ -49,5 +69,21 @@ class Google_Service_Dataflow_SourceOperationRequest extends Google_Model
   public function getSplit()
   {
     return $this->split;
+  }
+  public function setStageName($stageName)
+  {
+    $this->stageName = $stageName;
+  }
+  public function getStageName()
+  {
+    return $this->stageName;
+  }
+  public function setSystemName($systemName)
+  {
+    $this->systemName = $systemName;
+  }
+  public function getSystemName()
+  {
+    return $this->systemName;
   }
 }

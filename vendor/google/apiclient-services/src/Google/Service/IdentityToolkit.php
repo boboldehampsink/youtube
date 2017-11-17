@@ -70,6 +70,10 @@ class Google_Service_IdentityToolkit extends Google_Service
               'path' => 'downloadAccount',
               'httpMethod' => 'POST',
               'parameters' => array(),
+            ),'emailLinkSignin' => array(
+              'path' => 'emailLinkSignin',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
             ),'getAccountInfo' => array(
               'path' => 'getAccountInfo',
               'httpMethod' => 'POST',

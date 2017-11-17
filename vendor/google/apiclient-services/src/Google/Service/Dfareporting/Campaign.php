@@ -41,6 +41,7 @@ class Google_Service_Dfareporting_Campaign extends Google_Collection
   protected $creativeOptimizationConfigurationDataType = '';
   protected $defaultClickThroughEventTagPropertiesType = 'Google_Service_Dfareporting_DefaultClickThroughEventTagProperties';
   protected $defaultClickThroughEventTagPropertiesDataType = '';
+  public $defaultLandingPageId;
   public $endDate;
   protected $eventTagOverridesType = 'Google_Service_Dfareporting_EventTagOverride';
   protected $eventTagOverridesDataType = 'array';
@@ -226,6 +227,14 @@ class Google_Service_Dfareporting_Campaign extends Google_Collection
   public function getDefaultClickThroughEventTagProperties()
   {
     return $this->defaultClickThroughEventTagProperties;
+  }
+  public function setDefaultLandingPageId($defaultLandingPageId)
+  {
+    $this->defaultLandingPageId = $defaultLandingPageId;
+  }
+  public function getDefaultLandingPageId()
+  {
+    return $this->defaultLandingPageId;
   }
   public function setEndDate($endDate)
   {

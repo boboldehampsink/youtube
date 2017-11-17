@@ -39,6 +39,14 @@ class Google_Service_YouTube_Resource_ChannelBanners extends Google_Service_Reso
    * @param Google_Service_YouTube_ChannelBannerResource $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string channelId The channelId parameter identifies the YouTube
+   * channel to which the banner is uploaded. The channelId parameter was
+   * introduced as a required parameter in May 2017. As this was a backward-
+   * incompatible change, channelBanners.insert requests that do not specify this
+   * parameter will not return an error until six months have passed from the time
+   * that the parameter was introduced. Please see the API Terms of Service for
+   * the official policy regarding backward incompatible changes and the API
+   * revision history for the exact date that the parameter was introduced.
    * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
    * exclusively for YouTube content partners.
    *

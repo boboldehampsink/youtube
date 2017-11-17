@@ -23,6 +23,8 @@ class Google_Service_Compute_TargetInstanceAggregatedList extends Google_Model
   public $kind;
   public $nextPageToken;
   public $selfLink;
+  protected $warningType = 'Google_Service_Compute_TargetInstanceAggregatedListWarning';
+  protected $warningDataType = '';
 
   public function setId($id)
   {
@@ -69,5 +71,19 @@ class Google_Service_Compute_TargetInstanceAggregatedList extends Google_Model
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+  /**
+   * @param Google_Service_Compute_TargetInstanceAggregatedListWarning
+   */
+  public function setWarning(Google_Service_Compute_TargetInstanceAggregatedListWarning $warning)
+  {
+    $this->warning = $warning;
+  }
+  /**
+   * @return Google_Service_Compute_TargetInstanceAggregatedListWarning
+   */
+  public function getWarning()
+  {
+    return $this->warning;
   }
 }

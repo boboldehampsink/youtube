@@ -23,6 +23,8 @@ class Google_Service_Container_AddonsConfig extends Google_Model
   protected $httpLoadBalancingDataType = '';
   protected $kubernetesDashboardType = 'Google_Service_Container_KubernetesDashboard';
   protected $kubernetesDashboardDataType = '';
+  protected $networkPolicyConfigType = 'Google_Service_Container_NetworkPolicyConfig';
+  protected $networkPolicyConfigDataType = '';
 
   /**
    * @param Google_Service_Container_HorizontalPodAutoscaling
@@ -65,5 +67,19 @@ class Google_Service_Container_AddonsConfig extends Google_Model
   public function getKubernetesDashboard()
   {
     return $this->kubernetesDashboard;
+  }
+  /**
+   * @param Google_Service_Container_NetworkPolicyConfig
+   */
+  public function setNetworkPolicyConfig(Google_Service_Container_NetworkPolicyConfig $networkPolicyConfig)
+  {
+    $this->networkPolicyConfig = $networkPolicyConfig;
+  }
+  /**
+   * @return Google_Service_Container_NetworkPolicyConfig
+   */
+  public function getNetworkPolicyConfig()
+  {
+    return $this->networkPolicyConfig;
   }
 }

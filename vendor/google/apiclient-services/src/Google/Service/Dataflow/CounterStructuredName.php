@@ -19,9 +19,11 @@ class Google_Service_Dataflow_CounterStructuredName extends Google_Model
 {
   public $componentStepName;
   public $executionStepName;
+  public $inputIndex;
   public $name;
   public $origin;
   public $originNamespace;
+  public $originalRequestingStepName;
   public $originalStepName;
   public $portion;
   public $workerId;
@@ -41,6 +43,14 @@ class Google_Service_Dataflow_CounterStructuredName extends Google_Model
   public function getExecutionStepName()
   {
     return $this->executionStepName;
+  }
+  public function setInputIndex($inputIndex)
+  {
+    $this->inputIndex = $inputIndex;
+  }
+  public function getInputIndex()
+  {
+    return $this->inputIndex;
   }
   public function setName($name)
   {
@@ -65,6 +75,14 @@ class Google_Service_Dataflow_CounterStructuredName extends Google_Model
   public function getOriginNamespace()
   {
     return $this->originNamespace;
+  }
+  public function setOriginalRequestingStepName($originalRequestingStepName)
+  {
+    $this->originalRequestingStepName = $originalRequestingStepName;
+  }
+  public function getOriginalRequestingStepName()
+  {
+    return $this->originalRequestingStepName;
   }
   public function setOriginalStepName($originalStepName)
   {

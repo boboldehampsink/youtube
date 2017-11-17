@@ -78,10 +78,6 @@ class Google_Service_Monitoring_Resource_ProjectsGroups extends Google_Service_R
    * "projects/{project_id_or_number}".
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string childrenOfGroup A group name:
-   * "projects/{project_id_or_number}/groups/{group_id}". Returns groups whose
-   * parentName field contains the group name. If no groups have this parent, the
-   * results are empty.
    * @opt_param string descendantsOfGroup A group name:
    * "projects/{project_id_or_number}/groups/{group_id}". Returns the descendants
    * of the specified group. This is a superset of the results returned by the
@@ -97,6 +93,10 @@ class Google_Service_Monitoring_Resource_ProjectsGroups extends Google_Service_R
    * ancestors of the specified group. The groups are returned in order, starting
    * with the immediate parent and ending with the most distant ancestor. If the
    * specified group has no immediate parent, the results are empty.
+   * @opt_param string childrenOfGroup A group name:
+   * "projects/{project_id_or_number}/groups/{group_id}". Returns groups whose
+   * parentName field contains the group name. If no groups have this parent, the
+   * results are empty.
    * @return Google_Service_Monitoring_ListGroupsResponse
    */
   public function listProjectsGroups($name, $optParams = array())

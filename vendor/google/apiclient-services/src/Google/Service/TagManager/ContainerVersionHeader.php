@@ -27,6 +27,7 @@ class Google_Service_TagManager_ContainerVersionHeader extends Google_Model
   public $numTags;
   public $numTriggers;
   public $numVariables;
+  public $numZones;
   public $path;
 
   public function setAccountId($accountId)
@@ -108,6 +109,14 @@ class Google_Service_TagManager_ContainerVersionHeader extends Google_Model
   public function getNumVariables()
   {
     return $this->numVariables;
+  }
+  public function setNumZones($numZones)
+  {
+    $this->numZones = $numZones;
+  }
+  public function getNumZones()
+  {
+    return $this->numZones;
   }
   public function setPath($path)
   {
