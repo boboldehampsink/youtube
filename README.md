@@ -1,4 +1,4 @@
-YouTube Upload plugin for Craft CMS [![Build Status](https://travis-ci.org/boboldehampsink/youtube.svg?branch=develop)](https://travis-ci.org/boboldehampsink/youtube) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/boboldehampsink/youtube/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/boboldehampsink/youtube/?branch=develop) [![Code Coverage](https://scrutinizer-ci.com/g/boboldehampsink/youtube/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/boboldehampsink/youtube/?branch=develop) [![Latest Stable Version](https://poser.pugx.org/boboldehampsink/youtube/v/stable)](https://packagist.org/packages/boboldehampsink/youtube) [![Total Downloads](https://poser.pugx.org/boboldehampsink/youtube/downloads)](https://packagist.org/packages/boboldehampsink/youtube) [![Latest Unstable Version](https://poser.pugx.org/boboldehampsink/youtube/v/unstable)](https://packagist.org/packages/boboldehampsink/youtube) [![License](https://poser.pugx.org/boboldehampsink/youtube/license)](https://packagist.org/packages/boboldehampsink/youtube)
+DEPRECATED - YouTube Upload plugin for Craft CMS [![Build Status](https://travis-ci.org/boboldehampsink/youtube.svg?branch=develop)](https://travis-ci.org/boboldehampsink/youtube) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/boboldehampsink/youtube/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/boboldehampsink/youtube/?branch=develop) [![Code Coverage](https://scrutinizer-ci.com/g/boboldehampsink/youtube/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/boboldehampsink/youtube/?branch=develop) [![Latest Stable Version](https://poser.pugx.org/boboldehampsink/youtube/v/stable)](https://packagist.org/packages/boboldehampsink/youtube) [![Total Downloads](https://poser.pugx.org/boboldehampsink/youtube/downloads)](https://packagist.org/packages/boboldehampsink/youtube) [![Latest Unstable Version](https://poser.pugx.org/boboldehampsink/youtube/v/unstable)](https://packagist.org/packages/boboldehampsink/youtube) [![License](https://poser.pugx.org/boboldehampsink/youtube/license)](https://packagist.org/packages/boboldehampsink/youtube)
 =================
 
 Plugin/FieldType that uploads video assets to YouTube and is able to output their YouTube URL's in the front-end.
@@ -6,6 +6,10 @@ Plugin/FieldType that uploads video assets to YouTube and is able to output thei
 __Important__  
  - The plugin's folder should be named "youtube"  
  - This plugin requires [Dukt's OAuth](https://dukt.net/craft/oauth) plugin to be installed
+ 
+Deprecated
+=================
+With the release of Craft 3 on 4-4-2018, this tool has been deprecated. You can still use this with Craft 2 but you are encouraged to use (and develop) a Craft 3 version. At this moment, I have no plans to do so.
 
 Usage
 =================
